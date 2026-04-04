@@ -246,7 +246,8 @@
     }
 
     const params = new URLSearchParams(new FormData(form));
-    var actionAttr = form.getAttribute("action") || "contact.html";
+    params.set("form-name", form.getAttribute("name") || "intake");
+    var actionAttr = form.getAttribute("action") || "/contact.html";
     var postUrl = new URL(actionAttr, window.location.href).pathname;
 
     fetch(postUrl, {
