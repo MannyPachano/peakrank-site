@@ -2,8 +2,10 @@ PeakRanking Digital Solutions: image specs
 
 Current assets: hero.png, value-clarity.png, value-sustainability.png, value-authority.png, roadmap.png, cta.png (index.html); about.png, manny-pachano.png (about.html, leadership portrait).
 
-If you replace them, keep the same filenames or update the src paths in index.html.
-Preferred formats: WebP for photos (with JPG fallback if needed); SVG or WebP for flat graphics.
+If you replace them, keep the same base filenames (e.g. hero.png) and regenerate matching *.webp files
+(e.g. cwebp -q 85 hero.png -o hero.webp). Pages use <picture> with WebP first and PNG fallback.
+
+Preferred formats: WebP for photos (with PNG fallback as shipped); SVG or WebP for flat graphics.
 Keep file sizes reasonable (hero ideally under ~250KB after compression).
 
 1) hero.*

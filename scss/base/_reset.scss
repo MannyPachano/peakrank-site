@@ -69,3 +69,8 @@ body {
     mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.72) 0%, rgb(0 0 0 / 0.4) 42%, rgb(0 0 0 / 0.5) 100%);
   }
 }
+
+// WebP <picture> wrappers: do not insert an extra box so object-fit/cover layouts keep working.
+picture {
+  display: contents;
+}

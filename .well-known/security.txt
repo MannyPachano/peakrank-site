@@ -1,0 +1,3 @@
+Contact: https://peakrankingseo.com/contact.html
+Preferred-Languages: en
+Canonical: https://peakrankingseo.com/.well-known/security.txt
