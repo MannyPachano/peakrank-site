@@ -9,7 +9,7 @@
 
   /** Submissions handled by Netlify Forms (see contact.html data-netlify on #intake-form). */
 
-  /** Optional URL prefill: ?plan=local|multi|undecided  &  ?redesign=yes|no|1|0 (maintenance is not a intake plan) */
+  /** Optional URL prefill: ?plan=local|enterprise|undecided  &  ?redesign=yes|no|1|0 (maintenance is not a intake plan; legacy ?plan=multi maps to enterprise) */
 
   const ORDER_FIXED = [
     "welcome",
@@ -357,7 +357,10 @@
       if (plan === "maintenance") {
         plan = "undecided";
       }
-      if (plan === "local" || plan === "multi" || plan === "undecided") {
+      if (plan === "multi") {
+        plan = "enterprise";
+      }
+      if (plan === "local" || plan === "enterprise" || plan === "undecided") {
         var pEl = form.querySelector('input[name="plan"][value="' + plan + '"]');
         if (pEl) {
           pEl.checked = true;
