@@ -6,6 +6,7 @@
 @use 'pages/home';
 @use 'base/typography';
 @use 'pages/about';
+@use 'pages/industry-landing';
 @use 'components/choose-compare';
 @use 'pages/about-credentials';
 @use 'components/media';
@@ -20,3 +21,4 @@
 @use 'pages/intake';
 @use 'components/buttons-intake-extras';
 @use 'pages/pricing';
+@use 'pages/blog-post';
