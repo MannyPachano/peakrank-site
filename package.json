@@ -1,5 +1,5 @@
 {
-  "name": "peakrank-digital-solutions",
+  "name": "peakranking-digital-solutions",
   "private": true,
   "scripts": {
     "dev": "live-server . --port=3000 --open=index.html",

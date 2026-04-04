@@ -660,13 +660,54 @@ h3 {
   min-width: 0;
   text-align: left;
 }
-.about-leadership__body h3 {
+.about-leadership__name {
   margin: 0 0 0.55rem;
   font-size: 1.125rem;
   font-weight: 650;
   line-height: 1.3;
   color: #1a1f24;
   letter-spacing: -0.015em;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+.about-leadership__linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  min-height: 2.5rem;
+  box-sizing: border-box;
+  background: #0a66c2;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.about-leadership__linkedin svg {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+.about-leadership__linkedin:hover {
+  background: #004182;
+  color: #fff;
+}
+.about-leadership__linkedin:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+.about-leadership__linkedin-label {
+  line-height: 1;
 }
 .about-leadership .about-role {
   margin: 0;

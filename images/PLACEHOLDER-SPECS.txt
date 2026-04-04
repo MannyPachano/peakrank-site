@@ -1,4 +1,4 @@
-PeakRank Digital Solutions: image specs
+PeakRanking Digital Solutions: image specs
 
 Current assets: hero.png, value-clarity.png, value-sustainability.png, value-authority.png, roadmap.png, cta.png (index.html); about.png, manny-pachano.png (about.html, leadership portrait).
 
