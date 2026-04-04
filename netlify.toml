@@ -1,4 +1,5 @@
 # Static site: compile SCSS on deploy, publish site root.
+# Intake form: Netlify Forms (form name "intake" on contact.html). Enable notifications under Site settings → Forms.
 # https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]

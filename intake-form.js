@@ -7,8 +7,7 @@
   const progressFill = document.querySelector(".intake-progress__fill");
   const progressLabel = document.querySelector(".intake-progress__label");
 
-  /** Replace with your Formspree form ID: https://formspree.io */
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  /** Submissions handled by Netlify Forms (see contact.html data-netlify on #intake-form). */
 
   /** Optional URL prefill: ?plan=local|multi|undecided  &  ?redesign=yes|no|1|0 (maintenance is not a intake plan) */
 
@@ -241,26 +240,19 @@
       planValidationEl.removeAttribute("data-intake-validation");
     }
 
-    if (FORMSPREE_ENDPOINT.indexOf("YOUR_FORM_ID") !== -1) {
-      if (errorEl) {
-        errorEl.hidden = false;
-        errorEl.textContent =
-          "Form endpoint not configured yet. In intake-form.js, set FORMSPREE_ENDPOINT to your Formspree URL.";
-      }
-      return;
-    }
-
     const submitBtn = form.querySelector(".intake-next");
     if (submitBtn) {
       submitBtn.disabled = true;
     }
 
-    const data = new FormData(form);
+    const params = new URLSearchParams(new FormData(form));
+    var actionAttr = form.getAttribute("action") || "contact.html";
+    var postUrl = new URL(actionAttr, window.location.href).pathname;
 
-    fetch(FORMSPREE_ENDPOINT, {
+    fetch(postUrl, {
       method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
     })
       .then(function (res) {
         if (!res.ok) {
