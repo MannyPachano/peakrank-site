@@ -240,6 +240,22 @@
       planValidationEl.removeAttribute("data-intake-validation");
     }
 
+    var captchaResponse = form.querySelector(
+      'textarea[name="g-recaptcha-response"]'
+    );
+    if (
+      captchaResponse &&
+      !String(captchaResponse.value || "").trim()
+    ) {
+      if (errorEl) {
+        errorEl.hidden = false;
+        errorEl.textContent =
+          "Please complete the reCAPTCHA challenge before submitting.";
+        errorEl.removeAttribute("data-intake-validation");
+      }
+      return;
+    }
+
     const submitBtn = form.querySelector(".intake-next");
     if (submitBtn) {
       submitBtn.disabled = true;

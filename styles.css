@@ -1063,6 +1063,11 @@ h3 {
   min-height: 55vh;
 }
 
+.intake-recaptcha {
+  margin: 0 0 1.25rem;
+  min-height: 4.5rem;
+}
+
 .intake-progress {
   margin: 0 0 1.25rem;
 }
