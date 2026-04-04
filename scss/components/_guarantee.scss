@@ -1,0 +1,173 @@
+@use '../abstracts/variables' as *;
+
+// Unified callout: icon + content, accent wash, full width (optional --cta / --intake).
+.guarantee {
+  text-align: left;
+  box-sizing: border-box;
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $accent-deep;
+  }
+
+  &__statement {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 650;
+    line-height: 1.45;
+    color: $text;
+    letter-spacing: -0.01em;
+  }
+
+  &__note {
+    margin: 0.65rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $text-muted;
+  }
+
+  &__mark {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 11px;
+    background: $accent-deep;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 3px 14px rgba($accent-deep, 0.35);
+
+    svg {
+      width: 1.45rem;
+      height: 1.45rem;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &--band {
+    max-width: none;
+    width: 100%;
+    margin: 1.75rem 0 1.5rem;
+    padding: 1.5rem 1.35rem 1.55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    border-radius: 12px;
+    border: 1px solid rgba($accent, 0.42);
+    border-left: 5px solid $accent;
+    background: linear-gradient(
+      118deg,
+      rgba($accent, 0.28) 0%,
+      rgba($accent-bright, 0.2) 38%,
+      rgba(255, 255, 255, 0.94) 100%
+    );
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.55) inset,
+      0 8px 32px rgba($accent-deep, 0.14),
+      0 2px 12px rgba(26, 31, 36, 0.06);
+
+    @media (min-width: 40rem) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.35rem 1.65rem;
+      padding: 1.55rem 1.75rem 1.6rem 1.65rem;
+    }
+
+    .guarantee__eyebrow {
+      margin-bottom: 0.35rem;
+    }
+
+    .guarantee__note {
+      margin-top: 0.55rem;
+    }
+  }
+
+  &--cta {
+    max-width: 46rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.35rem;
+  }
+
+  &--intake {
+    margin-top: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  // Lighter treatment on intake so selected plan cards stay the focal control.
+  &.guarantee--band.guarantee--intake {
+    padding: 1.2rem 1.1rem 1.28rem;
+    background: linear-gradient(
+      118deg,
+      rgba($accent, 0.11) 0%,
+      rgba($accent-bright, 0.07) 46%,
+      rgba(255, 255, 255, 0.98) 100%
+    );
+    border-color: rgba($accent, 0.2);
+    border-left-width: 4px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.85) inset,
+      0 3px 16px rgba(26, 31, 36, 0.04);
+
+    .guarantee__mark {
+      width: 2.65rem;
+      height: 2.65rem;
+      box-shadow: 0 2px 10px rgba($accent-deep, 0.28);
+
+      svg {
+        width: 1.28rem;
+        height: 1.28rem;
+      }
+    }
+
+    @media (min-width: 40rem) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.15rem 1.35rem;
+      padding: 1.28rem 1.35rem 1.32rem 1.25rem;
+    }
+
+    @media (min-width: 52rem) {
+      .guarantee__statement {
+        font-size: 1.0625rem;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  @media (min-width: 52rem) {
+    &--band .guarantee__statement {
+      font-size: 1.125rem;
+      line-height: 1.42;
+    }
+  }
+}
+
+.intro + .guarantee--band {
+  margin-top: 1rem;
+}
+
+.pricing-packages__intro + .guarantee--band {
+  margin-top: 0;
+}
+
+.value-grid + .guarantee--band {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.intake-fieldset--plans + .guarantee--band.guarantee--intake {
+  margin-top: 1.35rem;
+  margin-bottom: 1.65rem;
+}

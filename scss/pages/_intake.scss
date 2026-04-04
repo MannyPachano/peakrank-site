@@ -116,6 +116,15 @@
   letter-spacing: -0.015em;
 }
 
+.intake-screen--plan {
+  padding-top: 0.35rem;
+  padding-bottom: 2.5rem;
+
+  .intake-q {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .intake-desc {
   margin: 0 0 1.5rem;
   font-size: 1.0625rem;
@@ -186,7 +195,7 @@
 }
 
 .intake-fieldset--stack {
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .intake-plan-note {
@@ -202,6 +211,59 @@
   strong {
     color: $text;
     font-weight: 650;
+  }
+}
+
+.intake-block--context {
+  margin-bottom: 1.5rem;
+
+  .intake-plan-note {
+    margin: 0;
+  }
+}
+
+.intake-legend {
+  float: none;
+  width: auto;
+  padding: 0;
+  margin: 0 0 0.55rem;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.065em;
+  color: $text-muted;
+}
+
+.intake-fieldset--plans {
+  margin-bottom: 0;
+  gap: 0.65rem;
+}
+
+.intake-block--addon {
+  margin-top: 0.35rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba($text, 0.1);
+
+  .intake-subq {
+    margin: 0 0 0.4rem;
+  }
+
+  .intake-hint {
+    margin: 0 0 1rem;
+  }
+
+  .intake-fieldset {
+    margin-bottom: 0;
+  }
+}
+
+.intake-fieldset--inline-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+
+  @media (max-width: 28rem) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -260,7 +322,7 @@
 }
 
 .intake-actions {
-  margin-top: 0.5rem;
+  margin-top: 1.25rem;
 
   &--split {
     display: flex;

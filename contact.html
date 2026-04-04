@@ -6,7 +6,7 @@
   <title>See if we&rsquo;re a fit | PeakRanking Digital Solutions</title>
   <meta name="description" content="Answer a few quick questions about your business, website, and goals. Takes about a minute. PeakRanking Digital Solutions.">
   <link rel="canonical" href="https://peakrankingseo.com/contact.html" />
-  <link rel="stylesheet" href="styles.css?v=45" />
+  <link rel="stylesheet" href="styles.css?v=50" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -59,11 +59,16 @@
             </div>
           </div>
 
-          <div class="intake-screen" data-intake-step="plan_select" hidden>
+          <div class="intake-screen intake-screen--plan" data-intake-step="plan_select" hidden>
             <h2 class="intake-q">Which plan are you interested in?</h2>
-            <p class="intake-plan-note">Choose a <strong>growth plan</strong> to get started. We ask for a <strong>four-month starting commitment</strong> so we can build a real technical and content foundation. After that, if you want to protect rankings without scaling, we can <strong>move you to maintenance-only</strong> ($900/mo) whenever it makes sense. (That step isn&rsquo;t something you pick on this form; we&rsquo;ll talk about it when you&rsquo;re ready.)</p>
-            <fieldset class="intake-fieldset intake-fieldset--stack">
-              <legend class="visually-hidden">Plan</legend>
+
+            <div class="intake-block intake-block--context">
+              <p class="intake-plan-note">Choose a <strong>growth plan</strong> to get started. We ask for a <strong>four-month starting commitment</strong> so we can build a real technical and content foundation. After that, if you want to protect rankings without scaling, we can <strong>move you to maintenance-only</strong> ($900/mo) whenever it makes sense. (That step isn&rsquo;t something you pick on this form; we&rsquo;ll talk about it when you&rsquo;re ready.)</p>
+            </div>
+
+            <fieldset class="intake-fieldset intake-fieldset--stack intake-fieldset--plans" aria-labelledby="intake-plan-pick-label">
+              <legend class="visually-hidden">Growth plan</legend>
+              <p class="intake-legend" id="intake-plan-pick-label">Pick one</p>
               <label class="intake-choice">
                 <input type="radio" name="plan" value="local" required />
                 <span><strong>Local SEO growth</strong> ($2,000/mo)<span class="intake-choice__hint"> Up to 5 locations or services, local market focus.</span></span>
@@ -77,19 +82,33 @@
                 <span><strong>Not sure yet</strong><span class="intake-choice__hint"> We&rsquo;ll help you pick after we learn more.</span></span>
               </label>
             </fieldset>
-            <h3 class="intake-subq">Add the website redesign?</h3>
-            <p class="intake-hint">One-time $1,500. Conversion-focused layout, faster performance, SEO-friendly structure.</p>
-            <fieldset class="intake-fieldset">
-              <legend class="visually-hidden">Website redesign add-on</legend>
-              <label class="intake-choice">
-                <input type="radio" name="redesign_addon" value="yes" required />
-                <span>Yes, include the redesign add-on</span>
-              </label>
-              <label class="intake-choice">
-                <input type="radio" name="redesign_addon" value="no" />
-                <span>No thanks</span>
-              </label>
-            </fieldset>
+
+            <aside class="guarantee guarantee--band guarantee--intake" aria-labelledby="contact-guarantee-heading">
+              <span class="guarantee__mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <div class="guarantee__content">
+                <p class="guarantee__eyebrow" id="contact-guarantee-heading">Traffic guarantee</p>
+                <p class="guarantee__statement">If you don&rsquo;t get at least 15% traffic increase in 90 days, we work for free until you do.</p>
+                <p class="guarantee__note">Applies to Local and Enterprise growth plans once we agree on an analytics baseline together.</p>
+              </div>
+            </aside>
+
+            <div class="intake-block intake-block--addon">
+              <h3 class="intake-subq">Add the website redesign?</h3>
+              <p class="intake-hint">One-time $1,500. Conversion-focused layout, faster performance, SEO-friendly structure.</p>
+              <fieldset class="intake-fieldset intake-fieldset--inline-pair">
+                <legend class="visually-hidden">Website redesign add-on</legend>
+                <label class="intake-choice">
+                  <input type="radio" name="redesign_addon" value="yes" required />
+                  <span>Yes, include the redesign add-on</span>
+                </label>
+                <label class="intake-choice">
+                  <input type="radio" name="redesign_addon" value="no" />
+                  <span>No thanks</span>
+                </label>
+              </fieldset>
+            </div>
             <div id="intake-plan-validation" class="intake-error intake-error--step" role="alert" hidden></div>
             <div class="intake-actions intake-actions--split">
               <button type="button" class="btn btn-ghost intake-back">Back</button>
