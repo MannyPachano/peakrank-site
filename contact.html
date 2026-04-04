@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>See if we&rsquo;re a fit | PeakRank Digital Solutions</title>
+  <meta name="description" content="Answer a few quick questions about your business, website, and goals. Takes about a minute. PeakRank Digital Solutions.">
+  <link rel="canonical" href="https://peakrankseo.com/contact.html" />
+  <link rel="stylesheet" href="styles.css?v=41" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--compact intake-page-header">
+    <div class="wrap">
+      <div class="site-header__top">
+        <a class="site-brand site-brand--link" href="index.html">PeakRank Digital Solutions</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html" aria-current="page">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="intake-main">
+    <div class="wrap wrap--intake">
+      <div class="intake-progress" aria-hidden="true">
+        <div class="intake-progress__track">
+          <div class="intake-progress__fill"></div>
+        </div>
+      </div>
+      <p class="intake-progress__label" aria-live="polite"></p>
+
+      <div id="intake-error" class="intake-error" role="alert" hidden></div>
+
+      <div id="intake-form-wrap">
+        <form id="intake-form" action="#" method="post" novalidate>
+          <input type="hidden" name="_subject" value="New PeakRank intake form" />
+          <input type="text" name="_gotcha" value="" autocomplete="off" tabindex="-1" class="intake-honeypot" aria-hidden="true" />
+
+          <div class="intake-screen is-active" data-intake-step="welcome">
+            <h1 class="intake-title">Let&rsquo;s see if we&rsquo;re a fit</h1>
+            <p class="intake-desc">Answer a few quick questions so we can understand your business and goals. Takes about 60 seconds.</p>
+            <div class="intake-actions">
+              <button type="button" class="btn btn-primary intake-next">Start</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="plan_select" hidden>
+            <h2 class="intake-q">Which plan are you interested in?</h2>
+            <p class="intake-plan-note">Choose a <strong>growth plan</strong> to get started. We ask for a <strong>four-month starting commitment</strong> so we can build a real technical and content foundation. After that, if you want to protect rankings without scaling, we can <strong>move you to maintenance-only</strong> ($900/mo) whenever it makes sense. (That step isn&rsquo;t something you pick on this form; we&rsquo;ll talk about it when you&rsquo;re ready.)</p>
+            <fieldset class="intake-fieldset intake-fieldset--stack">
+              <legend class="visually-hidden">Plan</legend>
+              <label class="intake-choice">
+                <input type="radio" name="plan" value="local" required />
+                <span><strong>Local SEO growth</strong> ($2,000/mo)<span class="intake-choice__hint"> Up to 5 locations or services, local market focus.</span></span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="plan" value="multi" />
+                <span><strong>Multi-location SEO growth</strong> ($3,500/mo)<span class="intake-choice__hint"> Up to 25 locations or services, broader reach.</span></span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="plan" value="undecided" />
+                <span><strong>Not sure yet</strong><span class="intake-choice__hint"> We&rsquo;ll help you pick after we learn more.</span></span>
+              </label>
+            </fieldset>
+            <h3 class="intake-subq">Add the website redesign?</h3>
+            <p class="intake-hint">One-time $1,500. Conversion-focused layout, faster performance, SEO-friendly structure.</p>
+            <fieldset class="intake-fieldset">
+              <legend class="visually-hidden">Website redesign add-on</legend>
+              <label class="intake-choice">
+                <input type="radio" name="redesign_addon" value="yes" required />
+                <span>Yes, include the redesign add-on</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="redesign_addon" value="no" />
+                <span>No thanks</span>
+              </label>
+            </fieldset>
+            <div id="intake-plan-validation" class="intake-error intake-error--step" role="alert" hidden></div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="website" hidden>
+            <h2 class="intake-q">What&rsquo;s your website URL?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-website">Website URL</label>
+              <input class="intake-input" type="text" name="website" id="intake-website" placeholder="https://example.com" autocomplete="url" required />
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="business" hidden>
+            <h2 class="intake-q">What does your business do?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-business">Business description</label>
+              <textarea class="intake-textarea" name="business_description" id="intake-business" rows="5" placeholder="Tell us in your own words." required></textarea>
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="competitors" hidden>
+            <h2 class="intake-q">Who are your top competitors?</h2>
+            <p class="intake-hint">Drop 1 to 3 links if you can.</p>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-competitors">Competitors</label>
+              <textarea class="intake-textarea" name="competitors" id="intake-competitors" rows="4" placeholder="URLs or names"></textarea>
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="access_website" hidden>
+            <h2 class="intake-q">Do you have access to your website?</h2>
+            <fieldset class="intake-fieldset">
+              <legend class="visually-hidden">Website access</legend>
+              <label class="intake-choice">
+                <input type="radio" name="access_website" value="yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="access_website" value="no" />
+                <span>No</span>
+              </label>
+            </fieldset>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="access_hosting" hidden>
+            <h2 class="intake-q">Do you have access to your hosting account?</h2>
+            <fieldset class="intake-fieldset">
+              <legend class="visually-hidden">Hosting access</legend>
+              <label class="intake-choice">
+                <input type="radio" name="access_hosting" value="yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="access_hosting" value="no" />
+                <span>No</span>
+              </label>
+            </fieldset>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="platform" hidden>
+            <h2 class="intake-q">What platform is your site built on?</h2>
+            <fieldset class="intake-fieldset intake-fieldset--stack">
+              <legend class="visually-hidden">Platform</legend>
+              <label class="intake-choice">
+                <input type="radio" name="platform" value="wordpress" required />
+                <span>WordPress (Elementor, WPBakery, etc.)</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="platform" value="webflow" />
+                <span>Webflow</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="platform" value="shopify" />
+                <span>Shopify</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="platform" value="custom" />
+                <span>Custom-built</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="platform" value="unsure" />
+                <span>Not sure</span>
+              </label>
+            </fieldset>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="seo_before" hidden>
+            <h2 class="intake-q">Have you worked on SEO before?</h2>
+            <fieldset class="intake-fieldset">
+              <legend class="visually-hidden">Prior SEO</legend>
+              <label class="intake-choice">
+                <input type="radio" name="seo_before" value="yes" required />
+                <span>Yes</span>
+              </label>
+              <label class="intake-choice">
+                <input type="radio" name="seo_before" value="no" />
+                <span>No</span>
+              </label>
+            </fieldset>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="seo_failed" hidden>
+            <h2 class="intake-q">What didn&rsquo;t work?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-seo-failed">What did not work</label>
+              <textarea class="intake-textarea" name="seo_what_failed" id="intake-seo-failed" rows="5" placeholder="Agencies, tactics, timelines, results..."></textarea>
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="locations" hidden>
+            <h2 class="intake-q">How many locations do you want to target?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-locations">Locations</label>
+              <input class="intake-input" type="text" name="locations" id="intake-locations" placeholder="e.g. 1, or Atlanta + 2 suburbs" autocomplete="off" required />
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="services" hidden>
+            <h2 class="intake-q">Roughly how many services do you offer?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-services">Services count</label>
+              <input class="intake-input" type="text" name="services_count" id="intake-services" placeholder="e.g. 5" inputmode="numeric" autocomplete="off" required />
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="extra" hidden>
+            <h2 class="intake-q">Anything else we should know?</h2>
+            <div class="intake-field">
+              <label class="intake-label visually-hidden" for="intake-extra">Additional notes</label>
+              <textarea class="intake-textarea" name="notes" id="intake-extra" rows="5" placeholder="Optional"></textarea>
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div id="intake-thankyou" class="intake-thankyou" hidden>
+        <h2 class="intake-title" tabindex="-1">Got it. We&rsquo;ll review this.</h2>
+        <p class="intake-desc">If it looks like a good fit, we&rsquo;ll reach out with next steps.</p>
+        <p class="intake-actions">
+          <a class="btn btn-primary" href="index.html">Back to home</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-note">&copy; 2026 PeakRank Digital Solutions. <a class="footer-link" href="https://peakrankseo.com/">PeakRankSEO.com</a></p>
+    </div>
+  </footer>
+
+  <script src="intake-form.js" defer></script>
+</body>
+</html>

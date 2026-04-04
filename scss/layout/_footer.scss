@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.site-footer {
+  position: relative;
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid $line;
+  background: linear-gradient(180deg, rgba(13, 107, 77, 0.07) 0%, $accent-warm-glow-soft 55%, transparent 100%);
+}
+
+.footer-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: $text-muted;
+  text-align: center;
+}
+
+.footer-link {
+  color: $accent;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+
+  &:hover {
+    color: $accent-hover;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $focus;
+    outline-offset: 3px;
+  }
+}

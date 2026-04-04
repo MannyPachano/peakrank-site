@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *;
+
+.section {
+  position: relative;
+  padding: 2.75rem 0;
+
+  &--muted {
+    border-top: 1px solid $line;
+    border-bottom: 1px solid $line;
+    background-color: $surface;
+    background-image:
+      linear-gradient(105deg, rgba(13, 107, 77, 0.09) 0%, transparent 40%),
+      linear-gradient(118deg, $accent-warm-glow-soft 0%, transparent 36%),
+      linear-gradient(-12deg, transparent 55%, rgba(26, 31, 36, 0.04) 100%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(13, 107, 77, 0.07), transparent 52%);
+  }
+}

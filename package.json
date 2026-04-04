@@ -1,0 +1,13 @@
+{
+  "name": "peakrank-digital-solutions",
+  "private": true,
+  "scripts": {
+    "dev": "live-server . --port=3000 --open=index.html",
+    "build:css": "sass scss/main.scss styles.css --no-source-map",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.85.0"
+  }
+}

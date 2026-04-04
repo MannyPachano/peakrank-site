@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: $text;
+  color: #fff;
+  text-decoration: none;
+  z-index: 100;
+
+  &:focus {
+    left: 0;
+  }
+}
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+
+  &--narrow {
+    max-width: 36rem;
+  }
+
+  &--wide {
+    max-width: 72rem;
+  }
+}

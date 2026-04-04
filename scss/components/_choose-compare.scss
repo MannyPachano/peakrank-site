@@ -1,0 +1,176 @@
+@use '../abstracts/variables' as *;
+
+.choose-us {
+  h2 {
+    position: relative;
+    padding-bottom: 0.15rem;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 2.75rem;
+      height: 3px;
+      margin-top: 0.7rem;
+      border-radius: 2px;
+      background: linear-gradient(90deg, $accent-bright, $accent-warm-badge);
+    }
+  }
+
+  .intro.choose-us__lede {
+    margin-bottom: 1.75rem;
+  }
+}
+
+.compare-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2.25rem;
+
+  @media (min-width: 48rem) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 1.5rem;
+    align-items: start;
+  }
+}
+
+.compare-column {
+  margin: 0;
+  padding: 1.15rem 1.15rem 1.25rem;
+  border: 1px solid $line;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+
+  &--positive {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(13, 107, 77, 0.2);
+    box-shadow:
+      inset 0 3px 0 $accent-warm-badge,
+      0 4px 24px rgba(13, 107, 77, 0.06);
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1.35;
+    color: $text;
+    letter-spacing: -0.01em;
+  }
+
+  &--positive .compare-column__title {
+    color: $accent;
+  }
+}
+
+.pitfall-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+
+  li {
+    margin: 0;
+    padding: 0 0 0 1.2rem;
+    position: relative;
+    color: $text-muted;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: $text;
+    font-weight: 650;
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.48rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: rgba($accent-warm-badge, 0.45);
+    box-shadow: 0 0 0 1px rgba($accent-warm-badge, 0.22);
+  }
+}
+
+.differentiator-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.15rem;
+  counter-reset: diff;
+
+  li {
+    margin: 0;
+    padding: 0 0 0 2.15rem;
+    position: relative;
+    color: $text-muted;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    counter-increment: diff;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: $text;
+    font-weight: 650;
+  }
+
+  li::before {
+    content: counter(diff);
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #fff;
+    background: $accent-warm-badge;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba($accent-warm-badge, 0.35);
+  }
+}
+
+.philosophy-block {
+  margin: 0 0 1.75rem;
+  padding: 1.35rem 1.35rem 1.4rem 1.4rem;
+  border-radius: 10px;
+  border: 1px solid $line;
+  border-left: 3px solid $accent-warm-bright;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(26, 31, 36, 0.04);
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.0625rem;
+    font-weight: 650;
+    line-height: 1.35;
+    color: $text;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $text-muted;
+  }
+}
+
+.choose-us__cta {
+  margin: 0;
+  text-align: center;
+
+  .btn {
+    margin: 0;
+  }
+}

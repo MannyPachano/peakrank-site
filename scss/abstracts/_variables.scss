@@ -1,0 +1,26 @@
+$text: #1a1f24;
+$text-muted: #4a5560;
+$line: #e2e6ea;
+$surface: #eef3f0;
+$surface-elevated: #f4f8f5;
+$accent: #0d6b4d;
+$accent-deep: #083d2c;
+$accent-bright: #1a9b74;
+$accent-hover: #09523a;
+$focus: #2563eb;
+
+// Secondary accent — light peach/coral (avoid dark brown-orange next to black text)
+$accent-warm: #b97262;
+// Lighter coral for brand bar & washes (not brown; still visible on white/green)
+$accent-warm-bright: #f0bbae;
+// Chips: lighter coral than before; still enough contrast for white numerals
+$accent-warm-badge: #eb8f78;
+$accent-warm-glow: rgba(245, 205, 195, 0.2);
+$accent-warm-glow-soft: rgba(252, 222, 214, 0.22);
+
+// Branded background layers (visible on real monitors + in editor previews)
+$accent-glow: rgba(13, 107, 77, 0.16);
+$accent-glow-soft: rgba(13, 107, 77, 0.09);
+$accent-glow-edge: rgba(13, 107, 77, 0.11);
+$grid-line: rgba(26, 31, 36, 0.072);
+$noise-data-uri: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");

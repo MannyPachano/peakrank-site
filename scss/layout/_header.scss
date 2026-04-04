@@ -1,0 +1,91 @@
+@use '../abstracts/variables' as *;
+
+.site-header {
+  position: relative;
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid $line;
+  overflow: clip;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 90% at 0% 0%, rgba(13, 107, 77, 0.12), transparent 58%),
+      radial-gradient(ellipse 55% 70% at 100% 0%, rgba(13, 107, 77, 0.07) 0%, $accent-warm-glow 52%, transparent 65%);
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.site-header__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.site-brand {
+  margin: 0 0 0.35rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $accent;
+
+  .site-header__top & {
+    margin-bottom: 0;
+  }
+
+  &--link {
+    text-decoration: none;
+    color: $accent;
+
+    &:hover {
+      color: $accent-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $focus;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  }
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &[aria-current="page"] {
+      color: $accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $focus;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  }
+}
+
+.site-header--compact {
+  padding: 2.25rem 0 1.75rem;
+}

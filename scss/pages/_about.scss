@@ -1,0 +1,106 @@
+@use '../abstracts/variables' as *;
+
+.site-header--about {
+  padding-bottom: 2.5rem;
+
+  .site-header__top {
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  &__lede {
+    margin: 0;
+    max-width: 44rem;
+    font-size: 1.0625rem;
+    line-height: 1.58;
+    color: $text-muted;
+  }
+}
+
+.section--about-intro {
+  padding-top: 2.25rem;
+}
+
+.about-intro {
+  display: grid;
+  align-items: start;
+  gap: 2rem;
+
+  @media (min-width: 52rem) {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 38%);
+    gap: 2.5rem 3.5rem;
+    align-items: center;
+  }
+}
+
+.about-intro__copy {
+  min-width: 0;
+  max-width: 40rem;
+
+  @media (min-width: 52rem) {
+    max-width: none;
+    padding-right: 0.25rem;
+  }
+
+  p {
+    margin: 0 0 1.1rem;
+    color: $text-muted;
+  }
+
+  .about-intro__lede {
+    margin-bottom: 1.15rem;
+    font-size: 1.125rem;
+    line-height: 1.62;
+    color: $text-muted;
+  }
+
+  .page-about__closing {
+    margin-top: 0.15rem;
+    margin-bottom: 0;
+  }
+}
+
+.page-home .section,
+.page-about .section {
+  padding: 2.35rem 0;
+}
+
+.cta--about {
+  padding: 2.5rem 0 3rem;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 0.65rem;
+  }
+
+  &__intro {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.35rem;
+  }
+
+  &__action {
+    margin: 0;
+  }
+
+  .btn {
+    margin-top: 0;
+  }
+}
+
+.about-credibility h2 {
+  max-width: 44rem;
+}
+
+.about-credibility__intro {
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}

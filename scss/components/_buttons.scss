@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid $focus;
+    outline-offset: 3px;
+  }
+}
+
+.btn-primary {
+  background: $accent;
+  color: #fff;
+
+  &:hover {
+    background: $accent-hover;
+  }
+}

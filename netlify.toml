@@ -1,0 +1,12 @@
+# Static site: compile SCSS on deploy, publish site root.
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "."
+
+# Optional: pretty URLs for .html (uncomment if you want /about instead of /about.html)
+# [[redirects]]
+#   from = "/about"
+#   to = "/about.html"
+#   status = 200
