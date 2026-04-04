@@ -590,6 +590,19 @@
     }
   }
 
+  .blog-callout--navy {
+    border-left-color: #1e3a5f;
+    background: #eff6ff;
+
+    .blog-callout__label {
+      color: #1e3a5f;
+    }
+
+    p {
+      color: #1e3a5f;
+    }
+  }
+
   // Ranked factor list (Maps 3-pack post): add .blog-factor-grid--stacked on the <ul>
   .blog-factor-grid.blog-factor-grid--stacked {
     margin: 1.25rem 0 1.5rem;
@@ -2053,5 +2066,661 @@
     tbody td:last-child {
       color: $accent-deep;
     }
+  }
+
+  // Healthcare / YMYL longform blocks
+  $blog-health-navy: #1e3a5f;
+
+  .blog-ymyl-panel {
+    margin: 1.35rem 0 1.5rem;
+    padding: 1.5rem 1.65rem;
+    border-radius: 12px;
+    background: $blog-health-navy;
+    color: #fff;
+  }
+
+  .blog-ymyl-panel__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .blog-ymyl-panel__mark {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: #bfdbfe;
+  }
+
+  .blog-ymyl-panel__titles {
+    min-width: 0;
+  }
+
+  .blog-ymyl-panel__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+  }
+
+  .blog-ymyl-panel__subtitle {
+    margin: 0.2rem 0 0;
+    font-size: 0.625rem;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(191, 219, 254, 0.85);
+  }
+
+  .blog-ymyl-panel__body {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .blog-ymyl-panel__stats {
+    display: grid;
+    gap: 0.55rem;
+
+    @media (min-width: 32rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .blog-ymyl-stat {
+    padding: 0.65rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    text-align: center;
+  }
+
+  .blog-ymyl-stat__label {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .blog-eeat-grid {
+    margin: 1.25rem 0 1.5rem;
+    display: grid;
+    gap: 0.5rem;
+
+    @media (min-width: 36rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .blog-eeat-card {
+    border-radius: 8px;
+    border: 1px solid $line;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .blog-eeat-card__head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.75rem;
+    background: $blog-health-navy;
+  }
+
+  .blog-eeat-card__letter {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #bfdbfe;
+  }
+
+  .blog-eeat-card__word {
+    font-size: 0.6875rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .blog-eeat-card__body {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .blog-eeat-signal {
+    margin: 0 0 0.35rem;
+    padding-left: 0.85rem;
+    position: relative;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: $text-muted;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.28rem;
+      height: 0.28rem;
+      border-radius: 50%;
+      background: $accent;
+    }
+  }
+
+  .blog-med-spec-table-wrap {
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid $line;
+  }
+
+  .blog-med-spec-table {
+    width: 100%;
+    min-width: 22rem;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+
+    thead th {
+      padding: 0.55rem 0.75rem;
+      text-align: left;
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.88);
+      background: $blog-health-navy;
+    }
+
+    tbody td {
+      padding: 0.55rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid $line;
+      line-height: 1.5;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: rgba(30, 58, 95, 0.06);
+    }
+
+    tbody td:first-child {
+      font-weight: 650;
+      color: $blog-health-navy;
+    }
+  }
+
+  .blog-gbp-cat {
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.6875rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    color: $accent-deep;
+    background: rgba(13, 107, 77, 0.08);
+    border: 1px solid rgba(13, 107, 77, 0.2);
+    white-space: nowrap;
+  }
+
+  .blog-review-rules {
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    border-radius: 10px;
+    border: 1px solid $line;
+    overflow: hidden;
+  }
+
+  .blog-review-rule {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    border-bottom: 1px solid $line;
+    background: #fff;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-child(even) {
+      background: rgba(13, 107, 77, 0.045);
+    }
+  }
+
+  .blog-review-rule__num {
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.85rem;
+    font-size: 0.8125rem;
+    font-weight: 750;
+    color: $accent-deep;
+    border-right: 1px solid $line;
+  }
+
+  .blog-review-rule__body {
+    padding: 0.75rem 1rem;
+  }
+
+  .blog-review-rule__title {
+    margin: 0 0 0.2rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: $text;
+    line-height: 1.35;
+  }
+
+  .blog-review-rule__desc {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: $text-muted;
+  }
+
+  .blog-dir-tier {
+    margin: 1rem 0 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .blog-dir-tier__label {
+    margin: 0 0 0.45rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  .blog-dir-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .blog-dir-pill {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    line-height: 1.35;
+  }
+
+  .blog-dir-pill--primary {
+    background: $blog-health-navy;
+    color: #fff;
+    font-weight: 650;
+  }
+
+  .blog-dir-pill--secondary {
+    background: #eff6ff;
+    color: $blog-health-navy;
+    border: 1px solid #bfdbfe;
+  }
+
+  .blog-dir-pill--specialty {
+    background: rgba(13, 107, 77, 0.08);
+    color: $accent-deep;
+    border: 1px solid rgba(13, 107, 77, 0.22);
+  }
+
+  // HIPAA / compliance SEO post
+  .blog-stat-card.blog-stat-card--risk .blog-stat-card__num {
+    color: #991b1b;
+  }
+
+  .blog-penalty-banner {
+    margin: 1.25rem 0 1.5rem;
+    padding: 1.25rem 1.35rem;
+    border-radius: 10px;
+    background: #7f1d1d;
+    color: #fff;
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .blog-penalty-banner__mark {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fecaca;
+  }
+
+  .blog-penalty-banner__title {
+    margin: 0 0 0.35rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+  }
+
+  .blog-penalty-banner__body {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .blog-risk-table-wrap {
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid $line;
+  }
+
+  .blog-risk-table {
+    width: 100%;
+    min-width: 36rem;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+
+    thead th {
+      padding: 0.55rem 0.75rem;
+      text-align: left;
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.88);
+      background: $blog-health-navy;
+    }
+
+    tbody td {
+      padding: 0.55rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid $line;
+      line-height: 1.45;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fee2e2;
+    }
+
+    tbody td:first-child {
+      font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: #991b1b;
+    }
+  }
+
+  .blog-risk-badge {
+    display: inline-block;
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.625rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .blog-risk-badge--high {
+    background: #7f1d1d;
+    color: #fff;
+  }
+
+  .blog-risk-badge--med {
+    background: #fde68a;
+    color: #92400e;
+  }
+
+  .blog-risk-badge--low {
+    background: #f0fdf4;
+    color: #166534;
+  }
+
+  .blog-tool-grid {
+    margin: 1rem 0 1.5rem;
+    display: grid;
+    gap: 0.55rem;
+
+    @media (min-width: 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .blog-tool-card {
+    border: 1px solid $line;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    background: #fff;
+  }
+
+  .blog-tool-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .blog-tool-card__name {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: $text;
+  }
+
+  .blog-tool-badge {
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .blog-tool-badge--compliant {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .blog-tool-badge--not {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+
+  .blog-tool-badge--conditional {
+    background: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+
+  .blog-tool-card__baa {
+    margin: 0 0 0.4rem;
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.625rem;
+    color: $text-muted;
+    line-height: 1.4;
+  }
+
+  .blog-tool-card__desc {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: $text-muted;
+  }
+
+  .blog-tool-card__tip {
+    margin: 0.5rem 0 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid $line;
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.625rem;
+    color: $accent-deep;
+    line-height: 1.45;
+  }
+
+  .blog-seo-can-table-wrap {
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid $line;
+  }
+
+  .blog-seo-can-table {
+    width: 100%;
+    min-width: 28rem;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+
+    thead th {
+      padding: 0.55rem 0.75rem;
+      text-align: left;
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.88);
+      background: $text;
+    }
+
+    thead th:first-child {
+      color: #fecaca;
+    }
+
+    thead th:last-child {
+      color: #86efac;
+    }
+
+    tbody td {
+      padding: 0.55rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid $line;
+      line-height: 1.45;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fafaf9;
+    }
+
+    tbody td:first-child {
+      color: #b91c1c;
+      font-weight: 550;
+    }
+
+    tbody td:last-child {
+      color: #166534;
+      font-weight: 550;
+    }
+  }
+
+  .blog-compliance-steps {
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    border-radius: 10px;
+    border: 1px solid $line;
+    overflow: hidden;
+  }
+
+  .blog-compliance-step {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    border-bottom: 1px solid $line;
+    background: #fff;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-child(even) {
+      background: rgba(13, 107, 77, 0.045);
+    }
+  }
+
+  .blog-compliance-step__rail {
+    background: $blog-health-navy;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 1rem;
+    border-right: 1px solid $line;
+  }
+
+  .blog-compliance-step__circle {
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .blog-compliance-step__body {
+    padding: 0.85rem 1rem;
+  }
+
+  .blog-compliance-step__tag {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+    font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+    font-size: 0.5625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: rgba(13, 107, 77, 0.08);
+    color: $accent-deep;
+    border: 1px solid rgba(13, 107, 77, 0.18);
+  }
+
+  .blog-compliance-step__title {
+    margin: 0 0 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $text;
+    line-height: 1.35;
+  }
+
+  .blog-compliance-step__desc {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: $text-muted;
   }
 }
