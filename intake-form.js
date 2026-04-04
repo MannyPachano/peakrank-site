@@ -31,7 +31,14 @@
   function buildSequence() {
     const seoYes = getSeoBeforeValue() === "yes";
     const mid = seoYes ? ["seo_failed"] : [];
-    return [...ORDER_FIXED, ...mid, "locations", "services", "extra"];
+    return [
+      ...ORDER_FIXED,
+      ...mid,
+      "locations",
+      "services",
+      "extra",
+      "contact_info",
+    ];
   }
 
   let sequence = buildSequence();

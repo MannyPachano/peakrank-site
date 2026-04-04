@@ -6,7 +6,7 @@
   <title>See if we&rsquo;re a fit | PeakRank Digital Solutions</title>
   <meta name="description" content="Answer a few quick questions about your business, website, and goals. Takes about a minute. PeakRank Digital Solutions.">
   <link rel="canonical" href="https://peakrankseo.com/contact.html" />
-  <link rel="stylesheet" href="styles.css?v=44" />
+  <link rel="stylesheet" href="styles.css?v=45" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -263,6 +263,40 @@
             <div class="intake-field">
               <label class="intake-label visually-hidden" for="intake-extra">Additional notes</label>
               <textarea class="intake-textarea" name="notes" id="intake-extra" rows="5" placeholder="Optional"></textarea>
+            </div>
+            <div class="intake-actions intake-actions--split">
+              <button type="button" class="btn btn-ghost intake-back">Back</button>
+              <button type="button" class="btn btn-primary intake-next">Continue</button>
+            </div>
+          </div>
+
+          <div class="intake-screen" data-intake-step="contact_info" hidden>
+            <h2 class="intake-q">How can we reach you?</h2>
+            <p class="intake-desc intake-desc--contact-lede">We&rsquo;ll use this only to follow up about your submission.</p>
+            <div class="intake-field">
+              <label class="intake-label" for="intake-full-name">Full name</label>
+              <input
+                class="intake-input"
+                type="text"
+                name="full_name"
+                id="intake-full-name"
+                autocomplete="name"
+                placeholder="Jane Smith"
+                required
+              />
+            </div>
+            <div class="intake-field">
+              <label class="intake-label" for="intake-email">Email</label>
+              <input
+                class="intake-input"
+                type="email"
+                name="email"
+                id="intake-email"
+                autocomplete="email"
+                placeholder="you@company.com"
+                inputmode="email"
+                required
+              />
             </div>
             <div class="intake-recaptcha" data-netlify-recaptcha="true"></div>
             <div class="intake-actions intake-actions--split">

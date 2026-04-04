@@ -1168,6 +1168,9 @@ h3 {
   color: #4a5560;
   line-height: 1.6;
 }
+.intake-desc--contact-lede {
+  margin-bottom: 1.25rem;
+}
 
 .intake-hint {
   margin: -0.65rem 0 1rem;

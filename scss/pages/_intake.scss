@@ -121,6 +121,10 @@
   font-size: 1.0625rem;
   color: $text-muted;
   line-height: 1.6;
+
+  &--contact-lede {
+    margin-bottom: 1.25rem;
+  }
 }
 
 .intake-hint {
