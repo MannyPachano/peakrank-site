@@ -87,12 +87,43 @@
   .hero-cta-arrow svg { width: 1.125rem; height: 1.125rem; display: block; }
   .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
   .hero-divider { width: 40px; height: 1px; background: rgba(250,248,245,0.15); margin: 48px 0; }
-  .hero-awards { display: flex; gap: 32px; }
-  .award { text-align: left; }
-  .award-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--gold); display: inline-flex; align-items: center; gap: 0.2em; line-height: 1; }
+  .hero-awards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 18px clamp(18px, 5vw, 36px);
+    width: 100%;
+    max-width: 420px;
+  }
+  .award {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: left;
+  }
+  .award-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.2vw, 32px);
+    font-weight: 300;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    line-height: 1;
+    white-space: nowrap;
+  }
   .award-star { display: inline-flex; align-items: center; }
   .award-star__svg { width: 0.72em; height: 0.72em; display: block; color: var(--gold); }
-  .award-label { font-size: 12px; color: rgba(250,248,245,0.35); letter-spacing: 0.06em; margin-top: 4px; }
+  .award-label {
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(250,248,245,0.35);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
 
   /* STRIP */
   .strip { background: var(--gold); padding: 16px 64px; display: flex; align-items: center; justify-content: center; gap: 48px; }
@@ -220,6 +251,12 @@
     .cta-inner { grid-template-columns: 1fr; gap: 48px; }
     footer { padding: 48px 24px 24px; }
     .ft { grid-template-columns: 1fr 1fr; }
+    .hero-awards { max-width: none; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-awards { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .award { flex: none; width: 100%; }
   }
   </style>
 </head>
