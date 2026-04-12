@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Greenstone Landscapes — Design · Build · Maintain (portfolio sample)</title>
+  <meta name="description" content="Sample landscaping company landing page: split hero, services grid, portfolio, process, reviews, and lead form. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/greenstone-landscapes.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --earth: #2C2416;
+    --green-dark: #2D4A22;
+    --green: #4A7A35;
+    --green-light: #7AB55C;
+    --sage: #8FAE7A;
+    --cream: #F5F0E8;
+    --warm: #EDE4D3;
+    --stone: #C4B89A;
+    --white: #FDFBF7;
+    --text: #2C2416;
+    --muted: #6B5E4A;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--text); font-family: 'Jost', sans-serif; overflow-x: hidden; }
+
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo nav { top: calc(1.3rem + 11px + 1px); }
+  body.portfolio-demo .hero { padding-top: calc(68px + 1.3rem + 11px + 1px); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(253,251,247,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(196,184,154,0.3); padding: 0 56px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-dark); letter-spacing: 0.5px; }
+  .logo em { font-style: italic; color: var(--green); }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  nav ul a:hover { color: var(--green-dark); }
+  nav ul a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: 4px; }
+  .nav-cta { background: var(--green-dark); color: var(--cream); padding: 10px 24px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; border-radius: 100px; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--green); }
+  .nav-cta:focus-visible { outline: 2px solid var(--earth); outline-offset: 3px; }
+
+  /* HERO */
+  .hero { min-height: 100vh; padding-top: 68px; display: grid; grid-template-columns: 5fr 4fr; }
+  .hero-img-col { position: relative; overflow: hidden; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(44,36,22,0.3), transparent); }
+  .hero-right { background: var(--cream); display: flex; flex-direction: column; justify-content: center; padding: 80px 60px; }
+  .hero-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(42px, 4vw, 68px); font-weight: 700; color: var(--earth); line-height: 1.1; margin-bottom: 22px; }
+  .hero-title em { font-style: italic; color: var(--green-dark); }
+  .hero-sub { font-size: 17px; line-height: 1.8; color: var(--muted); margin-bottom: 44px; font-weight: 300; }
+  .hero-btns { display: flex; flex-direction: column; gap: 12px; max-width: 300px; }
+  .btn-green { background: var(--green-dark); color: var(--cream); padding: 16px 32px; font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; border-radius: 100px; display: block; text-align: center; transition: background 0.2s; }
+  .btn-green:hover { background: var(--green); }
+  .btn-green:focus-visible { outline: 2px solid var(--earth); outline-offset: 3px; }
+  .btn-outline-g { border: 1.5px solid var(--stone); color: var(--earth); padding: 15px 32px; font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; border-radius: 100px; display: block; text-align: center; transition: border-color 0.2s; }
+  .btn-outline-g:hover { border-color: var(--green); color: var(--green-dark); }
+  .btn-outline-g:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 3px; }
+  .hero-promise { display: flex; gap: 8px; align-items: flex-start; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--stone); }
+  .promise-leaf { display: inline-flex; flex-shrink: 0; line-height: 0; }
+  .promise-leaf svg { width: 22px; height: 22px; display: block; color: var(--green-dark); }
+  .promise-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .promise-text strong { display: block; font-weight: 600; color: var(--earth); margin-bottom: 2px; font-size: 15px; }
+
+  /* STATS */
+  .stats { background: var(--green-dark); display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 36px 28px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 44px; color: var(--sage); font-weight: 400; display: block; line-height: 1; }
+  .stat-num--rating { display: inline-flex; align-items: center; justify-content: center; gap: 0.2em; }
+  .gs-stat-star { width: 0.52em; height: 0.52em; flex-shrink: 0; display: block; color: var(--sage); }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; letter-spacing: 0.04em; }
+
+  /* SERVICES */
+  .services { padding: 100px 56px; }
+  .services-header { display: flex; gap: 80px; align-items: flex-end; margin-bottom: 64px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 3vw, 50px); font-weight: 700; color: var(--earth); line-height: 1.15; }
+  .section-sub { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--warm); }
+  .service-card { background: var(--white); padding: 40px 32px; transition: background 0.3s; position: relative; overflow: hidden; cursor: default; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover { background: var(--cream); }
+  .svc-num { font-family: 'Playfair Display', serif; font-size: 60px; color: var(--warm); position: absolute; top: 16px; right: 20px; line-height: 1; font-weight: 700; }
+  .svc-icon { margin-bottom: 20px; display: flex; line-height: 0; color: var(--green-dark); }
+  .svc-icon svg { width: 32px; height: 32px; display: block; }
+  .svc-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--earth); margin-bottom: 12px; }
+  .svc-desc { font-size: 14px; line-height: 1.75; color: var(--muted); }
+  .svc-list { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .svc-list li { font-size: 13px; color: var(--green-dark); display: flex; align-items: flex-start; gap: 8px; }
+  .svc-list li::before { content: ''; width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; background-color: var(--green); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+  /* PORTFOLIO */
+  .portfolio { padding: 80px 56px; background: var(--cream); }
+  .portfolio-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 12px; margin-top: 56px; }
+  .port-item { overflow: hidden; border-radius: 4px; position: relative; }
+  .port-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; filter: brightness(0.85); }
+  .port-item:hover img { transform: scale(1.04); filter: brightness(1); }
+  .port-item-tall { grid-row: span 2; }
+  .port-item-tall img { height: 500px; }
+  .port-item:not(.port-item-tall) img { height: 240px; }
+  .port-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px; background: linear-gradient(transparent, rgba(44,36,22,0.8)); }
+  .port-label-text { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+  /* WHY */
+  .why { padding: 100px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .why-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 4px; filter: brightness(0.9) saturate(1.1); }
+  .why-promise { background: var(--green-dark); padding: 28px 28px; border-radius: 4px; margin-top: 40px; display: flex; gap: 16px; align-items: flex-start; }
+  .why-promise-icon { flex-shrink: 0; line-height: 0; display: inline-flex; }
+  .why-promise-icon svg { width: 28px; height: 28px; display: block; color: var(--sage); }
+  .why-promise-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .why-promise-text strong { color: white; font-size: 15px; display: block; margin-bottom: 4px; }
+  .why-list { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+  .wi { display: flex; gap: 18px; align-items: flex-start; }
+  .wi-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--warm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; line-height: 0; color: var(--green-dark); }
+  .wi-circle svg { width: 20px; height: 20px; display: block; }
+  .wi-title { font-size: 16px; font-weight: 600; color: var(--earth); margin-bottom: 4px; }
+  .wi-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  /* PROCESS */
+  .process { background: var(--earth); padding: 100px 56px; }
+  .process .eyebrow { color: var(--sage); }
+  .process .section-title { color: var(--cream); }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 64px; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 1px; background: rgba(255,255,255,0.1); }
+  .ps { text-align: center; padding: 0 12px; position: relative; }
+  .ps-circle { width: 64px; height: 64px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; line-height: 0; background: rgba(255,255,255,0.05); color: var(--cream); }
+  .ps-circle svg { width: 24px; height: 24px; display: block; }
+  .ps-title { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--cream); margin-bottom: 8px; }
+  .ps-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+  /* REVIEWS */
+  .reviews { padding: 100px 56px; background: var(--warm); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+  .rev-card { background: var(--white); padding: 36px 28px; border-radius: 4px; }
+  .rev-stars { display: flex; gap: 4px; align-items: center; color: var(--green); margin-bottom: 16px; }
+  .rev-stars svg { width: 16px; height: 16px; flex-shrink: 0; display: block; fill: currentColor; }
+  .rev-quote { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; line-height: 1.75; color: var(--earth); margin-bottom: 24px; }
+  .rev-divider { height: 1px; background: var(--warm); margin-bottom: 20px; }
+  .rev-author { font-size: 15px; font-weight: 600; color: var(--green-dark); }
+  .rev-project { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  /* CTA */
+  .cta { padding: 100px 56px; background: var(--green-dark); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); color: var(--cream); line-height: 1.2; }
+  .cta-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-top: 12px; font-weight: 300; }
+  .cta-form { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 36px 28px; }
+  .cta-form h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); margin-bottom: 20px; }
+  .cf-field { margin-bottom: 14px; }
+  .cf-field input, .cf-field select, .cf-field textarea { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--cream); padding: 12px 16px; font-family: 'Jost', sans-serif; font-size: 14px; border-radius: 6px; outline: none; transition: border-color 0.2s; }
+  .cf-field input::placeholder, .cf-field textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .cf-field select option { background: var(--green-dark); }
+  .cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-color: var(--sage); }
+  .cf-btn { width: 100%; background: var(--sage); color: var(--earth); padding: 14px; font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 0.4em; }
+  .cf-btn__arrow { width: 1.1em; height: 1.1em; flex-shrink: 0; display: block; stroke: currentColor; }
+  .cf-btn:hover { background: var(--green-light); }
+  .cf-btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+
+  footer { background: var(--earth); padding: 64px 56px 28px; }
+  .ft { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ft-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--cream); margin-bottom: 14px; }
+  .ft-desc { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+  .ft-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 18px; }
+  .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .ft-col ul a { font-size: 14px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .ft-col ul a:hover { color: var(--sage); }
+  .ft-col ul a:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; border-radius: 4px; }
+  .ft-bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.2); }
+
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; } nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-img-col { height: 60vw; }
+    .hero-right { padding: 48px 24px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .services, .portfolio, .why, .process, .reviews, .cta { padding: 60px 24px; }
+    .services-grid { grid-template-columns: 1fr; gap: 1px; }
+    .services-header { flex-direction: column; gap: 16px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .port-item-tall { grid-row: span 1; }
+    .port-item-tall img { height: 240px; }
+    .why { grid-template-columns: 1fr; gap: 40px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta { grid-template-columns: 1fr; gap: 40px; }
+    .ft { grid-template-columns: 1fr 1fr; } footer { padding: 48px 24px 24px; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="gs-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+    </symbol>
+    <symbol id="gs-mountain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+    </symbol>
+    <symbol id="gs-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 20h10"/>
+      <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+      <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+      <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+    </symbol>
+    <symbol id="gs-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22a7 7 0 0 0 7-7c0-5-7-13-7-13S5 10 5 15a7 7 0 0 0 7 7z"/>
+    </symbol>
+    <symbol id="gs-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>
+    </symbol>
+    <symbol id="gs-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 9.2 20 4"/>
+    </symbol>
+    <symbol id="gs-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+    </symbol>
+    <symbol id="gs-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+    </symbol>
+    <symbol id="gs-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>
+    </symbol>
+    <symbol id="gs-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="gs-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="gs-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21.3 8.7 8.7 21.3a2.41 2.41 0 0 1-3.4 0L2.7 19a2.41 2.41 0 0 1 0-3.4l9.6-9.6"/><path d="M7 7h.01"/><path d="M17 17h.01"/><path d="m12 12 4 4"/><path d="m14 10 4 4"/>
+    </symbol>
+    <symbol id="gs-star" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </symbol>
+    <symbol id="gs-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+<nav aria-label="Primary">
+  <div class="logo">Green<em>stone</em> Landscapes</div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Free Design Consult</a>
+</nav>
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-img-col">
+    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&amp;q=80" alt="Lush garden path with layered greenery and stone walkway" class="hero-img" width="1200" height="1600" decoding="async" fetchpriority="high">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tag">Austin's Premier Landscaping Studio</div>
+    <h1 class="hero-title" id="hero-heading">Your Outdoor Space,<br><em>Transformed.</em></h1>
+    <p class="hero-sub">From concept to completion — we design, build, and maintain landscapes that feel like an extension of your home. Beautiful spaces that actually work for how you live.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-green">Get a Free Design Consult</a>
+      <a href="#portfolio" class="btn-outline-g">View Our Work</a>
+    </div>
+    <div class="hero-promise">
+      <span class="promise-leaf" aria-hidden="true"><svg><use href="#gs-leaf"/></svg></span>
+      <div class="promise-text">
+        <strong>Satisfaction guaranteed</strong>
+        We stand behind every project with our Green Promise — if it doesn't meet your expectations, we make it right. No questions, no excuses.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats" role="region" aria-label="Company highlights">
+  <div class="stat"><span class="stat-num">620+</span><span class="stat-label">Projects completed</span></div>
+  <div class="stat"><span class="stat-num">11yr</span><span class="stat-label">Serving Austin</span></div>
+  <div class="stat"><span class="stat-num stat-num--rating">4.9<svg class="gs-stat-star" aria-hidden="true"><use href="#gs-star"/></svg></span><span class="stat-label">Average review</span></div>
+  <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Design consultation</span></div>
+</div>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="eyebrow">What We Do</div>
+      <h2 class="section-title">Full-Service<br>Landscape Design &amp; Build</h2>
+    </div>
+    <p class="section-sub">We handle every aspect of your outdoor space so you never have to coordinate multiple contractors. Design, build, plant, and maintain — all under one team.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="svc-num">01</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-leaf"/></svg></span>
+      <div class="svc-title">Landscape Design</div>
+      <p class="svc-desc">Custom designs built around how you actually use your outdoor space. 3D renderings so you can see it before we build it.</p>
+      <ul class="svc-list"><li>Custom 3D design plans</li><li>Plant selection &amp; placement</li><li>Drainage &amp; grading assessment</li></ul>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">02</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-mountain"/></svg></span>
+      <div class="svc-title">Hardscaping</div>
+      <p class="svc-desc">Patios, walkways, retaining walls, fire pits, and outdoor kitchens. Built to last with materials that look better every year.</p>
+      <ul class="svc-list"><li>Patios &amp; pavers</li><li>Retaining walls</li><li>Outdoor kitchens &amp; fire pits</li></ul>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">03</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-sprout"/></svg></span>
+      <div class="svc-title">Planting &amp; Softscape</div>
+      <p class="svc-desc">Native Texas plants, flower beds, sod installation, and tree planting by a certified horticulturist who knows what thrives here.</p>
+      <ul class="svc-list"><li>Native &amp; drought-tolerant plants</li><li>Sod &amp; turf installation</li><li>Seasonal color planting</li></ul>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">04</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-droplet"/></svg></span>
+      <div class="svc-title">Irrigation Systems</div>
+      <p class="svc-desc">Smart irrigation that saves water and keeps your landscape green without wasting a drop. Repair, installation, and seasonal adjustments.</p>
+      <ul class="svc-list"><li>Smart drip &amp; sprinkler systems</li><li>Leak detection &amp; repair</li><li>Seasonal programming</li></ul>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">05</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-bulb"/></svg></span>
+      <div class="svc-title">Outdoor Lighting</div>
+      <p class="svc-desc">Low-voltage LED landscape lighting for safety, ambiance, and curb appeal. Custom layouts that showcase your property at night.</p>
+      <ul class="svc-list"><li>Path &amp; accent lighting</li><li>Tree uplighting</li><li>Smart timer systems</li></ul>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">06</span>
+      <span class="svc-icon" aria-hidden="true"><svg><use href="#gs-scissors"/></svg></span>
+      <div class="svc-title">Ongoing Maintenance</div>
+      <p class="svc-desc">Weekly and biweekly maintenance plans to keep your landscape looking like day one — year round. Mowing, pruning, fertilizing, and more.</p>
+      <ul class="svc-list"><li>Weekly mowing &amp; edging</li><li>Seasonal pruning</li><li>Fertilization programs</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="eyebrow">Our Work</div>
+  <h2 class="section-title">Recent Projects</h2>
+  <div class="portfolio-grid">
+    <div class="port-item port-item-tall">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&amp;q=80" alt="Modern home with manicured lawn and layered foundation planting" width="900" height="1100" decoding="async" loading="lazy">
+      <div class="port-label"><div class="port-label-text">Modern Garden + Patio — Cedar Park</div></div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1757507423605-e4fd1faa716e?w=700&amp;q=80" alt="Stone path through lush garden beds and greenery" width="700" height="480" decoding="async" loading="lazy">
+      <div class="port-label"><div class="port-label-text">Stone Walkway &amp; Beds — Austin</div></div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&amp;q=80" alt="Hands tending raised vegetable and flower beds" width="700" height="480" decoding="async" loading="lazy">
+      <div class="port-label"><div class="port-label-text">Raised Planters — Westlake</div></div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=700&amp;q=80" alt="Freshly striped residential lawn and landscape edging" width="700" height="480" decoding="async" loading="lazy">
+      <div class="port-label"><div class="port-label-text">Turf Care &amp; Edging — Round Rock</div></div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&amp;q=80" alt="Outdoor deck and seating surrounded by trees and greenery" width="700" height="480" decoding="async" loading="lazy">
+      <div class="port-label"><div class="port-label-text">Deck &amp; Shade Garden — Dripping Springs</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="about">
+  <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&amp;q=80" alt="Landscaper mowing and maintaining a healthy green lawn" class="why-img" width="800" height="1000" decoding="async" loading="lazy">
+  <div class="why-content">
+    <div class="eyebrow">Our Approach</div>
+    <h2 class="section-title">We Design For<br>How You Live Outdoors</h2>
+    <p style="font-size:16px; color:var(--muted); line-height:1.75; margin-top:14px; font-weight:300;">Most landscapers give you what they know how to build. We start with how you use your outdoor space — then design around that. Every project is different because every family is different.</p>
+    <div class="why-list">
+      <div class="wi"><div class="wi-circle" aria-hidden="true"><svg><use href="#gs-sprout"/></svg></div><div><div class="wi-title">Native plant expertise</div><div class="wi-desc">We specialize in Texas-native and drought-tolerant plants that thrive in Central Texas heat — no constant watering required.</div></div></div>
+      <div class="wi"><div class="wi-circle" aria-hidden="true"><svg><use href="#gs-ruler"/></svg></div><div><div class="wi-title">3D design before we dig</div><div class="wi-desc">You'll see a photorealistic rendering of your finished landscape before we break ground. What you approve is what we build.</div></div></div>
+      <div class="wi"><div class="wi-circle" aria-hidden="true"><svg><use href="#gs-users"/></svg></div><div><div class="wi-title">One team, start to finish</div><div class="wi-desc">Your designer is on-site during installation. No handoffs, no miscommunication — the person who drew it builds it.</div></div></div>
+    </div>
+    <div class="why-promise">
+      <span class="why-promise-icon" aria-hidden="true"><svg><use href="#gs-leaf"/></svg></span>
+      <div class="why-promise-text"><strong>The Greenstone Guarantee</strong>All plantings are guaranteed to establish in their first season. If something doesn't take, we replace it — free of charge, no questions asked.</div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="eyebrow">How We Work</div>
+  <h2 class="section-title">From First Call<br>to Finished Garden</h2>
+  <div class="process-steps">
+    <div class="ps"><div class="ps-circle" aria-hidden="true"><svg><use href="#gs-calendar"/></svg></div><div class="ps-title">Consultation</div><p class="ps-desc">Free 60-minute site visit. We listen, measure, and learn how you use your space.</p></div>
+    <div class="ps"><div class="ps-circle" aria-hidden="true"><svg><use href="#gs-pen"/></svg></div><div class="ps-title">Design</div><p class="ps-desc">Custom 3D design with plant selections and material choices. Revise until it's perfect.</p></div>
+    <div class="ps"><div class="ps-circle" aria-hidden="true"><svg><use href="#gs-clipboard"/></svg></div><div class="ps-title">Proposal</div><p class="ps-desc">Detailed written quote with timeline, materials, and phasing options if needed.</p></div>
+    <div class="ps"><div class="ps-circle" aria-hidden="true"><svg><use href="#gs-building"/></svg></div><div class="ps-title">Build</div><p class="ps-desc">Expert installation with daily progress photos. We leave your property cleaner than we found it.</p></div>
+    <div class="ps"><div class="ps-circle" aria-hidden="true"><svg><use href="#gs-leaf"/></svg></div><div class="ps-title">Aftercare</div><p class="ps-desc">60-day check-in and optional maintenance plan to keep it looking beautiful long-term.</p></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="eyebrow">Client Testimonials</div>
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="reviews-grid">
+    <div class="rev-card">
+      <div class="rev-stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg></div>
+      <p class="rev-quote">"We had a concrete slab patio that we never used. Greenstone designed us a complete outdoor living space with a pergola, built-in kitchen, and planting beds. Now we eat outside four nights a week."</p>
+      <div class="rev-divider"></div>
+      <div class="rev-author">Amanda &amp; Ryan Torres</div>
+      <div class="rev-project">Outdoor kitchen + patio — Bee Cave, TX</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg></div>
+      <p class="rev-quote">"The 3D rendering sold me. I could see exactly what my backyard would look like before spending a dollar. And it turned out even better than the rendering. They have a customer for life."</p>
+      <div class="rev-divider"></div>
+      <div class="rev-author">Michael Chen</div>
+      <div class="rev-project">Full backyard redesign — Austin, TX</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg><svg aria-hidden="true"><use href="#gs-star"/></svg></div>
+      <p class="rev-quote">"The native plant selection has been a game changer. Everything looks lush all summer and I water maybe once a week. My HOA has asked who did our landscaping three times."</p>
+      <div class="rev-divider"></div>
+      <div class="rev-author">Lisa Garner</div>
+      <div class="rev-project">Front &amp; back landscaping — Pflugerville, TX</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div>
+    <h2 class="cta-title">Ready for an Outdoor Space You Love?</h2>
+    <p class="cta-sub">Your free design consultation includes a site visit, concept discussion, and preliminary ideas — no commitment required.</p>
+  </div>
+  <div class="cta-form">
+    <h3>Book Your Free Consultation</h3>
+    <div class="cf-field"><label class="visually-hidden" for="gs-name">Your Name</label><input id="gs-name" type="text" placeholder="Your Name" autocomplete="name"></div>
+    <div class="cf-field"><label class="visually-hidden" for="gs-phone">Phone Number</label><input id="gs-phone" type="tel" placeholder="Phone Number" autocomplete="tel"></div>
+    <div class="cf-field"><label class="visually-hidden" for="gs-email">Email Address</label><input id="gs-email" type="email" placeholder="Email Address" autocomplete="email"></div>
+    <div class="cf-field">
+      <label class="visually-hidden" for="gs-service">Service Interested In</label>
+      <select id="gs-service">
+        <option disabled selected value="">Service Interested In</option>
+        <option>Full Landscape Design &amp; Build</option>
+        <option>Hardscaping (Patio, Walls, etc.)</option>
+        <option>Planting &amp; Softscape Only</option>
+        <option>Irrigation System</option>
+        <option>Ongoing Maintenance</option>
+      </select>
+    </div>
+    <button type="button" class="cf-btn">Request Free Consultation <svg class="cf-btn__arrow" aria-hidden="true"><use href="#gs-arrow"/></svg></button>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-logo">Greenstone Landscapes</div>
+      <p class="ft-desc">Award-winning landscape design and build serving greater Austin since 2013. Licensed, insured, and proud members of the Texas Nursery &amp; Landscape Association.</p>
+    </div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="#services">Landscape Design</a></li><li><a href="#services">Hardscaping</a></li><li><a href="#services">Irrigation</a></li><li><a href="#services">Maintenance</a></li></ul></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#reviews">Reviews</a></li><li><a href="../website-builds.html">PeakRanking portfolio</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:+15125550214">(512) 555-0214</a></li><li><a href="#contact">Free Consultation</a></li><li><a href="mailto:hello@greenstonelandscapes.demo">hello@greenstonelandscapes.demo</a></li></ul></div>
+  </div>
+  <div class="ft-bottom"><span>© 2026 Greenstone Landscapes (demo). All rights reserved.</span><span>TNLA Member · Licensed Irrigator LI-11472</span></div>
+</footer>
+
+</body>
+</html>

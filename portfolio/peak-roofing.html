@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Peak Roofing Co — Expert Roof Replacement &amp; Repair (portfolio sample)</title>
+  <meta name="description" content="Sample roofing company landing page: hero with lead form, services, materials, reviews, and CTA. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/peak-roofing.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d2137;
+    --blue: #1565C0;
+    --sky: #E3F2FD;
+    --accent: #FFB300;
+    --white: #ffffff;
+    --light: #f8fbff;
+    --gray: #6B7280;
+    --dark: #1a1a2e;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--navy); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  /* Bar height = vertical padding + 11px text + bottom border (matches nav top so no gap) */
+  body.portfolio-demo nav { top: calc(1.3rem + 11px + 1px); }
+  body.portfolio-demo .hero { padding-top: calc(70px + 1.3rem + 11px + 1px); }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-icon { width: 36px; height: 36px; background: var(--accent); clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0 100%, 0 40%); flex-shrink: 0; }
+  .logo-text { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: 0.5px; }
+  .logo-text span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 32px; }
+  nav ul a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; }
+  nav ul a:hover { color: var(--white); }
+  nav ul a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+  .nav-phone { display: flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
+  .nav-phone:hover { color: #ffc107; }
+  .nav-phone:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+  .pr-icon--nav { width: 18px; height: 18px; flex-shrink: 0; display: block; }
+
+  .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 70px; }
+  .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') center/cover no-repeat; opacity: 0.25; }
+  .hero-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,33,55,0.98) 0%, rgba(21,101,192,0.4) 100%); }
+  .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,179,0,0.12); border: 1px solid rgba(255,179,0,0.3); color: var(--accent); padding: 8px 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 28px; }
+  .pr-icon--spark { width: 14px; height: 14px; display: block; flex-shrink: 0; color: var(--accent); }
+  .hero-title { font-size: clamp(42px, 4vw, 68px); font-weight: 800; color: var(--white); line-height: 1.05; margin-bottom: 24px; }
+  .hero-title .line2 { color: var(--accent); }
+  .hero-sub { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.65); margin-bottom: 40px; font-weight: 400; }
+  .hero-form { background: var(--white); padding: 36px 32px; border-radius: 4px; }
+  .hero-form h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .hero-form p { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
+  .form-field { margin-bottom: 14px; }
+  .form-field label { display: block; font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: 0.05em; margin-bottom: 6px; text-transform: uppercase; }
+  .form-field input, .form-field select { width: 100%; padding: 12px 14px; border: 1.5px solid #E5E7EB; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--navy); outline: none; transition: border-color 0.2s; background: #fff; }
+  .form-field input:focus, .form-field select:focus { border-color: var(--blue); }
+  .btn-accent { background: var(--accent); color: var(--navy); padding: 14px 28px; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; cursor: pointer; width: 100%; border-radius: 3px; transition: background 0.2s; }
+  .btn-accent:hover { background: #e6a200; }
+  .btn-accent:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+  .form-trust { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .form-trust-item { font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 6px; }
+  .pr-icon--check { width: 14px; height: 14px; flex-shrink: 0; color: var(--blue); }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: var(--blue); color: var(--white); padding: 16px 36px; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 3px; letter-spacing: 0.04em; display: inline-block; transition: background 0.2s; }
+  .btn-primary:hover { background: #0d47a1; }
+  .btn-primary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.3); color: var(--white); padding: 16px 36px; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 3px; display: inline-block; transition: border-color 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.7); }
+  .btn-ghost:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .hero-trust { display: flex; gap: 36px; margin-top: 48px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
+  .trust-item { text-align: center; }
+  .trust-num { font-size: 32px; font-weight: 800; color: var(--accent); display: block; }
+  .trust-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+  .trust-star { display: inline; color: var(--accent); }
+  .trust-star__svg { width: 0.85em; height: 0.85em; display: inline-block; vertical-align: -0.12em; }
+
+  .strip { background: var(--blue); padding: 20px 60px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+  .strip-item { display: flex; align-items: center; gap: 10px; color: var(--white); font-size: 14px; font-weight: 600; }
+  .pr-icon--strip { width: 20px; height: 20px; flex-shrink: 0; display: block; color: #fff; }
+
+  .services { padding: 100px 60px; background: var(--light); }
+  .section-center { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .section-title { font-size: clamp(32px, 3vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .section-sub { font-size: 16px; color: var(--gray); line-height: 1.7; margin-top: 12px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .service-card { background: var(--white); border-radius: 6px; padding: 36px 28px; border: 1px solid #E8F0FE; transition: transform 0.2s, box-shadow 0.2s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(21,101,192,0.1); }
+  .svc-icon { width: 52px; height: 52px; background: var(--sky); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--blue); }
+  .pr-icon--svc { width: 28px; height: 28px; display: block; }
+  .svc-name { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .svc-desc { font-size: 14px; color: var(--gray); line-height: 1.7; }
+  .svc-link { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none; }
+  .svc-link:hover { text-decoration: underline; }
+
+  .why { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .why-img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
+  .why-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  .why-badge { background: var(--sky); border-radius: 8px; padding: 16px 18px; }
+  .why-badge-num { font-size: 28px; font-weight: 800; color: var(--blue); display: block; line-height: 1; }
+  .why-badge-label { font-size: 12px; color: var(--navy); font-weight: 600; margin-top: 4px; }
+  .why-list { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+  .why-item { display: flex; gap: 16px; }
+  .why-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .why-item-title { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+  .why-item-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  .materials { padding: 80px 60px; background: var(--navy); }
+  .materials .section-title, .materials .section-eyebrow { color: var(--white); }
+  .materials .section-sub { color: rgba(255,255,255,0.55); }
+  .materials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 48px auto 0; }
+  .mat-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 28px 20px; text-align: center; transition: border-color 0.2s, background 0.2s; cursor: default; }
+  .mat-card:hover { border-color: var(--accent); background: rgba(255,179,0,0.05); }
+  .mat-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 14px; color: var(--accent); }
+  .pr-icon--mat { width: 32px; height: 32px; display: block; }
+  .mat-name { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .mat-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .testimonials { padding: 100px 60px; background: var(--light); }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 60px auto 0; }
+  .test-card { background: var(--white); border-radius: 6px; padding: 32px 28px; border: 1px solid #E8F0FE; }
+  .test-stars { display: flex; gap: 4px; margin-bottom: 16px; color: var(--accent); }
+  .test-stars svg { width: 16px; height: 16px; flex-shrink: 0; display: block; }
+  .test-quote { font-size: 14px; line-height: 1.8; color: #374151; margin-bottom: 24px; font-family: 'Lora', serif; font-style: italic; }
+  .test-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid #F3F4F6; }
+  .test-ava { width: 40px; height: 40px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .test-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .test-loc { font-size: 12px; color: var(--gray); }
+
+  .cta { background: var(--accent); padding: 80px 60px; text-align: center; }
+  .cta h2 { font-size: clamp(32px, 3.5vw, 52px); font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .cta p { font-size: 17px; color: rgba(13,33,55,0.7); margin-bottom: 36px; }
+  .btn-navy { background: var(--navy); color: var(--white); padding: 18px 48px; font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
+  .btn-navy:hover { background: #0a1a2e; }
+  .btn-navy:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+  .btn-navy .pr-icon--cta { width: 20px; height: 20px; flex-shrink: 0; display: block; }
+
+  footer { background: var(--navy); padding: 60px 60px 28px; }
+  .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-top: 16px; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--accent); }
+  .footer-col a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  .footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-lic { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .service-card { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    .hero-content { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+    .strip { padding: 16px 24px; gap: 20px; }
+    .services, .testimonials { padding: 60px 24px; }
+    .services-grid, .test-grid { grid-template-columns: 1fr; }
+    .why { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+    .materials { padding: 60px 24px; }
+    .materials-grid { grid-template-columns: 1fr 1fr; }
+    .cta { padding: 60px 24px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 24px 24px; }
+  }
+  @media (max-width: 520px) {
+    .materials-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+
+<a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+<nav aria-label="Primary">
+  <div class="logo">
+    <div class="logo-icon" aria-hidden="true"></div>
+    <div class="logo-text">Peak <span>Roofing</span> Co</div>
+  </div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#materials">Materials</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="tel:+15125550192" class="nav-phone"><svg class="pr-icon pr-icon--nav" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (512) 555-0192</a>
+</nav>
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-gradient" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge"><svg class="pr-icon pr-icon--spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round"/></svg> Serving the Greater Austin Area</div>
+      <h1 class="hero-title" id="hero-heading">Your Roof.<br>Done Right.<br><span class="line2">Guaranteed.</span></h1>
+      <p class="hero-sub">Storm damage, aging shingles, or a full replacement &mdash; Peak Roofing delivers honest assessments, quality materials, and workmanship that lasts 20+ years.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get Free Inspection</a>
+        <a href="#services" class="btn-ghost">View Services</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-num">2,400+</span><span class="trust-label">Roofs Installed</span></div>
+        <div class="trust-item"><span class="trust-num">18yr</span><span class="trust-label">In Business</span></div>
+        <div class="trust-item"><span class="trust-num">4.9<span class="trust-star" aria-hidden="true"><svg class="trust-star__svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span></span><span class="trust-label">Google Rating</span></div>
+      </div>
+    </div>
+    <form class="hero-form" onsubmit="return false;" aria-label="Demo estimate form (does not submit)">
+      <h3>Get Your Free Estimate</h3>
+      <p>We&rsquo;ll contact you within 2 hours to schedule your free roof inspection.</p>
+      <div class="form-field"><label for="est-name">Your Name</label><input id="est-name" type="text" name="name" placeholder="John Smith" autocomplete="name"></div>
+      <div class="form-field"><label for="est-phone">Phone Number</label><input id="est-phone" type="tel" name="phone" placeholder="(512) 555-0000" autocomplete="tel"></div>
+      <div class="form-field"><label for="est-svc">Service Needed</label>
+        <select id="est-svc" name="service" aria-label="Service needed">
+          <option value="" selected disabled>Select a service</option>
+          <option>Roof Replacement</option>
+          <option>Storm Damage Repair</option>
+          <option>Leak Repair</option>
+          <option>Inspection Only</option>
+        </select>
+      </div>
+      <button type="button" class="btn-accent">Schedule Free Inspection &rarr;</button>
+      <div class="form-trust">
+        <span class="form-trust-item"><svg class="pr-icon pr-icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> No obligation</span>
+        <span class="form-trust-item"><svg class="pr-icon pr-icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Same-day response</span>
+        <span class="form-trust-item"><svg class="pr-icon pr-icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Licensed &amp; insured</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-item"><span class="strip-icon"><svg class="pr-icon pr-icon--strip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span> 25-Year Workmanship Warranty</div>
+  <div class="strip-item"><span class="strip-icon"><svg class="pr-icon pr-icon--strip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span> Most Roofs Completed in 1 Day</div>
+  <div class="strip-item"><span class="strip-icon"><svg class="pr-icon pr-icon--strip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span> Free Storm Damage Inspection</div>
+  <div class="strip-item"><span class="strip-icon"><svg class="pr-icon pr-icon--strip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span> 0% Financing Available</div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-center">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Complete Roofing Solutions</h2>
+    <p class="section-sub">From minor repairs to full replacements, we handle every roofing need with the same attention to detail.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="svc-name">Roof Replacement</div>
+      <p class="svc-desc">Full tear-off and replacement with premium materials. We handle everything from permits to clean-up, finished in a single day for most homes.</p>
+      <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/></svg></div>
+      <div class="svc-name">Storm Damage Repair</div>
+      <p class="svc-desc">Hail, wind, and falling branches are our specialty. We document damage for insurance claims and can work directly with your adjuster.</p>
+      <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <div class="svc-name">Leak Detection &amp; Repair</div>
+      <p class="svc-desc">We find the source &mdash; not just the symptom. Every leak repair comes with a 5-year warranty on labor so you&rsquo;re not calling us back in 6 months.</p>
+      <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+      <div class="svc-name">Commercial Roofing</div>
+      <p class="svc-desc">Flat roofs, TPO, EPDM, and modified bitumen for commercial properties. Minimal business disruption is our priority on every commercial job.</p>
+      <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="svc-name">Roof Inspection</div>
+      <p class="svc-desc">Free 30-point inspection with written report and photos. Honest assessment &mdash; if your roof has years left in it, we&rsquo;ll tell you that too.</p>
+      <a href="#contact" class="svc-link">Book Inspection &rarr;</a>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+      <div class="svc-name">Gutters &amp; Ventilation</div>
+      <p class="svc-desc">Proper gutter systems and attic ventilation extend roof life by years. We install and repair seamless gutters, guards, and ridge vents.</p>
+      <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="about">
+  <div>
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80" alt="Roofing crew at work" class="why-img" width="700" height="700" loading="lazy" decoding="async">
+    <div class="why-badges">
+      <div class="why-badge"><span class="why-badge-num">A+</span><span class="why-badge-label">BBB Rating</span></div>
+      <div class="why-badge"><span class="why-badge-num">GAF</span><span class="why-badge-label">Certified Installer</span></div>
+      <div class="why-badge"><span class="why-badge-num">$2M</span><span class="why-badge-label">Liability Coverage</span></div>
+      <div class="why-badge"><span class="why-badge-num">0%</span><span class="why-badge-label">Financing Available</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="section-eyebrow">Why Choose Peak</div>
+    <h2 class="section-title">We Treat Your Home Like Our Own</h2>
+    <p style="font-size:16px; color:var(--gray); line-height:1.75; margin-top:12px;">Most roofing companies send a salesman then a crew you&rsquo;ve never met. At Peak, the project manager you meet on day one is on your roof on install day.</p>
+    <div class="why-list">
+      <div class="why-item"><div class="why-dot"></div><div><div class="why-item-title">Written quotes &mdash; no phone estimates</div><div class="why-item-desc">Every proposal includes exact materials, quantities, and labor. No vague ranges, no surprises when the invoice comes.</div></div></div>
+      <div class="why-item"><div class="why-dot"></div><div><div class="why-item-title">Insurance claim specialists</div><div class="why-item-desc">We&rsquo;ve helped hundreds of homeowners maximize their storm damage claims. We speak adjuster fluently.</div></div></div>
+      <div class="why-item"><div class="why-dot"></div><div><div class="why-item-title">Same-day clean-up, every time</div><div class="why-item-desc">Magnetic nail sweeps, full debris removal, and a final walkthrough before we leave your property.</div></div></div>
+      <div class="why-item"><div class="why-dot"></div><div><div class="why-item-title">25-year workmanship warranty</div><div class="why-item-desc">The longest in our market. Because we&rsquo;re confident in our work &mdash; and we&rsquo;ll be around to honor it.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="materials" id="materials">
+  <div class="section-center">
+    <div class="section-eyebrow" style="color:var(--accent);">Roofing Materials</div>
+    <h2 class="section-title">Premium Products,<br>Every Time</h2>
+    <p class="section-sub">We only install materials we&rsquo;d put on our own homes. All products are manufacturer-certified and backed by their full warranties.</p>
+  </div>
+  <div class="materials-grid">
+    <div class="mat-card"><span class="mat-icon"><svg class="pr-icon pr-icon--svc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><div class="mat-name">Architectural Shingles</div><p class="mat-desc">Most popular. Beautiful, durable, 30-50 year lifespan. Available in 50+ colors.</p></div>
+    <div class="mat-card"><span class="mat-icon"><svg class="pr-icon pr-icon--mat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><div class="mat-name">Metal Roofing</div><p class="mat-desc">Standing seam steel and aluminum. 50+ year lifespan, energy-efficient, low maintenance.</p></div>
+    <div class="mat-card"><span class="mat-icon"><svg class="pr-icon pr-icon--mat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span><div class="mat-name">Tile &amp; Slate</div><p class="mat-desc">Premium aesthetic with exceptional longevity. Up to 100 years with proper installation.</p></div>
+    <div class="mat-card"><span class="mat-icon"><svg class="pr-icon pr-icon--mat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></svg></span><div class="mat-name">Flat / TPO</div><p class="mat-desc">Energy Star rated membrane for commercial and low-slope residential applications.</p></div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="section-center">
+    <div class="section-eyebrow">Customer Reviews</div>
+    <h2 class="section-title">4.9 Stars &mdash; 380+ Reviews</h2>
+    <p class="section-sub">Don&rsquo;t take our word for it. Here&rsquo;s what Austin homeowners are saying.</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="test-quote">&ldquo;Hail storm took out our whole roof. Peak handled the entire insurance process and had us done in one day. The crew was professional, fast, and the clean-up was flawless.&rdquo;</p>
+      <div class="test-author"><div class="test-ava">KL</div><div><div class="test-name">Karen Lawson</div><div class="test-loc">Cedar Park, TX</div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="test-quote">&ldquo;I got four quotes. Peak was the only company that showed up when they said they would and gave me a written itemized quote. That told me everything I needed to know.&rdquo;</p>
+      <div class="test-author"><div class="test-ava">DM</div><div><div class="test-name">Derek Mosely</div><div class="test-loc">Round Rock, TX</div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <p class="test-quote">&ldquo;Eight years since my replacement and not a single issue. The 25-year warranty gave me confidence. Worth every penny and then some.&rdquo;</p>
+      <div class="test-author"><div class="test-ava">TH</div><div><div class="test-name">Theresa Hanks</div><div class="test-loc">Pflugerville, TX</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Your Free Inspection Is One Click Away</h2>
+  <p>We&rsquo;ll be there within 24 hours. No pressure, no obligation, just an honest assessment.</p>
+  <a href="tel:+15125550192" class="btn-navy"><svg class="pr-icon pr-icon--cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call (512) 555-0192 Now</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo-text" style="font-size:22px;">Peak <span style="color:var(--accent);">Roofing</span> Co</div>
+      <p class="footer-desc">Serving Austin and surrounding communities since 2006. Licensed, insured, and committed to roofing done right. <strong style="color:rgba(255,255,255,0.55);font-weight:600;">Fictional demo business for portfolio purposes.</strong></p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul><li><a href="#services">Roof Replacement</a></li><li><a href="#services">Storm Damage</a></li><li><a href="#services">Repairs</a></li><li><a href="#services">Commercial</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>On this page</h4>
+      <ul><li><a href="#about">About</a></li><li><a href="#materials">Materials</a></li><li><a href="#reviews">Reviews</a></li><li><a href="../website-builds.html">PeakRanking portfolio</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul><li><a href="tel:+15125550192">(512) 555-0192</a></li><li><a href="#contact">Free Inspection</a></li><li><a href="#services">Service areas</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Peak Roofing Co (demo). All rights reserved.</span>
+    <span class="footer-lic">TX Roofing License #RC-44891 (fictional)</span>
+  </div>
+</footer>
+
+</body>
+</html>
