@@ -6,7 +6,7 @@
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self'; img-src 'self' data: blob: https://www.google.com https://www.gstatic.com; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'self' https://www.google.com https://www.recaptcha.net https://www.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.recaptcha.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google.com https://www.gstatic.com https://images.unsplash.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'self' https://www.google.com https://www.recaptcha.net https://www.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # Optional: enforce HTTPS and HSTS (uncomment when the site is only served over TLS)
