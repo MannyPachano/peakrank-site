@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Root &amp; Rise Yoga &mdash; Atlanta Studio (portfolio sample)</title>
+  <meta name="description" content="Sample yoga studio landing page: split hero, class schedule, style cards, about, membership plans, reviews, and free-class booking. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/root-rise-yoga.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terra: #c4644a;
+    --terra-dark: #9e4e38;
+    --terra-pale: #f5e8e3;
+    --sage: #5a7a5a;
+    --sage-light: #8faa8f;
+    --sage-pale: #eaf0ea;
+    --sand: #f5efe4;
+    --warm: #ede5d5;
+    --stone: #c8b89a;
+    --ink: #1e1a14;
+    --text: #2a2420;
+    --muted: #7a6a5a;
+    --sub: #9e8e7a;
+    --white: #fdfaf6;
+    --border: #e5ddd0;
+    --demo-bar-top: calc(1.3rem + 11px + 1px);
+    --nav-h: 68px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--text); font-family: Jost, sans-serif; overflow-x: hidden; }
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    background: rgba(253, 250, 246, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--ink); letter-spacing: 0.5px; }
+  .nav-logo em { font-style: italic; color: var(--terra); }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s; }
+  nav ul a:hover { color: var(--terra); }
+  .nav-cta { background: var(--terra); color: #fff; padding: 10px 24px; border-radius: 100px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--terra-dark); }
+
+  .hero { min-height: 100vh; padding-top: var(--nav-h); display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-left { background: var(--sand); display: flex; flex-direction: column; justify-content: center; padding: 88px 72px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1.5px; background: var(--terra); }
+  .hero-left h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(44px, 4.5vw, 72px); line-height: 1.1; color: var(--ink); margin-bottom: 20px; font-weight: 400; }
+  .hero-left h1 em { font-style: italic; color: var(--terra); }
+  .hero-sub { font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 400px; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+  .btn-terra { background: var(--terra); color: #fff; padding: 14px 32px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; display: inline-block; border: none; cursor: pointer; }
+  .btn-terra:hover { background: var(--terra-dark); }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--ink); padding: 13px 32px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; transition: border-color 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--terra); }
+  .hero-trust { display: flex; gap: 28px; padding-top: 36px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .ht { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .ht::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--terra); flex-shrink: 0; opacity: 0.7; }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.85) saturate(0.8); }
+  .hero-card { position: absolute; bottom: 40px; left: 40px; background: var(--white); border-radius: 12px; padding: 18px 22px; border: 1px solid var(--border); max-width: calc(100% - 80px); }
+  .hc-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub); margin-bottom: 6px; }
+  .hc-val { font-family: 'Libre Baskerville', serif; font-size: 17px; color: var(--ink); font-style: italic; line-height: 1.4; }
+
+  .strip { background: var(--terra); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+  .strip-track { display: inline-flex; animation: rry-strip 24s linear infinite; }
+  .strip-item { font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.75); padding: 0 28px; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
+  .strip-dot { color: rgba(255, 255, 255, 0.35); font-size: 8px; }
+  @keyframes rry-strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .schedule { padding: 88px 60px; background: var(--white); }
+  .section-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; gap: 20px; flex-wrap: wrap; }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 12px; }
+  .s-title { font-family: 'Libre Baskerville', serif; font-size: clamp(32px, 3vw, 48px); color: var(--ink); line-height: 1.15; font-weight: 400; }
+  .s-title em { font-style: italic; color: var(--terra); }
+  .schedule-link { font-size: 13px; color: var(--terra); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(196, 100, 74, 0.3); padding-bottom: 2px; white-space: nowrap; }
+  .schedule-link:hover { border-bottom-color: var(--terra-dark); color: var(--terra-dark); }
+  .schedule-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .class-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; transition: border-color 0.2s, background 0.2s; }
+  .class-card:hover { border-color: var(--terra); background: var(--terra-pale); }
+  .class-time { text-align: center; min-width: 64px; }
+  .ct-time { font-family: 'Libre Baskerville', serif; font-size: 20px; color: var(--ink); display: block; line-height: 1; font-style: italic; }
+  .ct-day { font-size: 11px; font-weight: 600; color: var(--sub); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+  .class-info { min-width: 0; }
+  .ci-name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .ci-instructor { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+  .ci-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ci-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; background: var(--sage-pale); color: var(--sage); }
+  .ci-tag--terra { background: var(--terra-pale); color: var(--terra-dark); }
+  .class-spots { text-align: right; font-size: 12px; color: var(--sub); white-space: nowrap; }
+  .spots-num { font-size: 18px; font-weight: 600; color: var(--ink); display: block; line-height: 1; }
+
+  .styles { padding: 0 60px 88px; background: var(--white); }
+  .styles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .style-card { background: var(--sand); border-radius: 16px; padding: 36px 28px; transition: background 0.2s; }
+  .style-card:hover { background: var(--warm); }
+  .style-mark { display: block; width: 36px; height: 3px; background: var(--terra); margin-bottom: 18px; border-radius: 2px; }
+  .style-name { font-family: 'Libre Baskerville', serif; font-size: 24px; color: var(--ink); margin-bottom: 10px; }
+  .style-desc { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: 16px; }
+  .style-level { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; background: var(--terra-pale); color: var(--terra-dark); }
+
+  .about { padding: 88px 60px; background: var(--sand); display: grid; grid-template-columns: 4fr 5fr; gap: 80px; align-items: center; }
+  .about-img { position: relative; }
+  .about-img img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; filter: brightness(0.85) saturate(0.8); border-radius: 4px; }
+  .about-tag { position: absolute; bottom: -20px; right: -20px; background: var(--terra); color: #fff; padding: 20px 22px; border-radius: 4px; }
+  .at-num { font-family: 'Libre Baskerville', serif; font-size: 36px; display: block; line-height: 1; font-style: italic; }
+  .at-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); margin-top: 4px; }
+  .about-text { font-size: 16px; line-height: 1.9; color: var(--muted); font-weight: 300; font-style: italic; margin: 18px 0 28px; }
+  .about-extra { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; }
+  .teachers { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+  .teacher { display: flex; gap: 14px; align-items: center; padding: 16px 18px; background: var(--white); border-radius: 10px; }
+  .teacher-ava { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; filter: saturate(0.7); display: block; }
+  .teacher-name { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .teacher-style { font-size: 13px; color: var(--terra); font-style: italic; }
+
+  .membership { padding: 88px 60px; background: var(--ink); }
+  .membership .eyebrow { color: var(--terra); }
+  .membership .s-title { color: var(--white); }
+  .membership .s-title em { color: var(--terra); }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+  .plan { border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 36px 28px; transition: border-color 0.2s; }
+  .plan:hover { border-color: rgba(196, 100, 74, 0.4); }
+  .plan.featured { border-color: var(--terra); background: rgba(196, 100, 74, 0.06); }
+  .plan-name { font-family: 'Libre Baskerville', serif; font-size: 22px; color: var(--white); margin-bottom: 8px; font-weight: 400; }
+  .plan-price { font-size: 40px; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 4px; }
+  .plan-price span { font-size: 16px; color: rgba(255, 255, 255, 0.35); }
+  .plan-note { font-size: 13px; color: rgba(255, 255, 255, 0.35); margin-bottom: 24px; font-style: italic; }
+  .plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .plan-list li { font-size: 14px; color: rgba(255, 255, 255, 0.5); display: flex; gap: 10px; }
+  .plan-list li::before { content: '\2713'; color: var(--terra); flex-shrink: 0; font-weight: 600; }
+  .plan-btn { display: block; text-align: center; background: var(--terra); color: #fff; padding: 13px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+  .plan-btn:hover { background: var(--terra-dark); }
+
+  .reviews { padding: 88px 60px; background: var(--terra-pale); }
+  .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+  .rev-card { background: var(--white); border-radius: 12px; padding: 32px 26px; border: 1px solid var(--border); }
+  .rev-stars { color: var(--terra); font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
+  .rev-quote { font-family: 'Libre Baskerville', serif; font-size: 15px; font-style: italic; line-height: 1.8; color: var(--ink); margin-bottom: 20px; font-weight: 400; }
+  .rev-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .rev-detail { font-size: 13px; color: var(--terra); font-style: italic; margin-top: 2px; }
+
+  .book { padding: 88px 60px; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
+  .book-info .s-sub { font-size: 16px; color: var(--muted); line-height: 1.8; font-weight: 300; margin: 16px 0 32px; font-style: italic; }
+  .book-details { display: flex; flex-direction: column; gap: 16px; }
+  .bd { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--muted); }
+  .bd-key { flex-shrink: 0; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; color: var(--sub); min-width: 4.75rem; }
+  .bd-val { color: var(--ink); font-weight: 500; }
+  .bd-val a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+  .bd-val a:hover { color: var(--terra); }
+  .book-form { display: flex; flex-direction: column; gap: 14px; }
+  .bf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .book-form input, .book-form select, .book-form textarea { width: 100%; border: 1px solid var(--border); padding: 13px 16px; border-radius: 8px; font-family: Jost, sans-serif; font-size: 14px; color: var(--ink); background: var(--white); outline: none; transition: border-color 0.2s; }
+  .book-form input:focus, .book-form select:focus, .book-form textarea:focus { border-color: var(--terra); }
+  .book-form input::placeholder, .book-form textarea::placeholder { color: var(--sub); font-style: italic; }
+  .book-form textarea { resize: none; height: 90px; }
+  .book-btn { background: var(--terra); color: #fff; padding: 14px; border: none; border-radius: 100px; font-family: Jost, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; text-align: center; text-decoration: none; display: block; }
+  .book-btn:hover { background: var(--terra-dark); color: #fff; }
+  .trial-note { text-align: center; font-size: 13px; color: var(--sub); font-style: italic; margin-top: 4px; }
+
+  footer { background: var(--ink); padding: 64px 60px 28px; }
+  .ft { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); }
+  .ft-logo { font-family: 'Libre Baskerville', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
+  .ft-logo em { font-style: italic; color: var(--terra); }
+  .ft-desc { font-size: 14px; color: rgba(255, 255, 255, 0.28); line-height: 1.7; font-weight: 300; font-style: italic; }
+  .ft-col h4 { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 18px; opacity: 0.65; }
+  .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .ft-col ul a { font-size: 14px; color: rgba(255, 255, 255, 0.28); text-decoration: none; transition: color 0.2s; }
+  .ft-col ul a:hover { color: var(--terra); }
+  .ft-bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255, 255, 255, 0.18); }
+
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo nav { top: var(--demo-bar-top); }
+  body.portfolio-demo .hero { padding-top: calc(var(--nav-h) + var(--demo-bar-top)); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 60vw; min-height: 280px; }
+    .hero-left { padding: 60px 24px; }
+    .schedule-grid, .styles-grid, .plans-grid, .rev-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+    .book { grid-template-columns: 1fr; gap: 48px; }
+    .schedule, .styles, .membership, .reviews, .book { padding: 64px 24px; }
+    .ft { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 24px 24px; }
+    .bf-row { grid-template-columns: 1fr; }
+    .ft-bottom { flex-direction: column; align-items: flex-start; }
+    .class-card { grid-template-columns: 1fr; text-align: left; }
+    .class-spots { text-align: left; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+  <a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+  <nav aria-label="Primary">
+    <div class="nav-logo">Root &amp; <em>Rise</em></div>
+    <ul>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#styles">Classes</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+    <a href="#book" class="nav-cta">Try a free class</a>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Yoga studio &middot; Inman Park, Atlanta</div>
+      <h1 id="hero-heading">Find your ground.<br><em>Rise from it.</em></h1>
+      <p class="hero-sub">A warm, welcoming studio for every body and every level. From your first downward dog to your deepest practice &mdash; Root &amp; Rise is where you come back to yourself.</p>
+      <div class="hero-btns">
+        <a href="#book" class="btn-terra">Try your first class free</a>
+        <a href="#schedule" class="btn-outline">View schedule</a>
+      </div>
+      <div class="hero-trust">
+        <div class="ht">All levels welcome</div>
+        <div class="ht">20+ weekly classes</div>
+        <div class="ht">6 certified teachers</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&amp;q=80" width="900" height="1200" alt="Person in a seated yoga pose in a bright studio." decoding="async" fetchpriority="high" />
+      <div class="hero-card">
+        <div class="hc-label">Next class</div>
+        <div class="hc-val">Vinyasa flow &middot; 6pm today<br>4 spots remaining</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span class="strip-item">Vinyasa flow <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Hatha basics <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Yin yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Restorative <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Power yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Prenatal yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Meditation <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Sound bath <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Vinyasa flow <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Hatha basics <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Yin yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Restorative <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Power yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Prenatal yoga <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Meditation <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+      <span class="strip-item">Sound bath <span class="strip-dot" aria-hidden="true">&#9679;</span></span>
+    </div>
+  </div>
+
+  <section class="schedule" id="schedule" aria-labelledby="schedule-heading">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">This week</p>
+        <h2 class="s-title" id="schedule-heading">Class <em>schedule</em></h2>
+      </div>
+      <a href="#schedule" class="schedule-link">Full schedule &rarr;</a>
+    </div>
+    <div class="schedule-grid">
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">6am</span><span class="ct-day">Mon &middot; Wed &middot; Fri</span></div>
+        <div class="class-info"><h3 class="ci-name">Morning vinyasa</h3><div class="ci-instructor">with Amara S.</div><div class="ci-tags"><span class="ci-tag">All levels</span><span class="ci-tag">60 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">8</span> spots left</div>
+      </article>
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">9am</span><span class="ct-day">Tue &middot; Thu &middot; Sat</span></div>
+        <div class="class-info"><h3 class="ci-name">Hatha basics</h3><div class="ci-instructor">with Jade R.</div><div class="ci-tags"><span class="ci-tag ci-tag--terra">Beginner</span><span class="ci-tag">75 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">12</span> spots left</div>
+      </article>
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">12pm</span><span class="ct-day">Mon&ndash;Fri</span></div>
+        <div class="class-info"><h3 class="ci-name">Lunchtime flow</h3><div class="ci-instructor">Rotating instructors</div><div class="ci-tags"><span class="ci-tag">All levels</span><span class="ci-tag">45 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">5</span> spots left</div>
+      </article>
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">6pm</span><span class="ct-day">Mon &middot; Wed &middot; Thu</span></div>
+        <div class="class-info"><h3 class="ci-name">Power vinyasa</h3><div class="ci-instructor">with Marcus A.</div><div class="ci-tags"><span class="ci-tag">Intermediate</span><span class="ci-tag">60 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">4</span> spots left</div>
+      </article>
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">7:30pm</span><span class="ct-day">Tue &middot; Thu</span></div>
+        <div class="class-info"><h3 class="ci-name">Yin &amp; restore</h3><div class="ci-instructor">with Priya N.</div><div class="ci-tags"><span class="ci-tag ci-tag--terra">Beginner</span><span class="ci-tag">75 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">10</span> spots left</div>
+      </article>
+      <article class="class-card">
+        <div class="class-time"><span class="ct-time">10am</span><span class="ct-day">Saturday</span></div>
+        <div class="class-info"><h3 class="ci-name">Community class</h3><div class="ci-instructor">with Amara S.</div><div class="ci-tags"><span class="ci-tag ci-tag--terra">Free</span><span class="ci-tag">All levels</span><span class="ci-tag">60 min</span></div></div>
+        <div class="class-spots"><span class="spots-num">20</span> spots left</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="styles" id="styles" aria-labelledby="styles-heading">
+    <p class="eyebrow">What we teach</p>
+    <h2 class="s-title" id="styles-heading">Every style.<br>Every <em>level.</em></h2>
+    <div class="styles-grid">
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Vinyasa flow</h3><p class="style-desc">Breath-led movement connecting posture to posture in a continuous, meditative flow. Builds strength, flexibility, and focus.</p><span class="style-level">All levels</span></article>
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Hatha basics</h3><p class="style-desc">The perfect starting point. Slower-paced with detailed instruction on foundational poses, breathing, and alignment.</p><span class="style-level">Beginner friendly</span></article>
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Yin &amp; restorative</h3><p class="style-desc">Long-held postures that target deep connective tissue. The antidote to a fast-paced life. No experience needed.</p><span class="style-level">All levels</span></article>
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Power yoga</h3><p class="style-desc">Athletic, strength-focused sequences that build serious endurance and heat. Challenging but always accessible.</p><span class="style-level">Intermediate+</span></article>
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Prenatal yoga</h3><p class="style-desc">Safe, nurturing practice designed for every trimester. Builds strength for birth and community with other expectant mothers.</p><span class="style-level">All trimesters</span></article>
+      <article class="style-card"><span class="style-mark" aria-hidden="true"></span><h3 class="style-name">Sound bath &amp; meditation</h3><p class="style-desc">Bi-weekly sessions using singing bowls and guided meditation for deep rest and nervous system reset.</p><span class="style-level">All welcome</span></article>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&amp;q=80" width="700" height="933" alt="Yoga instructor guiding a class." loading="lazy" decoding="async" />
+      <div class="about-tag"><span class="at-num">7</span><span class="at-label">Years of practice</span></div>
+    </div>
+    <div>
+      <p class="eyebrow">About the studio</p>
+      <h2 class="s-title" id="about-heading">Built on the belief<br>that <em>everyone belongs</em></h2>
+      <p class="about-text">Root &amp; Rise was founded in 2017 by Amara Sterling after a decade of practice that transformed her life following a serious back injury. She built the studio she always wished existed &mdash; zero judgment, genuine community, and teaching that meets you exactly where you are.</p>
+      <p class="about-extra">Our six teachers bring diverse backgrounds and styles &mdash; but share the same commitment to making every student feel seen and supported, whether it&apos;s their first class or their five-hundredth.</p>
+      <div class="teachers">
+        <div class="teacher"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&amp;q=80" width="48" height="48" class="teacher-ava" alt="" loading="lazy" decoding="async" /><div><div class="teacher-name">Amara Sterling</div><div class="teacher-style">Founder &middot; Vinyasa &amp; restorative</div></div></div>
+        <div class="teacher"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&amp;q=80" width="48" height="48" class="teacher-ava" alt="" loading="lazy" decoding="async" /><div><div class="teacher-name">Jade Rivera</div><div class="teacher-style">Hatha basics &amp; prenatal</div></div></div>
+        <div class="teacher"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&amp;q=80" width="48" height="48" class="teacher-ava" alt="" loading="lazy" decoding="async" /><div><div class="teacher-name">Marcus Adeyemi</div><div class="teacher-style">Power yoga &amp; meditation</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="membership" id="membership" aria-labelledby="membership-heading">
+    <p class="eyebrow">Membership</p>
+    <h2 class="s-title" id="membership-heading">Find your <em>practice</em> plan</h2>
+    <div class="plans-grid">
+      <div class="plan">
+        <h3 class="plan-name">Drop-in</h3>
+        <div class="plan-price">$22<span>/class</span></div>
+        <div class="plan-note">Perfect for occasional practice</div>
+        <ul class="plan-list"><li>Access to any class</li><li>Online booking</li><li>Mat rental included</li></ul>
+        <a href="#book" class="plan-btn">Book a class</a>
+      </div>
+      <div class="plan featured">
+        <h3 class="plan-name">Monthly unlimited</h3>
+        <div class="plan-price">$89<span>/month</span></div>
+        <div class="plan-note">Most popular &mdash; best value</div>
+        <ul class="plan-list"><li>Unlimited classes</li><li>Priority booking</li><li>Mat rental included</li><li>10% off workshops</li><li>Guest pass each month</li></ul>
+        <a href="#book" class="plan-btn">Start membership</a>
+      </div>
+      <div class="plan">
+        <h3 class="plan-name">Class pack</h3>
+        <div class="plan-price">$160<span>/10 classes</span></div>
+        <div class="plan-note">No expiry &mdash; use at your pace</div>
+        <ul class="plan-list"><li>10 class credits</li><li>Never expires</li><li>Online booking</li><li>Mat rental included</li></ul>
+        <a href="#book" class="plan-btn">Buy a class pack</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="reviews-heading">
+    <p class="eyebrow">Community love</p>
+    <h2 class="s-title" id="reviews-heading">What our <em>students say</em></h2>
+    <div class="rev-grid">
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-quote">&ldquo;I walked in as a complete beginner convinced I would embarrass myself. I left having booked my next three classes. Amara&apos;s teaching is gentle, encouraging, and completely non-intimidating.&rdquo;</p>
+        <div class="rev-name">Sarah L.</div>
+        <div class="rev-detail">Member since 2022 &middot; Hatha basics</div>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-quote">&ldquo;Root &amp; Rise is the only gym-type thing I&apos;ve ever stuck with. Two and a half years, three classes a week. The community here is unlike anything else. I genuinely look forward to showing up.&rdquo;</p>
+        <div class="rev-name">James O.</div>
+        <div class="rev-detail">Member since 2021 &middot; Power vinyasa</div>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-quote">&ldquo;The prenatal classes were a godsend. Priya was thoughtful, safe, and made me feel capable during a time when my body felt like a stranger. I came back after delivery and never left.&rdquo;</p>
+        <div class="rev-name">Keisha M.</div>
+        <div class="rev-detail">Member since 2023 &middot; Prenatal &amp; vinyasa</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="book" id="book" aria-labelledby="book-heading">
+    <div class="book-info">
+      <p class="eyebrow">Your first class</p>
+      <h2 class="s-title" id="book-heading">Try a class <em>free</em></h2>
+      <p class="s-sub">Your first class is on us &mdash; no strings, no membership required. Just show up, roll out your mat, and see if we&apos;re the right fit. We think you&apos;ll love it.</p>
+      <div class="book-details">
+        <div class="bd"><span class="bd-key">Studio</span><span class="bd-val"><a href="https://www.google.com/maps/search/?api=1&amp;query=240+North+Highland+Ave+NE+Atlanta+GA" rel="noopener noreferrer">240 North Highland Ave NE, Inman Park, Atlanta, GA</a></span></div>
+        <div class="bd"><span class="bd-key">Phone</span><span class="bd-val"><a href="tel:+14045550174">(404) 555-0174</a></span></div>
+        <div class="bd"><span class="bd-key">Email</span><span class="bd-val"><a href="mailto:hello@rootandriseyoga.demo">hello@rootandriseyoga.demo</a></span></div>
+        <div class="bd"><span class="bd-key">Hours</span><span class="bd-val">Studio open 6am &ndash; 9pm daily</span></div>
+      </div>
+    </div>
+    <div class="book-form">
+      <div class="bf-row">
+        <input type="text" placeholder="First name" autocomplete="given-name" aria-label="First name" />
+        <input type="text" placeholder="Last name" autocomplete="family-name" aria-label="Last name" />
+      </div>
+      <input type="email" placeholder="Email address" autocomplete="email" aria-label="Email address" />
+      <input type="tel" placeholder="Phone number" autocomplete="tel" aria-label="Phone number" />
+      <select aria-label="Preferred class style">
+        <option value="" disabled selected>Preferred class style</option>
+        <option>Vinyasa flow</option>
+        <option>Hatha basics (great for beginners)</option>
+        <option>Yin &amp; restorative</option>
+        <option>Power yoga</option>
+        <option>Not sure &mdash; recommend one for me</option>
+      </select>
+      <select aria-label="Best time for you">
+        <option value="" disabled selected>Best time for you</option>
+        <option>Early morning (6am&ndash;8am)</option>
+        <option>Mid-morning (9am&ndash;12pm)</option>
+        <option>Lunchtime (12pm&ndash;2pm)</option>
+        <option>Evening (5pm&ndash;8pm)</option>
+      </select>
+      <textarea placeholder="Anything we should know? Injuries, experience level, questions..." aria-label="Additional notes"></textarea>
+      <a href="mailto:hello@rootandriseyoga.demo?subject=Free%20class%20request" class="book-btn">Claim my free class &rarr;</a>
+      <p class="trial-note">No credit card required &middot; No commitment &middot; Just yoga</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft">
+      <div>
+        <div class="ft-logo">Root &amp; <em>Rise</em></div>
+        <p class="ft-desc">A yoga studio for everyone in Inman Park, Atlanta. 20+ weekly classes, 6 certified teachers, all levels welcome. Open daily 6am &ndash; 9pm.</p>
+      </div>
+      <div class="ft-col"><h4>Classes</h4><ul><li><a href="#schedule">Schedule</a></li><li><a href="#styles">Vinyasa</a></li><li><a href="#styles">Hatha basics</a></li><li><a href="#styles">Yin &amp; restore</a></li></ul></div>
+      <div class="ft-col"><h4>Studio</h4><ul><li><a href="#about">About us</a></li><li><a href="#about">Our teachers</a></li><li><a href="#book">Workshops</a></li><li><a href="#book">Retreats</a></li></ul></div>
+      <div class="ft-col"><h4>Membership</h4><ul><li><a href="#membership">Plans &amp; pricing</a></li><li><a href="#membership">Class packs</a></li><li><a href="#book">Gift cards</a></li><li><a href="#book">Corporate yoga</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>&copy; 2026 Root &amp; Rise Yoga (demo). All rights reserved.</span><span>Inman Park &middot; Atlanta, Georgia</span></div>
+  </footer>
+</body>
+</html>

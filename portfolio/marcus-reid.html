@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Marcus Reid &mdash; Personal Training Atlanta (portfolio sample)</title>
+  <meta name="description" content="Sample personal training landing page: bold hero, transformation grid, programs, about, process, testimonials, and booking form. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/marcus-reid.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Mulish:ital,wght@0,300;0,400;0,600;1,300&amp;display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #080808;
+    --dark: #0f0f0f;
+    --gray: #1a1a1a;
+    --gray-mid: #242424;
+    --lime: #c8f400;
+    --lime-dark: #a8ce00;
+    --white: #f5f5f0;
+    --off: #eeeee8;
+    --text: #f5f5f0;
+    --muted: rgba(245, 245, 240, 0.45);
+    --sub: rgba(245, 245, 240, 0.25);
+    --demo-bar-top: calc(1.3rem + 11px + 1px);
+    --nav-h: 64px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--text); font-family: Mulish, sans-serif; overflow-x: hidden; }
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 52px;
+    background: rgba(8, 8, 8, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245, 245, 240, 0.06);
+  }
+  .nav-logo { font-family: Oswald, sans-serif; font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-logo span { color: var(--lime); }
+  nav ul { list-style: none; display: flex; gap: 32px; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  nav ul a:hover { color: var(--lime); }
+  .nav-cta { background: var(--lime); color: var(--black); padding: 10px 22px; font-family: Oswald, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--lime-dark); }
+
+  .hero { min-height: 100vh; padding-top: var(--nav-h); position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-bg-text { position: absolute; font-family: Oswald, sans-serif; font-size: 28vw; font-weight: 700; color: rgba(245, 245, 240, 0.025); top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; letter-spacing: -2px; line-height: 1; z-index: 0; text-transform: uppercase; }
+  .hero-left { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 80px 52px; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(200, 244, 0, 0.08); border: 1px solid rgba(200, 244, 0, 0.2); color: var(--lime); padding: 7px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; width: fit-content; margin-bottom: 28px; }
+  .hero-title { font-family: Oswald, sans-serif; font-size: clamp(56px, 6.5vw, 100px); font-weight: 700; line-height: 0.92; text-transform: uppercase; color: var(--white); letter-spacing: -1px; margin-bottom: 24px; }
+  .hero-title .lime { color: var(--lime); }
+  .hero-title .outline { -webkit-text-stroke: 1px var(--white); color: transparent; }
+  .hero-sub { font-size: 17px; line-height: 1.8; color: var(--muted); font-weight: 300; max-width: 420px; margin-bottom: 40px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+  .btn-lime { background: var(--lime); color: var(--black); padding: 16px 36px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: background 0.2s; display: inline-block; border: none; cursor: pointer; }
+  .btn-lime:hover { background: var(--lime-dark); }
+  .btn-ghost { border: 1px solid rgba(245, 245, 240, 0.2); color: var(--white); padding: 16px 36px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
+  .hero-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(245, 245, 240, 0.06); }
+  .metric { background: var(--dark); padding: 24px 18px; text-align: center; }
+  .metric-num { font-family: Oswald, sans-serif; font-size: 36px; font-weight: 700; color: var(--lime); display: block; line-height: 1; }
+  .metric-label { font-size: 11px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px; }
+  .hero-right { position: relative; z-index: 1; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: brightness(0.6) contrast(1.1) saturate(0.7); }
+  .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--black) 0%, transparent 25%), linear-gradient(to top, var(--black) 0%, transparent 30%); pointer-events: none; }
+  .hero-certs { position: absolute; bottom: 40px; right: 40px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; max-width: calc(100% - 48px); }
+  .cert { background: rgba(8, 8, 8, 0.85); border: 1px solid rgba(200, 244, 0, 0.2); color: var(--lime); padding: 6px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: right; }
+
+  .transforms { padding: 88px 52px; background: var(--dark); }
+  .section-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; gap: 24px; flex-wrap: wrap; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lime); margin-bottom: 10px; }
+  .s-title { font-family: Oswald, sans-serif; font-size: clamp(32px, 3.5vw, 52px); font-weight: 700; text-transform: uppercase; color: var(--white); line-height: 1.05; letter-spacing: -0.5px; }
+  .trans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .trans-card { position: relative; overflow: hidden; background: var(--gray); }
+  .trans-card img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; filter: brightness(0.7) saturate(0.6); transition: transform 0.5s, filter 0.3s; }
+  .trans-card:hover img { transform: scale(1.04); filter: brightness(0.8) saturate(0.8); }
+  .trans-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(8, 8, 8, 0.9)); pointer-events: none; }
+  .trans-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 20px; }
+  .trans-name { font-family: Oswald, sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; color: var(--white); letter-spacing: 0.5px; }
+  .trans-result { font-size: 13px; color: var(--lime); font-weight: 600; margin-top: 4px; letter-spacing: 0.04em; }
+  .trans-time { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .programs { padding: 88px 52px; background: var(--black); }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(245, 245, 240, 0.04); margin-top: 56px; }
+  .program { background: var(--black); padding: 48px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .program::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+  .program:hover::after { transform: scaleX(1); }
+  .program:hover { background: var(--dark); }
+  .prog-num { font-family: Oswald, sans-serif; font-size: 72px; font-weight: 700; color: rgba(200, 244, 0, 0.06); position: absolute; top: 16px; right: 20px; line-height: 1; }
+  .prog-mark { display: block; width: 32px; height: 3px; background: var(--lime); margin-bottom: 20px; position: relative; z-index: 1; }
+  .prog-name { font-family: Oswald, sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase; color: var(--white); letter-spacing: 0.5px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .prog-desc { font-size: 14px; line-height: 1.75; color: var(--muted); position: relative; z-index: 1; }
+  .prog-price { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(245, 245, 240, 0.08); position: relative; z-index: 1; }
+  .prog-price-from { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sub); }
+  .prog-price-val { font-family: Oswald, sans-serif; font-size: 28px; font-weight: 600; color: var(--lime); }
+
+  .about { padding: 88px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img { position: relative; }
+  .about-img img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; filter: brightness(0.7) contrast(1.05) saturate(0.7); }
+  .about-corner { position: absolute; top: -16px; left: -16px; background: var(--lime); padding: 20px 24px; text-align: center; }
+  .ac-text { font-family: Oswald, sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--black); line-height: 1.35; }
+  .about-text { font-size: 17px; line-height: 1.9; color: var(--muted); font-weight: 300; font-style: italic; margin: 20px 0 28px; }
+  .about-plain { font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 400; }
+  .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+  .cert-item { background: var(--gray); padding: 14px 16px; }
+  .cert-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .cert-body { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .process { padding: 88px 52px; background: var(--lime); }
+  .process .eyebrow { color: var(--black); opacity: 0.5; }
+  .process .s-title { color: var(--black); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; }
+  .ps { padding: 0 28px; position: relative; }
+  .ps::after { content: '\2192'; position: absolute; right: -16px; top: 20px; font-size: 24px; color: rgba(8, 8, 8, 0.25); font-weight: 700; }
+  .ps:last-child::after { display: none; }
+  .ps-num { font-family: Oswald, sans-serif; font-size: 52px; font-weight: 700; color: rgba(8, 8, 8, 0.15); line-height: 1; margin-bottom: 16px; }
+  .ps-title { font-family: Oswald, sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; color: var(--black); letter-spacing: 0.5px; margin-bottom: 10px; }
+  .ps-desc { font-size: 13px; line-height: 1.65; color: rgba(8, 8, 8, 0.55); }
+
+  .testimonials { padding: 88px 52px; background: var(--dark); }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+  .test-card { background: var(--gray); padding: 32px 28px; }
+  .test-stars { color: var(--lime); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+  .test-quote { font-size: 15px; line-height: 1.8; color: var(--muted); font-style: italic; margin-bottom: 22px; }
+  .test-author { font-family: Oswald, sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--white); letter-spacing: 0.5px; }
+  .test-detail { font-size: 12px; color: var(--lime); margin-top: 3px; }
+
+  .booking { padding: 88px 52px; background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .booking-left .s-sub { font-size: 16px; line-height: 1.8; color: var(--muted); font-weight: 300; margin: 16px 0 32px; }
+  .booking-contact { display: flex; flex-direction: column; gap: 14px; }
+  .bc-item { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--muted); }
+  .bc-key { flex-shrink: 0; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; color: var(--sub); min-width: 4.5rem; }
+  .bc-val { color: var(--white); font-weight: 500; }
+  .bc-val a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
+  .bc-val a:hover { color: var(--lime); }
+  .booking-form { display: flex; flex-direction: column; gap: 14px; }
+  .bf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .booking-form input, .booking-form select, .booking-form textarea { background: var(--gray); border: 1px solid rgba(245, 245, 240, 0.08); color: var(--white); padding: 13px 16px; font-family: Mulish, sans-serif; font-size: 14px; width: 100%; outline: none; transition: border-color 0.2s; }
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: var(--lime); }
+  .booking-form input::placeholder, .booking-form textarea::placeholder { color: var(--sub); font-style: italic; }
+  .booking-form select option { background: var(--gray); }
+  .booking-form textarea { resize: none; height: 100px; }
+  .submit-btn { background: var(--lime); color: var(--black); padding: 16px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border: none; cursor: pointer; width: 100%; transition: background 0.2s; text-align: center; text-decoration: none; display: block; }
+  .submit-btn:hover { background: var(--lime-dark); color: var(--black); }
+
+  footer { background: var(--dark); padding: 56px 52px 28px; border-top: 1px solid rgba(245, 245, 240, 0.05); }
+  .ft { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(245, 245, 240, 0.06); }
+  .ft-logo { font-family: Oswald, sans-serif; font-size: 22px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .ft-logo span { color: var(--lime); }
+  .ft-desc { font-size: 14px; color: var(--sub); line-height: 1.7; }
+  .ft-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 16px; opacity: 0.65; }
+  .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .ft-col ul a { font-size: 14px; color: var(--sub); text-decoration: none; transition: color 0.2s; }
+  .ft-col ul a:hover { color: var(--lime); }
+  .ft-bottom { padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(245, 245, 240, 0.15); }
+
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo nav { top: var(--demo-bar-top); }
+  body.portfolio-demo .hero { padding-top: calc(var(--nav-h) + var(--demo-bar-top)); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 70vw; min-height: 280px; }
+    .hero-left { padding: 60px 24px; }
+    .trans-grid, .programs-grid, .test-grid { grid-template-columns: 1fr; }
+    .about, .booking { grid-template-columns: 1fr; gap: 48px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process .ps::after { display: none; }
+    .transforms, .programs, .about, .process, .testimonials, .booking { padding: 64px 24px; }
+    .ft { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 24px 24px; }
+    .bf-row { grid-template-columns: 1fr; }
+    .ft-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+  <a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+  <nav aria-label="Primary">
+    <div class="nav-logo">Marcus<span>.</span>Reid</div>
+    <ul>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#booking">Book</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Book a session</a>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg-text" aria-hidden="true">Stronger</div>
+    <div class="hero-left">
+      <div class="hero-tag">Atlanta, GA &middot; online coaching available</div>
+      <h1 class="hero-title" id="hero-heading">
+        Stop<br>
+        <span class="lime">Starting</span><br>
+        <span class="outline">Over.</span>
+      </h1>
+      <p class="hero-sub">I build training programs that fit your life &mdash; not the other way around. 8 years, 400+ clients, and a 94% 12-month retention rate. Let&apos;s build something that actually lasts.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-lime">Book a free consult</a>
+        <a href="#programs" class="btn-ghost">View programs</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><span class="metric-num">400+</span><span class="metric-label">Clients trained</span></div>
+        <div class="metric"><span class="metric-num">8yr</span><span class="metric-label">Experience</span></div>
+        <div class="metric"><span class="metric-num">94%</span><span class="metric-label">Retention rate</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=900&amp;q=80" width="900" height="1200" alt="Personal trainer doing intense gym conditioning work." decoding="async" fetchpriority="high" />
+      <div class="hero-right-overlay" aria-hidden="true"></div>
+      <div class="hero-certs">
+        <div class="cert">NASM-CPT certified</div>
+        <div class="cert">Precision Nutrition L2</div>
+        <div class="cert">CSCS certified</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="transforms" id="results" aria-labelledby="results-heading">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">Client transformations</p>
+        <h2 class="s-title" id="results-heading">Real people.<br>Real results.</h2>
+      </div>
+    </div>
+    <div class="trans-grid">
+      <article class="trans-card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&amp;q=80" width="600" height="800" alt="" loading="lazy" decoding="async" />
+        <div class="trans-overlay" aria-hidden="true"></div>
+        <div class="trans-info"><div class="trans-name">Darius M.</div><div class="trans-result">Lost 42 lbs &middot; gained significant muscle</div><div class="trans-time">16 weeks &middot; 1-on-1 program</div></div>
+      </article>
+      <article class="trans-card">
+        <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&amp;q=80" width="600" height="800" alt="" loading="lazy" decoding="async" />
+        <div class="trans-overlay" aria-hidden="true"></div>
+        <div class="trans-info"><div class="trans-name">Alicia T.</div><div class="trans-result">First marathon at 44 &middot; 4:12 finish</div><div class="trans-time">24 weeks &middot; run training</div></div>
+      </article>
+      <article class="trans-card">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&amp;q=80" width="600" height="800" alt="" loading="lazy" decoding="async" />
+        <div class="trans-overlay" aria-hidden="true"></div>
+        <div class="trans-info"><div class="trans-name">Kevin R.</div><div class="trans-result">From 185 lbs to 210 lbs lean mass</div><div class="trans-time">20 weeks &middot; strength &amp; hypertrophy</div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="programs" id="programs" aria-labelledby="programs-heading">
+    <p class="eyebrow">Training options</p>
+    <h2 class="s-title" id="programs-heading">Programs built<br>around your life</h2>
+    <div class="programs-grid">
+      <article class="program">
+        <span class="prog-num" aria-hidden="true">01</span>
+        <span class="prog-mark" aria-hidden="true"></span>
+        <h3 class="prog-name">1-on-1 in-person</h3>
+        <p class="prog-desc">Private sessions at your gym or mine. Full program design, real-time coaching, and weekly check-ins. My most results-driven option.</p>
+        <div class="prog-price"><div class="prog-price-from">Starting from</div><div class="prog-price-val">$120/session</div></div>
+      </article>
+      <article class="program">
+        <span class="prog-num" aria-hidden="true">02</span>
+        <span class="prog-mark" aria-hidden="true"></span>
+        <h3 class="prog-name">Online coaching</h3>
+        <p class="prog-desc">Custom programming, nutrition guidance, video check-ins, and daily messaging support. Full coaching without the commute.</p>
+        <div class="prog-price"><div class="prog-price-from">Starting from</div><div class="prog-price-val">$199/month</div></div>
+      </article>
+      <article class="program">
+        <span class="prog-num" aria-hidden="true">03</span>
+        <span class="prog-mark" aria-hidden="true"></span>
+        <h3 class="prog-name">Transformation package</h3>
+        <p class="prog-desc">The full experience. 12 weeks, in-person sessions, full nutrition plan, daily accountability, and guaranteed results &mdash; or your money back.</p>
+        <div class="prog-price"><div class="prog-price-from">Starting from</div><div class="prog-price-val">$1,800/12wk</div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&amp;q=80" width="700" height="933" alt="Coach with client in gym setting." loading="lazy" decoding="async" />
+      <div class="about-corner"><div class="ac-text">NASM &middot; CSCS<br>Precision Nutrition</div></div>
+    </div>
+    <div>
+      <p class="eyebrow">About Marcus</p>
+      <h2 class="s-title" id="about-heading">I&apos;ve been where<br>you are.</h2>
+      <p class="about-text">I spent three years starting over. Different programs, different diets, same results &mdash; none. In 2015 I got serious about understanding how the body actually works. I got certified, I coached hundreds of clients, and I built a system that works for real people with real schedules.</p>
+      <p class="about-plain">My approach is simple: we build a program around your life, not an idealised version of it. We track what matters, adjust what isn&apos;t working, and stay consistent. That&apos;s it.</p>
+      <div class="certs-grid">
+        <div class="cert-item"><div class="cert-name">NASM-CPT</div><div class="cert-body">Certified personal trainer</div></div>
+        <div class="cert-item"><div class="cert-name">CSCS</div><div class="cert-body">Strength &amp; conditioning</div></div>
+        <div class="cert-item"><div class="cert-name">PN Level 2</div><div class="cert-body">Precision Nutrition</div></div>
+        <div class="cert-item"><div class="cert-name">CPR/AED</div><div class="cert-body">Certified first responder</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" aria-labelledby="process-heading">
+    <p class="eyebrow">How it works</p>
+    <h2 class="s-title" id="process-heading">From first call<br>to first session</h2>
+    <div class="process-steps">
+      <div class="ps"><div class="ps-num">01</div><div class="ps-title">Free consult</div><p class="ps-desc">30 minutes on the phone. I learn your goals, your schedule, your history. You ask me anything. Zero commitment.</p></div>
+      <div class="ps"><div class="ps-num">02</div><div class="ps-title">Custom plan</div><p class="ps-desc">I build your program &mdash; training, nutrition, and accountability structure &mdash; tailored specifically to your life.</p></div>
+      <div class="ps"><div class="ps-num">03</div><div class="ps-title">We start</div><p class="ps-desc">First session within 48 hours of signing up. No waiting, no onboarding bureaucracy. We get to work.</p></div>
+      <div class="ps"><div class="ps-num">04</div><div class="ps-title">We adjust</div><p class="ps-desc">Weekly check-ins. If something isn&apos;t working, we fix it. The plan evolves as you do. This is long-term.</p></div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+    <p class="eyebrow">What clients say</p>
+    <h2 class="s-title" id="testimonials-heading">4.9 stars &middot; 200+ reviews</h2>
+    <div class="test-grid">
+      <article class="test-card">
+        <p class="test-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="test-quote">&ldquo;I&apos;ve had four personal trainers over the years. Marcus is the first one who built a program I could actually sustain. Two years in and I&apos;ve never been in better shape.&rdquo;</p>
+        <div class="test-author">Darius M.</div>
+        <div class="test-detail">1-on-1 training &middot; 2 years</div>
+      </article>
+      <article class="test-card">
+        <p class="test-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="test-quote">&ldquo;The online coaching exceeded every expectation. I live in Savannah &mdash; I can&apos;t do in-person &mdash; and Marcus checks in daily, adjusts the plan, and actually responds within minutes.&rdquo;</p>
+        <div class="test-author">Priya S.</div>
+        <div class="test-detail">Online coaching &middot; 8 months</div>
+      </article>
+      <article class="test-card">
+        <p class="test-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="test-quote">&ldquo;I signed up for the 12-week transformation on a dare. I didn&apos;t believe in it. I lost 38 pounds and ran my first 5K. Marcus changed my life &mdash; I&apos;m not being dramatic.&rdquo;</p>
+        <div class="test-author">Tanya W.</div>
+        <div class="test-detail">12-week transformation</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="booking" id="booking" aria-labelledby="booking-heading">
+    <div class="booking-left">
+      <p class="eyebrow">Get started</p>
+      <h2 class="s-title" id="booking-heading">Book your<br>free consult</h2>
+      <p class="s-sub">30 minutes. No sales pitch. I&apos;ll tell you exactly what program makes sense for your goals &mdash; and whether I&apos;m the right fit for you.</p>
+      <div class="booking-contact">
+        <div class="bc-item"><span class="bc-key">Phone</span><span class="bc-val"><a href="tel:+14045550163">(404) 555-0163</a></span></div>
+        <div class="bc-item"><span class="bc-key">Email</span><span class="bc-val"><a href="mailto:marcus@reidfit.demo">marcus@reidfit.demo</a></span></div>
+        <div class="bc-item"><span class="bc-key">Location</span><span class="bc-val">Midtown Atlanta &middot; online nationwide</span></div>
+        <div class="bc-item"><span class="bc-key">Hours</span><span class="bc-val">Mon&ndash;Sat &middot; 6am &ndash; 8pm</span></div>
+      </div>
+    </div>
+    <div class="booking-form">
+      <div class="bf-row">
+        <input type="text" placeholder="First name" autocomplete="given-name" aria-label="First name" />
+        <input type="text" placeholder="Last name" autocomplete="family-name" aria-label="Last name" />
+      </div>
+      <input type="email" placeholder="Email address" autocomplete="email" aria-label="Email address" />
+      <input type="tel" placeholder="Phone number" autocomplete="tel" aria-label="Phone number" />
+      <select aria-label="Interested in">
+        <option value="" disabled selected>Interested in</option>
+        <option>1-on-1 in-person training</option>
+        <option>Online coaching</option>
+        <option>12-week transformation</option>
+        <option>Not sure &mdash; let&apos;s talk</option>
+      </select>
+      <select aria-label="Main goal">
+        <option value="" disabled selected>Main goal</option>
+        <option>Lose weight / body fat</option>
+        <option>Build muscle / strength</option>
+        <option>Athletic performance</option>
+        <option>General health &amp; fitness</option>
+        <option>Marathon / race training</option>
+      </select>
+      <textarea placeholder="Tell me a bit about where you&apos;re at and what you&apos;re trying to achieve..." aria-label="Your message"></textarea>
+      <a href="mailto:marcus@reidfit.demo?subject=Free%20consult%20request" class="submit-btn">Book my free consult &rarr;</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft">
+      <div>
+        <div class="ft-logo">Marcus<span>.</span>Reid</div>
+        <p class="ft-desc">Personal training and online coaching in Atlanta, GA. NASM-CPT &middot; CSCS &middot; Precision Nutrition Level 2. Serving clients in-person and nationwide online.</p>
+      </div>
+      <div class="ft-col"><h4>Programs</h4><ul><li><a href="#programs">1-on-1 training</a></li><li><a href="#programs">Online coaching</a></li><li><a href="#programs">Transformation</a></li><li><a href="#booking">Pricing</a></li></ul></div>
+      <div class="ft-col"><h4>About</h4><ul><li><a href="#about">My story</a></li><li><a href="#about">Certifications</a></li><li><a href="#results">Results</a></li><li><a href="#booking">Blog</a></li></ul></div>
+      <div class="ft-col"><h4>Contact</h4><ul><li><a href="#booking">Free consult</a></li><li><a href="tel:+14045550163">(404) 555-0163</a></li><li><a href="#booking">Instagram</a></li><li><a href="#booking">YouTube</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>&copy; 2026 Marcus Reid Fitness (demo). All rights reserved.</span><span>Atlanta, GA &middot; online worldwide</span></div>
+  </footer>
+</body>
+</html>

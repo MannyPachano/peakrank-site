@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Fuego Wheels &mdash; Atlanta Food Truck (portfolio sample)</title>
+  <meta name="description" content="Sample food truck landing page: hero with schedule, menu grid, live location tracker, catering CTA, and reviews. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/fuego-wheels.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&amp;family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --fire: #ff4d00;
+    --fire-dark: #cc3d00;
+    --teal: #00c2a8;
+    --teal-dark: #009e88;
+    --yellow: #ffd600;
+    --purple: #5e17eb;
+    --dark: #0f0a00;
+    --charcoal: #1c1608;
+    --white: #fffcf5;
+    --cream: #fff8e8;
+    --text: #1c1608;
+    --muted: #6b5a3a;
+    --demo-bar-top: calc(1.3rem + 11px + 1px);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--text); font-family: Nunito, sans-serif; overflow-x: hidden; }
+  nav { background: var(--dark); padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--fire); }
+  .nav-logo { font-family: Righteous, sans-serif; font-size: 22px; color: var(--white); letter-spacing: 1px; }
+  .nav-logo span { color: var(--fire); }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav ul a { color: rgba(255, 252, 245, 0.5); text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; transition: color 0.2s; text-transform: uppercase; }
+  nav ul a:hover { color: var(--fire); }
+  .nav-track { background: var(--fire); color: #fff; padding: 9px 20px; font-size: 13px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 100px; transition: background 0.2s; }
+  .nav-track:hover { background: var(--fire-dark); }
+  .hero { background: var(--dark); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 80px 0 48px; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 77, 0, 0.2) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; }
+  .hero-glow { position: absolute; top: -20%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 77, 0, 0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-glow2 { position: absolute; bottom: -20%; right: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0, 194, 168, 0.12) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; padding: 0 64px; width: 100%; max-width: 1400px; margin: 0 auto; }
+  .hero-label { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 77, 0, 0.15); border: 1px solid rgba(255, 77, 0, 0.3); color: var(--fire); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; margin-bottom: 24px; text-transform: uppercase; }
+  .hero-title { font-family: Righteous, sans-serif; font-size: clamp(52px, 6vw, 88px); line-height: 1; color: var(--white); margin-bottom: 20px; }
+  .hero-title .fire { color: var(--fire); }
+  .hero-title .teal { color: var(--teal); }
+  .hero-sub { font-size: 18px; line-height: 1.75; color: rgba(255, 252, 245, 0.5); margin-bottom: 36px; font-style: italic; max-width: 440px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-fire { background: var(--fire); color: #fff; padding: 15px 32px; font-size: 15px; font-weight: 800; text-decoration: none; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s; display: inline-block; border: none; cursor: pointer; }
+  .btn-fire:hover { background: var(--fire-dark); }
+  .btn-teal { background: var(--teal); color: var(--dark); padding: 15px 32px; font-size: 15px; font-weight: 800; text-decoration: none; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s; display: inline-block; }
+  .btn-teal:hover { background: var(--teal-dark); }
+  .btn-teal--block { text-align: center; border-radius: 100px; font-size: 14px; font-weight: 800; display: block; padding: 13px; }
+  .hero-schedule { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px 24px; }
+  .hs-label { font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255, 252, 245, 0.3); margin-bottom: 14px; }
+  .hs-items { display: flex; flex-direction: column; gap: 8px; }
+  .hs-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hs-day { font-size: 13px; font-weight: 700; color: rgba(255, 252, 245, 0.5); text-transform: uppercase; letter-spacing: 0.06em; min-width: 80px; }
+  .hs-loc { font-size: 14px; font-weight: 700; color: var(--white); }
+  .hs-time { font-size: 12px; color: var(--teal); font-weight: 700; white-space: nowrap; }
+  .hero-img-side { position: relative; }
+  .hero-img-side img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 20px; filter: brightness(0.75) saturate(1.2); display: block; }
+  .hero-img-badge { position: absolute; top: -16px; right: -16px; background: var(--yellow); color: var(--dark); font-family: Righteous, sans-serif; font-size: 13px; letter-spacing: 0.06em; padding: 12px 16px; border-radius: 12px; transform: rotate(6deg); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); text-align: center; line-height: 1.35; }
+  .menu { padding: 80px 48px; background: var(--cream); }
+  .s-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fire); margin-bottom: 10px; }
+  .s-title { font-family: Righteous, sans-serif; font-size: clamp(32px, 3.5vw, 52px); color: var(--dark); line-height: 1.1; margin-bottom: 48px; }
+  .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .menu-item { background: var(--white); border-radius: 16px; padding: 24px 20px; display: flex; gap: 16px; align-items: flex-start; border: 1.5px solid #f0e8d0; transition: border-color 0.2s, transform 0.2s; }
+  .menu-item:hover { border-color: var(--fire); transform: translateY(-2px); }
+  .mi-img { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; flex-shrink: 0; filter: saturate(1.1); display: block; }
+  .mi-name { font-family: Righteous, sans-serif; font-size: 18px; color: var(--dark); margin-bottom: 4px; }
+  .mi-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+  .mi-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .mi-price { font-family: Righteous, sans-serif; font-size: 20px; color: var(--fire); }
+  .mi-badge { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 100px; background: rgba(255, 77, 0, 0.1); color: var(--fire); text-transform: uppercase; letter-spacing: 0.04em; }
+  .mi-badge--spicy { background: rgba(255, 214, 0, 0.15); color: #8b6000; }
+  .tracker { background: var(--dark); padding: 72px 48px; }
+  .tracker-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .tracker-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .tracker-title { font-family: Righteous, sans-serif; font-size: clamp(32px, 3.5vw, 52px); color: var(--white); line-height: 1.1; margin-bottom: 16px; }
+  .tracker-sub { font-size: 17px; color: rgba(255, 252, 245, 0.45); line-height: 1.7; font-style: italic; margin-bottom: 32px; }
+  .tracker-social { display: flex; gap: 12px; flex-wrap: wrap; }
+  .social-btn { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--white); padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .social-btn:hover { border-color: var(--fire); color: var(--fire); }
+  .tracker-map { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .map-label { font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); }
+  .map-location { font-family: Righteous, sans-serif; font-size: 22px; color: var(--white); }
+  .map-detail { font-size: 14px; color: rgba(255, 252, 245, 0.4); line-height: 1.6; }
+  .live-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 194, 168, 0.1); border: 1px solid rgba(0, 194, 168, 0.25); color: var(--teal); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; width: fit-content; }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: fw-blink 1.5s infinite; }
+  @keyframes fw-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+  .catering { padding: 72px 48px; background: var(--fire); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .cat-title { font-family: Righteous, sans-serif; font-size: clamp(32px, 3.5vw, 52px); color: #fff; line-height: 1.1; margin-bottom: 12px; }
+  .cat-sub { font-size: 17px; color: rgba(255, 255, 255, 0.7); line-height: 1.7; font-style: italic; }
+  .cat-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .cat-pill { background: rgba(255, 255, 255, 0.12); color: #fff; padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 700; }
+  .btn-white { background: #fff; color: var(--fire); padding: 16px 36px; font-size: 15px; font-weight: 800; text-decoration: none; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; display: inline-block; transition: background 0.2s; border: none; cursor: pointer; }
+  .btn-white:hover { background: var(--yellow); }
+  .reviews { padding: 72px 48px; background: var(--cream); }
+  .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .rev-card { background: var(--white); border-radius: 16px; padding: 24px 20px; border: 1.5px solid #f0e8d0; }
+  .rev-stars { color: var(--fire); font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
+  .rev-text { font-size: 14px; line-height: 1.75; color: var(--text); font-style: italic; margin-bottom: 16px; }
+  .rev-author { font-size: 14px; font-weight: 800; color: var(--dark); }
+  .rev-sub { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  footer { background: var(--charcoal); padding: 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 32px; border-top: 3px solid var(--fire); }
+  .ft-logo { font-family: Righteous, sans-serif; font-size: 22px; color: var(--white); }
+  .ft-logo span { color: var(--fire); }
+  .ft-center { text-align: center; font-size: 13px; color: rgba(255, 252, 245, 0.25); line-height: 1.6; }
+  .ft-links { display: flex; justify-content: flex-end; gap: 20px; flex-wrap: wrap; }
+  .ft-links a { font-size: 13px; color: rgba(255, 252, 245, 0.3); text-decoration: none; font-weight: 700; transition: color 0.2s; }
+  .ft-links a:hover { color: var(--fire); }
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo nav { position: fixed; top: var(--demo-bar-top); left: 0; right: 0; }
+  body.portfolio-demo .hero { padding-top: calc(64px + var(--demo-bar-top)); }
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    nav ul { display: none; }
+    .hero-inner, .tracker-inner, .catering { grid-template-columns: 1fr; }
+    .hero-inner { padding: 0 24px; }
+    .menu-grid, .rev-grid { grid-template-columns: 1fr; }
+    .menu, .tracker, .catering, .reviews { padding: 60px 24px; }
+    .catering { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; text-align: center; padding: 36px 24px; }
+    .ft-links { justify-content: center; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+  <a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+  <nav aria-label="Primary">
+    <div class="nav-logo">Fuego <span>Wheels</span></div>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#tracker">Find us</a></li>
+      <li><a href="#catering">Catering</a></li>
+    </ul>
+    <a href="#tracker" class="nav-track">Track the truck</a>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-glow2" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label">Atlanta&apos;s most wanted food truck</div>
+        <h1 class="hero-title" id="hero-heading">Tacos<br>on <span class="fire">fire.</span><br><span class="teal">Find us.</span></h1>
+        <p class="hero-sub">Street tacos, burritos, and elotes made from scratch daily. We show up, we cook loud, and we sell out &mdash; so follow us and never miss the truck.</p>
+        <div class="hero-btns">
+          <a href="#tracker" class="btn-fire">Where are we?</a>
+          <a href="#menu" class="btn-teal">View the menu</a>
+        </div>
+        <div class="hero-schedule">
+          <div class="hs-label">This week&apos;s schedule</div>
+          <div class="hs-items">
+            <div class="hs-item"><span class="hs-day">Tue</span><span class="hs-loc">Ponce City Market</span><span class="hs-time">11am&ndash;3pm</span></div>
+            <div class="hs-item"><span class="hs-day">Wed</span><span class="hs-loc">Krog Street Market</span><span class="hs-time">11am&ndash;4pm</span></div>
+            <div class="hs-item"><span class="hs-day">Thu</span><span class="hs-loc">Old Fourth Ward</span><span class="hs-time">5pm&ndash;9pm</span></div>
+            <div class="hs-item"><span class="hs-day">Fri</span><span class="hs-loc">Centennial Park</span><span class="hs-time">11am&ndash;8pm</span></div>
+            <div class="hs-item"><span class="hs-day">Sat</span><span class="hs-loc">Sweet Auburn Market</span><span class="hs-time">10am&ndash;6pm</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-side">
+        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=700&amp;q=80" width="700" height="700" alt="Tacos and street food spread." decoding="async" fetchpriority="high" />
+        <div class="hero-img-badge">Sold out<br>last 3 Fridays</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <p class="s-tag">What we&apos;re serving</p>
+    <h2 class="s-title">The menu</h2>
+    <div class="menu-grid">
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=200&amp;q=80" width="80" height="80" alt="" class="mi-img" loading="lazy" decoding="async" />
+        <div>
+          <h3 class="mi-name">Birria quesatacos</h3>
+          <p class="mi-desc">Slow-braised beef birria, consomm&eacute; for dipping, Oaxacan cheese, cilantro, onion.</p>
+          <div class="mi-footer">
+            <div class="mi-price">$4.50 ea</div>
+            <span class="mi-badge">Bestseller</span>
+          </div>
+        </div>
+      </article>
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1613514785940-daed07799d9b?w=200&amp;q=80" width="80" height="80" alt="" class="mi-img" loading="lazy" decoding="async" />
+        <div>
+          <h3 class="mi-name">Al pastor taco</h3>
+          <p class="mi-desc">Achiote-marinated pork, pineapple, tomatillo salsa, pickled jalape&ntilde;o.</p>
+          <div class="mi-footer">
+            <div class="mi-price">$4 ea</div>
+            <span class="mi-badge mi-badge--spicy">Spicy</span>
+          </div>
+        </div>
+      </article>
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1625937286074-9ca519d5d9df?w=200&amp;q=80" width="80" height="80" alt="" class="mi-img" loading="lazy" decoding="async" />
+        <div>
+          <h3 class="mi-name">Street corn elote</h3>
+          <p class="mi-desc">Grilled corn, cotija, crema, taj&iacute;n, lime, chilli butter. The one everyone asks about.</p>
+          <div class="mi-footer">
+            <div class="mi-price">$6</div>
+            <span class="mi-badge">Fan fave</span>
+          </div>
+        </div>
+      </article>
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200&amp;q=80" width="80" height="80" alt="" class="mi-img" loading="lazy" decoding="async" />
+        <div>
+          <h3 class="mi-name">The Fuego burrito</h3>
+          <p class="mi-desc">Your choice of protein, black beans, rice, pico, guac, chipotle crema, queso.</p>
+          <div class="mi-footer">
+            <div class="mi-price">$13</div>
+            <span class="mi-badge">Build your own</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="tracker" id="tracker">
+    <div class="tracker-inner">
+      <div>
+        <p class="tracker-tag">Live location</p>
+        <h2 class="tracker-title">Never miss the truck</h2>
+        <p class="tracker-sub">We move. You follow. Follow us on Instagram for same-day location drops, sold-out alerts, and surprise pop-ups we don&apos;t announce anywhere else.</p>
+        <div class="tracker-social">
+          <a href="#" class="social-btn">@FuegoWheelsATL</a>
+          <a href="#" class="social-btn">Facebook</a>
+          <a href="#" class="social-btn">TikTok</a>
+        </div>
+      </div>
+      <div class="tracker-map">
+        <div class="live-pill"><span class="live-dot" aria-hidden="true"></span>Live now</div>
+        <div class="map-label">Today&apos;s location</div>
+        <div class="map-location">Krog Street Market</div>
+        <p class="map-detail">99 Krog St NE, Atlanta, GA 30307<br>Open until 4:00pm today<br><br>Look for the orange truck with the fire logo on the south side of the lot.</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=99+Krog+St+NE+Atlanta+GA+30307" class="btn-teal btn-teal--block" rel="noopener noreferrer">Get directions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="catering" id="catering">
+    <div>
+      <h2 class="cat-title">Book the truck for your event</h2>
+      <p class="cat-sub">Weddings, corporate events, birthday parties, block parties &mdash; we show up and feed everyone. Minimum 50 guests.</p>
+      <div class="cat-pills">
+        <span class="cat-pill">Weddings</span>
+        <span class="cat-pill">Corporate events</span>
+        <span class="cat-pill">Birthdays</span>
+        <span class="cat-pill">Block parties</span>
+      </div>
+    </div>
+    <a href="mailto:catering@fuegowheels.com" class="btn-white">Get a catering quote &rarr;</a>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <p class="s-tag">What people are saying</p>
+    <h2 class="s-title">4.9 stars on Google</h2>
+    <div class="rev-grid">
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;The birria tacos changed my life. I followed this truck to three different locations in one week. Zero regrets.&rdquo;</p>
+        <p class="rev-author">Kayla M.</p>
+        <p class="rev-sub">Midtown Atlanta</p>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;Hired Fuego Wheels for our company picnic. 200 people, every single one happy. They were professional, on time, and the food was outrageous.&rdquo;</p>
+        <p class="rev-author">Tom R., event coordinator</p>
+        <p class="rev-sub">Corporate catering</p>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;The elote. That&apos;s all I need to say. The elote. Come for anything, stay for the elote.&rdquo;</p>
+        <p class="rev-author">Brianna J.</p>
+        <p class="rev-sub">Ponce City Market</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft-logo">Fuego <span>Wheels</span></div>
+    <p class="ft-center">&copy; 2026 Fuego Wheels LLC &middot; Atlanta, GA<br>Licensed &amp; insured &middot; Fulton County food permit #FT-28841 (demo)</p>
+    <div class="ft-links">
+      <a href="#menu">Menu</a>
+      <a href="#tracker">Schedule</a>
+      <a href="#catering">Catering</a>
+      <a href="mailto:hello@fuegowheels.com">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

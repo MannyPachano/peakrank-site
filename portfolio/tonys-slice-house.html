@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Tony&apos;s Slice House &mdash; Best Pizza in Atlanta (portfolio sample)</title>
+  <meta name="description" content="Sample pizzeria landing page: split hero, menu strip, specialty pies, category tiles, reviews, and order CTA. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/tonys-slice-house.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #cc1f1f;
+    --red-dark: #a01515;
+    --red-bright: #e82222;
+    --yellow: #f5c842;
+    --yellow-dark: #d4a820;
+    --white: #fffbf5;
+    --cream: #fff5e0;
+    --off: #f9f0dc;
+    --dark: #1a0a08;
+    --text: #1a0a08;
+    --muted: #6b4a3a;
+    --green: #2d6a2d;
+    --demo-bar-top: calc(1.3rem + 11px + 1px);
+    --announce-h: 46px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--text); font-family: Barlow, sans-serif; overflow-x: hidden; }
+  .announce { background: var(--red); padding: 10px 24px; text-align: center; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 0.05em; }
+  .announce .announce-code { color: var(--yellow); font-weight: 800; }
+  nav { background: var(--dark); padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Alfa Slab One', serif; font-size: 24px; color: var(--white); letter-spacing: 1px; }
+  .nav-logo span { color: var(--red-bright); }
+  nav ul { list-style: none; display: flex; gap: 32px; }
+  nav ul a { color: rgba(255, 251, 245, 0.55); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; transition: color 0.2s; text-transform: uppercase; }
+  nav ul a:hover { color: var(--yellow); }
+  .nav-order { background: var(--red); color: #fff; padding: 10px 22px; font-size: 14px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; }
+  .nav-order:hover { background: var(--red-bright); }
+  .hero { background: var(--dark); min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-conic-gradient(rgba(255, 255, 255, 0.015) 0% 25%, transparent 0% 50%); background-size: 40px 40px; pointer-events: none; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; z-index: 2; }
+  .hero-badge { display: inline-block; background: var(--yellow); color: var(--dark); font-family: 'Alfa Slab One', serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 18px; margin-bottom: 28px; transform: rotate(-1.5deg); align-self: flex-start; }
+  .hero-title { font-family: 'Alfa Slab One', serif; font-size: clamp(56px, 6vw, 96px); line-height: 0.95; color: var(--white); margin-bottom: 20px; letter-spacing: 0; }
+  .hero-title .red { color: var(--red-bright); }
+  .hero-title .yellow { color: var(--yellow); }
+  .hero-sub { font-size: 18px; line-height: 1.7; color: rgba(255, 251, 245, 0.55); margin-bottom: 40px; max-width: 420px; font-style: italic; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 52px; }
+  .btn-red { background: var(--red); color: #fff; padding: 16px 36px; font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; display: inline-block; border: none; cursor: pointer; }
+  .btn-red:hover { background: var(--red-bright); }
+  .btn-yellow { background: var(--yellow); color: var(--dark); padding: 16px 36px; font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; display: inline-block; }
+  .btn-yellow:hover { background: var(--yellow-dark); }
+  .hero-stats { display: flex; gap: 36px; padding-top: 36px; border-top: 1px solid rgba(255, 251, 245, 0.1); flex-wrap: wrap; }
+  .hs-num { font-family: 'Alfa Slab One', serif; font-size: 36px; color: var(--red-bright); display: block; line-height: 1; }
+  .hs-label { font-size: 12px; color: rgba(255, 251, 245, 0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+  .hero-right { position: relative; overflow: hidden; min-height: 280px; }
+  .hero-img { width: 100%; height: 100%; min-height: inherit; object-fit: cover; display: block; filter: brightness(0.7) saturate(1.2); }
+  .hero-img-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--dark) 0%, transparent 30%); pointer-events: none; }
+  .hero-tag { position: absolute; bottom: 40px; right: 40px; background: var(--red); color: #fff; font-family: 'Alfa Slab One', serif; font-size: 14px; letter-spacing: 0.05em; padding: 14px 20px; transform: rotate(2deg); }
+  .menu-strip { background: var(--red); padding: 0; overflow: hidden; white-space: nowrap; }
+  .strip-track { display: inline-flex; animation: ts-scroll 20s linear infinite; }
+  .strip-item { font-family: 'Alfa Slab One', serif; font-size: 15px; color: rgba(255, 255, 255, 0.85); padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; }
+  .strip-dot { color: var(--yellow); font-size: 10px; }
+  @keyframes ts-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .specialties { padding: 80px 48px; background: var(--cream); }
+  .section-head { margin-bottom: 56px; }
+  .s-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .s-title { font-family: 'Alfa Slab One', serif; font-size: clamp(36px, 4vw, 60px); color: var(--dark); line-height: 1.05; }
+  .pizza-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pizza-card { background: var(--white); border: 2px solid var(--off); overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
+  .pizza-card:hover { transform: translateY(-4px); border-color: var(--red); }
+  .pizza-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; filter: saturate(1.1); }
+  .pizza-body { padding: 24px 20px; }
+  .pizza-name { font-family: 'Alfa Slab One', serif; font-size: 22px; color: var(--dark); margin-bottom: 8px; }
+  .pizza-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .pizza-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .pizza-price { font-family: 'Alfa Slab One', serif; font-size: 24px; color: var(--red); }
+  .pizza-sizes { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .pizza-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .pizza-badge--hot { background: var(--yellow); color: var(--dark); }
+  .pizza-badge--veg { background: var(--green); color: #fff; }
+  .menu-cats { padding: 0 48px 80px; background: var(--cream); }
+  .cats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cat-card { background: var(--dark); padding: 32px 24px; text-align: center; cursor: default; transition: background 0.2s; position: relative; overflow: hidden; border: none; }
+  .cat-card:hover { background: var(--red-dark); }
+  .cat-icon { margin-bottom: 14px; display: flex; justify-content: center; }
+  .cat-icon__mark { width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 251, 245, 0.1); border: 2px solid rgba(245, 200, 66, 0.35); font-family: 'Alfa Slab One', serif; font-size: 18px; color: var(--yellow); display: inline-flex; align-items: center; justify-content: center; }
+  .cat-name { font-family: 'Alfa Slab One', serif; font-size: 20px; color: var(--white); margin-bottom: 6px; }
+  .cat-count { font-size: 13px; color: rgba(255, 251, 245, 0.35); text-transform: uppercase; letter-spacing: 0.08em; }
+  .about { background: var(--red); padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-title { font-family: 'Alfa Slab One', serif; font-size: clamp(36px, 4vw, 60px); color: var(--white); line-height: 1.05; margin-bottom: 20px; }
+  .about-text { font-size: 17px; line-height: 1.8; color: rgba(255, 255, 255, 0.7); margin-bottom: 32px; font-style: italic; }
+  .about-facts { display: flex; gap: 32px; flex-wrap: wrap; justify-content: flex-start; }
+  .fact { text-align: center; }
+  .fact-num { font-family: 'Alfa Slab One', serif; font-size: 44px; color: var(--yellow); display: block; line-height: 1; }
+  .fact-label { font-size: 12px; color: rgba(255, 255, 255, 0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+  .about-img { position: relative; }
+  .about-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: brightness(0.65) saturate(1.1); display: block; }
+  .about-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26, 10, 8, 0.85); padding: 14px 18px; font-family: 'Alfa Slab One', serif; font-size: 14px; color: var(--yellow); letter-spacing: 0.05em; }
+  .order-cta { background: var(--yellow); padding: 72px 48px; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+  .order-cta-title { font-family: 'Alfa Slab One', serif; font-size: clamp(36px, 4vw, 60px); color: var(--dark); line-height: 1.05; }
+  .order-cta-sub { font-size: 17px; color: rgba(26, 10, 8, 0.6); margin-top: 8px; font-style: italic; }
+  .order-wrap { display: flex; flex-direction: column; gap: 12px; align-items: center; flex-shrink: 0; }
+  .order-phone { font-family: 'Alfa Slab One', serif; font-size: 36px; color: var(--dark); text-decoration: none; transition: color 0.2s; }
+  .order-phone:hover { color: var(--red); }
+  .order-sub { font-size: 12px; color: rgba(26, 10, 8, 0.45); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; }
+  .reviews { padding: 80px 48px; background: var(--off); }
+  .reviews .section-head { margin-bottom: 0; }
+  .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .rev-card { background: var(--white); border: 2px solid #f0e8d0; padding: 28px 24px; }
+  .rev-stars { color: var(--red); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+  .rev-text { font-size: 15px; line-height: 1.75; color: var(--text); font-style: italic; margin-bottom: 20px; }
+  .rev-author { font-weight: 700; font-size: 14px; color: var(--dark); }
+  .rev-platform { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .hours { background: var(--dark); padding: 72px 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+  .hours-col { text-align: center; }
+  .hours-icon { font-family: 'Alfa Slab One', serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; display: block; }
+  .hours-title { font-family: 'Alfa Slab One', serif; font-size: 20px; color: var(--white); margin-bottom: 16px; }
+  .hours-detail { font-size: 14px; color: rgba(255, 251, 245, 0.4); line-height: 2.2; text-transform: uppercase; letter-spacing: 0.06em; }
+  .hours-detail strong { color: rgba(255, 251, 245, 0.75); font-weight: 600; }
+  footer { background: #0d0503; padding: 48px 48px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; border-top: 3px solid var(--red); }
+  .ft-logo { font-family: 'Alfa Slab One', serif; font-size: 22px; color: var(--white); }
+  .ft-logo span { color: var(--red-bright); }
+  .ft-copy { font-size: 13px; color: rgba(255, 251, 245, 0.25); max-width: 28rem; }
+  .ft-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .ft-links a { font-size: 13px; color: rgba(255, 251, 245, 0.3); text-decoration: none; transition: color 0.2s; }
+  .ft-links a:hover { color: var(--yellow); }
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo .announce {
+    position: fixed;
+    top: var(--demo-bar-top);
+    left: 0;
+    right: 0;
+    z-index: 190;
+    margin: 0;
+  }
+  body.portfolio-demo nav {
+    position: fixed;
+    top: calc(var(--demo-bar-top) + var(--announce-h));
+    left: 0;
+    right: 0;
+  }
+  body.portfolio-demo .hero {
+    padding-top: calc(68px + var(--demo-bar-top) + var(--announce-h));
+  }
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px; }
+    .hero-right { height: 56vw; min-height: 200px; }
+    .pizza-grid, .cats-grid, .rev-grid { grid-template-columns: 1fr 1fr; }
+    .about, .hours { grid-template-columns: 1fr; }
+    .specialties, .menu-cats, .about, .order-cta, .reviews { padding: 60px 24px; }
+    footer { padding: 36px 24px 20px; flex-direction: column; text-align: center; }
+    .order-wrap { width: 100%; }
+  }
+  </style>
+</head>
+<body class="portfolio-demo">
+  <a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+  <div class="announce">Free delivery on orders over $25 &middot; Use code <span class="announce-code">TONY25</span> &middot; Order online or call (404) 555-0144</div>
+
+  <nav aria-label="Primary">
+    <div class="nav-logo">Tony&apos;s <span>Slice</span> House</div>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#order">Order</a></li>
+    </ul>
+    <a href="#order" class="nav-order">Order now</a>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-left">
+      <div class="hero-badge">Atlanta&apos;s #1 rated pizzeria</div>
+      <h1 class="hero-title" id="hero-heading"><span class="red">Real</span><br>New York<br><span class="yellow">Pizza.</span></h1>
+      <p class="hero-sub">Hand-tossed, coal-fired, and made the way Tony&apos;s grandfather made it in Brooklyn. No shortcuts. No apologies. Just the best slice in Atlanta.</p>
+      <div class="hero-actions">
+        <a href="#order" class="btn-red">Order now &rarr;</a>
+        <a href="#menu" class="btn-yellow">See the menu</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="hs-num">4.9</span><span class="hs-label">Google rating</span></div>
+        <div><span class="hs-num">12yr</span><span class="hs-label">Open since 2012</span></div>
+        <div><span class="hs-num">800+</span><span class="hs-label">5-star reviews</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&amp;q=80" width="900" height="600" class="hero-img" alt="Hot pizza fresh from the oven." decoding="async" fetchpriority="high" />
+      <div class="hero-img-overlay" aria-hidden="true"></div>
+      <div class="hero-tag">Coal-fired since 2012</div>
+    </div>
+  </section>
+
+  <div class="menu-strip" aria-hidden="true">
+    <div class="strip-track">
+      <span class="strip-item">New York Pies <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Sicilian Slices <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Calzones <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Hot Subs <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Wings <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Garlic Knots <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Caesar Salad <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Tiramisu <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">New York Pies <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Sicilian Slices <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Calzones <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Hot Subs <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Wings <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Garlic Knots <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Caesar Salad <span class="strip-dot">&#9670;</span></span>
+      <span class="strip-item">Tiramisu <span class="strip-dot">&#9670;</span></span>
+    </div>
+  </div>
+
+  <section class="specialties" id="menu">
+    <div class="section-head">
+      <p class="s-tag">House favourites</p>
+      <h2 class="s-title">The pies that started it all</h2>
+    </div>
+    <div class="pizza-grid">
+      <article class="pizza-card">
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&amp;q=80" width="600" height="450" alt="Margherita pizza" class="pizza-img" loading="lazy" decoding="async" />
+        <div class="pizza-body">
+          <h3 class="pizza-name">The classic margherita</h3>
+          <p class="pizza-desc">San Marzano tomatoes, fresh mozzarella, basil, extra-virgin olive oil. The one that proves less is more.</p>
+          <div class="pizza-footer">
+            <div class="pizza-price">$18</div>
+            <div class="pizza-sizes">12&quot; &middot; 16&quot; &middot; 18&quot;</div>
+          </div>
+        </div>
+      </article>
+      <article class="pizza-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&amp;q=80" width="600" height="450" alt="Pepperoni pizza" class="pizza-img" loading="lazy" decoding="async" />
+        <div class="pizza-body">
+          <h3 class="pizza-name">Old school pepperoni</h3>
+          <p class="pizza-desc">Cup-and-char pepperoni, house red, whole milk mozzarella. Every slice a little lake of orange oil. Perfection.</p>
+          <div class="pizza-footer">
+            <div class="pizza-price">$22</div>
+            <span class="pizza-badge pizza-badge--hot">Best seller</span>
+          </div>
+        </div>
+      </article>
+      <article class="pizza-card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&amp;q=80" width="600" height="450" alt="White pizza with greens" class="pizza-img" loading="lazy" decoding="async" />
+        <div class="pizza-body">
+          <h3 class="pizza-name">Tony&apos;s white pie</h3>
+          <p class="pizza-desc">Ricotta, roasted garlic, fresh mozzarella, spinach, lemon zest. No red sauce. No regrets.</p>
+          <div class="pizza-footer">
+            <div class="pizza-price">$24</div>
+            <span class="pizza-badge pizza-badge--veg">Veggie</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="menu-cats" aria-label="Menu categories">
+    <div class="cats-grid">
+      <div class="cat-card"><span class="cat-icon" aria-hidden="true"><span class="cat-icon__mark">P</span></span><div class="cat-name">Pies &amp; slices</div><div class="cat-count">14 options</div></div>
+      <div class="cat-card"><span class="cat-icon" aria-hidden="true"><span class="cat-icon__mark">C</span></span><div class="cat-name">Calzones &amp; subs</div><div class="cat-count">8 options</div></div>
+      <div class="cat-card"><span class="cat-icon" aria-hidden="true"><span class="cat-icon__mark">W</span></span><div class="cat-name">Wings &amp; sides</div><div class="cat-count">10 options</div></div>
+      <div class="cat-card"><span class="cat-icon" aria-hidden="true"><span class="cat-icon__mark">D</span></span><div class="cat-name">Drinks &amp; desserts</div><div class="cat-count">12 options</div></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div>
+      <h2 class="about-title">Brooklyn born. Atlanta made.</h2>
+      <p class="about-text">Tony Esposito grew up folding slices in his grandfather&apos;s pizzeria in Bensonhurst. In 2012 he brought that recipe &mdash; unchanged &mdash; to Atlanta. Same dough. Same sauce. Same 900-degree coal oven. The only thing that changed is the zip code.</p>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-num">72hr</span><span class="fact-label">Dough ferment</span></div>
+        <div class="fact"><span class="fact-num">900&deg;</span><span class="fact-label">Coal oven temp</span></div>
+        <div class="fact"><span class="fact-num">$0</span><span class="fact-label">Frozen ingredients</span></div>
+      </div>
+    </div>
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=700&amp;q=80" width="700" height="525" alt="Making pizza dough by hand" loading="lazy" decoding="async" />
+      <div class="about-img-label">Tony at the oven &mdash; 11am every morning since 2012</div>
+    </div>
+  </section>
+
+  <section class="order-cta" id="order">
+    <div>
+      <h2 class="order-cta-title">Hungry? We deliver.</h2>
+      <p class="order-cta-sub">Pickup in 15 minutes &middot; Delivery in 30 &middot; Open until midnight Friday &amp; Saturday</p>
+    </div>
+    <div class="order-wrap">
+      <a href="tel:+14045550144" class="order-phone">(404) 555-0144</a>
+      <p class="order-sub">Call to order &middot; Also on DoorDash &amp; Uber Eats</p>
+      <a href="#order" class="btn-red">Order online &rarr;</a>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-head">
+      <p class="s-tag">What people are saying</p>
+      <h2 class="s-title">4.9 stars &middot; 800+ reviews</h2>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;I moved from New York 8 years ago and gave up on finding real pizza. Then I found Tony&apos;s. I actually cried. This is the real thing.&rdquo;</p>
+        <p class="rev-author">Maria C.</p>
+        <p class="rev-platform">Google &middot; Little Italy, ATL</p>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;The pepperoni pie is the best thing I&apos;ve eaten in Atlanta. Period. Crispy edge, chewy middle, cups of pepperoni grease &mdash; flawless.&rdquo;</p>
+        <p class="rev-author">DeShawn W.</p>
+        <p class="rev-platform">Yelp &middot; Midtown</p>
+      </article>
+      <article class="rev-card">
+        <p class="rev-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rev-text">&ldquo;We order every Friday. Kids love it. I love it. The garlic knots alone are worth the trip. Tony&apos;s is a non-negotiable for our family.&rdquo;</p>
+        <p class="rev-author">Sarah &amp; Mike T.</p>
+        <p class="rev-platform">Google &middot; Decatur</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="hours" id="hours" aria-label="Hours, location, and ordering">
+    <div class="hours-col">
+      <span class="hours-icon">Hours</span>
+      <div class="hours-title">When we&apos;re open</div>
+      <div class="hours-detail"><strong>Mon&ndash;Thu</strong><br>11am &ndash; 10pm<br><strong>Fri&ndash;Sat</strong><br>11am &ndash; Midnight<br><strong>Sunday</strong><br>12pm &ndash; 9pm</div>
+    </div>
+    <div class="hours-col">
+      <span class="hours-icon">Location</span>
+      <div class="hours-title">Find us</div>
+      <div class="hours-detail"><strong>Tony&apos;s Slice House</strong><br>572 Edgewood Ave SE<br>Atlanta, GA 30312<br><br><strong>Free parking</strong><br>behind the building</div>
+    </div>
+    <div class="hours-col">
+      <span class="hours-icon">Order</span>
+      <div class="hours-title">Order direct</div>
+      <div class="hours-detail"><strong>(404) 555-0144</strong><br>Call or text<br><br>Also on<br><strong>DoorDash &middot; Uber Eats</strong><br><strong>Grubhub</strong></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft-logo">Tony&apos;s <span>Slice</span> House</div>
+    <p class="ft-copy">&copy; 2026 Tony&apos;s Slice House &middot; 572 Edgewood Ave SE &middot; Atlanta, GA 30312</p>
+    <div class="ft-links">
+      <a href="#menu">Menu</a>
+      <a href="#order">Order online</a>
+      <a href="#">Catering</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

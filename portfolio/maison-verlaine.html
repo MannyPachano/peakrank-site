@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Maison Verlaine — Fine Dining Atlanta (portfolio sample)</title>
+  <meta name="description" content="Sample fine-dining restaurant landing page: full-screen hero, menu grid, tasting courses, reservations. Demo for PeakRanking Digital Solutions.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://peakrankingseo.com/portfolio/maison-verlaine.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&amp;family=Tenor+Sans&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0a0804;
+    --charcoal: #1a1612;
+    --dark: #242018;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --cream: #f7f2e8;
+    --text: #2a2218;
+    --muted: #8a7e6a;
+    --border: rgba(201, 168, 76, 0.2);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--cream); font-family: 'EB Garamond', serif; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 64px; height: 72px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: rgba(10, 8, 4, 0.92); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Tenor Sans', sans-serif; font-size: 18px; letter-spacing: 4px; text-transform: uppercase; color: var(--cream); }
+  .nav-logo span { color: var(--gold); }
+  nav ul { list-style: none; display: flex; gap: 40px; }
+  nav ul a { font-family: 'Didact Gothic', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247, 242, 232, 0.5); text-decoration: none; transition: color 0.3s; }
+  nav ul a:hover { color: var(--gold); }
+  .nav-res { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--border); padding: 10px 24px; transition: all 0.3s; }
+  .nav-res:hover { background: var(--gold); color: var(--black); }
+  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; padding-top: 72px; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&amp;q=80') center/cover no-repeat; filter: brightness(0.22) saturate(0.8); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 8, 4, 0.3) 0%, rgba(10, 8, 4, 0.65) 60%, var(--black) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 32px; }
+  .hero-pre { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; animation: fadeUp 1s ease 0.2s both; }
+  .hero-title { font-size: clamp(60px, 9vw, 130px); font-weight: 400; line-height: 0.95; letter-spacing: 2px; color: var(--cream); margin-bottom: 24px; animation: fadeUp 1s ease 0.35s both; }
+  .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+  .hero-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 28px; animation: fadeUp 1s ease 0.5s both; }
+  .hero-sub { font-size: 19px; font-style: italic; color: rgba(247, 242, 232, 0.55); line-height: 1.8; max-width: 480px; margin: 0 auto 52px; animation: fadeUp 1s ease 0.6s both; }
+  .hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease 0.7s both; }
+  .btn-gold { background: var(--gold); color: var(--black); padding: 16px 40px; font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.3s; }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline { border: 1px solid var(--border); color: var(--cream); padding: 16px 40px; font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-hours { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(247, 242, 232, 0.25); white-space: nowrap; }
+  .intro { padding: 120px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; border-top: 1px solid var(--border); }
+  .eyebrow { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .s-title { font-size: clamp(36px, 3vw, 54px); font-weight: 400; line-height: 1.2; color: var(--cream); margin-bottom: 24px; }
+  .s-title em { font-style: italic; color: var(--gold-light); }
+  .s-text { font-size: 17px; line-height: 1.9; color: rgba(247, 242, 232, 0.5); font-style: italic; margin-bottom: 32px; }
+  .intro-detail { font-family: 'Didact Gothic', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: rgba(247, 242, 232, 0.3); line-height: 2; text-transform: uppercase; }
+  .intro-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: brightness(0.7) saturate(0.9); }
+  .menu { padding: 100px 64px; background: var(--charcoal); }
+  .menu-header { text-align: center; margin-bottom: 56px; }
+  .menu-header .eyebrow { text-align: center; margin-bottom: 12px; }
+  .menu-header .menu-h2 { font-size: clamp(36px, 3vw, 52px); font-weight: 400; color: var(--cream); }
+  .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .menu-item { padding: 32px 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; transition: background 0.3s; }
+  .menu-item:hover { background: rgba(201, 168, 76, 0.04); }
+  .menu-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .menu-name { font-size: 18px; color: var(--cream); margin-bottom: 6px; }
+  .menu-desc { font-size: 14px; font-style: italic; color: rgba(247, 242, 232, 0.4); line-height: 1.6; max-width: 280px; }
+  .menu-price { font-family: 'Tenor Sans', sans-serif; font-size: 18px; color: var(--gold); white-space: nowrap; flex-shrink: 0; }
+  .experience { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .exp-left { background: var(--dark); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+  .exp-right img { width: 100%; height: 100%; min-height: 22rem; object-fit: cover; display: block; filter: brightness(0.55) saturate(0.85); }
+  .exp-quote { font-size: clamp(22px, 2.2vw, 32px); font-style: italic; line-height: 1.65; color: var(--cream); margin-bottom: 32px; }
+  .exp-mark { font-size: 72px; color: var(--gold); opacity: 0.18; line-height: 0.8; margin-bottom: 16px; }
+  .exp-attr { font-family: 'Didact Gothic', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 16px; }
+  .exp-attr::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+  .exp-awards { display: flex; gap: 32px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .award-num { font-family: 'Tenor Sans', sans-serif; font-size: 38px; color: var(--gold); display: block; line-height: 1; }
+  .award-label { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(247, 242, 232, 0.3); margin-top: 6px; display: block; }
+  .tasting { padding: 100px 64px; text-align: center; border-top: 1px solid var(--border); }
+  .tasting .s-title--large { font-size: clamp(38px, 4vw, 62px); }
+  .tasting-lede { font-size: 17px; font-style: italic; color: rgba(247, 242, 232, 0.4); margin-top: 12px; }
+  .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--border); margin-top: 56px; }
+  .course { padding: 40px 20px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  .course:hover { background: rgba(201, 168, 76, 0.04); }
+  .course-num { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; opacity: 0.6; }
+  .course-name { font-size: 16px; color: var(--cream); margin-bottom: 8px; }
+  .course-desc { font-size: 13px; font-style: italic; color: rgba(247, 242, 232, 0.3); line-height: 1.5; }
+  .reservation { background: var(--charcoal); padding: 100px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; border-top: 1px solid var(--border); }
+  .res-contact { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .res-contact-item { font-family: 'Didact Gothic', sans-serif; font-size: 13px; letter-spacing: 0.06em; color: rgba(247, 242, 232, 0.35); display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+  .res-contact-val { color: rgba(247, 242, 232, 0.7); }
+  .res-form { display: flex; flex-direction: column; gap: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .res-form input, .res-form select, .res-form textarea { background: transparent; border: 1px solid var(--border); color: var(--cream); padding: 14px 18px; font-family: 'EB Garamond', serif; font-size: 15px; width: 100%; outline: none; transition: border-color 0.3s; }
+  .res-form input:focus, .res-form select:focus, .res-form textarea:focus { border-color: var(--gold); }
+  .res-form input::placeholder, .res-form textarea::placeholder { color: rgba(247, 242, 232, 0.2); font-style: italic; }
+  .res-form select option { background: var(--charcoal); color: var(--cream); }
+  .res-form textarea { resize: vertical; min-height: 90px; }
+  .res-form .btn-gold { text-align: center; display: block; width: 100%; }
+  footer { background: var(--black); padding: 72px 64px 32px; border-top: 1px solid var(--border); }
+  .ft { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+  .ft-logo { font-family: 'Tenor Sans', sans-serif; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; color: var(--cream); margin-bottom: 14px; }
+  .ft-logo span { color: var(--gold); }
+  .ft-desc { font-size: 15px; font-style: italic; color: rgba(247, 242, 232, 0.28); line-height: 1.7; }
+  .ft-col h4 { font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0.65; }
+  .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .ft-col ul a { font-size: 14px; color: rgba(247, 242, 232, 0.28); text-decoration: none; transition: color 0.2s; font-style: italic; }
+  .ft-col ul a:hover { color: var(--gold); }
+  .ft-bottom { padding-top: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'Didact Gothic', sans-serif; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247, 242, 232, 0.18); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .portfolio-demo-return {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 1rem;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #0d6b4d;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease;
+  }
+  .portfolio-demo-return:hover { background: #09523a; color: #fff; }
+  .portfolio-demo-return:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  body.portfolio-demo nav { top: calc(1.3rem + 11px + 1px); }
+  body.portfolio-demo .hero { padding-top: calc(72px + 1.3rem + 11px + 1px); }
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav ul { display: none; }
+    .intro, .menu-grid, .experience, .reservation { grid-template-columns: 1fr; }
+    .courses { grid-template-columns: 1fr 1fr; }
+    .intro, .menu, .tasting, .reservation { padding: 60px 24px; }
+    .exp-left { padding: 48px 24px; }
+    .ft { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 24px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  .res-contact-key { min-width: 4.5rem; color: rgba(247, 242, 232, 0.45); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  </style>
+</head>
+<body class="portfolio-demo">
+  <a href="../website-builds.html" class="portfolio-demo-return">Sample landing &middot; Back to PeakRanking website builds</a>
+
+  <nav aria-label="Primary">
+    <div class="nav-logo">Maison <span>Verlaine</span></div>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#tasting">Tasting</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#reservations">Reservations</a></li>
+    </ul>
+    <a href="#reservations" class="nav-res">Reserve a Table</a>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" role="presentation"></div>
+    <div class="hero-overlay" role="presentation"></div>
+    <div class="hero-content">
+      <p class="hero-pre">Atlanta &middot; Est. 2018 &middot; French-American Cuisine</p>
+      <h1 class="hero-title" id="hero-heading">Maison<em>Verlaine</em></h1>
+      <div class="hero-rule" role="presentation"></div>
+      <p class="hero-sub">An intimate celebration of French technique and Southern soul &mdash; where every meal becomes a memory worth keeping.</p>
+      <div class="hero-btns">
+        <a href="#reservations" class="btn-gold">Reserve Your Table</a>
+        <a href="#menu" class="btn-outline">View the Menu</a>
+      </div>
+    </div>
+    <p class="hero-hours">Dinner: Tuesday &ndash; Sunday &middot; 5:30pm &ndash; 10:30pm</p>
+  </section>
+
+  <section class="intro" id="experience">
+    <div>
+      <p class="eyebrow">Our Philosophy</p>
+      <h2 class="s-title">Craft without<br>compromise.<br><em>Always.</em></h2>
+      <p class="s-text">Every ingredient is sourced within 150 miles. Every plate is finished by hand. Every evening is orchestrated so the only thing you are asked to think about is how much you are enjoying yourself.</p>
+      <p class="intro-detail">Chef Laurent Moreau &mdash; James Beard Nominee 2023<br>Tuesday through Sunday &middot; 5:30pm &ndash; 10:30pm<br>Buckhead &middot; Atlanta, Georgia</p>
+    </div>
+    <div class="intro-img">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&amp;q=80" width="800" height="1067" decoding="async" alt="Chef preparing a dish in the kitchen." loading="lazy" />
+    </div>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="menu-heading">
+    <div class="menu-header">
+      <p class="eyebrow">Bill of Fare</p>
+      <h2 class="menu-h2" id="menu-heading">&Agrave; La Carte Menu</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Soupe de Truffe Noire</div>
+          <div class="menu-desc">Black truffle velout&eacute;, gruy&egrave;re cro&ucirc;ton, P&eacute;rigord cream</div>
+        </div>
+        <div class="menu-price">$28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Foie Gras Torchon</div>
+          <div class="menu-desc">Sauternes gel&eacute;e, brioche, pickled green strawberry, aged balsamic</div>
+        </div>
+        <div class="menu-price">$36</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Ceviche de Saint-Jacques</div>
+          <div class="menu-desc">Hand-dived scallop, yuzu, Georgia peach, micro herbs</div>
+        </div>
+        <div class="menu-price">$32</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Salade Lyonnaise</div>
+          <div class="menu-desc">Fris&eacute;e, lardons, poached farm egg, Dijon vinaigrette</div>
+        </div>
+        <div class="menu-price">$22</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Magret de Canard</div>
+          <div class="menu-desc">Seared duck breast, cherry gastrique, celeriac pur&eacute;e, watercress</div>
+        </div>
+        <div class="menu-price">$54</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-name">Bisque de Homard</div>
+          <div class="menu-desc">Maine lobster, cognac cream, chive oil, ossetra caviar</div>
+        </div>
+        <div class="menu-price">$30</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" aria-labelledby="exp-quote">
+    <div class="exp-left">
+      <p class="exp-mark" aria-hidden="true">&ldquo;</p>
+      <p class="exp-quote" id="exp-quote">Maison Verlaine is the restaurant Atlanta has been waiting for. Moreau cooks with the precision of Paris and the warmth of the South.</p>
+      <p class="exp-attr">Atlanta Magazine &middot; Best New Restaurant 2023</p>
+      <div class="exp-awards">
+        <div>
+          <span class="award-num">4</span>
+          <span class="award-label">James Beard nominations</span>
+        </div>
+        <div>
+          <span class="award-num">96</span>
+          <span class="award-label">OpenTable rating</span>
+        </div>
+        <div>
+          <span class="award-num">2</span>
+          <span class="award-label">Michelin stars</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-right">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&amp;q=80" width="800" height="1000" decoding="async" alt="Elegant fine dining room with table settings." loading="lazy" />
+    </div>
+  </section>
+
+  <section class="tasting" id="tasting" aria-labelledby="tasting-heading">
+    <p class="eyebrow">Chef&apos;s Selection</p>
+    <h2 class="s-title s-title--large" id="tasting-heading">The Tasting Menu</h2>
+    <p class="tasting-lede">Seven courses &middot; $185 per guest &middot; Wine pairing available +$95</p>
+    <div class="courses">
+      <div class="course"><div class="course-num">I</div><div class="course-name">Amuse-Bouche</div><div class="course-desc">Chef&apos;s daily inspiration</div></div>
+      <div class="course"><div class="course-num">II</div><div class="course-name">Cold Appetiser</div><div class="course-desc">Seasonal, sourced locally</div></div>
+      <div class="course"><div class="course-num">III</div><div class="course-name">Warm Entr&eacute;e</div><div class="course-desc">French technique, Southern soul</div></div>
+      <div class="course"><div class="course-num">IV</div><div class="course-name">Fish Course</div><div class="course-desc">Day-boat seafood</div></div>
+      <div class="course"><div class="course-num">V</div><div class="course-name">Meat Course</div><div class="course-desc">Heritage breed, classical sauce</div></div>
+      <div class="course"><div class="course-num">VI</div><div class="course-name">Fromage</div><div class="course-desc">Affineur selection</div></div>
+      <div class="course"><div class="course-num">VII</div><div class="course-name">Dessert</div><div class="course-desc">Pastry kitchen signatures</div></div>
+    </div>
+  </section>
+
+  <section class="reservation" id="reservations" aria-labelledby="res-heading">
+    <div>
+      <p class="eyebrow">Book Your Evening</p>
+      <h2 class="s-title" id="res-heading">Reserve Your Table</h2>
+      <p class="s-text" style="margin-bottom: 0">We recommend reserving at least two weeks in advance. For parties of 6 or more, please call us directly.</p>
+      <div class="res-contact">
+        <div class="res-contact-item"><span class="res-contact-key">Phone</span> <span class="res-contact-val">(404) 555-0171</span></div>
+        <div class="res-contact-item"><span class="res-contact-key">Email</span> <span class="res-contact-val">reservations@maisonverlaine.com</span></div>
+        <div class="res-contact-item"><span class="res-contact-key">Address</span> <span class="res-contact-val">3180 Peachtree Rd NE, Buckhead, GA</span></div>
+        <div class="res-contact-item"><span class="res-contact-key">Hours</span> <span class="res-contact-val">Tue&ndash;Sun &middot; 5:30pm &ndash; 10:30pm</span></div>
+      </div>
+    </div>
+    <form class="res-form" action="#" method="post">
+      <div class="form-row">
+        <label class="visually-hidden" for="mv-fn">First name</label>
+        <input id="mv-fn" type="text" name="first" placeholder="First Name" autocomplete="given-name" />
+        <label class="visually-hidden" for="mv-ln">Last name</label>
+        <input id="mv-ln" type="text" name="last" placeholder="Last Name" autocomplete="family-name" />
+      </div>
+      <label class="visually-hidden" for="mv-email">Email</label>
+      <input id="mv-email" type="email" name="email" placeholder="Email Address" autocomplete="email" />
+      <label class="visually-hidden" for="mv-phone">Phone</label>
+      <input id="mv-phone" type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" />
+      <div class="form-row">
+        <label class="visually-hidden" for="mv-date">Date</label>
+        <input id="mv-date" type="date" name="date" />
+        <label class="visually-hidden" for="mv-party">Party size</label>
+        <select id="mv-party" name="party">
+          <option disabled selected value="">Party Size</option>
+          <option>2 guests</option>
+          <option>3 guests</option>
+          <option>4 guests</option>
+          <option>5 guests</option>
+          <option>6+ guests</option>
+        </select>
+      </div>
+      <label class="visually-hidden" for="mv-occ">Occasion</label>
+      <select id="mv-occ" name="occasion">
+        <option disabled selected value="">Occasion (optional)</option>
+        <option>Anniversary</option>
+        <option>Birthday</option>
+        <option>Business Dinner</option>
+        <option>Proposal</option>
+      </select>
+      <label class="visually-hidden" for="mv-notes">Dietary notes</label>
+      <textarea id="mv-notes" name="notes" placeholder="Dietary requirements or special requests&hellip;"></textarea>
+      <button type="button" class="btn-gold">Request Reservation</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="ft">
+      <div>
+        <div class="ft-logo">Maison <span>Verlaine</span></div>
+        <p class="ft-desc">French-American fine dining in the heart of Buckhead. Open for dinner Tuesday through Sunday. Private dining available.</p>
+      </div>
+      <div class="ft-col"><h4>Dining</h4><ul><li><a href="#menu">&Agrave; La Carte</a></li><li><a href="#tasting">Tasting Menu</a></li><li><a href="#">Wine List</a></li><li><a href="#">Private Dining</a></li></ul></div>
+      <div class="ft-col"><h4>Visit</h4><ul><li><a href="#">Hours &amp; Location</a></li><li><a href="#">Parking</a></li><li><a href="#">Dress Code</a></li><li><a href="#">Gift Cards</a></li></ul></div>
+      <div class="ft-col"><h4>About</h4><ul><li><a href="#">Our Chef</a></li><li><a href="#">Press</a></li><li><a href="#">Awards</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>&copy; 2026 Maison Verlaine. All rights reserved.</span><span>Buckhead &middot; Atlanta, Georgia</span></div>
+  </footer>
+</body>
+</html>
