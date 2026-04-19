@@ -1301,11 +1301,9 @@ h1.hero-title {
  */
 .services,
 .offer,
-.portfolio,
 .performance,
 .home-pricing,
-.blog-section,
-.testimonials {
+.blog-section {
   content-visibility: auto;
   contain-intrinsic-size: auto 520px;
 }
