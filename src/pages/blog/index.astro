@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../../layouts/PeakLayout.astro";
+import "../../styles/peak-blog-index.css";
+import html from "../../partials/blog-index-main.html?raw";
+---
+
+<PeakLayout
+  title="Blog | PeakRanking Digital Solutions | Small Business Web Design & Local SEO"
+  description="Tutorials, guides, and honest takes on small business web design and local SEO. Written by the team at PeakRanking Digital Solutions in Marietta, GA."
+  canonicalPath="/blog"
+  bodyClass="page-blog-index"
+>
+  <div set:html={html} />
+</PeakLayout>
