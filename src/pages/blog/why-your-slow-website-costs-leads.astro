@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../../layouts/PeakLayout.astro";
+import "../../styles/peak-blog-post.css";
+import html from "../../partials/blog-slow-website-main.html?raw";
+---
+
+<PeakLayout
+  title="Why Your Slow Website Is Costing You Leads (And How To Fix It) | PeakRanking Digital Solutions"
+  description="A 3-second delay can cost you half your traffic. Here's why slow websites lose leads, what's actually slowing yours down, and the fixes that move the needle."
+  canonicalPath="/blog/why-your-slow-website-costs-leads"
+  bodyClass="page-blog-post"
+>
+  <div set:html={html} />
+</PeakLayout>

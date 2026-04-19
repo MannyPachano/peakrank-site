@@ -83,7 +83,9 @@ const is = (p: string) =>
       <li>
         <a href="/about" class:list={{ active: is("/about") }}>About</a>
       </li>
-      <li><a href="/#blog">Blog</a></li>
+      <li>
+        <a href="/#blog" class:list={{ active: is("/blog") }}>Blog</a>
+      </li>
       <li>
         <a href="/contact" class:list={{ active: is("/contact") }}>Contact</a>
       </li>
