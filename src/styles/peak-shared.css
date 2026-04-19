@@ -561,12 +561,12 @@ footer {
   padding: 0.8rem 1.5rem;
 }
 
-footer h5 {
+footer .footer-column-title {
   font-family: "Roboto Slab", Georgia, serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.2rem;
 }
 
 footer ul {

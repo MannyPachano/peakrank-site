@@ -616,7 +616,7 @@ h1.hero-title {
   height: 1.25rem;
 }
 
-.offer-lead .perk h4 {
+.offer-lead .perk h3 {
   grid-column: 2;
   grid-row: 1;
   margin: 0;
@@ -668,7 +668,7 @@ h1.hero-title {
   margin-bottom: 1.2rem;
 }
 
-.perk h4 {
+.perk h3 {
   font-family: "Roboto Slab", Georgia, serif;
   font-size: 1.2rem;
   font-weight: 700;
