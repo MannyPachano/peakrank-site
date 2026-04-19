@@ -9,8 +9,22 @@
     var(--bg);
 }
 
-.hero .stars {
-  animation: twinkle 8s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .hero .stars {
+    animation: twinkle 8s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero .stars {
+    animation: none;
+  }
+
+  .float-star-1,
+  .float-star-2,
+  .float-peak-1 {
+    animation: none;
+  }
 }
 
 .mountains {
@@ -38,6 +52,11 @@
   z-index: 2;
 }
 
+/* Isolate hero text layout from the rest of the page (less main-thread work before LCP). */
+.hero-copy {
+  contain: layout style;
+}
+
 .hero-eyebrow {
   font-size: 0.95rem;
   font-weight: 500;
@@ -52,6 +71,7 @@ h1.hero-title {
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+  font-synthesis: none;
 }
 
 .hero-sub {
@@ -129,43 +149,18 @@ h1.hero-title {
   flex-direction: column;
 }
 
-.fake-nav {
+/* Single layer for browser chrome (replaces nested fake-nav + dots + url) */
+.laptop-chrome {
   height: 32px;
-  background: #fff;
-  border-bottom: 1px solid #e3e8f0;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  gap: 10px;
   flex-shrink: 0;
-}
-
-.fake-nav-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e3e8f0;
-}
-
-.fake-nav-dot:nth-child(1) {
-  background: #ff6b6b;
-}
-
-.fake-nav-dot:nth-child(2) {
-  background: #ffd56b;
-}
-
-.fake-nav-dot:nth-child(3) {
-  background: #51cf66;
-}
-
-.fake-nav-url {
-  margin-left: auto;
-  height: 16px;
-  flex: 1;
-  max-width: 200px;
-  background: #f0f3f8;
-  border-radius: 4px;
+  border-bottom: 1px solid #e3e8f0;
+  background:
+    radial-gradient(circle 4px at 14px 50%, #ff6b6b 100%, transparent 100%),
+    radial-gradient(circle 4px at 30px 50%, #ffd56b 100%, transparent 100%),
+    radial-gradient(circle 4px at 46px 50%, #51cf66 100%, transparent 100%),
+    linear-gradient(#f0f3f8, #f0f3f8) no-repeat right 12px center / min(200px, 42%) 16px,
+    #fff;
+  background-repeat: no-repeat;
 }
 
 .fake-content {
@@ -201,15 +196,23 @@ h1.hero-title {
     linear-gradient(var(--accent), var(--accent)) no-repeat 0 52px / 90px 22px;
 }
 
-.fake-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+/* One DOM node; two “cards” drawn with pseudo-elements (no nested .fake-card divs). */
+.fake-cards-strip {
+  height: 54px;
   margin-top: auto;
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
-.fake-card {
-  height: 54px;
+.fake-cards-strip::before,
+.fake-cards-strip::after {
+  content: "";
+  flex: 1;
+  min-width: 0;
+  height: 100%;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
@@ -217,6 +220,7 @@ h1.hero-title {
     linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32)) no-repeat 14px 28px / 72% 4px,
     linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)) no-repeat 14px 36px / 48% 4px,
     rgba(255, 255, 255, 0.07);
+  background-repeat: no-repeat;
 }
 
 .float-peak {
@@ -232,16 +236,6 @@ h1.hero-title {
   height: 70px;
   animation: floatPeak 6s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(255, 138, 61, 0.6));
-}
-
-.float-peak-2 {
-  bottom: 15%;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  animation: floatPeak 7s ease-in-out infinite 1s;
-  color: var(--blue-glow);
-  filter: drop-shadow(0 0 15px rgba(111, 175, 232, 0.6));
 }
 
 .float-star {
@@ -264,14 +258,6 @@ h1.hero-title {
   width: 24px;
   height: 24px;
   animation: twinkleStar 4s ease-in-out infinite 1.5s;
-}
-
-.float-star-3 {
-  bottom: 25%;
-  right: 12%;
-  width: 28px;
-  height: 28px;
-  animation: twinkleStar 3.5s ease-in-out infinite 0.5s;
 }
 
 @keyframes floatPeak {
@@ -1307,4 +1293,19 @@ h1.hero-title {
   .perf-scores {
     grid-template-columns: 1fr;
   }
+}
+
+/*
+ * Skip rendering far-below-the-fold sections until needed (mobile TBT / LCP render delay).
+ * Omit #about / #contact targets so in-page hashes still behave.
+ */
+.services,
+.offer,
+.portfolio,
+.performance,
+.home-pricing,
+.blog-section,
+.testimonials {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
