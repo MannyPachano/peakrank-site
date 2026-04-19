@@ -1,9 +1,6 @@
 ---
 import robotoLatin400Woff from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?url";
-import robotoLatin500Woff from "@fontsource/roboto/files/roboto-latin-500-normal.woff2?url";
 import robotoLatin700Woff from "@fontsource/roboto/files/roboto-latin-700-normal.woff2?url";
-import robotoSlabLatin400Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-400-normal.woff2?url";
-import robotoSlabLatin700Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2?url";
 import robotoSlabLatin800Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-800-normal.woff2?url";
 
 import "@fontsource/roboto/latin-400.css";
@@ -18,20 +15,108 @@ import "../styles/peak-shared.css";
 import PeakHeader from "../components/PeakHeader.astro";
 import PeakFooter from "../components/PeakFooter.astro";
 
+interface ArticleMeta {
+  headline: string;
+  /** ISO 8601 */
+  publishedTime: string;
+  /** ISO 8601; defaults to publishedTime */
+  modifiedTime?: string;
+  authorName: string;
+}
+
 interface Props {
   title: string;
   description: string;
   bodyClass?: string;
   canonicalPath?: string;
+  /** Omit canonical + use site URL for og:url (e.g. 404 pages). */
+  suppressCanonical?: boolean;
   /** e.g. "noindex, follow" for legal pages */
   robots?: string;
+  /** Path (e.g. /og-image.svg) or absolute image URL */
+  ogImage?: string;
+  ogType?: "website" | "article";
+  article?: ArticleMeta;
 }
 
-const { title, description, bodyClass = "", canonicalPath, robots } = Astro.props;
-const canonical =
-  canonicalPath != null
+const {
+  title,
+  description,
+  bodyClass = "",
+  canonicalPath,
+  suppressCanonical = false,
+  robots,
+  ogImage = "/og-image.svg",
+  ogType = "website",
+  article,
+} = Astro.props;
+
+const siteOrigin = Astro.site?.origin ?? "https://peakrankingseo.com";
+
+const canonical = suppressCanonical
+  ? null
+  : canonicalPath != null
     ? new URL(canonicalPath, Astro.site).toString()
     : new URL(Astro.url.pathname, Astro.site).toString();
+
+const ogUrl = canonical ?? `${siteOrigin}/`;
+const organizationId = `${siteOrigin}/#organization`;
+const websiteId = `${siteOrigin}/#website`;
+
+const ogImageUrl = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage.replace(/^\//, ""), Astro.site).href;
+
+const graph: Record<string, unknown>[] = [
+  {
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": organizationId,
+    name: "PeakRanking Digital Solutions",
+    url: `${siteOrigin}/`,
+    email: "hello@peakrankingseo.com",
+    telephone: "+1-678-793-2445",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Marietta",
+      addressRegion: "GA",
+      addressCountry: "US",
+    },
+    areaServed: { "@type": "Country", name: "United States" },
+    priceRange: "$$",
+    logo: `${siteOrigin}/favicon.svg`,
+  },
+  {
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: `${siteOrigin}/`,
+    name: "PeakRanking Digital Solutions",
+    publisher: { "@id": organizationId },
+  },
+];
+
+if (article && ogType === "article") {
+  const pageUrl = canonical ?? ogUrl;
+  graph.push({
+    "@type": "BlogPosting",
+    headline: article.headline,
+    description,
+    url: pageUrl,
+    datePublished: article.publishedTime,
+    dateModified: article.modifiedTime ?? article.publishedTime,
+    author: {
+      "@type": "Person",
+      name: article.authorName,
+    },
+    publisher: { "@id": organizationId },
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    image: ogImageUrl,
+  });
+}
+
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": graph,
+}).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -41,18 +126,37 @@ const canonical =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     {robots != null && robots !== "" && <meta name="robots" content={robots} />}
-    <link rel="canonical" href={canonical} />
+    {canonical != null && <link rel="canonical" href={canonical} />}
     <title>{title}</title>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="PeakRanking Digital Solutions" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="en_US" />
+    {
+      ogType === "article" && article != null && (
+        <>
+          <meta property="article:published_time" content={article.publishedTime} />
+          <meta
+            property="article:modified_time"
+            content={article.modifiedTime ?? article.publishedTime}
+          />
+          <meta property="article:author" content={article.authorName} />
+        </>
+      )
+    }
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <link
       rel="preload"
       href={robotoLatin400Woff}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href={robotoLatin500Woff}
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
@@ -66,20 +170,6 @@ const canonical =
     />
     <link
       rel="preload"
-      href={robotoSlabLatin400Woff}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href={robotoSlabLatin700Woff}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
       href={robotoSlabLatin800Woff}
       as="font"
       type="font/woff2"
@@ -87,6 +177,7 @@ const canonical =
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" set:html={structuredData} is:inline />
   </head>
   <body class={bodyClass}>
     <PeakHeader currentPath={Astro.url.pathname} />

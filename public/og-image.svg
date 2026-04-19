@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="PeakRanking Digital Solutions">
+  <defs>
+    <linearGradient id="og-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1A2F"/>
+      <stop offset="100%" stop-color="#060F1F"/>
+    </linearGradient>
+    <linearGradient id="og-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8A3D" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#4A90E2" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <ellipse cx="900" cy="120" rx="380" ry="200" fill="url(#og-glow)" opacity="0.9"/>
+  <g transform="translate(72, 200)">
+    <circle cx="40" cy="40" r="38" fill="#FF8A3D" stroke="#FFA05C" stroke-width="1.5"/>
+    <path d="M16 56 L32 28 L44 44 L52 32 L64 56 Z" fill="#0B1A2F"/>
+    <circle cx="56" cy="20" r="4" fill="#FFD56B"/>
+  </g>
+  <text x="200" y="280" fill="#E8EEF7" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700">PeakRanking</text>
+  <text x="200" y="340" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="28" font-weight="500">Small business web design &amp; local SEO</text>
+  <text x="200" y="420" fill="#FF8A3D" font-family="system-ui, sans-serif" font-size="22" font-weight="600">peakrankingseo.com</text>
+</svg>

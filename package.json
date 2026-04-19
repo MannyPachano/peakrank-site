@@ -13,6 +13,7 @@
     "@fontsource/roboto-slab": "^5.2.5"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.18.1"
   }
 }

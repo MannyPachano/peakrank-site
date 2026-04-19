@@ -1,15 +1,53 @@
-# GitHub → Netlify: connect the repo, use these defaults (or set the same in the Netlify UI).
 [build]
   command = "npm run build"
   publish = "dist"
 
-[build.environment]
-  NODE_VERSION = "20"
+# Apex + HTTPS as canonical (adjust if your primary host is www)
+[[redirects]]
+  from = "http://peakrankingseo.com/*"
+  to = "https://peakrankingseo.com/:splat"
+  status = 301
+  force = true
 
-# Baseline hardening (helps Lighthouse “Best practices”; expand CSP/HSTS in the Netlify UI when ready).
+[[redirects]]
+  from = "https://www.peakrankingseo.com/*"
+  to = "https://peakrankingseo.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.peakrankingseo.com/*"
+  to = "https://peakrankingseo.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
+    X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    # style-src unsafe-inline: required for Astro build inlineStylesheets "always"
+    # script-src unsafe-inline: JSON-LD in PeakLayout; defer peak-nav.js still 'self'
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/og-image.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

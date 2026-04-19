@@ -1,0 +1,26 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+---
+
+<PeakLayout
+  title="Page Not Found | PeakRanking Digital Solutions"
+  description="This page doesn’t exist or has been moved. Head back to the homepage or get in touch if you need help."
+  suppressCanonical={true}
+  robots="noindex, follow"
+>
+  <header class="page-header">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="page-header-inner">
+      <div class="page-header-eyebrow">404</div>
+      <h1>Page not found</h1>
+      <p>
+        The link may be broken or the page may have been removed. Try the homepage, our blog, or
+        contact us if you were expecting something here.
+      </p>
+      <p style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <a href="/" class="btn-primary">Back to home</a>
+        <a href="/blog" class="btn-secondary">Visit the blog</a>
+      </p>
+    </div>
+  </header>
+</PeakLayout>

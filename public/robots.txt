@@ -1,0 +1,5 @@
+# https://peakrankingseo.com
+User-agent: *
+Allow: /
+
+Sitemap: https://peakrankingseo.com/sitemap-index.xml
