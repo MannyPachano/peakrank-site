@@ -1,0 +1,13 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-article.css";
+import html from "../partials/privacy-main.html?raw";
+---
+
+<PeakLayout
+  title="Privacy Policy | PeakRanking Digital Solutions"
+  description="How PeakRanking Digital Solutions collects, uses, and protects your information when you use our website and services."
+  canonicalPath="/privacy"
+>
+  <div set:html={html} />
+</PeakLayout>

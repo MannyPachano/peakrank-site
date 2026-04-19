@@ -1,13 +1,7 @@
-# Static site: compile SCSS on deploy, publish site root.
-# Intake form: Netlify Forms (form name "intake" on contact.html). Enable notifications under Site settings → Forms.
-# https://docs.netlify.com/configure-builds/file-based-configuration/
-
+# GitHub → Netlify: connect the repo, use these defaults (or set the same in the Netlify UI).
 [build]
   command = "npm run build"
-  publish = "."
+  publish = "dist"
 
-# Optional: pretty URLs for .html (uncomment if you want /about instead of /about.html)
-# [[redirects]]
-#   from = "/about"
-#   to = "/about.html"
-#   status = 200
+[build.environment]
+  NODE_VERSION = "20"

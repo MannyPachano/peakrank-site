@@ -1,0 +1,13 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-article.css";
+import html from "../partials/web-design-main.html?raw";
+---
+
+<PeakLayout
+  title="Web Design Services | PeakRanking Digital Solutions"
+  description="Custom hand-coded websites for small businesses. No page builders — fast, secure sites built for conversions and SEO."
+  canonicalPath="/web-design"
+>
+  <div set:html={html} />
+</PeakLayout>

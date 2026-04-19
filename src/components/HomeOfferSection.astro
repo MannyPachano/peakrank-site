@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/home-offer-portrait.png";
+---
+
+<section class="offer">
+  <div class="container">
+    <div class="offer-split">
+      <figure class="offer-photo">
+        <Image
+          src={portrait}
+          alt="Professional portrait of a smiling man with curly dark hair wearing a grey button-down shirt in a modern office setting."
+          width={640}
+          height={960}
+          sizes="(max-width: 960px) 100vw, min(520px, 42vw)"
+          loading="lazy"
+          decoding="async"
+          quality={82}
+          class="offer-portrait-img"
+        />
+      </figure>
+      <div class="offer-lead">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2 class="section-title">$0 Down, $150 Per Month, Everything Included</h2>
+        <p class="section-intro">
+          We offer $0 down for a standard 5 page small business website. If you need more than that, we price it based on the scope, the page count, and the time involved. 6 month minimum contract. Every plan includes design, development, hosting, unlimited edits, 24/7 support, and lifetime updates.
+        </p>
+
+        <div class="perks-grid">
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>100% Secure</h4>
+            <p>Our sites are just static HTML and CSS files. There's no database, no admin panel, no plugins. There is literally nothing for a hacker to break into.</p>
+          </div>
+
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>Custom Designed</h4>
+            <p>Our designs are built from scratch by our in-house design team, which means we can make your site look exactly like your business instead of a cookie cutter template.</p>
+          </div>
+
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>100 PageSpeed Scores</h4>
+            <p>Our sites ship with zero bloat and zero wasted code, so we hit 98 to 100 PageSpeed scores on Google across the board.</p>
+          </div>
+
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>Money Back Guarantee</h4>
+            <p>If we can't design something you love, you get your money back and the contract is cancelled. We stand behind every site we ship.</p>
+          </div>
+
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>Unmatched Support</h4>
+            <p>Text or call us anytime. No phone trees, no chatbots, no offshore queue. When you reach out, you get the owner and developer directly.</p>
+          </div>
+
+          <div class="perk">
+            <div class="perk-check">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <h4>We Know SEO</h4>
+            <p>No tricks, no snake oil, no gimmicks. We'll explain what SEO actually is, how it works, and what we can do to get your business ranking.</p>
+          </div>
+        </div>
+
+        <div class="offer-cta">
+          <a href="#contact" class="btn-primary">
+            Schedule a Call
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

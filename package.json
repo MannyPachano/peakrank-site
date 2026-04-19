@@ -1,13 +1,14 @@
 {
-  "name": "peakranking-digital-solutions",
+  "name": "manny-seo",
+  "type": "module",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "live-server . --port=3000 --open=index.html",
-    "build:css": "sass scss/main.scss styles.css --no-source-map",
-    "build": "npm run build:css"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "live-server": "^1.2.2",
-    "sass": "^1.85.0"
+    "astro": "^5.18.1"
   }
 }

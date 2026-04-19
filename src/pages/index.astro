@@ -1,0 +1,21 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import HomeOwnerCallout from "../components/HomeOwnerCallout.astro";
+import HomeOfferSection from "../components/HomeOfferSection.astro";
+import "../styles/peak-home.css";
+import html from "../partials/home-main.html?raw";
+
+const [beforeOwner, tail] = html.split("<!--OWNER_CALLOUT-->");
+const [, afterOffer] = tail.split("<!--OFFER_SECTION-->");
+---
+
+<PeakLayout
+  title="Small Business Web Designer | PeakRanking Digital Solutions | $0 Down $150 Per Month"
+  description="Hand-coded websites for small businesses starting at $0 down and $150/month. Custom design, perfect PageSpeed scores, unlimited edits. Based in Marietta, GA."
+  canonicalPath="/"
+>
+  <div set:html={beforeOwner} />
+  <HomeOwnerCallout />
+  <HomeOfferSection />
+  <div set:html={afterOffer} />
+</PeakLayout>

@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-terms.css";
+import html from "../partials/terms-main.html?raw";
+---
+
+<PeakLayout
+  title="Terms Of Service | PeakRanking Digital Solutions"
+  description="PeakRanking Digital Solutions terms of service. Legal terms governing your use of our website and services."
+  canonicalPath="/terms"
+  robots="noindex, follow"
+>
+  <div set:html={html} />
+</PeakLayout>

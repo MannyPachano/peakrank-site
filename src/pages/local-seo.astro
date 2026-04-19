@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-article.css";
+import html from "../partials/local-seo-main.html?raw";
+---
+
+<PeakLayout
+  title="Local SEO Services For Small Business | PeakRanking Digital Solutions"
+  description="Local SEO services for small businesses. Google Business Profile management, citations, on-page SEO, and monthly ranking reports. Based in Marietta, GA."
+  canonicalPath="/local-seo"
+  bodyClass="page-local-seo"
+>
+  <div set:html={html} />
+</PeakLayout>

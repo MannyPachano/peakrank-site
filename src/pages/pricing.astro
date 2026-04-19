@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-pricing-page.css";
+import html from "../partials/pricing-main.html?raw";
+---
+
+<PeakLayout
+  title="Pricing | $0 Down, $150 Per Month | PeakRanking Digital Solutions"
+  description="Simple, transparent pricing for small business web design. Lump sum $1,200 one-time or $0 down and $150 per month. Hosting and unlimited edits included."
+  canonicalPath="/pricing"
+  bodyClass="page-pricing"
+>
+  <div set:html={html} />
+</PeakLayout>

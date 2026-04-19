@@ -1,0 +1,96 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "" } = Astro.props;
+const is = (p: string) =>
+  p === "/"
+    ? currentPath === "/" || currentPath === ""
+    : currentPath === p || currentPath.startsWith(p + "/");
+---
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#FF8A3D" stroke="#FFA05C" stroke-width="1"></circle>
+          <path d="M8 28 L16 14 L22 22 L26 16 L32 28 Z" fill="#0B1A2F"></path>
+          <circle cx="28" cy="10" r="2" fill="#FFD56B"></circle>
+        </svg>
+      </span>
+      <span>PeakRanking</span>
+    </a>
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="/web-design">
+          Services
+          <svg
+            class="dropdown-arrow"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li>
+            <a href="/web-design" class:list={{ active: is("/web-design") }}>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Web Design
+            </a>
+          </li>
+          <li>
+            <a href="/local-seo" class:list={{ active: is("/local-seo") }}>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              Local SEO
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/pricing" class:list={{ active: is("/pricing") }}>Pricing</a>
+      </li>
+      <li>
+        <a href="/about" class:list={{ active: is("/about") }}>About</a>
+      </li>
+      <li><a href="/#blog">Blog</a></li>
+      <li>
+        <a href="/contact" class:list={{ active: is("/contact") }}>Contact</a>
+      </li>
+      <li><a href="/contact" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

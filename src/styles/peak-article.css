@@ -1,0 +1,227 @@
+/* Long-form service pages (web design, local SEO) */
+.content {
+  padding: 4rem 0 5rem;
+  background: var(--bg);
+  position: relative;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 138, 61, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.page-local-seo .content::before {
+  left: -5%;
+  right: auto;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.06), transparent 70%);
+}
+
+.article {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.article p {
+  font-size: 1.08rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 1.3rem;
+}
+
+.article p a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 138, 61, 0.3);
+  transition: border-color 0.2s;
+}
+
+.article p a:hover {
+  border-color: var(--accent);
+}
+
+.article strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.article h2 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--text);
+  margin: 3rem 0 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.article h2:first-child {
+  margin-top: 0;
+}
+
+.article h3 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin: 2.5rem 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.article h4 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin: 2rem 0 0.8rem;
+}
+
+.article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.article ul li {
+  position: relative;
+  padding-left: 2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  color: var(--text-body);
+  font-size: 1.02rem;
+}
+
+.article ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8A3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.owner-photo-inline {
+  margin: 3rem auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.owner-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 4px var(--bg),
+    0 0 0 6px var(--accent),
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 138, 61, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.owner-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 213, 107, 0.4), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.owner-circle--photo::before {
+  display: none;
+}
+
+.owner-circle-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  z-index: 1;
+}
+
+.owner-caption {
+  margin-top: 1.3rem;
+  color: var(--text-mute);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.cross-link {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin: 2.5rem 0;
+}
+
+.cross-link-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.cross-link h4 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+
+.cross-link p {
+  font-size: 0.97rem;
+  color: var(--text-mute);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.cross-link a {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.25s;
+}
+
+.cross-link a:hover {
+  gap: 0.7rem;
+}
+
+@media (max-width: 960px) {
+  .content {
+    padding: 3rem 0 4rem;
+  }
+
+  .owner-circle {
+    width: 180px;
+    height: 180px;
+  }
+}

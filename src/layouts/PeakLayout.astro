@@ -1,0 +1,46 @@
+---
+import "../styles/peak-shared.css";
+import PeakHeader from "../components/PeakHeader.astro";
+import PeakFooter from "../components/PeakFooter.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+  canonicalPath?: string;
+  /** e.g. "noindex, follow" for legal pages */
+  robots?: string;
+}
+
+const { title, description, bodyClass = "", canonicalPath, robots } = Astro.props;
+const canonical =
+  canonicalPath != null
+    ? new URL(canonicalPath, Astro.site).toString()
+    : new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    {robots != null && robots !== "" && <meta name="robots" content={robots} />}
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Slab:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class={bodyClass}>
+    <PeakHeader currentPath={Astro.url.pathname} />
+    <slot />
+    <PeakFooter />
+    <script src="/js/peak-nav.js" defer></script>
+  </body>
+</html>

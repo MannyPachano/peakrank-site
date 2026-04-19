@@ -1,0 +1,19 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-about.css";
+import html from "../partials/about-main.html?raw";
+import mannyPortrait from "../assets/home-offer-portrait.png";
+
+const aboutHtml = html.replace(
+  "<!--ABOUT_MANNY_PHOTO-->",
+  `<img src="${mannyPortrait.src}" alt="Manny Pachano, owner and lead developer of PeakRanking Digital Solutions" class="team-photo-img" width="280" height="280" loading="lazy" decoding="async" sizes="140px" />`,
+);
+---
+
+<PeakLayout
+  title="About Us | PeakRanking Digital Solutions | Marietta, GA"
+  description="Meet Manny Pachano and the small team behind PeakRanking Digital Solutions. Hand-coded websites and local SEO for small businesses, based in Marietta, GA."
+  canonicalPath="/about"
+>
+  <div set:html={aboutHtml} />
+</PeakLayout>
