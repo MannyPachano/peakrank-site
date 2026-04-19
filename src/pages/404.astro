@@ -1,26 +1,119 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import "../styles/peak-404.css";
 ---
 
 <PeakLayout
   title="Page Not Found | PeakRanking Digital Solutions"
-  description="This page doesn’t exist or has been moved. Head back to the homepage or get in touch if you need help."
+  description="The page you're looking for doesn't exist. Head back to the homepage or explore our services."
   suppressCanonical={true}
   robots="noindex, follow"
+  mainClass="error-main"
 >
-  <header class="page-header">
-    <div class="stars" aria-hidden="true"></div>
-    <div class="page-header-inner">
-      <div class="page-header-eyebrow">404</div>
-      <h1>Page not found</h1>
-      <p>
-        The link may be broken or the page may have been removed. Try the homepage, our blog, or
-        contact us if you were expecting something here.
-      </p>
-      <p style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-        <a href="/" class="btn-primary">Back to home</a>
-        <a href="/blog" class="btn-secondary">Visit the blog</a>
-      </p>
+  <div class="error-page-root">
+    <div class="error-section">
+      <div class="error-stars" aria-hidden="true"></div>
+
+      <div class="error-inner">
+        <div class="error-graphic">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--accent)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+        </div>
+
+        <div class="error-code" aria-hidden="true">404</div>
+
+        <h1 class="error-title">
+          <span class="sr-only">404 &mdash; </span>This Page Wandered Off The Map
+        </h1>
+
+        <p class="error-subtitle">
+          The page you're looking for doesn't exist, got moved, or never made it past the drafts folder.
+          Let's get you back on track.
+        </p>
+
+        <div class="error-actions">
+          <a href="/" class="btn-primary">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              ></path>
+            </svg>
+            Back To Homepage
+          </a>
+          <a href="/contact" class="btn-secondary">
+            Contact Us
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="helpful-links">
+          <div class="helpful-label">Or Try One Of These</div>
+          <div class="helpful-grid">
+            <a href="/web-design" class="helpful-link">
+              <span>Web Design</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a href="/local-seo" class="helpful-link">
+              <span>Local SEO</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a href="/pricing" class="helpful-link">
+              <span>Pricing</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a href="/blog" class="helpful-link">
+              <span>Blog</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-mountains" aria-hidden="true">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 200 L0 140 L120 80 L220 120 L340 60 L460 110 L580 50 L720 100 L860 40 L1000 90 L1140 60 L1280 110 L1440 80 L1440 200 Z"
+            fill="#060F1F"
+            opacity="0.6"
+          ></path>
+          <path
+            d="M0 200 L0 170 L140 130 L260 155 L400 125 L540 150 L680 120 L820 145 L960 115 L1120 140 L1260 120 L1440 145 L1440 200 Z"
+            fill="#060F1F"
+          ></path>
+        </svg>
+      </div>
     </div>
-  </header>
+  </div>
 </PeakLayout>

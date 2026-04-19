@@ -28,6 +28,8 @@ interface Props {
   title: string;
   description: string;
   bodyClass?: string;
+  /** Extra class on <main> (e.g. layout hooks for full-height 404). */
+  mainClass?: string;
   canonicalPath?: string;
   /** Omit canonical + use site URL for og:url (e.g. 404 pages). */
   suppressCanonical?: boolean;
@@ -43,6 +45,7 @@ const {
   title,
   description,
   bodyClass = "",
+  mainClass,
   canonicalPath,
   suppressCanonical = false,
   robots,
@@ -181,7 +184,7 @@ const structuredData = JSON.stringify({
   </head>
   <body class={bodyClass}>
     <PeakHeader currentPath={Astro.url.pathname} />
-    <main id="main-content">
+    <main id="main-content" class:list={[mainClass]}>
       <slot />
     </main>
     <PeakFooter />
