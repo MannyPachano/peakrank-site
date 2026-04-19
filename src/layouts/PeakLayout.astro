@@ -1,5 +1,6 @@
 ---
 import robotoLatin400Woff from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?url";
+import robotoLatin500Woff from "@fontsource/roboto/files/roboto-latin-500-normal.woff2?url";
 import robotoSlabLatin800Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-800-normal.woff2?url";
 
 import "@fontsource/roboto/latin-400.css";
@@ -42,6 +43,13 @@ const canonical =
     <link
       rel="preload"
       href={robotoLatin400Woff}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={robotoLatin500Woff}
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
