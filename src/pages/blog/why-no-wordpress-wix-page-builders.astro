@@ -1,0 +1,14 @@
+---
+import PeakLayout from "../../layouts/PeakLayout.astro";
+import "../../styles/peak-blog-post.css";
+import html from "../../partials/blog-no-wordpress-wix-main.html?raw";
+---
+
+<PeakLayout
+  title="Why We Don't Use WordPress, Wix, or Page Builders | PeakRanking Digital Solutions"
+  description="Why we hand-code every small business website instead of using WordPress, Wix, Squarespace, or any page builder. The honest pros and cons most agencies won't tell you."
+  canonicalPath="/blog/why-no-wordpress-wix-page-builders"
+  bodyClass="page-blog-post page-blog-post--navy-hero"
+>
+  <div set:html={html} />
+</PeakLayout>
