@@ -8,6 +8,10 @@
     "build": "astro build",
     "preview": "astro preview"
   },
+  "dependencies": {
+    "@fontsource/roboto": "^5.2.5",
+    "@fontsource/roboto-slab": "^5.2.5"
+  },
   "devDependencies": {
     "astro": "^5.18.1"
   }
