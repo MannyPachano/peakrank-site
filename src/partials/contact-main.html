@@ -85,9 +85,10 @@
           class="form"
           name="contact"
           method="POST"
-          action="/thanks/"
+          action="/thanks"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
         >
           <input type="hidden" name="form-name" value="contact" />
           <p class="form-honeypot" aria-hidden="true">
@@ -134,6 +135,9 @@
             <label class="form-label" for="message">Message <span class="required">*</span></label>
             <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a bit about your business and what you're hoping to accomplish..." required></textarea>
           </div>
+
+          <!-- reCAPTCHA: enable in Netlify → Site configuration → Forms → Spam prevention -->
+          <div class="form-recaptcha" data-netlify-recaptcha="true"></div>
 
           <button type="submit" class="form-submit">
             Send Message

@@ -306,6 +306,11 @@ form.form,
   line-height: 1.5;
 }
 
+/* Netlify injects reCAPTCHA here when enabled in site settings */
+.form-recaptcha {
+  margin-top: 0.5rem;
+}
+
 /* Netlify honeypot — keep out of layout / screen readers skip via aria-hidden on parent */
 .form-honeypot {
   position: absolute;
