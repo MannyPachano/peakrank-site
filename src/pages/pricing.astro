@@ -1,14 +1,32 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import PricingPlans from "../components/PricingPlans.astro";
+import { splitPartial } from "../lib/partial";
 import "../styles/peak-pricing-page.css";
 import html from "../partials/pricing-main.html?raw";
+
+const [
+  beforePlans,
+  afterPlans,
+  afterFinalCta,
+] = splitPartial(
+  html,
+  "pricing-main.html",
+  "<!--PRICING_PLANS-->",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Pricing | $0 Down, $150 Per Month | PeakRanking Digital Solutions"
-  description="Simple, transparent pricing for small business web design. Lump sum $1,200 one-time or $0 down and $150 per month. Hosting and unlimited edits included."
+  title="Website Pricing | $0 Down or $1,200 One Time | PeakRanking"
+  description="Straightforward pricing for small business web design. $0 down and $150 per month with hosting and unlimited edits included, or $1,200 one time. Every add-on priced up front."
   canonicalPath="/pricing"
   bodyClass="page-pricing"
 >
-  <div set:html={html} />
+  <Fragment set:html={beforePlans} />
+  <PricingPlans variant="page" headingLevel="h2" ctaLabel="Get Started" ctaHref="/contact" />
+  <Fragment set:html={afterPlans} />
+  <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" />
+  <Fragment set:html={afterFinalCta} />
 </PeakLayout>

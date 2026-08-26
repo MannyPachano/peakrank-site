@@ -1,13 +1,31 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import OwnerPhoto from "../components/OwnerPhoto.astro";
+import AreasServed from "../components/AreasServed.astro";
+import { splitPartial } from "../lib/partial";
 import "../styles/peak-article.css";
 import html from "../partials/web-design-main.html?raw";
+
+const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
+  html,
+  "web-design-main.html",
+  "<!--OWNER_PHOTO-->",
+  "<!--AREAS_SERVED-->",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Web Design Services | PeakRanking Digital Solutions"
-  description="Custom hand-coded websites for small businesses. No page builders — fast, secure sites built for conversions and SEO."
+  title="Small Business Web Design in Marietta, GA | PeakRanking"
+  description="Hand-coded websites for small businesses in Marietta and metro Atlanta. No WordPress, no page builders. $0 down and $150 per month, or $1,200 one time."
   canonicalPath="/web-design"
 >
-  <div set:html={html} />
+  <Fragment set:html={beforePhoto} />
+  <OwnerPhoto />
+  <Fragment set:html={betweenPhotoAndAreas} />
+  <AreasServed />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready For The Site You&rsquo;ve Always Wanted?" ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>

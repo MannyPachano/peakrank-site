@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../assets/manny-avatar.jpg";
+import { business } from "../data/business";
+
+/**
+ * The inline owner photo used on the long-form service pages.
+ *
+ * Exists so those pages stop shipping a raw <img src="/images/..."> that bypassed
+ * the Astro image pipeline entirely. Going through <Image> means WebP, a real
+ * srcset, and a hashed /_astro/ URL that gets the immutable cache header.
+ */
+interface Props {
+  caption?: string;
+}
+
+const { caption = `Based in ${business.address.locality}, ${business.address.region}. Working with small businesses nationwide.` } =
+  Astro.props;
+---
+
+<div class="owner-photo-inline">
+  <div class="owner-circle owner-circle--photo">
+    <Image
+      src={avatar}
+      alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions"
+      width={180}
+      height={180}
+      densities={[1, 2]}
+      loading="lazy"
+      decoding="async"
+      quality={82}
+      class="owner-circle-photo"
+    />
+  </div>
+  <p class="owner-caption">{caption}</p>
+</div>

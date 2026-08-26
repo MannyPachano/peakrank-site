@@ -1,0 +1,35 @@
+---
+import { locations } from "../data/locations";
+
+/**
+ * Internal links from the two service pages to the location pages, so those
+ * pages get real internal PageRank instead of sitting orphaned in the sitemap.
+ */
+interface Props {
+  /** Omit a city when rendering this on that city's own page. */
+  exclude?: string;
+}
+
+const { exclude } = Astro.props;
+const shown = locations.filter((location) => location.slug !== exclude);
+---
+
+<div class="areas-served">
+  <h2>Areas We Serve</h2>
+  <p>
+    We work with small businesses across the US, and we know metro Atlanta best because we live
+    here. These are the areas we get asked about most.
+  </p>
+  <ul class="areas-served-list">
+    {
+      shown.map((location) => (
+        <li>
+          <a href={`/web-design-${location.slug}`}>
+            <span class="areas-served-city">{location.city}, GA</span>
+            <span class="areas-served-note">{location.shortName} web design and local SEO</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

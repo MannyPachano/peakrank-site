@@ -1,11 +1,19 @@
 ---
 import PeakLayout from "../../layouts/PeakLayout.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { splitPartial } from "../../lib/partial";
 import "../../styles/peak-blog-post.css";
 import html from "../../partials/blog-local-seo-2026-main.html?raw";
+
+const [beforeCta, afterCta] = splitPartial(
+  html,
+  "blog-local-seo-2026-main.html",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Local SEO in 2026: What Small Businesses Actually Need To Do | PeakRanking Digital Solutions"
+  title="Local SEO in 2026: What Small Businesses Need To Do"
   description="Local SEO has changed a lot in the last few years. Here's what actually works in 2026 for small businesses that want to rank on Google and show up in Maps."
   canonicalPath="/blog/local-seo-2026"
   bodyClass="page-blog-post page-blog-post--blue-hero"
@@ -17,5 +25,7 @@ import html from "../../partials/blog-local-seo-2026-main.html?raw";
     authorName: "Manny Pachano",
   }}
 >
-  <div set:html={html} />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready To Climb The Local Rankings?" ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>

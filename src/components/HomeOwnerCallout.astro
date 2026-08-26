@@ -1,18 +1,19 @@
 ---
 import { Image } from "astro:assets";
-import portrait from "../assets/home-offer-portrait.png";
+import portrait from "../assets/manny-avatar.jpg";
+import { business } from "../data/business";
 ---
 
 <section class="owner-callout" id="about">
   <div class="owner-inner">
-    <a href="/contact" class="btn-primary">Call Us Today</a>
+    <a href={business.smsHref} class="btn-primary">Text {business.phoneDisplay}</a>
     <div class="owner-photo">
       <Image
         src={portrait}
         alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions"
-        width={280}
-        height={280}
-        sizes="140px"
+        width={140}
+        height={140}
+        densities={[1, 2]}
         loading="lazy"
         decoding="async"
         quality={82}

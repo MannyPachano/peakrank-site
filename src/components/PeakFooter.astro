@@ -1,4 +1,6 @@
 ---
+import { business, copyrightYear } from "../data/business";
+import { locations } from "../data/locations";
 ---
 
 <footer>
@@ -30,6 +32,8 @@
           <li><a href="/blog">Blog</a></li>
           <li><a href="/web-design">Web Design</a></li>
           <li><a href="/local-seo">SEO</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
 
@@ -38,19 +42,19 @@
         <ul>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            24/7
+            {business.hours.display}
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <a href="tel:6787932445">(678) 793-2445</a>
+            <a href={business.smsHref}>{business.phoneDisplay}</a>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <a href="mailto:hello@peakrankingseo.com">hello@peakrankingseo.com</a>
+            <a href={`mailto:${business.email}`}>{business.email}</a>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Marietta, GA
+            {`${business.address.locality}, ${business.address.region}`}
           </li>
         </ul>
       </div>
@@ -61,11 +65,20 @@
           <li><a href="/web-design">Web Design</a></li>
           <li><a href="/local-seo">Local SEO</a></li>
         </ul>
+
+        <p class="footer-column-title footer-column-title--stacked">Areas We Serve</p>
+        <ul>
+          {locations.map((location) => (
+            <li>
+              <a href={`/web-design-${location.slug}`}>{location.city}, GA</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>© Copyright 2026 PeakRanking Digital Solutions</div>
+      <div>© Copyright {copyrightYear} {business.name}</div>
       <div>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms Of Use</a>

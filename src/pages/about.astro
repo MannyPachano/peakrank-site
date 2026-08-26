@@ -1,19 +1,46 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Testimonials from "../components/Testimonials.astro";
+import { splitPartial, replacePartial } from "../lib/partial";
 import "../styles/peak-about.css";
+import { getImage } from "astro:assets";
 import html from "../partials/about-main.html?raw";
-import mannyPortrait from "../assets/home-offer-portrait.png";
+import mannyAvatar from "../assets/manny-avatar.jpg";
 
-const aboutHtml = html.replace(
+// The team card sits inside a raw HTML string, so run the file through the Astro
+// image pipeline here and interpolate the optimized URLs rather than pointing at
+// an unprocessed copy in public/.
+const teamPhoto1x = await getImage({ src: mannyAvatar, width: 140, height: 140, format: "webp", quality: 82 });
+const teamPhoto2x = await getImage({ src: mannyAvatar, width: 280, height: 280, format: "webp", quality: 82 });
+
+const aboutHtml = replacePartial(
+  html,
+  "about-main.html",
   "<!--ABOUT_MANNY_PHOTO-->",
-  `<img src="${mannyPortrait.src}" alt="Manny Pachano, owner and lead developer of PeakRanking Digital Solutions" class="team-photo-img" width="280" height="280" loading="lazy" decoding="async" sizes="140px" />`,
+  `<img src="${teamPhoto1x.src}" srcset="${teamPhoto1x.src} 1x, ${teamPhoto2x.src} 2x" alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions" class="team-photo-img" width="140" height="140" loading="lazy" decoding="async" />`,
+);
+
+const [
+  beforeTestimonials,
+  afterTestimonials,
+  afterFinalCta,
+] = splitPartial(
+  aboutHtml,
+  "about-main.html",
+  "<!--TESTIMONIALS-->",
+  "<!--FINAL_CTA-->",
 );
 ---
 
 <PeakLayout
-  title="About Us | PeakRanking Digital Solutions | Marietta, GA"
+  title="About PeakRanking | Small Business Web Design in Marietta, GA"
   description="Meet Manny Pachano and the small team behind PeakRanking Digital Solutions. Hand-coded websites and local SEO for small businesses, based in Marietta, GA."
   canonicalPath="/about"
 >
-  <div set:html={aboutHtml} />
+  <Fragment set:html={beforeTestimonials} />
+  <Testimonials tone="deep" id="reviews" />
+  <Fragment set:html={afterTestimonials} />
+  <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" />
+  <Fragment set:html={afterFinalCta} />
 </PeakLayout>

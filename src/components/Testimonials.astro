@@ -1,0 +1,77 @@
+---
+import "../styles/peak-testimonials.css";
+import { testimonials as allTestimonials, type Testimonial } from "../data/testimonials";
+
+interface Props {
+  /** Section background. "base" sits on --bg, "deep" on --bg-deep. */
+  tone?: "base" | "deep";
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  /** Optional anchor target. */
+  id?: string;
+  /** Render only the first N testimonials. Omit to render all of them. */
+  limit?: number;
+}
+
+const {
+  tone = "deep",
+  eyebrow = "Testimonials",
+  title = "Trusted By Small Businesses Across The Country",
+  intro = "We have helped owners across the US finally get the website they had been putting off for years. When you work with PeakRanking you are not hiring an agency. You get a partner who is in it for the long haul.",
+  id,
+  limit,
+} = Astro.props;
+
+const items: Testimonial[] =
+  limit != null ? allTestimonials.slice(0, limit) : allTestimonials;
+
+const stars = [0, 1, 2, 3, 4];
+---
+
+<section class:list={["testimonials", `testimonials--${tone}`]} id={id}>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" class="testimonial-sprite">
+    <symbol id="pr-star" viewBox="0 0 24 24">
+      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"></path>
+    </symbol>
+  </svg>
+
+  <div class="container">
+    <div class="section-eyebrow">{eyebrow}</div>
+    <h2 class="section-title">{title}</h2>
+    <p class="section-intro">{intro}</p>
+
+    <div class="testimonial-grid">
+      {
+        items.map((t) => (
+          <figure class="testimonial">
+            <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+
+            <div class="testimonial-stars">
+              {stars.map(() => (
+                <svg class="testimonial-star" aria-hidden="true" focusable="false">
+                  <use href="#pr-star" />
+                </svg>
+              ))}
+              <span class="sr-only">Rated 5 out of 5</span>
+            </div>
+
+            <blockquote class="testimonial-body">
+              <p>{t.quote}</p>
+            </blockquote>
+
+            <figcaption class="testimonial-meta">
+              <span class="testimonial-avatar" aria-hidden="true">{t.initials}</span>
+              <span class="testimonial-who">
+                <span class="testimonial-name">{t.person ?? t.company}</span>
+                <span class="testimonial-loc">
+                  {t.person ? `${t.company} · ${t.work}` : t.work}
+                </span>
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

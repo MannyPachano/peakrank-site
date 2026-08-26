@@ -1,14 +1,32 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import OwnerPhoto from "../components/OwnerPhoto.astro";
+import AreasServed from "../components/AreasServed.astro";
+import { splitPartial } from "../lib/partial";
 import "../styles/peak-article.css";
 import html from "../partials/local-seo-main.html?raw";
+
+const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
+  html,
+  "local-seo-main.html",
+  "<!--OWNER_PHOTO-->",
+  "<!--AREAS_SERVED-->",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Local SEO Services For Small Business | PeakRanking Digital Solutions"
-  description="Local SEO services for small businesses. Google Business Profile management, citations, on-page SEO, and monthly ranking reports. Based in Marietta, GA."
+  title="Local SEO Services in Marietta, GA | PeakRanking"
+  description="Local SEO for small businesses in Marietta and metro Atlanta. Google Business Profile management, citations, on-page SEO, and a plain-English monthly ranking report."
   canonicalPath="/local-seo"
   bodyClass="page-local-seo"
 >
-  <div set:html={html} />
+  <Fragment set:html={beforePhoto} />
+  <OwnerPhoto />
+  <Fragment set:html={betweenPhotoAndAreas} />
+  <AreasServed />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready To Start Ranking?" ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>

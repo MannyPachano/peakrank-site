@@ -1,25 +1,41 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import { business } from "../data/business";
+
+const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <PeakLayout
   title="Thank You | PeakRanking Digital Solutions"
-  description="Thanks for contacting PeakRanking Digital Solutions. We'll be in touch soon."
+  description="Thanks for contacting PeakRanking Digital Solutions. We got your message and will reply within 24 hours."
   canonicalPath="/thanks"
   robots="noindex, follow"
 >
   <header class="page-header">
-    <div class="stars"></div>
+    <div class="stars" aria-hidden="true"></div>
     <div class="page-header-inner">
       <div class="page-header-eyebrow">Contact</div>
       <h1>Message received</h1>
       <p>
-        Thanks for reaching out. We got your note and will reply within 24 hours. If it&rsquo;s urgent,
-        call <a href="tel:6787932445">(678) 793-2445</a>.
+        Thanks for reaching out. We got your note and will reply within 24 hours. If it&rsquo;s
+        urgent, text or call <a href={business.smsHref}>{business.phoneDisplay}</a>.
       </p>
       <p style="margin-top: 1.5rem;">
         <a href="/" class="btn-primary">Back to home</a>
       </p>
     </div>
   </header>
+
+  {/*
+    The lead conversion. Mark `generate_lead` as a key event in the GA4 UI so it
+    shows up as a conversion rather than an ordinary page_view.
+  */}
+  {
+    gaId && (
+      <script
+        is:inline
+        set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('event','generate_lead',{form:'contact'});`}
+      />
+    )
+  }
 </PeakLayout>

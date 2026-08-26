@@ -1,11 +1,19 @@
 ---
 import PeakLayout from "../../layouts/PeakLayout.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { splitPartial } from "../../lib/partial";
 import "../../styles/peak-blog-post.css";
 import html from "../../partials/blog-slow-website-main.html?raw";
+
+const [beforeCta, afterCta] = splitPartial(
+  html,
+  "blog-slow-website-main.html",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Why Your Slow Website Is Costing You Leads (And How To Fix It) | PeakRanking Digital Solutions"
+  title="Why Your Slow Website Is Costing You Leads"
   description="A 3-second delay can cost you half your traffic. Here's why slow websites lose leads, what's actually slowing yours down, and the fixes that move the needle."
   canonicalPath="/blog/why-your-slow-website-costs-leads"
   bodyClass="page-blog-post"
@@ -17,5 +25,7 @@ import html from "../../partials/blog-slow-website-main.html?raw";
     authorName: "Manny Pachano",
   }}
 >
-  <div set:html={html} />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready For A Website That Actually Loads?" ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>

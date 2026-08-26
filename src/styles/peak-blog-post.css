@@ -341,7 +341,9 @@
 
 /* Comparison table (blog) */
 .post-compare-wrap {
+  border-collapse: collapse;
   margin: 2.5rem 0;
+  width: 100%;
   border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
@@ -355,7 +357,7 @@
   border-bottom: 1px solid var(--line);
 }
 
-.post-compare-head > div {
+.post-compare-head > * {
   padding: 1rem 1.2rem;
   font-family: "Roboto Slab", Georgia, serif;
   font-weight: 700;
@@ -364,11 +366,11 @@
   text-align: center;
 }
 
-.post-compare-head > div:first-child {
+.post-compare-head > *:first-child {
   text-align: left;
 }
 
-.post-compare-head > div.post-compare-highlight {
+.post-compare-head > *.post-compare-highlight {
   color: var(--accent);
 }
 
@@ -382,7 +384,7 @@
   border-bottom: none;
 }
 
-.post-compare-row > div {
+.post-compare-row > * {
   padding: 0.9rem 1.2rem;
   font-size: 0.92rem;
   color: var(--text-body);
@@ -392,14 +394,14 @@
   justify-content: center;
 }
 
-.post-compare-row > div:first-child {
+.post-compare-row > *:first-child {
   text-align: left;
   justify-content: flex-start;
   font-weight: 500;
   color: var(--text);
 }
 
-.post-compare-row > div.post-compare-highlight {
+.post-compare-row > *.post-compare-highlight {
   background: rgba(255, 138, 61, 0.05);
 }
 
@@ -646,8 +648,8 @@
     grid-template-columns: 1fr 0.7fr 0.7fr 0.7fr;
   }
 
-  .post-compare-head > div,
-  .post-compare-row > div {
+  .post-compare-head > *,
+  .post-compare-row > * {
     padding: 0.7rem 0.6rem;
     font-size: 0.82rem;
   }
@@ -673,8 +675,8 @@
     padding: 1.3rem;
   }
 
-  .post-compare-head > div,
-  .post-compare-row > div {
+  .post-compare-head > *,
+  .post-compare-row > * {
     padding: 0.6rem 0.4rem;
     font-size: 0.75rem;
   }

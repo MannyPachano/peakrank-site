@@ -1,0 +1,64 @@
+---
+import { business } from "../data/business";
+
+/**
+ * The closing conversion band, previously copy-pasted into nine partials.
+ *
+ * The duplication was already failing: the decorative mountain SVG carried
+ * aria-hidden in four copies and not in the other five, and the audit CTA used
+ * three different labels across the pages that promised the same thing.
+ */
+interface Props {
+  heading: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  /** e.g. "contact" for the home page's in-page anchor. */
+  id?: string;
+  /** Show the phone number alongside the button. */
+  showPhone?: boolean;
+}
+
+const {
+  heading,
+  ctaLabel = "Get Started Today",
+  ctaHref = "/contact",
+  id,
+  showPhone = true,
+} = Astro.props;
+---
+
+<section class="final-cta" id={id}>
+  <div class="final-cta-inner">
+    <h2 set:html={heading} />
+    <a href={ctaHref} class="btn-primary">
+      {ctaLabel}
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14M13 6l6 6-6 6"></path>
+      </svg>
+    </a>
+    {
+      showPhone && (
+        <p class="final-cta-phone">
+          or text <a href={business.smsHref}>{business.phoneDisplay}</a>
+        </p>
+      )
+    }
+  </div>
+
+  <div class="final-cta-mountains">
+    <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M0 150 L0 100 L180 40 L320 80 L480 30 L640 70 L820 20 L1000 60 L1180 35 L1440 75 L1440 150 Z"
+        fill="#060F1F"></path>
+    </svg>
+  </div>
+</section>

@@ -5,15 +5,20 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro check && astro build && npm run verify",
+    "build:only": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "verify": "node scripts/verify-build.mjs"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.2.5",
     "@fontsource/roboto-slab": "^5.2.5"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.18.1"
+    "astro": "^5.18.1",
+    "typescript": "^5.9.3"
   }
 }

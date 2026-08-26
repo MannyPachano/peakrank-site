@@ -1,0 +1,102 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import OwnerPhoto from "../components/OwnerPhoto.astro";
+import { locations } from "../data/locations";
+import { business } from "../data/business";
+import "../styles/peak-article.css";
+
+export function getStaticPaths() {
+  return locations.map((location) => ({
+    params: { city: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+const path = `/web-design-${location.slug}`;
+---
+
+<PeakLayout
+  title={`Web Design in ${location.city}, GA | $0 Down, $150/mo`}
+  description={location.description}
+  canonicalPath={path}
+>
+  <header class="page-header service">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="page-header-inner">
+      <div class="page-header-eyebrow">{location.city}, Georgia</div>
+      <h1>Web Design &amp; Local SEO in {location.city}, GA</h1>
+      <p class="subtitle">Hand-Coded Sites, No WordPress Or Page Builders</p>
+      <p>
+        $0 down and $150 per month, or $1,200 one time. Based {location.proximity}.
+      </p>
+      <a href="/contact?service=free-audit" class="btn-primary">
+        Get A Free Site Audit
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="container">
+      <article class="article">
+        <p>{location.intro}</p>
+
+        {
+          location.sections.map((section) => (
+            <>
+              <h2>{section.heading}</h2>
+              {section.body.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </>
+          ))
+        }
+
+        <h2>Who We Build For in {location.city}</h2>
+        <ul>
+          {location.industries.map((industry) => <li>{industry}</li>)}
+        </ul>
+
+        <OwnerPhoto caption={`Based in ${business.address.locality}, ${business.address.region}, ${location.proximity}.`} />
+
+        <h2>What It Costs</h2>
+        <p>
+          The same two options apply here as everywhere else. You can pay $0 down and $150 per
+          month, which covers design, development, hosting, unlimited edits and direct access to
+          the person who built it, on a six month minimum. Or you can pay $1,200 once and own the
+          files, with hosting at $25 per month on top. The
+          <a href="/pricing">pricing page</a> breaks down exactly what each option includes and what
+          the add-ons cost.
+        </p>
+
+        <h2>Where To Start</h2>
+        <p>
+          Run your current site through Google PageSpeed Insights and see what it scores. Then
+          <a href={business.smsHref}>text {business.phoneDisplay}</a> or
+          <a href="/contact">send a message</a> and we will go through what is actually holding it
+          back. There is no charge for that and no obligation attached to it.
+        </p>
+
+        <div class="cross-link">
+          <div class="cross-link-label">Related Service</div>
+          <h3>Local SEO</h3>
+          <p>
+            A fast site is the foundation. Getting into the map results for {location.city} searches
+            is the ongoing work: Google Business Profile, citations, reviews and a monthly report
+            you can actually read.
+          </p>
+          <a href="/local-seo">
+            Learn About Local SEO
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <FinalCta heading={`Ready To Get Found in ${location.city}?`} ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+</PeakLayout>

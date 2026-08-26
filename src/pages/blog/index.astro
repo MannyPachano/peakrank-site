@@ -1,14 +1,24 @@
 ---
 import PeakLayout from "../../layouts/PeakLayout.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { splitPartial } from "../../lib/partial";
 import "../../styles/peak-blog-index.css";
 import html from "../../partials/blog-index-main.html?raw";
+
+const [beforeCta, afterCta] = splitPartial(
+  html,
+  "blog-index-main.html",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Blog | PeakRanking Digital Solutions | Small Business Web Design & Local SEO"
+  title="Web Design &amp; Local SEO Blog | PeakRanking"
   description="Tutorials, guides, and honest takes on small business web design and local SEO. Written by the team at PeakRanking Digital Solutions in Marietta, GA."
   canonicalPath="/blog"
   bodyClass="page-blog-index"
 >
-  <div set:html={html} />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready To Put This To Work?" ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>

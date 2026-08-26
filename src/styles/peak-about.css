@@ -311,7 +311,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%;
   border-radius: 50%;
   display: block;
 }
@@ -388,97 +387,7 @@
   height: 16px;
 }
 
-.about-testimonials {
-  background: var(--bg-deep);
-  padding: 6rem 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-testimonials::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 138, 61, 0.06), transparent 70%);
-}
-
-.about-testimonials .testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  position: relative;
-  z-index: 2;
-  margin-top: 0;
-}
-
-.about-testimonials .testimonial {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 2rem 1.8rem;
-  position: relative;
-}
-
-.about-testimonials .testimonial-quote {
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: 4.5rem;
-  line-height: 0.8;
-  color: var(--accent);
-  position: absolute;
-  top: 1.2rem;
-  right: 1.8rem;
-  opacity: 0.25;
-}
-
-.about-testimonials .testimonial-stars {
-  display: flex;
-  gap: 3px;
-  color: var(--star);
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-.about-testimonials .testimonial p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-}
-
-.about-testimonials .testimonial-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line);
-}
-
-.about-testimonials .testimonial-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bg);
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.about-testimonials .testimonial-name {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-
-.about-testimonials .testimonial-loc {
-  font-size: 0.82rem;
-  color: var(--text-mute);
-}
+/* Testimonials moved to src/styles/peak-testimonials.css (shared component). */
 
 @media (max-width: 960px) {
   .founder {
@@ -495,14 +404,12 @@
   }
 
   .process,
-  .team,
-  .about-testimonials {
+  .team {
     padding: 4rem 0;
   }
 
   .process-grid,
-  .team-grid,
-  .about-testimonials .testimonial-grid {
+  .team-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -1,4 +1,6 @@
 ---
+import { business } from "../data/business";
+
 interface Props {
   currentPath?: string;
 }
@@ -22,7 +24,7 @@ const is = (p: string) =>
       </span>
       <span>PeakRanking</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-nav">
       <li class="has-dropdown">
         <a href="/web-design">
           Services
@@ -89,9 +91,29 @@ const is = (p: string) =>
       <li>
         <a href="/contact" class:list={{ active: is("/contact") }}>Contact</a>
       </li>
+      <li>
+        <a href={business.smsHref} class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          {business.phoneDisplay}
+        </a>
+      </li>
       <li><a href="/contact" class="nav-cta">Get Started</a></li>
     </ul>
-    <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false">
+    <a
+      href={business.smsHref}
+      class="nav-call"
+      aria-label={`Text ${business.phoneDisplay}`}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>{business.phoneDisplay}</span>
+    </a>
+    <button
+      class="hamburger"
+      type="button"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
       <span></span><span></span><span></span>
     </button>
   </div>

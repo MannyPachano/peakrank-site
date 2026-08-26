@@ -429,7 +429,6 @@ h1.hero-title {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 0% 10%;
   display: block;
 }
 
@@ -574,6 +573,35 @@ h1.hero-title {
   margin: 0;
 }
 
+/*
+ * The rule above pins every <p> in the perk to row 2, so an optional second
+ * paragraph would land on top of the body copy. Give it its own row.
+ */
+.offer-lead .perk .perk-link {
+  grid-row: 3;
+}
+
+.perk-link {
+  margin-top: 0.6rem;
+}
+
+.perk-link a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #7c2d12;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.offer-call {
+  display: inline-block;
+  margin-left: 1rem;
+  font-weight: 700;
+  color: #7c2d12;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .offer-lead .offer-cta {
   text-align: left;
   margin-top: 2rem;
@@ -631,163 +659,7 @@ h1.hero-title {
   margin-top: 3rem;
 }
 
-.portfolio {
-  background: var(--bg);
-  position: relative;
-}
-
-.portfolio::before {
-  content: "";
-  position: absolute;
-  top: 20%;
-  left: 0;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.08), transparent 70%);
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-}
-
-.portfolio-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s;
-  text-decoration: none;
-  color: inherit;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 138, 61, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.portfolio-thumb {
-  aspect-ratio: 16 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.portfolio-thumb-1 {
-  background: linear-gradient(135deg, #2a3d2e 0%, #1a2a1e 100%);
-}
-
-.portfolio-thumb-2 {
-  background: linear-gradient(135deg, #5a3d28 0%, #3a2518 100%);
-}
-
-.portfolio-thumb-3 {
-  background: linear-gradient(135deg, #1c2838 0%, #0f1823 100%);
-}
-
-.portfolio-preview {
-  width: 100%;
-  background: #fff;
-  border-radius: 6px 6px 2px 2px;
-  aspect-ratio: 16 / 10;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.pp-nav {
-  display: flex;
-  gap: 5px;
-}
-
-.pp-nav-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #e3e8f0;
-}
-
-.pp-content {
-  flex: 1;
-  border-radius: 4px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.pp-1 .pp-content {
-  background: linear-gradient(135deg, #2a3d2e, #1a2a1e);
-}
-
-.pp-2 .pp-content {
-  background: linear-gradient(135deg, #e8d5c1, #c9a585);
-}
-
-.pp-3 .pp-content {
-  background: linear-gradient(135deg, #1c2838, #0a1220);
-}
-
-.pp-line {
-  height: 3px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 1px;
-}
-
-.pp-2 .pp-line {
-  background: rgba(28, 26, 23, 0.5);
-}
-
-.pp-line.xs {
-  width: 40%;
-  height: 2px;
-  background: var(--accent);
-}
-
-.pp-line.sm {
-  width: 60%;
-}
-
-.pp-line.md {
-  width: 80%;
-}
-
-.pp-btn {
-  width: 50px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 1px;
-  margin-top: 2px;
-}
-
-.portfolio-info {
-  padding: 1.5rem 1.8rem;
-}
-
-.portfolio-info h3 {
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-
-.portfolio-info p {
-  font-size: 0.92rem;
-  color: var(--text-mute);
-  line-height: 1.5;
-  margin-bottom: 0.8rem;
-}
-
-.portfolio-info .service-link {
-  font-size: 0.88rem;
-}
+/* Portfolio CSS deleted with the section. Markup: src/partials/_archived/home-portfolio-section.html */
 
 .performance {
   background: var(--bg-deep);
@@ -849,6 +721,14 @@ h1.hero-title {
   padding: 2.5rem;
 }
 
+.perf-scores-note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-mute);
+  text-align: center;
+  line-height: 1.5;
+}
+
 .perf-scores {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -872,6 +752,12 @@ h1.hero-title {
   box-shadow: 0 0 30px rgba(81, 207, 102, 0.25);
 }
 
+.score-ring-inner svg {
+  width: 40%;
+  height: 40%;
+  color: var(--accent);
+}
+
 .score-ring-inner {
   width: 82px;
   height: 82px;
@@ -893,155 +779,7 @@ h1.hero-title {
 }
 
 /* Home pricing — two plans */
-.home-pricing .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.plan {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 2.5rem 2rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s;
-}
-
-.plan.featured {
-  border-color: var(--accent);
-  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255, 138, 61, 0.05) 100%);
-  box-shadow:
-    0 0 0 1px var(--accent),
-    0 20px 40px rgba(255, 138, 61, 0.15);
-  transform: scale(1.03);
-}
-
-.plan:hover:not(.featured) {
-  transform: translateY(-4px);
-  border-color: rgba(255, 138, 61, 0.3);
-}
-
-.plan-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: var(--bg);
-  padding: 0.4rem 1.2rem;
-  border-radius: 100px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.plan-name {
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.3rem;
-}
-
-.plan-desc {
-  font-size: 0.9rem;
-  color: var(--text-mute);
-  margin-bottom: 1.8rem;
-  min-height: 2.6em;
-}
-
-.plan-price {
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1;
-}
-
-.plan-price span {
-  font-size: 1rem;
-  color: var(--text-mute);
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-  margin-left: 0.3rem;
-}
-
-.plan-perks {
-  list-style: none;
-  margin: 2rem 0;
-  padding: 0;
-  flex-grow: 1;
-}
-
-.plan-perk {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  padding: 0.55rem 0;
-  font-size: 0.92rem;
-  color: var(--text);
-  border-bottom: 1px solid var(--line);
-}
-
-.plan-perk:last-child {
-  border-bottom: none;
-}
-
-.plan-perk.disabled {
-  color: var(--text-body);
-  text-decoration: line-through;
-  text-decoration-color: rgba(197, 206, 220, 0.65);
-}
-
-.plan-perk svg {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  color: var(--accent);
-  margin-top: 2px;
-}
-
-.plan-perk.disabled svg {
-  color: #a8b8cc;
-}
-
-.plan-btn {
-  display: block;
-  text-align: center;
-  background: transparent;
-  color: var(--text);
-  border: 2px solid var(--text);
-  padding: 0.85rem;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.92rem;
-  text-decoration: none;
-  transition: all 0.25s;
-}
-
-.plan-btn:hover {
-  background: var(--text);
-  color: var(--bg);
-}
-
-.plan.featured .plan-btn {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
-
-.plan.featured .plan-btn:hover {
-  background: var(--accent-bright);
-  border-color: var(--accent-bright);
-}
+/* Plan cards moved to src/styles/peak-plans.css (shared component). */
 
 .blog-section {
   background: var(--bg);
@@ -1116,94 +854,7 @@ h1.hero-title {
   line-height: 1.4;
 }
 
-.testimonials {
-  background: var(--bg-deep);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 138, 61, 0.06), transparent 70%);
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-}
-
-.testimonial {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 2rem 1.8rem;
-  position: relative;
-}
-
-.testimonial-quote {
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: 4.5rem;
-  line-height: 0.8;
-  color: var(--accent);
-  position: absolute;
-  top: 1.2rem;
-  right: 1.8rem;
-  opacity: 0.25;
-}
-
-.testimonial-stars {
-  display: flex;
-  gap: 3px;
-  color: var(--star);
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-.testimonial p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line);
-}
-
-.testimonial-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bg);
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.testimonial-name {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-
-.testimonial-loc {
-  font-size: 0.82rem;
-  color: var(--text-mute);
-}
+/* Testimonials moved to src/styles/peak-testimonials.css (shared component). */
 
 @media (max-width: 960px) {
   .hero {
@@ -1226,10 +877,7 @@ h1.hero-title {
 
   .services-grid,
   .perks-grid,
-  .home-pricing .pricing-grid,
-  .testimonial-grid,
-  .blog-grid,
-  .portfolio-grid {
+  .blog-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1298,12 +946,37 @@ h1.hero-title {
 /*
  * Skip rendering far-below-the-fold sections until needed (mobile TBT / LCP render delay).
  * Omit #about / #contact targets so in-page hashes still behave.
+ * Omit .testimonials: it is text-only (cheap to render) and far taller than any
+ * single hint, so skipping it would only buy scrollbar jitter.
+ *
+ * Each section gets its own contain-intrinsic-size near its real mobile height.
+ * A single shared 520px estimate made the document report ~10,000px at load
+ * against a true ~15,000px, so the scroll thumb re-scaled as you scrolled and
+ * the #pricing and #blog anchors resolved against a layout thousands of pixels
+ * out. The `auto` keyword means the browser uses the real value once measured.
+ * Values below were measured at a 375px viewport on 2026-08-26.
  */
-.services,
-.offer,
-.performance,
-.home-pricing,
+.services {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1750px;
+}
+
+.offer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1650px;
+}
+
+.performance {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1600px;
+}
+
+.home-pricing {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 2200px;
+}
+
 .blog-section {
   content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
+  contain-intrinsic-size: auto 1450px;
 }

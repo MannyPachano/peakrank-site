@@ -1,6 +1,35 @@
 ---
 import { Image } from "astro:assets";
-import portrait from "../assets/home-offer-portrait.png";
+import portrait from "../assets/manny-portrait.jpg";
+import { business, claims } from "../data/business";
+
+const perks = [
+  {
+    title: "No Database To Break Into",
+    body: "Your site is static HTML and CSS files. There is no database, no admin login and no plugins, so the entire class of CMS and plugin exploits simply does not apply to it. Domain and hosting accounts are locked down with two-factor authentication.",
+  },
+  {
+    title: "Custom Designed",
+    body: "Every design is drawn from scratch by the person who builds your site, so it looks like your business instead of a template somebody else is also using.",
+  },
+  {
+    title: claims.pageSpeedShort,
+    body: "The sites ship with no page builder bloat and no unused code, so they load fast on a phone. Run your current site through Google PageSpeed Insights and compare.",
+  },
+  {
+    title: "Money Back Guarantee",
+    body: "If we cannot design something you want to put your name on, you get your money back and the contract is cancelled.",
+    link: { href: "/terms#guarantee", label: "Read the guarantee terms" },
+  },
+  {
+    title: "You Get The Owner",
+    body: "Text or call and you reach the person who designed and built your site. No phone trees, no chatbots, no account manager relaying messages.",
+  },
+  {
+    title: "We Know SEO",
+    body: "No tricks and no gimmicks. We will explain what SEO actually is, how it works, and what we can realistically do to get your business ranking.",
+  },
+];
 ---
 
 <section class="offer">
@@ -9,9 +38,10 @@ import portrait from "../assets/home-offer-portrait.png";
       <figure class="offer-photo">
         <Image
           src={portrait}
-          alt="Professional portrait of a smiling man with curly dark hair wearing a grey button-down shirt in a modern office setting."
-          width={640}
-          height={960}
+          alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions"
+          width={572}
+          height={1024}
+          widths={[380, 572]}
           sizes="(max-width: 960px) 100vw, min(520px, 42vw)"
           loading="lazy"
           decoding="async"
@@ -21,67 +51,45 @@ import portrait from "../assets/home-offer-portrait.png";
       </figure>
       <div class="offer-lead">
         <div class="section-eyebrow">What We Offer</div>
-        <h2 class="section-title">$0 Down, $150 Per Month, Everything Included</h2>
+        <h2 class="section-title">$0 Down, $150 Per Month</h2>
         <p class="section-intro">
-          We offer $0 down for a standard 5 page small business website. If you need more than that, we price it based on the scope, the page count, and the time involved. 6 month minimum contract. Every plan includes design, development, hosting, unlimited edits, 24/7 support, and lifetime updates.
+          The monthly plan covers a standard 5 page small business website and includes design,
+          development, hosting, unlimited edits, direct access to the owner and updates for as long
+          as the plan is active. Six month minimum. Larger sites are priced on scope and page count,
+          and there is a one time option on the <a href="/pricing">pricing page</a> if you would
+          rather pay once.
         </p>
 
         <div class="perks-grid">
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>100% Secure</h3>
-            <p>Our sites are just static HTML and CSS files. There's no database, no admin panel, no plugins. There is literally nothing for a hacker to break into.</p>
-          </div>
-
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>Custom Designed</h3>
-            <p>Our designs are built from scratch by our in-house design team, which means we can make your site look exactly like your business instead of a cookie cutter template.</p>
-          </div>
-
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>100 PageSpeed Scores</h3>
-            <p>Our sites ship with zero bloat and zero wasted code, so we hit 98 to 100 PageSpeed scores on Google across the board.</p>
-          </div>
-
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>Money Back Guarantee</h3>
-            <p>If we can't design something you love, you get your money back and the contract is cancelled. We stand behind every site we ship.</p>
-          </div>
-
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>Unmatched Support</h3>
-            <p>Text or call us anytime. No phone trees, no chatbots, no offshore queue. When you reach out, you get the owner and developer directly.</p>
-          </div>
-
-          <div class="perk">
-            <div class="perk-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-            </div>
-            <h3>We Know SEO</h3>
-            <p>No tricks, no snake oil, no gimmicks. We'll explain what SEO actually is, how it works, and what we can do to get your business ranking.</p>
-          </div>
+          {
+            perks.map((perk) => (
+              <div class="perk">
+                <div class="perk-check">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </div>
+                <h3>{perk.title}</h3>
+                <p>{perk.body}</p>
+                {perk.link && (
+                  <p class="perk-link">
+                    <a href={perk.link.href}>{perk.link.label}</a>
+                  </p>
+                )}
+              </div>
+            ))
+          }
         </div>
 
         <div class="offer-cta">
           <a href="/contact" class="btn-primary">
-            Schedule a Call
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            Get Started
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6"></path>
             </svg>
+          </a>
+          <a href={business.smsHref} class="offer-call">
+            or text {business.phoneDisplay}
           </a>
         </div>
       </div>

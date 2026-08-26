@@ -1,16 +1,18 @@
 ---
 import robotoLatin400Woff from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?url";
 import robotoLatin700Woff from "@fontsource/roboto/files/roboto-latin-700-normal.woff2?url";
+import robotoLatin500Woff from "@fontsource/roboto/files/roboto-latin-500-normal.woff2?url";
+import robotoSlabLatin700Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-700-normal.woff2?url";
 import robotoSlabLatin800Woff from "@fontsource/roboto-slab/files/roboto-slab-latin-800-normal.woff2?url";
 
 import "@fontsource/roboto/latin-400.css";
 import "@fontsource/roboto/latin-500.css";
 import "@fontsource/roboto/latin-700.css";
-import "@fontsource/roboto-slab/latin-400.css";
 import "@fontsource/roboto-slab/latin-500.css";
 import "@fontsource/roboto-slab/latin-700.css";
 import "@fontsource/roboto-slab/latin-800.css";
 
+import { business } from "../data/business";
 import "../styles/peak-shared.css";
 import PeakHeader from "../components/PeakHeader.astro";
 import PeakFooter from "../components/PeakFooter.astro";
@@ -49,12 +51,20 @@ const {
   canonicalPath,
   suppressCanonical = false,
   robots,
-  ogImage = "/og-image.svg",
+  ogImage = "/og-image.png",
   ogType = "website",
   article,
 } = Astro.props;
 
 const siteOrigin = Astro.site?.origin ?? "https://peakrankingseo.com";
+
+/**
+ * GA4. Renders nothing unless PUBLIC_GA_ID is set, so local builds and previews
+ * stay clean. Set it in Netlify under Site configuration, Environment variables.
+ * The googletagmanager host is already allowed in the netlify.toml CSP; any other
+ * third-party script needs adding there too or the browser blocks it silently.
+ */
+const gaId = import.meta.env.PUBLIC_GA_ID;
 
 const canonical = suppressCanonical
   ? null
@@ -78,15 +88,44 @@ const graph: Record<string, unknown>[] = [
     url: `${siteOrigin}/`,
     email: "hello@peakrankingseo.com",
     telephone: "+1-678-793-2445",
+    description:
+      "Hand-coded websites and local SEO for small businesses. $0 down and $150 per month, or $1,200 one time.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Marietta",
-      addressRegion: "GA",
-      addressCountry: "US",
+      addressLocality: business.address.locality,
+      addressRegion: business.address.region,
+      addressCountry: business.address.country,
+      ...(business.address.postalCode
+        ? { postalCode: business.address.postalCode }
+        : {}),
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: business.geo.latitude,
+      longitude: business.geo.longitude,
     },
     areaServed: { "@type": "Country", name: "United States" },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: business.hours.opens,
+        closes: business.hours.closes,
+      },
+    ],
     priceRange: "$$",
-    logo: `${siteOrigin}/favicon.svg`,
+    image: ogImageUrl,
+    // Google wants a raster logo of at least 112px on its shortest side.
+    logo: `${siteOrigin}/og-image.png`,
+    ...(business.profiles.length ? { sameAs: [...business.profiles] } : {}),
   },
   {
     "@type": "WebSite",
@@ -138,6 +177,10 @@ const structuredData = JSON.stringify({
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="PeakRanking Digital Solutions" />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="PeakRanking Digital Solutions, small business web design and local SEO" />
     <meta property="og:locale" content="en_US" />
     {
       ogType === "article" && article != null && (
@@ -156,6 +199,7 @@ const structuredData = JSON.stringify({
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="PeakRanking Digital Solutions, small business web design and local SEO" />
 
     <link
       rel="preload"
@@ -173,6 +217,20 @@ const structuredData = JSON.stringify({
     />
     <link
       rel="preload"
+      href={robotoLatin500Woff}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={robotoSlabLatin700Woff}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
       href={robotoSlabLatin800Woff}
       as="font"
       type="font/woff2"
@@ -181,13 +239,30 @@ const structuredData = JSON.stringify({
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <script type="application/ld+json" set:html={structuredData} is:inline />
+    {
+      gaId && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} is:inline />
+          <script
+            is:inline
+            set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+          />
+          {/* GA4 enhanced measurement ignores tel:, sms: and mailto: clicks. */}
+          <script
+            is:inline
+            set:html={`document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"],a[href^="mailto:"]');if(!a||!window.gtag)return;var h=a.getAttribute('href')||'';var t=h.indexOf('mailto:')===0?'email':h.indexOf('sms:')===0?'text':'call';gtag('event','contact_click',{method:t,link_url:h});});`}
+          />
+        </>
+      )
+    }
   </head>
-  <body class={bodyClass}>
+  <body class:list={[bodyClass]}>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <PeakHeader currentPath={Astro.url.pathname} />
-    <main id="main-content" class:list={[mainClass]}>
+    <main id="main-content" tabindex="-1" class:list={[mainClass]}>
       <slot />
     </main>
     <PeakFooter />
-    <script src="/js/peak-nav.js" defer></script>
+    <script src="/js/peak-nav.js" defer is:inline></script>
   </body>
 </html>

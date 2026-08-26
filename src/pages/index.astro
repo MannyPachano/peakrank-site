@@ -1,21 +1,51 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
 import HomeOwnerCallout from "../components/HomeOwnerCallout.astro";
 import HomeOfferSection from "../components/HomeOfferSection.astro";
+import Testimonials from "../components/Testimonials.astro";
+import PricingPlans from "../components/PricingPlans.astro";
+import { splitPartial } from "../lib/partial";
 import "../styles/peak-home.css";
 import html from "../partials/home-main.html?raw";
 
-const [beforeOwner, tail] = html.split("<!--OWNER_CALLOUT-->");
-const [, afterOffer] = tail.split("<!--OFFER_SECTION-->");
+const [
+  beforeOwner,
+  betweenOwnerAndOffer,
+  betweenOfferAndTestimonials,
+  betweenTestimonialsAndPricing,
+  afterPricing,
+  afterFinalCta,
+] = splitPartial(
+  html,
+  "home-main.html",
+  "<!--OWNER_CALLOUT-->",
+  "<!--OFFER_SECTION-->",
+  "<!--TESTIMONIALS-->",
+  "<!--PRICING_PLANS-->",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Small Business Web Designer | PeakRanking Digital Solutions | $0 Down $150 Per Month"
-  description="Hand-coded websites for small businesses starting at $0 down and $150/month. Custom design, perfect PageSpeed scores, unlimited edits. Based in Marietta, GA."
+  title="Small Business Web Design in Marietta, GA | $0 Down, $150/mo"
+  description="Hand-coded websites for small businesses in Marietta and metro Atlanta. $0 down and $150 per month, or $1,200 one time. Custom design, fast load times, unlimited edits."
   canonicalPath="/"
 >
-  <div set:html={beforeOwner} />
+  <Fragment set:html={beforeOwner} />
   <HomeOwnerCallout />
+  <Fragment set:html={betweenOwnerAndOffer} />
   <HomeOfferSection />
-  <div set:html={afterOffer} />
+  <Fragment set:html={betweenOfferAndTestimonials} />
+  <Testimonials
+    tone="base"
+    id="reviews"
+    title="Trusted By Small Business Owners Across The Country"
+    intro="We have built and ranked sites for contractors, tech companies, studios, and everything in between. Here is what a few of them had to say about working with us."
+  />
+  <Fragment set:html={betweenTestimonialsAndPricing} />
+  <PricingPlans variant="home" headingLevel="h3" summary ctaLabel="See Full Pricing" ctaHref="/pricing" />
+  <Fragment set:html={afterPricing} />
+  <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" id="contact" />
+  <Fragment set:html={afterFinalCta} />
 </PeakLayout>

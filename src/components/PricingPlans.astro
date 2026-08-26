@@ -1,0 +1,100 @@
+---
+import "../styles/peak-plans.css";
+import { plans } from "../data/plans";
+
+interface Props {
+  /** "home" is the compact card, "page" is the roomier /pricing card. */
+  variant?: "home" | "page";
+  ctaLabel?: string;
+  ctaHref?: string;
+  /** Heading level for the plan name. h2 on /pricing, h3 inside the home section. */
+  headingLevel?: "h2" | "h3";
+  /**
+   * Summary mode: price and the headline inclusions only, no add-on or
+   * exclusion lists. Keeps the home block from duplicating /pricing word for
+   * word, which made Google pick the home page and starved /pricing of the
+   * only bottom-of-funnel query it can win.
+   */
+  summary?: boolean;
+}
+
+const {
+  variant = "page",
+  ctaLabel = "Get Started",
+  ctaHref = "/contact",
+  headingLevel = "h2",
+  summary = false,
+} = Astro.props;
+
+const Heading = headingLevel;
+---
+
+<div class:list={["pricing-grid", `pricing-grid--${variant}`]}>
+  {
+    plans.map((plan) => (
+      <div class:list={["plan", { featured: plan.featured }]}>
+        {plan.badge && <div class="plan-badge">{plan.badge}</div>}
+
+        <Heading class="plan-name">{plan.name}</Heading>
+        <p class="plan-desc">{plan.tagline}</p>
+
+        <div class="plan-lists">
+          <ul class="plan-perks">
+            {(summary ? plan.included.slice(0, 4) : plan.included).map((item) => (
+              <li class="plan-perk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                <span><span class="sr-only">Included: </span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          {!summary && plan.addOns.length > 0 && (
+            <div class="plan-group">
+              <p class="plan-group-title">Optional add-ons</p>
+              <ul class="plan-perks">
+                {plan.addOns.map((item) => (
+                  <li class="plan-perk plan-perk--addon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    <span><span class="sr-only">Optional add-on: </span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {!summary && plan.notIncluded.length > 0 && (
+            <div class="plan-group">
+              <p class="plan-group-title">Not included</p>
+              <ul class="plan-perks">
+                {plan.notIncluded.map((item) => (
+                  <li class="plan-perk plan-perk--excluded">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                    <span><span class="sr-only">Not included: </span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <div class="plan-price-block">
+          <div class="plan-price">
+            {plan.price}<span>{plan.priceUnit}</span>
+          </div>
+          <p class="plan-price-note">{plan.priceNote}</p>
+        </div>
+
+        <a href={ctaHref} class="plan-btn">
+          {ctaLabel}
+          <span class="sr-only"> with the {plan.name} plan</span>
+        </a>
+      </div>
+    ))
+  }
+</div>

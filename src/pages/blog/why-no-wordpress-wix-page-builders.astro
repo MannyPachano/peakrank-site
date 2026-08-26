@@ -1,11 +1,19 @@
 ---
 import PeakLayout from "../../layouts/PeakLayout.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import { splitPartial } from "../../lib/partial";
 import "../../styles/peak-blog-post.css";
 import html from "../../partials/blog-no-wordpress-wix-main.html?raw";
+
+const [beforeCta, afterCta] = splitPartial(
+  html,
+  "blog-no-wordpress-wix-main.html",
+  "<!--FINAL_CTA-->",
+);
 ---
 
 <PeakLayout
-  title="Why We Don't Use WordPress, Wix, or Page Builders | PeakRanking Digital Solutions"
+  title="Why We Don't Use WordPress, Wix, or Page Builders"
   description="Why we hand-code every small business website instead of using WordPress, Wix, Squarespace, or any page builder. The honest pros and cons most agencies won't tell you."
   canonicalPath="/blog/why-no-wordpress-wix-page-builders"
   bodyClass="page-blog-post page-blog-post--navy-hero"
@@ -17,5 +25,7 @@ import html from "../../partials/blog-no-wordpress-wix-main.html?raw";
     authorName: "Manny Pachano",
   }}
 >
-  <div set:html={html} />
+  <Fragment set:html={beforeCta} />
+  <FinalCta heading="Ready For A Site Built The Right Way?" ctaLabel="Get Started Today" />
+  <Fragment set:html={afterCta} />
 </PeakLayout>
