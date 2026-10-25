@@ -53,7 +53,7 @@ export const business = {
    * schema.org sameAs. Every entry must be a real, live profile.
    * TODO(owner): add the Google Business Profile URL. It is the single highest
    * value entry here and the site currently links to no profile at all, which is
-   * the exact work the $150/mo plan sells.
+   * the exact work the local SEO plan sells.
    */
   profiles: [
     "https://www.linkedin.com/in/manny-pachano/",

@@ -3,6 +3,9 @@
   padding: 4rem 0 5rem;
   background: var(--bg);
   position: relative;
+  /* The ::before glow sits at right: -5%; without this it extends
+     document scrollWidth, which body{overflow-x:hidden} then hides. */
+  overflow: hidden;
 }
 
 .content::before {

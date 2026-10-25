@@ -480,7 +480,7 @@ h1.hero-title {
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 8 / 5;
   box-shadow:
     0 24px 48px rgba(11, 26, 47, 0.12),
     0 0 0 1px rgba(11, 26, 47, 0.06);
@@ -503,6 +503,14 @@ h1.hero-title {
   margin-left: 0;
   margin-right: 0;
   max-width: none;
+}
+
+/* Matches the other links on the light offer panel instead of UA blue. */
+.offer-lead .section-intro a {
+  color: #7c2d12;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
 }
 
 .offer-lead .section-intro {

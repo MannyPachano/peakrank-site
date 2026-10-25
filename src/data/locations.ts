@@ -38,7 +38,7 @@ export const locations: Location[] = [
     city: "Kennesaw",
     shortName: "Kennesaw",
     description:
-      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites from $0 down and $150 per month, built by a developer 10 minutes up the road.",
+      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $75 per designed page, built by a developer 10 minutes up the road.",
     intro:
       "Kennesaw is a competitive place to be a small business online. You are up against national franchise locations with corporate marketing budgets, and against the same handful of contractors who have been buying ads here for years. The good news is that most of them are running slow template sites, and that is a gap you can walk straight through.",
     sections: [
@@ -71,7 +71,7 @@ export const locations: Location[] = [
     city: "Smyrna",
     shortName: "Smyrna",
     description:
-      "Web design and local SEO for Smyrna, GA small businesses. Fast hand-coded websites from $0 down and $150 per month, no WordPress and no page builders.",
+      "Web design and local SEO for Smyrna, GA small businesses. Fast hand-coded websites at $75 per designed page, no WordPress and no page builders.",
     intro:
       "Smyrna has changed fast, and the businesses that have kept up online are doing noticeably better than the ones that have not. There is real money moving through this part of Cobb County, and a lot of it goes to whoever turns up first when somebody searches on their phone.",
     sections: [
@@ -104,7 +104,7 @@ export const locations: Location[] = [
     city: "Roswell",
     shortName: "Roswell",
     description:
-      "Web design and local SEO for Roswell, GA small businesses. Custom hand-coded sites from $0 down and $150 per month, built for professional service firms.",
+      "Web design and local SEO for Roswell, GA small businesses. Custom hand-coded sites at $75 per designed page, built for professional service firms.",
     intro:
       "Roswell has a higher concentration of professional service firms than most of metro Atlanta, and those businesses live or die on whether they look credible before the first phone call. That is a different problem from getting foot traffic, and it needs a different kind of site.",
     sections: [
@@ -137,7 +137,7 @@ export const locations: Location[] = [
     city: "Woodstock",
     shortName: "Woodstock",
     description:
-      "Web design and local SEO for Woodstock, GA small businesses. Hand-coded websites from $0 down and $150 per month, built to rank in a fast-growing market.",
+      "Web design and local SEO for Woodstock, GA small businesses. Hand-coded websites at $75 per designed page, built to rank in a fast-growing market.",
     intro:
       "Woodstock is growing quickly, and that cuts both ways for a small business. There are more customers arriving every year, and there are more competitors arriving with them. The businesses that get found in the next couple of years will mostly be the ones that started doing the work now.",
     sections: [

@@ -1,25 +1,12 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
-import Testimonials from "../components/Testimonials.astro";
-import { splitPartial, replacePartial } from "../lib/partial";
+import RecentWork from "../components/RecentWork.astro";
+import { splitPartial } from "../lib/partial";
 import "../styles/peak-about.css";
-import { getImage } from "astro:assets";
 import html from "../partials/about-main.html?raw";
-import mannyAvatar from "../assets/manny-avatar.jpg";
 
-// The team card sits inside a raw HTML string, so run the file through the Astro
-// image pipeline here and interpolate the optimized URLs rather than pointing at
-// an unprocessed copy in public/.
-const teamPhoto1x = await getImage({ src: mannyAvatar, width: 140, height: 140, format: "webp", quality: 82 });
-const teamPhoto2x = await getImage({ src: mannyAvatar, width: 280, height: 280, format: "webp", quality: 82 });
-
-const aboutHtml = replacePartial(
-  html,
-  "about-main.html",
-  "<!--ABOUT_MANNY_PHOTO-->",
-  `<img src="${teamPhoto1x.src}" srcset="${teamPhoto1x.src} 1x, ${teamPhoto2x.src} 2x" alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions" class="team-photo-img" width="140" height="140" loading="lazy" decoding="async" />`,
-);
+const aboutHtml = html;
 
 const [
   beforeTestimonials,
@@ -35,11 +22,11 @@ const [
 
 <PeakLayout
   title="About PeakRanking | Small Business Web Design in Marietta, GA"
-  description="Meet Manny Pachano and the small team behind PeakRanking Digital Solutions. Hand-coded websites and local SEO for small businesses, based in Marietta, GA."
+  description="Meet Manny Pachano, the designer and developer behind PeakRanking Digital Solutions. Custom websites at $75 per page and local SEO for small businesses."
   canonicalPath="/about"
 >
   <Fragment set:html={beforeTestimonials} />
-  <Testimonials tone="deep" id="reviews" />
+  <RecentWork tone="deep" id="work" />
   <Fragment set:html={afterTestimonials} />
   <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" />
   <Fragment set:html={afterFinalCta} />

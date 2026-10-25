@@ -17,6 +17,8 @@
   background: var(--bg);
   padding: 2rem 0 4rem;
   position: relative;
+  /* contains the ::before glow at right: -5% */
+  overflow: hidden;
 }
 
 .featured-post-section::before {

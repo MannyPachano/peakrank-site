@@ -1,14 +1,10 @@
 /**
- * The two pricing plans, defined once.
+ * The two services, defined once and rendered by PricingPlans.astro on the
+ * home page (summary) and /pricing (full).
  *
- * These used to be hand-maintained in two places (the home page block and
- * /pricing) and had already drifted: the home card showed "$1,200 one-time" with
- * no hosting cost attached while /pricing showed "+$25/mo Hosting", which is the
- * pattern that reads as a hidden fee at the quote stage.
- *
- * Note the three-way split. Costs like hosting and per-page fees used to be
- * rendered as bullet points with the same green checkmark as genuine inclusions,
- * directly under the words "Everything included".
+ * Keep the three-way split: what the price buys (included), genuinely optional
+ * extras (addOns, never shown with a checkmark), and what is not part of it
+ * (notIncluded), so nothing reads as a hidden fee at the quote stage.
  */
 export interface Plan {
   id: string;
@@ -31,46 +27,41 @@ export interface Plan {
 
 export const plans: Plan[] = [
   {
-    id: "lump-sum",
-    name: "Lump Sum",
-    tagline: "Pay once and own the site files outright.",
-    price: "$1,200",
-    priceUnit: "one time",
-    priceNote: "Plus $25 per month for hosting, so about $1,500 in your first year.",
+    id: "website",
+    name: "Website Redesign",
+    tagline: "Priced per designed page. A 5 page site is $375.",
+    price: "$75",
+    priceUnit: "per page",
+    priceNote: "50% to start, 50% at launch. Full refund if you are not satisfied with the design.",
     included: [
-      "Design and development",
-      "You own the site files once the one time fee is paid",
-      "Up to 5 pages",
+      "A custom design for every page",
+      "Unlimited design revisions until you approve",
+      "A custom editor so you can change text and photos yourself",
+      "One month of unlimited support after launch",
+      "Fast static build with no plugins to keep updated",
+      "Set up in a hosting account you own",
     ],
-    addOns: [
-      "Hosting, $25 per month",
-      "Extra pages beyond 5, $100 each",
-      "Unlimited edits, $60 per month",
-      "Add a blog, $250 one time",
-    ],
+    addOns: [],
     notIncluded: [
-      "Direct owner access, 7 days a week",
-      "Updates included while your plan is active",
+      "Hosting fees, paid to the host directly (most small business sites fit a free plan)",
+      "Domain registration",
     ],
   },
   {
-    id: "monthly",
-    name: "Monthly",
-    tagline: "Nothing up front. Cancel any time after the first six months.",
-    price: "$150",
+    id: "seo",
+    name: "Local SEO",
+    tagline: "Four month minimum. Full refund if the agreed targets are not met.",
+    price: "$750",
     priceUnit: "per month",
-    priceNote: "$0 down, 6 month minimum.",
+    priceNote: "For the first 4 months. After that, $300 per month for maintenance if you choose to continue.",
     included: [
-      "Design and development",
-      "Hosting",
-      "Up to 5 pages",
-      "Unlimited edits",
-      "Direct owner access, 7 days a week",
-      "Updates included while your plan is active",
+      "Targets agreed in writing before work starts",
+      "Google Business Profile optimization",
+      "On-page SEO and service area pages",
+      "Local citations and link building",
+      "A monthly report measured against the targets",
     ],
-    addOns: ["Extra pages beyond 5, $100 each", "Add a blog, $250 one time"],
+    addOns: [],
     notIncluded: [],
-    badge: "Most Popular",
-    featured: true,
   },
 ];

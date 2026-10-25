@@ -1,6 +1,7 @@
 /*
  * Testimonials section — shared by the home page and the about page.
- * Rendered by src/components/Testimonials.astro. Single source of truth:
+ * Rendered by src/components/RecentWork.astro, which reuses this card style.
+ * Single source of truth:
  * do not re-declare these rules in a per-page stylesheet.
  */
 

@@ -3,7 +3,7 @@ import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
 import HomeOwnerCallout from "../components/HomeOwnerCallout.astro";
 import HomeOfferSection from "../components/HomeOfferSection.astro";
-import Testimonials from "../components/Testimonials.astro";
+import RecentWork from "../components/RecentWork.astro";
 import PricingPlans from "../components/PricingPlans.astro";
 import { splitPartial } from "../lib/partial";
 import "../styles/peak-home.css";
@@ -28,8 +28,8 @@ const [
 ---
 
 <PeakLayout
-  title="Small Business Web Design in Marietta, GA | $0 Down, $150/mo"
-  description="Hand-coded websites for small businesses in Marietta and metro Atlanta. $0 down and $150 per month, or $1,200 one time. Custom design, fast load times, unlimited edits."
+  title="Small Business Web Design in Marietta, GA | $75 Per Page"
+  description="Custom websites for small businesses at $75 per designed page, with unlimited revisions and a money back guarantee. Local SEO with a refund if agreed targets are not met."
   canonicalPath="/"
 >
   <Fragment set:html={beforeOwner} />
@@ -37,12 +37,7 @@ const [
   <Fragment set:html={betweenOwnerAndOffer} />
   <HomeOfferSection />
   <Fragment set:html={betweenOfferAndTestimonials} />
-  <Testimonials
-    tone="base"
-    id="reviews"
-    title="Trusted By Small Business Owners Across The Country"
-    intro="We have built and ranked sites for contractors, tech companies, studios, and everything in between. Here is what a few of them had to say about working with us."
-  />
+  <RecentWork tone="base" id="work" />
   <Fragment set:html={betweenTestimonialsAndPricing} />
   <PricingPlans variant="home" headingLevel="h3" summary ctaLabel="See Full Pricing" ctaHref="/pricing" />
   <Fragment set:html={afterPricing} />

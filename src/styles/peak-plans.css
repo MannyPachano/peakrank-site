@@ -140,7 +140,7 @@ h3.plan-name {
 
 /*
  * Add-ons and exclusions used to be conveyed by an unlabelled icon plus
- * line-through, neither of which a screen reader announces, so the $1,200 card
+ * line-through, neither of which a screen reader announces, so a card with add-ons
  * read out as including things it does not. The sr-only prefixes in the markup
  * carry the meaning now; these are only the visual cue.
  */

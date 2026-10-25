@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import portrait from "../assets/manny-portrait.jpg";
+import photo from "../assets/manny-geese.webp";
 import { business, claims } from "../data/business";
 
 const perks = [
   {
-    title: "No Database To Break Into",
-    body: "Your site is static HTML and CSS files. There is no database, no admin login and no plugins, so the entire class of CMS and plugin exploits simply does not apply to it. Domain and hosting accounts are locked down with two-factor authentication.",
+    title: "Edit Your Own Site Safely",
+    body: "You get a custom editor for changing text, photos and prices yourself. The public site stays plain static files with no database and no plugins, so the usual WordPress break-ins do not apply to it. Every account is protected with two-factor authentication.",
   },
   {
     title: "Custom Designed",
@@ -17,8 +17,8 @@ const perks = [
     body: "The sites ship with no page builder bloat and no unused code, so they load fast on a phone. Run your current site through Google PageSpeed Insights and compare.",
   },
   {
-    title: "Money Back Guarantee",
-    body: "If we cannot design something you want to put your name on, you get your money back and the contract is cancelled.",
+    title: "Money Back Guarantee On Design",
+    body: "Revisions are unlimited until you approve the design. If you are still not satisfied, you get your money back and the contract is cancelled.",
     link: { href: "/terms#guarantee", label: "Read the guarantee terms" },
   },
   {
@@ -26,8 +26,9 @@ const perks = [
     body: "Text or call and you reach the person who designed and built your site. No phone trees, no chatbots, no account manager relaying messages.",
   },
   {
-    title: "We Know SEO",
-    body: "No tricks and no gimmicks. We will explain what SEO actually is, how it works, and what we can realistically do to get your business ranking.",
+    title: "SEO Results Or A Refund",
+    body: "Before SEO work starts, we agree in writing on the targets it has to hit. If they are not met after the four month minimum, you get back what you paid.",
+    link: { href: "/terms#seo-guarantee", label: "Read the SEO guarantee terms" },
   },
 ];
 ---
@@ -37,11 +38,11 @@ const perks = [
     <div class="offer-split">
       <figure class="offer-photo">
         <Image
-          src={portrait}
-          alt="Manny Pachano, Owner and Developer at PeakRanking Digital Solutions"
-          width={572}
-          height={1024}
-          widths={[380, 572]}
+          src={photo}
+          alt="Manny Pachano crouching on a lawn, holding out a hand to two Canada geese"
+          width={800}
+          height={500}
+          widths={[400, 800]}
           sizes="(max-width: 960px) 100vw, min(520px, 42vw)"
           loading="lazy"
           decoding="async"
@@ -51,13 +52,13 @@ const perks = [
       </figure>
       <div class="offer-lead">
         <div class="section-eyebrow">What We Offer</div>
-        <h2 class="section-title">$0 Down, $150 Per Month</h2>
+        <h2 class="section-title">Website Redesigns At $75 Per Page</h2>
         <p class="section-intro">
-          The monthly plan covers a standard 5 page small business website and includes design,
-          development, hosting, unlimited edits, direct access to the owner and updates for as long
-          as the plan is active. Six month minimum. Larger sites are priced on scope and page count,
-          and there is a one time option on the <a href="/pricing">pricing page</a> if you would
-          rather pay once.
+          Every page is designed from scratch, and you can ask for as many design revisions as you
+          need. A 5 page site is $375, paid half to start and half at launch. You get a custom editor
+          to make changes yourself and one month of unlimited support after launch. Local SEO is
+          $750 per month with a refund if the agreed targets are not met. Details are on the
+          <a href="/pricing">pricing page</a>.
         </p>
 
         <div class="perks-grid">

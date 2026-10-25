@@ -46,3 +46,36 @@
     padding: 4rem 0 5rem;
   }
 }
+
+/* Guarantee explanation under the plan cards. */
+.pricing-guarantees {
+  padding: 0 0 4rem;
+}
+.pricing-guarantees .container {
+  max-width: 760px;
+}
+.pricing-guarantees h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1.25rem;
+}
+.pricing-guarantees h3 {
+  font-size: 1.125rem;
+  margin: 1.75rem 0 0.5rem;
+}
+.pricing-guarantees p {
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+/*
+ * The guarantee explainer links out to /terms. Without a colour the anchor
+ * falls back to the UA default #0000EE, which is 1.86:1 on this background.
+ */
+.pricing-guarantees a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pricing-guarantees a:hover {
+  color: var(--accent-bright);
+}
