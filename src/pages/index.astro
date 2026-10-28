@@ -3,7 +3,6 @@ import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
 import HeroWorkShot from "../components/HeroWorkShot.astro";
 import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
-import HomeOwnerCallout from "../components/HomeOwnerCallout.astro";
 import HomeOfferSection from "../components/HomeOfferSection.astro";
 import RecentWork from "../components/RecentWork.astro";
 import PricingPlans from "../components/PricingPlans.astro";
@@ -14,8 +13,7 @@ import html from "../partials/home-main.html?raw";
 const [
   beforeHeroVisual,
   betweenVisualAndBeforeAfter,
-  betweenBeforeAfterAndOwner,
-  betweenOwnerAndOffer,
+  betweenBeforeAfterAndOffer,
   betweenOfferAndTestimonials,
   betweenTestimonialsAndPricing,
   afterPricing,
@@ -25,7 +23,6 @@ const [
   "home-main.html",
   "<!--HERO_VISUAL-->",
   "<!--BEFORE_AFTER-->",
-  "<!--OWNER_CALLOUT-->",
   "<!--OFFER_SECTION-->",
   "<!--TESTIMONIALS-->",
   "<!--PRICING_PLANS-->",
@@ -42,9 +39,7 @@ const [
   <HeroWorkShot />
   <Fragment set:html={betweenVisualAndBeforeAfter} />
   <HomeBeforeAfter />
-  <Fragment set:html={betweenBeforeAfterAndOwner} />
-  <HomeOwnerCallout />
-  <Fragment set:html={betweenOwnerAndOffer} />
+  <Fragment set:html={betweenBeforeAfterAndOffer} />
   <HomeOfferSection />
   <Fragment set:html={betweenOfferAndTestimonials} />
   <RecentWork tone="base" id="work" />

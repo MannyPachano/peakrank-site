@@ -1,7 +1,6 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
-import OwnerPhoto from "../components/OwnerPhoto.astro";
 import AreasServed from "../components/AreasServed.astro";
 import { splitPartial } from "../lib/partial";
 import "../styles/peak-article.css";
@@ -10,7 +9,6 @@ import html from "../partials/local-seo-main.html?raw";
 const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
   html,
   "local-seo-main.html",
-  "<!--OWNER_PHOTO-->",
   "<!--AREAS_SERVED-->",
   "<!--FINAL_CTA-->",
 );
@@ -23,7 +21,6 @@ const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
   bodyClass="page-local-seo"
 >
   <Fragment set:html={beforePhoto} />
-  <OwnerPhoto />
   <Fragment set:html={betweenPhotoAndAreas} />
   <AreasServed />
   <Fragment set:html={beforeCta} />

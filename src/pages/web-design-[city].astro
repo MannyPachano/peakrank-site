@@ -1,7 +1,6 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
-import OwnerPhoto from "../components/OwnerPhoto.astro";
 import { locations } from "../data/locations";
 import { business } from "../data/business";
 import "../styles/peak-article.css";
@@ -60,8 +59,6 @@ const path = `/web-design-${location.slug}`;
         <ul>
           {location.industries.map((industry) => <li>{industry}</li>)}
         </ul>
-
-        <OwnerPhoto caption={`Websites and local SEO for small businesses in ${location.city} and across the US.`} />
 
         <h2>What It Costs</h2>
         <p>

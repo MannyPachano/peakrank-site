@@ -44,8 +44,10 @@ const REQUIRED = {
   "dist/about.html": ["founder", "process", "team", "testimonials"],
   "dist/pricing.html": ["plan-name", "plan-price"],
   "dist/contact.html": ["data-netlify", "form-name"],
-  "dist/web-design.html": ["owner-photo-inline"],
-  "dist/local-seo.html": ["owner-photo-inline"],
+  // Was "owner-photo-inline" until the initials badge was removed. These two
+  // are the spliced-in components, so they still prove the partial rendered.
+  "dist/web-design.html": ["areas-served", "cross-link"],
+  "dist/local-seo.html": ["areas-served", "cross-link"],
   "dist/blog.html": ["blog-index-grid"],
   "dist/terms.html": ["guarantee"],
   "dist/privacy.html": ["Service providers"],

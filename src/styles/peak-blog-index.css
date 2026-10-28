@@ -150,19 +150,6 @@
   margin-top: auto;
 }
 
-.featured-byline .byline-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Roboto Slab", Georgia, serif;
-  font-weight: 800;
-  font-size: 0.72rem;
-  color: var(--bg);
-}
 
 .featured-byline .byline-author {
   color: var(--text);
