@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import shot from "../assets/work/ues-after.png";
+
+/**
+ * The hero visual. This used to be a CSS skeleton of a laptop showing invented
+ * content, which told a prospect nothing. It now shows a site that was actually
+ * built, in a plain browser frame.
+ *
+ * Above the fold, so it loads eagerly with explicit dimensions. Everything else
+ * on the page lazy-loads.
+ */
+---
+
+<div class="hero-visual">
+  <figure class="work-shot">
+    <div class="work-shot-frame">
+      <div class="work-shot-bar" aria-hidden="true"></div>
+      <Image
+        src={shot}
+        alt="Homepage of Universal Environmental Services, designed and built by Manny Pachano in 2026"
+        width={960}
+        height={600}
+        widths={[480, 720, 960]}
+        sizes="(max-width: 960px) calc(100vw - 3rem), min(600px, 46vw)"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        quality={78}
+        class="work-shot-img"
+      />
+    </div>
+    <figcaption class="work-shot-caption">
+      Universal Environmental Services homepage, rebuilt in 2026
+    </figcaption>
+  </figure>
+</div>

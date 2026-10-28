@@ -20,11 +20,6 @@
     animation: none;
   }
 
-  .float-star-1,
-  .float-star-2,
-  .float-peak-1 {
-    animation: none;
-  }
 }
 
 .mountains {
@@ -91,195 +86,185 @@ h1.hero-title {
 
 .hero-visual {
   position: relative;
-  height: 440px;
 }
 
-.laptop-scene {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/*
+ * Browser frame around a real screenshot. Replaces the laptop skeleton, which
+ * drew invented content in CSS. The bar is three dots and nothing else, so it
+ * reads as a browser without competing with the screenshot inside it.
+ */
+.work-shot {
+  margin: 0;
 }
 
-.laptop {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 560px;
-  aspect-ratio: 16 / 11;
-  background: linear-gradient(180deg, #1a2a4a 0%, #0a1428 100%);
-  border-radius: 12px 12px 4px 4px;
-  padding: 18px 18px 30px;
-  box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 0 80px rgba(255, 138, 61, 0.15);
-}
-
-.laptop::before {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: -8%;
-  width: 116%;
-  height: 14px;
-  background: linear-gradient(180deg, #2a3a5a 0%, #0a1428 100%);
-  border-radius: 0 0 16px 16px;
-}
-
-.laptop::after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: 45%;
-  width: 10%;
-  height: 3px;
-  background: #060f1f;
-  border-radius: 0 0 6px 6px;
-}
-
-.laptop-screen {
-  width: 100%;
-  height: 100%;
-  background: var(--bg-light);
-  border-radius: 4px;
+.work-shot-frame {
+  border-radius: 10px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  background: var(--bg-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(255, 138, 61, 0.1);
 }
 
-/* Single layer for browser chrome (replaces nested fake-nav + dots + url) */
-.laptop-chrome {
-  height: 32px;
-  flex-shrink: 0;
+.work-shot-bar {
+  height: 26px;
   border-bottom: 1px solid #e3e8f0;
   background:
     radial-gradient(circle 4px at 14px 50%, #ff6b6b 100%, transparent 100%),
     radial-gradient(circle 4px at 30px 50%, #ffd56b 100%, transparent 100%),
     radial-gradient(circle 4px at 46px 50%, #51cf66 100%, transparent 100%),
-    linear-gradient(#f0f3f8, #f0f3f8) no-repeat right 12px center / min(200px, 42%) 16px,
     #fff;
   background-repeat: no-repeat;
 }
 
-.fake-content {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: linear-gradient(180deg, #0b1a2f 0%, #1a2a4a 100%);
-  position: relative;
-  overflow: hidden;
+.work-shot-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.fake-content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 40%;
-  background: radial-gradient(circle at 70% 40%, rgba(255, 138, 61, 0.25), transparent 60%);
+.work-shot-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-mute);
+  text-align: center;
 }
 
-/* Laptop mock: one skeleton block + 2 cards (fewer DOM nodes than nested divs) */
-.fake-hero-skeleton {
-  flex: 1;
-  min-height: 72px;
-  border-radius: 4px;
-  background:
-    linear-gradient(rgba(255, 138, 61, 0.85), rgba(255, 138, 61, 0.85)) no-repeat 0 0 / 58% 5px,
-    linear-gradient(#fff, #fff) no-repeat 0 14px / 100% 12px,
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)) no-repeat 0 34px / 78% 8px,
-    linear-gradient(var(--accent), var(--accent)) no-repeat 0 52px / 90px 22px;
+/* Fact strip under the hero. */
+.facts {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 2.5rem 0;
 }
 
-/* One DOM node; two “cards” drawn with pseudo-elements (no nested .fake-card divs). */
-.fake-cards-strip {
-  height: 54px;
-  margin-top: auto;
-  flex-shrink: 0;
-  display: flex;
-  gap: 8px;
-  position: relative;
-  z-index: 1;
+.facts-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
 }
 
-.fake-cards-strip::before,
-.fake-cards-strip::after {
-  content: "";
-  flex: 1;
-  min-width: 0;
-  height: 100%;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle 5px at 14px 16px, var(--accent) 100%, transparent 100%),
-    linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32)) no-repeat 14px 28px / 72% 4px,
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)) no-repeat 14px 36px / 48% 4px,
-    rgba(255, 255, 255, 0.07);
-  background-repeat: no-repeat;
+.fact {
+  text-align: center;
 }
 
-.float-peak {
-  position: absolute;
-  z-index: 3;
+.fact-number {
+  display: block;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
   color: var(--accent);
 }
 
-.float-peak-1 {
-  top: 5%;
-  right: 5%;
-  width: 70px;
-  height: 70px;
-  animation: floatPeak 6s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(255, 138, 61, 0.6));
+.fact-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  /* --text-mute is 4.2:1 here; this is 7.1:1 on --bg-deep. */
+  color: var(--text-body);
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.float-star {
-  position: absolute;
-  z-index: 3;
-  color: var(--star);
+/* Before and after. */
+.before-after {
+  background: var(--bg);
 }
 
-.float-star-1 {
-  top: 20%;
-  left: 5%;
-  width: 30px;
-  height: 30px;
-  animation: twinkleStar 3s ease-in-out infinite;
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-.float-star-2 {
-  top: 15%;
-  left: 48%;
-  width: 24px;
-  height: 24px;
-  animation: twinkleStar 4s ease-in-out infinite 1.5s;
+.ba-item {
+  margin: 0;
 }
 
-@keyframes floatPeak {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.ba-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 0.7rem;
 }
 
-@keyframes twinkleStar {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(0.85);
-  }
+.ba-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.ba-links a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ba-links a:hover {
+  color: var(--accent-bright);
+}
+
+/* How a redesign works. */
+.steps {
+  background: var(--bg-deep);
+}
+
+.steps-grid {
+  list-style: none;
+  margin: 3.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.step {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2rem 1.6rem;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 1.1rem;
+}
+
+.step h3 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.step p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--text-mute);
 }
 
 .services {
@@ -875,8 +860,11 @@ h1.hero-title {
   }
 
   .hero-visual {
-    height: 380px;
     order: 2;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   section {
@@ -885,8 +873,13 @@ h1.hero-title {
 
   .services-grid,
   .perks-grid,
-  .blog-grid {
+  .blog-grid,
+  .ba-grid {
     grid-template-columns: 1fr;
+  }
+
+  .facts-row {
+    gap: 2rem 1.5rem;
   }
 
   .offer-split {
@@ -938,6 +931,11 @@ h1.hero-title {
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .facts-row,
+  .steps-grid {
+    grid-template-columns: 1fr;
   }
 
   .btn-primary,

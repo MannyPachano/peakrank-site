@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import "../styles/peak-testimonials.css";
 import { projects } from "../data/projects";
 
@@ -15,6 +17,22 @@ const {
   title = "Websites Manny Has Designed And Built",
   intro = "Client sites and in-house work from the last few years. Each one links to a case study with what the project needed and what was built.",
 } = Astro.props;
+
+/**
+ * Resolved at build time so a missing or renamed file in src/assets/work fails
+ * the build instead of shipping a broken <img>.
+ */
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/work/*.{webp,png,svg}",
+  { eager: true },
+);
+
+function shotFor(file: string | undefined): ImageMetadata | null {
+  if (!file) return null;
+  const hit = assets[`../assets/work/${file}`];
+  if (!hit) throw new Error(`src/assets/work/${file} is missing (src/data/projects.ts).`);
+  return hit.default;
+}
 ---
 
 <section class:list={["testimonials", `testimonials--${tone}`]} id={id}>
@@ -25,29 +43,62 @@ const {
 
     <div class="testimonial-grid">
       {
-        projects.map((p) => (
-          <article class="testimonial work-card">
-            <h3 class="testimonial-name work-name">{p.name}</h3>
-            <p class="testimonial-loc work-role">{p.role}</p>
-            <p class="testimonial-body work-summary">{p.summary}</p>
-            <p class="work-links">
-              <a href={p.caseStudy} target="_blank" rel="noopener">
-                Read the {p.name} case study<span class="sr-only"> (opens in a new tab)</span>
-              </a>
-              {p.live && (
-                <a href={p.live} target="_blank" rel="noopener">
-                  Visit the live site<span class="sr-only"> (opens in a new tab)</span>
-                </a>
+        projects.map((p) => {
+          const shot = shotFor(p.image);
+          const alt = p.imageIsDrawing
+            ? `Line drawing of the ${p.name} website`
+            : `Homepage of ${p.name}, designed and built by Manny Pachano`;
+          return (
+            <article class="testimonial work-card">
+              {shot && (
+                <div class:list={["work-shot-box", { "work-shot-box--drawing": p.imageIsDrawing }]}>
+                  {/* SVG goes through a plain <img>: there is nothing for the
+                      image service to resize, and Astro passes it through anyway. */}
+                  {shot.format === "svg" ? (
+                    <img src={shot.src} alt={alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" />
+                  ) : (
+                    <Image
+                      src={shot}
+                      alt={alt}
+                      width={640}
+                      height={400}
+                      widths={[320, 640]}
+                      sizes="(max-width: 960px) calc(100vw - 3rem), min(360px, 30vw)"
+                      loading="lazy"
+                      decoding="async"
+                      quality={74}
+                    />
+                  )}
+                </div>
               )}
-            </p>
-          </article>
-        ))
+              <div class="work-body">
+                <h3 class="testimonial-name work-name">{p.name}</h3>
+                <p class="testimonial-loc work-role">{p.role}</p>
+                <p class="testimonial-body work-summary">{p.summary}</p>
+                <p class="work-links">
+                  <a href={p.caseStudy} target="_blank" rel="noopener">
+                    Read the {p.name} case study<span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                  {p.live && (
+                    <a href={p.live} target="_blank" rel="noopener">
+                      Visit the live site<span class="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  )}
+                </p>
+              </div>
+            </article>
+          );
+        })
       }
     </div>
   </div>
 </section>
 
 <style>
+  /* Two classes so this beats .testimonial's padding in peak-testimonials.css
+     whichever order the inlined stylesheets end up in. */
+  .testimonial.work-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+  .work-body { display: flex; flex-direction: column; flex: 1; padding: 1.75rem; }
   .work-name { font-size: 1.125rem; margin: 0 0 0.25rem; }
   .work-role { margin: 0 0 0.875rem; }
   .work-summary { margin: 0 0 1.25rem; }
@@ -56,5 +107,32 @@ const {
      which is 1.69:1 on the card. --accent is 7.0:1 and matches the site. */
   .work-links a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
   .work-links a:hover { color: var(--accent-bright); }
-  .work-card { display: flex; flex-direction: column; }
+
+  /* Every shot is cropped to the same 16:10 box from the top, so the grid lines
+     up whatever the source dimensions are. */
+  .work-shot-box {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-deep);
+  }
+
+  .work-shot-box :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* The two line drawings are black on transparent, which is invisible on the
+     dark card, and they are artwork rather than photographs of a page. */
+  .work-shot-box--drawing {
+    background: var(--bg-light);
+    padding: 1rem;
+  }
+
+  .work-shot-box--drawing :global(img) {
+    object-fit: contain;
+  }
 </style>

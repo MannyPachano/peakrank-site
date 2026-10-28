@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import before from "../assets/work/ues-before.png";
+import after from "../assets/work/ues-after.png";
+
+/**
+ * One real redesign, shown rather than described. Both shots are the same
+ * dimensions, so the pair stays aligned at every width.
+ */
+const shots = [
+  {
+    label: "Before",
+    src: before,
+    alt: "The previous Universal Environmental Services homepage, a single photograph with a phone number over it",
+  },
+  {
+    label: "After",
+    src: after,
+    alt: "Homepage of Universal Environmental Services, designed and built by Manny Pachano in 2026",
+  },
+];
+---
+
+<section class="before-after" id="before-after">
+  <div class="container">
+    <div class="section-eyebrow">Redesign</div>
+    <h2 class="section-title">Before And After: Universal Environmental Services Homepage</h2>
+    <p class="section-intro">
+      The old homepage was a single photo with a phone number. The new one says what the company
+      does, where it works and how to request a pickup, and it links to a page for each of its 53
+      facilities and 28 states.
+    </p>
+
+    <div class="ba-grid">
+      {
+        shots.map((shot) => (
+          <figure class="ba-item">
+            <figcaption class="ba-label">{shot.label}</figcaption>
+            <div class="work-shot-frame">
+              <div class="work-shot-bar" aria-hidden="true" />
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                width={880}
+                height={550}
+                widths={[440, 880]}
+                sizes="(max-width: 860px) calc(100vw - 3rem), min(520px, 46vw)"
+                loading="lazy"
+                decoding="async"
+                quality={76}
+                class="work-shot-img"
+              />
+            </div>
+          </figure>
+        ))
+      }
+    </div>
+
+    <p class="ba-links">
+      <a href="https://universalenvironmentalservices.com" target="_blank" rel="noopener">
+        See the live site<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <a href="https://websitesbymanny.netlify.app/web-developer-project-ues" target="_blank" rel="noopener">
+        Read the case study<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </p>
+  </div>
+</section>

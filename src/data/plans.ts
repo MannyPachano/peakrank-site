@@ -51,9 +51,9 @@ export const plans: Plan[] = [
     id: "seo",
     name: "Local SEO",
     tagline: "Four month minimum. Full refund if the agreed targets are not met.",
-    price: "$750",
+    price: "$799",
     priceUnit: "per month",
-    priceNote: "For the first 4 months. After that, $300 per month for maintenance if you choose to continue.",
+    priceNote: "For the first 4 months. After that, $399 per month for maintenance if you choose to continue.",
     included: [
       "Targets agreed in writing before work starts",
       "Google Business Profile optimization",

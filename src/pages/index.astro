@@ -1,6 +1,8 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
+import HeroWorkShot from "../components/HeroWorkShot.astro";
+import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
 import HomeOwnerCallout from "../components/HomeOwnerCallout.astro";
 import HomeOfferSection from "../components/HomeOfferSection.astro";
 import RecentWork from "../components/RecentWork.astro";
@@ -10,7 +12,9 @@ import "../styles/peak-home.css";
 import html from "../partials/home-main.html?raw";
 
 const [
-  beforeOwner,
+  beforeHeroVisual,
+  betweenVisualAndBeforeAfter,
+  betweenBeforeAfterAndOwner,
   betweenOwnerAndOffer,
   betweenOfferAndTestimonials,
   betweenTestimonialsAndPricing,
@@ -19,6 +23,8 @@ const [
 ] = splitPartial(
   html,
   "home-main.html",
+  "<!--HERO_VISUAL-->",
+  "<!--BEFORE_AFTER-->",
   "<!--OWNER_CALLOUT-->",
   "<!--OFFER_SECTION-->",
   "<!--TESTIMONIALS-->",
@@ -32,7 +38,11 @@ const [
   description="Custom websites for small businesses at $75 per designed page, with unlimited revisions and a money back guarantee. Local SEO with a refund if agreed targets are not met."
   canonicalPath="/"
 >
-  <Fragment set:html={beforeOwner} />
+  <Fragment set:html={beforeHeroVisual} />
+  <HeroWorkShot />
+  <Fragment set:html={betweenVisualAndBeforeAfter} />
+  <HomeBeforeAfter />
+  <Fragment set:html={betweenBeforeAfterAndOwner} />
   <HomeOwnerCallout />
   <Fragment set:html={betweenOwnerAndOffer} />
   <HomeOfferSection />

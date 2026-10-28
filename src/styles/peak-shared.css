@@ -671,6 +671,26 @@ footer {
   line-height: 1.6;
 }
 
+/*
+ * Who runs the business, under the name. The link needs an explicit colour:
+ * .footer-brand p sets --text-mute on the paragraph, and an anchor inheriting
+ * that is indistinguishable from the text around it.
+ */
+.footer-brand p.footer-owner {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.footer-brand p.footer-owner a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-brand p.footer-owner a:hover {
+  color: var(--accent-bright);
+}
+
 .footer-brand .btn-primary {
   margin-top: 1.5rem;
   font-size: 0.9rem;

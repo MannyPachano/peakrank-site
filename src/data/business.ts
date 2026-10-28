@@ -41,12 +41,17 @@ export const business = {
   /** Marietta, GA city centre. Approximate on purpose, see the note above. */
   geo: { latitude: 33.9526, longitude: -84.5499 },
 
-  /** Mirrors the hours published on /contact and in the footer. */
+  /**
+   * Mirrors the line published on /contact and in the footer.
+   *
+   * There are no posted opening hours any more. The old "7 days a week, 8am to
+   * 8pm ET" was a promise about availability that is not kept literally, and
+   * schema.org openingHoursSpecification was dropped with it rather than
+   * publishing hours to Google that the business does not actually keep.
+   */
   hours: {
-    display: "7 days a week, 8am to 8pm ET",
-    subtext: "We answer or call back the same day",
-    opens: "08:00",
-    closes: "20:00",
+    display: "Text, call or email any day",
+    subtext: "I reply within one business day",
   },
 
   /**

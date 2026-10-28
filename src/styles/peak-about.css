@@ -343,6 +343,22 @@
   z-index: 1;
 }
 
+.team-card p.team-portfolio-link {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.team-card p.team-portfolio-link a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.team-card p.team-portfolio-link a:hover {
+  color: var(--accent-bright);
+}
+
 .team-card p {
   font-size: 0.95rem;
   color: var(--text-mute);

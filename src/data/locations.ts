@@ -28,8 +28,6 @@ export interface Location {
   sections: { heading: string; body: string[] }[];
   /** The trades and businesses this city actually has a lot of. */
   industries: string[];
-  /** Roughly how far it is from the Marietta base, used in the closing copy. */
-  proximity: string;
 }
 
 export const locations: Location[] = [
@@ -38,7 +36,7 @@ export const locations: Location[] = [
     city: "Kennesaw",
     shortName: "Kennesaw",
     description:
-      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $75 per designed page, built by a developer 10 minutes up the road.",
+      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $75 per designed page, designed and built by one developer you can call directly.",
     intro:
       "Kennesaw is a competitive place to be a small business online. You are up against national franchise locations with corporate marketing budgets, and against the same handful of contractors who have been buying ads here for years. The good news is that most of them are running slow template sites, and that is a gap you can walk straight through.",
     sections: [
@@ -46,14 +44,14 @@ export const locations: Location[] = [
         heading: "A College Town Searches Differently",
         body: [
           "Kennesaw State brings tens of thousands of students and staff into the same few square miles, and that changes what people type into Google. Searches skew heavily toward mobile, toward immediacy, and toward price. Somebody looking for a mechanic near campus is not reading a brochure. They are on a phone, comparing three results, and calling whichever one loads first and shows a number.",
-          "That is a speed problem before it is a marketing problem. A site that takes four seconds to appear has already lost that person to the result below it. Ours are static files with nothing to boot up, so they show up immediately on a phone on a bad connection, which is where this traffic actually lives.",
+          "That is a speed problem before it is a marketing problem. A site that takes four seconds to appear has already lost that person to the result below it. I build static files with nothing to boot up, so they show up immediately on a phone on a bad connection, which is where this traffic actually lives.",
         ],
       },
       {
         heading: "Rental Property And Home Services",
         body: [
           "The rental density around campus keeps a steady stream of work moving for property managers, cleaners, HVAC techs, plumbers, and handymen. That work is almost entirely won through the map results, which means your Google Business Profile matters as much as your website does.",
-          "We handle both together. The site gives Google something fast and clearly structured to rank, and the profile work puts you in the three results that appear above everything else. Neither one does much on its own.",
+          "I handle both together. The site gives Google something fast and clearly structured to rank, and the profile work puts you in the three results that appear above everything else. Neither one does much on its own.",
         ],
       },
     ],
@@ -64,7 +62,6 @@ export const locations: Location[] = [
       "Auto repair",
       "Professional services",
     ],
-    proximity: "about 10 minutes from our home base in Marietta",
   },
   {
     slug: "smyrna-ga",
@@ -86,7 +83,7 @@ export const locations: Location[] = [
         heading: "A Younger Audience Judges The Site Itself",
         body: [
           "Smyrna skews young and professional, and that audience treats a website as evidence. They will check your site before calling, they will notice if it is slow, and they will notice if it looks like a template they have seen on three other businesses this month.",
-          "Every design we do is drawn from scratch for the business it belongs to. That is not an aesthetic preference. It is the difference between looking like a business somebody chose deliberately and looking like one that picked the cheapest option available.",
+          "Every design I do is drawn from scratch for the business it belongs to. That is not an aesthetic preference. It is the difference between looking like a business somebody chose deliberately and looking like one that picked the cheapest option available.",
         ],
       },
     ],
@@ -97,7 +94,6 @@ export const locations: Location[] = [
       "Real estate",
       "Salons and personal care",
     ],
-    proximity: "about 15 minutes south of our home base in Marietta",
   },
   {
     slug: "roswell-ga",
@@ -130,7 +126,6 @@ export const locations: Location[] = [
       "Retail and galleries",
       "Home services and contractors",
     ],
-    proximity: "about 25 minutes east of our home base in Marietta",
   },
   {
     slug: "woodstock-ga",
@@ -152,7 +147,7 @@ export const locations: Location[] = [
         heading: "Downtown Woodstock Runs On Discovery",
         body: [
           "The downtown strip does real business from people browsing rather than searching for a specific name. Those customers find you through the map, through photos, and through reviews, often while standing a few hundred feet away.",
-          "Getting that right is unglamorous and mostly consistency. Complete profile, accurate hours, current photos, questions answered, reviews responded to. We do that work monthly and send you a one page report showing what moved.",
+          "Getting that right is unglamorous and mostly consistency. Complete profile, accurate hours, current photos, questions answered, reviews responded to. I do that work monthly and send you a one page report showing what moved.",
         ],
       },
     ],
@@ -163,6 +158,5 @@ export const locations: Location[] = [
       "Retail and boutiques",
       "Fitness and wellness",
     ],
-    proximity: "about 20 minutes north of our home base in Marietta",
   },
 ];

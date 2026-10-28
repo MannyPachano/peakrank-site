@@ -105,22 +105,8 @@ const graph: Record<string, unknown>[] = [
       longitude: business.geo.longitude,
     },
     areaServed: { "@type": "Country", name: "United States" },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: business.hours.opens,
-        closes: business.hours.closes,
-      },
-    ],
+    // No openingHoursSpecification: the business does not keep posted hours,
+    // and publishing ones it does not keep is worse than publishing none.
     priceRange: "$$",
     image: ogImageUrl,
     // Google wants a raster logo of at least 112px on its shortest side.

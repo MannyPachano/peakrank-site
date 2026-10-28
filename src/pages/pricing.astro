@@ -16,11 +16,53 @@ const [
   "<!--PRICING_PLANS-->",
   "<!--FINAL_CTA-->",
 );
+
+/**
+ * Mirrors the <details> list in pricing-main.html word for word. If you edit
+ * one, edit the other: Google treats FAQ markup that does not match the visible
+ * page as a structured data violation.
+ */
+const faq = [
+  [
+    "Who owns the website when it is finished?",
+    "You do. The site files, the domain and the hosting account are in your name.",
+  ],
+  [
+    "What does hosting cost?",
+    "Most small business sites fit on a free hosting plan. If yours needs a paid plan, I tell you the cost before we start, and you pay the host directly.",
+  ],
+  [
+    "Can I change the site myself?",
+    "Yes. You get a private editor for changing text, photos and prices. The public site stays as plain, fast files with no plugins to update.",
+  ],
+  [
+    "How long does a redesign take?",
+    "Most 5 page sites take 1 to 3 weeks from the first payment to launch. The main factor is how many design rounds you want.",
+  ],
+  [
+    "What targets does the SEO guarantee use?",
+    "Measurable ones, written down before work starts. For example, a top 3 map position for named searches in the towns you serve, or more calls from your Google Business Profile than on day one. If they are not met after four months, you get back all four payments.",
+  ],
+  [
+    "Where are you based?",
+    "I\u2019m from Marietta, Georgia, and I work remotely with small businesses across the US. You can reach me by phone, text or email.",
+  ],
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}).replace(/</g, "\\u003c");
 ---
 
 <PeakLayout
   title="Website And SEO Pricing | $75 Per Page | PeakRanking"
-  description="Website redesigns at $75 per designed page with unlimited revisions and a money back guarantee. Local SEO at $750 per month for four months, then $300 per month."
+  description="Website redesigns at $75 per designed page with unlimited revisions and a money back guarantee. Local SEO at $799 per month for four months, then $399 per month."
   canonicalPath="/pricing"
   bodyClass="page-pricing"
 >
@@ -29,4 +71,5 @@ const [
   <Fragment set:html={afterPlans} />
   <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" />
   <Fragment set:html={afterFinalCta} />
+  <script type="application/ld+json" set:html={faqSchema} is:inline />
 </PeakLayout>

@@ -79,3 +79,89 @@
 .pricing-guarantees a:hover {
   color: var(--accent-bright);
 }
+
+/*
+ * Pricing questions. Native <details> so it is keyboard accessible and works
+ * with no JavaScript; the matching FAQPage JSON-LD is in src/pages/pricing.astro.
+ */
+.pricing-faq {
+  background: var(--bg);
+  padding-bottom: 6rem;
+}
+
+.pricing-faq h2 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-card);
+  margin-bottom: 1rem;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Safari draws its own triangle through ::-webkit-details-marker. */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+.faq-item summary h3 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  text-align: left;
+}
+
+.faq-item summary:hover h3 {
+  color: var(--accent-bright);
+}
+
+.faq-item > p {
+  margin: 0;
+  padding: 0 1.5rem 1.4rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item summary::after {
+    transition: none;
+  }
+}
