@@ -15,11 +15,6 @@ export interface Project {
    * broken image.
    */
   image?: string;
-  /**
-   * The two in-house projects are represented by line drawings rather than
-   * screenshots, so they need their own alt text and a light backdrop.
-   */
-  imageIsDrawing?: boolean;
 }
 
 const portfolio = "https://websitesbymanny.netlify.app";
@@ -45,8 +40,7 @@ export const projects: Project[] = [
   },
   {
     name: "LoopManager",
-    image: "loopmanager-thumbnail.svg",
-    imageIsDrawing: true,
+    image: "loopmanager.png",
     role: "In-house role, 2024",
     summary:
       "Moved the product website from WordPress to Astro and built a custom blog editor so the marketing team could publish posts without a developer.",
@@ -71,8 +65,7 @@ export const projects: Project[] = [
   },
   {
     name: "Explainer Visuals",
-    image: "explainer-visuals-thumbnail.svg",
-    imageIsDrawing: true,
+    image: "explainer-visuals.png",
     role: "Client project, 2024",
     summary:
       "Built a portfolio website for a video production studio where every video plays automatically and streams in small pieces, so the page stays fast.",

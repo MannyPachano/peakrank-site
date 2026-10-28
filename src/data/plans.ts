@@ -29,8 +29,8 @@ export const plans: Plan[] = [
   {
     id: "website",
     name: "Website Redesign",
-    tagline: "Priced per designed page. A 5 page site is $375.",
-    price: "$75",
+    tagline: "Priced per designed page. A 5 page site is $400.",
+    price: "$80",
     priceUnit: "per page",
     priceNote: "50% to start, 50% at launch. Full refund if you are not satisfied with the design.",
     included: [

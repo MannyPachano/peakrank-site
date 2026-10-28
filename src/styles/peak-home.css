@@ -131,47 +131,10 @@ h1.hero-title {
   text-align: center;
 }
 
-/* Fact strip under the hero. */
-.facts {
-  background: var(--bg-deep);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 2.5rem 0;
-}
 
-.facts-row {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-}
 
-.fact {
-  text-align: center;
-}
 
-.fact-number {
-  display: block;
-  font-family: "Roboto Slab", Georgia, serif;
-  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: var(--accent);
-}
 
-.fact-label {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  /* --text-mute is 4.2:1 here; this is 7.1:1 on --bg-deep. */
-  color: var(--text-body);
-  max-width: 30ch;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* Before and after. */
 .before-after {
@@ -878,10 +841,6 @@ h1.hero-title {
     grid-template-columns: 1fr;
   }
 
-  .facts-row {
-    gap: 2rem 1.5rem;
-  }
-
   .offer-split {
     grid-template-columns: 1fr;
     margin-bottom: 2.5rem;
@@ -933,7 +892,6 @@ h1.hero-title {
     align-items: stretch;
   }
 
-  .facts-row,
   .steps-grid {
     grid-template-columns: 1fr;
   }

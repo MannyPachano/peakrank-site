@@ -23,7 +23,7 @@ const {
  * the build instead of shipping a broken <img>.
  */
 const assets = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/work/*.{webp,png,svg}",
+  "../assets/work/*.{webp,png}",
   { eager: true },
 );
 
@@ -45,30 +45,22 @@ function shotFor(file: string | undefined): ImageMetadata | null {
       {
         projects.map((p) => {
           const shot = shotFor(p.image);
-          const alt = p.imageIsDrawing
-            ? `Line drawing of the ${p.name} website`
-            : `Homepage of ${p.name}, designed and built by Manny Pachano`;
+          const alt = `Homepage of ${p.name}, designed and built by Manny Pachano`;
           return (
             <article class="testimonial work-card">
               {shot && (
-                <div class:list={["work-shot-box", { "work-shot-box--drawing": p.imageIsDrawing }]}>
-                  {/* SVG goes through a plain <img>: there is nothing for the
-                      image service to resize, and Astro passes it through anyway. */}
-                  {shot.format === "svg" ? (
-                    <img src={shot.src} alt={alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" />
-                  ) : (
-                    <Image
-                      src={shot}
-                      alt={alt}
-                      width={640}
-                      height={400}
-                      widths={[320, 640]}
-                      sizes="(max-width: 960px) calc(100vw - 3rem), min(360px, 30vw)"
-                      loading="lazy"
-                      decoding="async"
-                      quality={74}
-                    />
-                  )}
+                <div class="work-shot-box">
+                  <Image
+                    src={shot}
+                    alt={alt}
+                    width={640}
+                    height={400}
+                    widths={[320, 640]}
+                    sizes="(max-width: 960px) calc(100vw - 3rem), min(360px, 30vw)"
+                    loading="lazy"
+                    decoding="async"
+                    quality={74}
+                  />
                 </div>
               )}
               <div class="work-body">
@@ -125,14 +117,4 @@ function shotFor(file: string | undefined): ImageMetadata | null {
     object-position: top center;
   }
 
-  /* The two line drawings are black on transparent, which is invisible on the
-     dark card, and they are artwork rather than photographs of a page. */
-  .work-shot-box--drawing {
-    background: var(--bg-light);
-    padding: 1rem;
-  }
-
-  .work-shot-box--drawing :global(img) {
-    object-fit: contain;
-  }
 </style>
