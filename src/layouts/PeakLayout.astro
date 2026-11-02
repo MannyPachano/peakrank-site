@@ -58,14 +58,6 @@ const {
 
 const siteOrigin = Astro.site?.origin ?? "https://peakrankingseo.com";
 
-/**
- * GA4. Renders nothing unless PUBLIC_GA_ID is set, so local builds and previews
- * stay clean. Set it in Netlify under Site configuration, Environment variables.
- * The googletagmanager host is already allowed in the netlify.toml CSP; any other
- * third-party script needs adding there too or the browser blocks it silently.
- */
-const gaId = import.meta.env.PUBLIC_GA_ID;
-
 const canonical = suppressCanonical
   ? null
   : canonicalPath != null
@@ -225,22 +217,6 @@ const structuredData = JSON.stringify({
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <script type="application/ld+json" set:html={structuredData} is:inline />
-    {
-      gaId && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} is:inline />
-          <script
-            is:inline
-            set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
-          />
-          {/* GA4 enhanced measurement ignores tel:, sms: and mailto: clicks. */}
-          <script
-            is:inline
-            set:html={`document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"],a[href^="mailto:"]');if(!a||!window.gtag)return;var h=a.getAttribute('href')||'';var t=h.indexOf('mailto:')===0?'email':h.indexOf('sms:')===0?'text':'call';gtag('event','contact_click',{method:t,link_url:h});});`}
-          />
-        </>
-      )
-    }
   </head>
   <body class:list={[bodyClass]}>
     <a class="skip-link" href="#main-content">Skip to main content</a>

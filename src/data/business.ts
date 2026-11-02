@@ -6,8 +6,8 @@
  * different service areas and two different hours, because each was typed by
  * hand into six or seven partials.
  *
- * Anything marked TODO must be filled in before it will render. Fields left
- * empty are omitted from the schema rather than emitted blank.
+ * Fields left empty are omitted from the schema rather than emitted blank, and
+ * verify-build fails the build if a TODO(owner) placeholder reaches dist/.
  */
 
 export const business = {
@@ -31,11 +31,11 @@ export const business = {
     region: "GA",
     country: "US",
     /**
-     * TODO(owner): add your ZIP. Street address is deliberately omitted because
-     * this is a service-area business that does not see customers at a location;
-     * Google asks those businesses to hide the street address rather than publish one.
+     * Street address is deliberately omitted because this is a service-area
+     * business that does not see customers at a location; Google asks those
+     * businesses to hide the street address rather than publish one.
      */
-    postalCode: "",
+    postalCode: "30062",
   },
 
   /** Marietta, GA city centre. Approximate on purpose, see the note above. */
@@ -55,15 +55,10 @@ export const business = {
   },
 
   /**
-   * schema.org sameAs. Every entry must be a real, live profile.
-   * TODO(owner): add the Google Business Profile URL. It is the single highest
-   * value entry here and the site currently links to no profile at all, which is
-   * the exact work the local SEO plan sells.
+   * schema.org sameAs. Every entry must be a real, live profile. There is no
+   * Google Business Profile for PeakRanking, so none is listed here.
    */
-  profiles: [
-    "https://www.linkedin.com/in/manny-pachano/",
-    // "https://www.google.com/maps/place/?q=place_id:TODO",
-  ],
+  profiles: ["https://www.linkedin.com/in/manny-pachano/"],
 
   serviceAreaDisplay: "Serving small businesses nationwide from Marietta, GA",
 } as const;
@@ -78,7 +73,6 @@ export const business = {
  */
 export const claims = {
   /**
-   * TODO(owner): verify and raise if you can evidence it.
    * Set conservatively because the site previously claimed "100", "98 to 100",
    * "95 to 100", "100/100" and "perfect scores" in eight different places, and
    * "perfect" additionally promises 100 on Accessibility and Best Practices,
@@ -87,8 +81,8 @@ export const claims = {
   pageSpeed: "90+ PageSpeed scores on mobile and desktop",
   pageSpeedShort: "90+ PageSpeed scores",
 
-  /** Typical build time, stated on /about as 1 to 2 weeks. */
-  buildTime: "1 to 2 weeks",
+  /** Typical build time, stated on /about and in the /pricing FAQ. */
+  buildTime: "1 to 3 weeks",
 } as const;
 
 /** Rendered in the footer so it is never a year stale. */

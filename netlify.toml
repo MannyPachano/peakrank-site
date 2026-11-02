@@ -30,11 +30,11 @@
     Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
     Cross-Origin-Opener-Policy = "same-origin"
     # style-src unsafe-inline: required for Astro build inlineStylesheets "always"
-    # script-src unsafe-inline: JSON-LD + the gtag bootstrap in PeakLayout; peak-nav.js is still 'self'
-    # googletagmanager/google-analytics: GA4, active only when PUBLIC_GA_ID is set.
+    # script-src unsafe-inline: the JSON-LD block in PeakLayout; peak-nav.js is still 'self'
+    # No third-party hosts are allowed: the site loads no analytics and no outside scripts.
     # NOTE: any third-party script added later must be added here too, or the browser
     # will block it silently. That is exactly how the reCAPTCHA form breakage happened.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 
 [[headers]]
   for = "/_astro/*"

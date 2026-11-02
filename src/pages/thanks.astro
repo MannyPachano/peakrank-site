@@ -1,8 +1,6 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import { business } from "../data/business";
-
-const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <PeakLayout
@@ -25,17 +23,4 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
       </p>
     </div>
   </header>
-
-  {/*
-    The lead conversion. Mark `generate_lead` as a key event in the GA4 UI so it
-    shows up as a conversion rather than an ordinary page_view.
-  */}
-  {
-    gaId && (
-      <script
-        is:inline
-        set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('event','generate_lead',{form:'contact'});`}
-      />
-    )
-  }
 </PeakLayout>

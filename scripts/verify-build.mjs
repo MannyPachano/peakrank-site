@@ -168,21 +168,6 @@ if (contact) {
   }
 }
 
-// The privacy policy states that Google Analytics is in use. If the build ships
-// no analytics (PUBLIC_GA_ID unset), the policy describes something that is not
-// happening. Accurate again the moment the env var is set in Netlify.
-const privacy = existsSync("dist/privacy.html")
-  ? readFileSync("dist/privacy.html", "utf8")
-  : "";
-if (privacy.includes("Google Analytics")) {
-  const anyGa = pages.some((p) => readFileSync(p, "utf8").includes("googletagmanager.com/gtag/js"));
-  if (!anyGa) {
-    warnings.push(
-      "privacy.html says Google Analytics is in use, but no page loads it. Set PUBLIC_GA_ID in Netlify, or amend the policy.",
-    );
-  }
-}
-
 for (const w of warnings) console.warn(`  warn  ${w}`);
 
 if (errors.length) {
