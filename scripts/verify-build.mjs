@@ -178,6 +178,38 @@ if (contact) {
   }
 }
 
+/*
+ * Every card that links to a blog post repeats that post's title by hand, in six
+ * places: the home page, the blog index, and the "Other Articles" row inside each
+ * of the three posts. Renaming a post used to leave the old title on five cards,
+ * which is how "Why We Don't Use WordPress" survived a rename twice. Compare the
+ * card text against the real <h1> instead of trusting a grep.
+ */
+const postTitles = new Map();
+for (const page of pages) {
+  const rel = relative(".", page).replace(/^dist/, "").replace(/\.html$/, "");
+  if (!rel.startsWith("/blog/")) continue;
+  const h1 = readFileSync(page, "utf8").match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+  if (h1) postTitles.set(rel, h1[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
+}
+for (const page of pages) {
+  const html = readFileSync(page, "utf8");
+  const rel = relative(".", page);
+  for (const [href, title] of postTitles) {
+    // The card's own heading: the nearest <h2>/<h3> after the link to that post.
+    // 1200 characters, because an inline SVG thumbnail sits between the two and a
+    // 400 character window matched nothing at all, which is a guard that passes
+    // whatever you give it.
+    const re = new RegExp(`href="${href}"[^>]*>[\\s\\S]{0,1200}?<h([23])[^>]*>([\\s\\S]*?)<\\/h\\1>`, "g");
+    for (const m of html.matchAll(re)) {
+      const card = m[2].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+      if (card && card !== title) {
+        fail(rel, `card title for ${href} is "${card}" but the post's h1 is "${title}"`);
+      }
+    }
+  }
+}
+
 // Analytics is one snippet in one layout, so a page that stops using PeakLayout loses
 // tracking without anything else breaking. GA4 would just quietly under-report.
 const GTM_ID = "GTM-5KDHW2TC";

@@ -98,6 +98,13 @@
   background: var(--bg);
   padding: 4rem 0 5rem;
   position: relative;
+  /*
+   * Clips the ::before glow below. It is 450px wide at right: -5%, so it hung
+   * 72px past the viewport at 1440 and 20px at 390, and the whole document
+   * scrolled sideways. Same fix the link pass applied to .content and
+   * .featured-post-section; this container was the one it missed.
+   */
+  overflow: hidden;
 }
 
 .post-main::before {
