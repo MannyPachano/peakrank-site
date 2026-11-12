@@ -168,6 +168,15 @@ if (contact) {
   }
 }
 
+// Analytics is one snippet in one layout, so a page that stops using PeakLayout loses
+// tracking without anything else breaking. GA4 would just quietly under-report.
+const GTM_ID = "GTM-5KDHW2TC";
+for (const page of pages) {
+  if (!readFileSync(page, "utf8").includes(GTM_ID)) {
+    fail(relative(".", page), `Google Tag Manager snippet (${GTM_ID}) missing`);
+  }
+}
+
 for (const w of warnings) console.warn(`  warn  ${w}`);
 
 if (errors.length) {
