@@ -16,6 +16,8 @@ import { business } from "../data/business";
 import "../styles/peak-shared.css";
 import PeakHeader from "../components/PeakHeader.astro";
 import PeakFooter from "../components/PeakFooter.astro";
+import PeakHeaderMinimal from "../components/PeakHeaderMinimal.astro";
+import PeakFooterMinimal from "../components/PeakFooterMinimal.astro";
 
 interface ArticleMeta {
   headline: string;
@@ -41,6 +43,14 @@ interface Props {
   ogImage?: string;
   ogType?: "website" | "article";
   article?: ArticleMeta;
+  /**
+   * "minimal" swaps the full nav and the four column footer for a logo and a
+   * single line. The funnel pages use it so the form is the only thing to do,
+   * which is the whole point of sending paid and cold traffic to them.
+   */
+  chrome?: "full" | "minimal";
+  /** Only with chrome="minimal": the one link back out of the page. */
+  backLink?: { href: string; label: string };
 }
 
 const {
@@ -54,6 +64,8 @@ const {
   ogImage = "/og-image.png",
   ogType = "website",
   article,
+  chrome = "full",
+  backLink,
 } = Astro.props;
 
 const siteOrigin = Astro.site?.origin ?? "https://peakrankingseo.com";
@@ -253,11 +265,17 @@ const structuredData = JSON.stringify({
         title="Google Tag Manager"></iframe></noscript
     >
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <PeakHeader currentPath={Astro.url.pathname} />
+    {
+      chrome === "minimal" ? (
+        <PeakHeaderMinimal backLink={backLink} />
+      ) : (
+        <PeakHeader currentPath={Astro.url.pathname} />
+      )
+    }
     <main id="main-content" tabindex="-1" class:list={[mainClass]}>
       <slot />
     </main>
-    <PeakFooter />
+    {chrome === "minimal" ? <PeakFooterMinimal /> : <PeakFooter />}
     <script src="/js/peak-nav.js" defer is:inline></script>
   </body>
 </html>

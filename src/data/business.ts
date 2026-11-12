@@ -48,9 +48,13 @@ export const business = {
    * 8pm ET" was a promise about availability that is not kept literally, and
    * schema.org openingHoursSpecification was dropped with it rather than
    * publishing hours to Google that the business does not actually keep.
+   *
+   * No call offer here or anywhere else in the marketing copy. Manny works by
+   * text and email; the only tel: links left are the contact of record on the
+   * privacy and terms pages.
    */
   hours: {
-    display: "Text, call or email any day",
+    display: "Text or email any day",
     subtext: "I reply within one business day",
   },
 

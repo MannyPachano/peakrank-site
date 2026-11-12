@@ -116,10 +116,20 @@ for (const page of pages) {
     fail(rel, "missing canonical link");
   }
 
-  // Titles over ~60 chars get truncated in search results.
+  // Titles over ~60 chars get truncated in search results. Measured on the decoded
+  // text: an apostrophe ships as &#39; and an ampersand as &amp;, so counting the
+  // raw markup reported a title five characters longer than the one Google shows.
   const title = html.match(/<title>([^<]*)<\/title>/);
-  if (title && title[1].length > 62) {
-    warnings.push(`${rel}: <title> is ${title[1].length} chars, likely truncated in search results`);
+  if (title) {
+    const shown = title[1]
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&amp;/g, "&");
+    if (shown.length > 62) {
+      warnings.push(`${rel}: <title> is ${shown.length} chars, likely truncated in search results`);
+    }
   }
 
 

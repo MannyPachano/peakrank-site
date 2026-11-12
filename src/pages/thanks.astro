@@ -1,26 +1,51 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import { business } from "../data/business";
+import "../styles/peak-thanks.css";
 ---
 
 <PeakLayout
-  title="Thank You | PeakRanking Digital Solutions"
-  description="Thanks for contacting PeakRanking Digital Solutions. Your message came through and Manny will reply within one business day."
+  title="Thanks, Your Request Reached Me | PeakRanking"
+  description="Thanks for contacting PeakRanking Digital Solutions. Your request came through and Manny replies by email within one business day."
   canonicalPath="/thanks"
   robots="noindex, follow"
+  chrome="minimal"
+  mainClass="thanks-main"
 >
-  <header class="page-header">
-    <div class="stars" aria-hidden="true"></div>
-    <div class="page-header-inner">
-      <div class="page-header-eyebrow">Contact</div>
-      <h1>Message received</h1>
-      <p>
-        Thanks for reaching out. Your note came through and I will reply within one business day. If it&rsquo;s
-        urgent, text or call <a href={business.smsHref}>{business.phoneDisplay}</a>.
-      </p>
-      <p style="margin-top: 1.5rem;">
-        <a href="/" class="btn-primary">Back to home</a>
-      </p>
+  <div class="thanks-inner">
+    <svg
+      class="thanks-check"
+      viewBox="0 0 56 56"
+      role="img"
+      aria-label="Request received"
+    >
+      <circle cx="28" cy="28" r="26" fill="none" stroke="currentColor" stroke-width="2.5"
+      ></circle>
+      <path
+        d="M17 29 L25 37 L40 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+
+    <h1>Thanks, Your Request Reached Me</h1>
+
+    <p>
+      I read every message myself. You will get an email from manny@peakrankingseo.com within
+      one business day.
+    </p>
+
+    <p>
+      If you asked for a free homepage mockup, that email says when the mockup will be ready,
+      usually within 3 business days. If you do not see it, check your spam folder or text
+      <a href={business.smsHref}>{business.phoneDisplay}</a>.
+    </p>
+
+    <div class="thanks-actions">
+      <a href="/#work" class="btn-primary">See Websites I Have Built</a>
+      <a href="/pricing" class="thanks-secondary">Read the pricing</a>
     </div>
-  </header>
+  </div>
 </PeakLayout>

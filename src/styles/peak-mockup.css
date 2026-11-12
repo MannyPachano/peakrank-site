@@ -1,0 +1,527 @@
+/*
+ * /free-homepage-mockup
+ *
+ * The one light page on the site. The design Manny approved alternates white
+ * and off-white panels with two dark bands (the hero and the closing CTA), so
+ * the form card reads as the brightest thing on the screen. Colours come from
+ * the shared tokens wherever one exists; the two that do not are declared here.
+ */
+
+.page-mockup {
+  --mk-muted: #5b6778;
+  --mk-input-border: #c9d2df;
+  /*
+   * The design's link colour on the light panels was --accent-deep #e56a1a,
+   * which measures 3.11:1 on #f7f9fc and fails AA for text. This is the design's
+   * own hover shade, which is the same hue and measures 4.68:1. Hover goes one
+   * step darker again so the state is still visible.
+   */
+  --mk-link: #b8520f;
+  --mk-link-hover: #8f3f0b;
+  background: var(--bg-light);
+  color: var(--ink);
+}
+
+.mk-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+/* HERO */
+
+.mk-hero {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.mk-hero-inner {
+  padding-block: 4rem 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.mk-hero-copy {
+  /* Grows far harder than the form, so the form keeps its width until they stack. */
+  flex: 999 1 480px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+  padding-top: 0.75rem;
+}
+
+.mk-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.mk-hero h1 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.mk-lead {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 560px;
+}
+
+.mk-ticks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.mk-ticks li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mk-ticks svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+/* FORM */
+
+.mk-form {
+  flex: 1 1 380px;
+  min-width: 0;
+  background: #ffffff;
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  box-shadow: 0 24px 60px rgba(6, 15, 31, 0.45);
+}
+
+.mk-form h2 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.mk-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.mk-field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.mk-optional {
+  color: var(--mk-muted);
+  font-weight: 400;
+}
+
+.mk-field input,
+.mk-field textarea {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid var(--mk-input-border);
+  border-radius: 8px;
+}
+
+.mk-field input {
+  height: 48px;
+  padding: 0 0.875rem;
+}
+
+.mk-field textarea {
+  padding: 0.75rem 0.875rem;
+  resize: vertical;
+}
+
+.mk-field input:focus-visible,
+.mk-field textarea:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 1px;
+  border-color: var(--accent-deep);
+}
+
+.mk-form button {
+  height: 54px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: inherit;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.mk-form button:hover {
+  background: var(--accent-bright);
+}
+
+.mk-form-note {
+  font-size: 0.875rem;
+  color: var(--mk-muted);
+  text-align: center;
+}
+
+/*
+ * Off-screen vertically, never horizontally: a left: -9999px honeypot drags the
+ * document width out and gives the whole page a horizontal scrollbar.
+ */
+.mk-honeypot {
+  position: absolute;
+  left: 0;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* WHAT YOU GET */
+
+.mk-includes {
+  background: #ffffff;
+}
+
+.mk-includes .mk-wrap {
+  padding-block: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.mk-centered {
+  text-align: center;
+}
+
+.mk-includes h2,
+.mk-example h2,
+.mk-how h2,
+.mk-faq h2,
+.mk-closing h2 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.mk-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.mk-card {
+  border: 1px solid var(--line-light);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.mk-card h3 {
+  font-size: 1.1875rem;
+}
+
+.mk-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* BEFORE AND AFTER */
+
+.mk-example {
+  background: var(--bg-light);
+}
+
+.mk-example .mk-wrap {
+  padding-block: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mk-example-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  align-items: center;
+}
+
+.mk-example-head p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 720px;
+}
+
+.mk-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.mk-shots figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.mk-shots img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  border: 1px solid var(--line-light);
+  background: #ffffff;
+}
+
+.mk-shots figcaption {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--mk-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mk-shots .mk-after {
+  color: var(--mk-link);
+}
+
+.mk-centered-link {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* HOW IT WORKS AND THE PRICE */
+
+.mk-how {
+  background: #ffffff;
+}
+
+.mk-how-inner {
+  padding-block: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.mk-steps {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mk-steps ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mk-steps li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.mk-step-number {
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.mk-step-body {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  padding-top: 0.375rem;
+}
+
+.mk-price {
+  flex: 1 1 380px;
+  min-width: 0;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mk-price h2 {
+  font-size: 1.625rem;
+}
+
+.mk-price-figure {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+}
+
+.mk-price-amount {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-bright);
+  line-height: 1;
+}
+
+.mk-price-unit {
+  font-size: 1.125rem;
+  color: var(--text-body);
+}
+
+.mk-price p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.mk-price-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-weight: 500;
+}
+
+/* QUESTIONS */
+
+.mk-faq {
+  background: var(--bg-light);
+}
+
+.mk-faq .mk-wrap {
+  max-width: 860px;
+  padding-block: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.mk-faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-bottom: 1.375rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.mk-faq-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.mk-faq-item h3 {
+  font-size: 1.1875rem;
+}
+
+.mk-faq-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* CLOSING */
+
+.mk-closing {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.mk-closing .mk-wrap {
+  padding-block: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.125rem;
+  text-align: center;
+}
+
+.mk-closing p {
+  font-size: 0.9375rem;
+  color: var(--text-body);
+}
+
+/* LINKS */
+
+.page-mockup .mk-includes a,
+.page-mockup .mk-example a,
+.page-mockup .mk-how a:not(.mk-price a),
+.page-mockup .mk-faq a {
+  color: var(--mk-link);
+  text-underline-offset: 3px;
+}
+
+.page-mockup .mk-includes a:hover,
+.page-mockup .mk-example a:hover,
+.page-mockup .mk-how a:not(.mk-price a):hover,
+.page-mockup .mk-faq a:hover {
+  color: var(--mk-link-hover);
+}
+
+.page-mockup .mk-price a,
+.page-mockup .mk-closing p a {
+  color: var(--accent-bright);
+  text-underline-offset: 3px;
+}
+
+.page-mockup .mk-price a:hover,
+.page-mockup .mk-closing p a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .mk-hero-inner,
+  .mk-how-inner {
+    gap: 2.5rem;
+  }
+
+  .mk-hero-inner {
+    padding-block: 3rem 3.5rem;
+  }
+
+  .mk-includes .mk-wrap,
+  .mk-example .mk-wrap,
+  .mk-how-inner,
+  .mk-faq .mk-wrap {
+    padding-block: 3.5rem;
+  }
+
+  .mk-form,
+  .mk-price {
+    padding: 1.5rem;
+  }
+}

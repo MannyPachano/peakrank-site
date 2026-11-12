@@ -1,0 +1,327 @@
+---
+import { Image } from "astro:assets";
+import PeakLayout from "../layouts/PeakLayout.astro";
+import { business } from "../data/business";
+import { plans } from "../data/plans";
+import before from "../assets/work/ues-before.png";
+import after from "../assets/work/ues-after.png";
+import "../styles/peak-mockup.css";
+
+/**
+ * The one page cold email and the sitewide header both point at.
+ *
+ * Everything on it serves one form. There is no main nav and no four column
+ * footer, because every other link is a way to leave without asking for the
+ * mockup. The only exits are the ones that answer an objection: the work, the
+ * pricing and the guarantee.
+ *
+ * The turnaround is stated in three places on this page and once on /thanks.
+ * It lives here so all three move together.
+ */
+const TURNAROUND = "3 business days";
+
+const website = plans.find((p) => p.id === "website");
+if (!website) throw new Error("plans.ts no longer has a plan with id 'website'.");
+
+const includes = [
+  {
+    title: "A full homepage design",
+    body: "Made for your business, with your real services, towns, phone number and photos.",
+  },
+  {
+    title: "A link for phone and computer",
+    body: "Open it on your phone and your desktop to see how customers would see it.",
+  },
+  {
+    title: "A short note on what changed",
+    body: "Plain language on what I fixed from your current site and why it brings more calls.",
+  },
+];
+
+const steps = [
+  "Send your website address with the form above.",
+  `I design a new homepage and email you the link within ${TURNAROUND}.`,
+  "Reply with any changes you want, or tell me it is not for you. Either answer is fine.",
+  `If you want the full site, I design every page at ${website.price} per page and build it after you approve the design.`,
+];
+
+const faq: [string, string][] = [
+  [
+    "Is the mockup really free?",
+    "Yes. You do not pay anything for the mockup and you do not have to hire me afterward.",
+  ],
+  [
+    "Do I need to get on a call?",
+    `No. Everything happens by email. You can also text ${business.phoneDisplay}.`,
+  ],
+  ["How long does it take?", `I email the mockup within ${TURNAROUND} of your request.`],
+  [
+    "Who designs it?",
+    "I do. I am Manny Pachano, and I design and build every PeakRanking site myself, from the first mockup to launch.",
+  ],
+];
+
+/*
+ * The visible questions and answers, serialized. Built from the same array the
+ * page renders, so the schema cannot drift from what a reader sees, which is
+ * the thing Google penalises.
+ */
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}).replace(/</g, "\\u003c");
+---
+
+<PeakLayout
+  title="Free Homepage Mockup For Your Small Business | PeakRanking"
+  description="Send me your website and I will design a new homepage for your business for free. No calls, no obligation. Manny Pachano, PeakRanking Digital Solutions."
+  canonicalPath="/free-homepage-mockup"
+  bodyClass="page-mockup"
+  chrome="minimal"
+  backLink={{ href: "/", label: "Back to the homepage" }}
+>
+  <!-- HERO AND FORM -->
+  <section class="mk-hero">
+    <div class="mk-wrap mk-hero-inner">
+      <div class="mk-hero-copy">
+        <p class="mk-eyebrow">Free for small businesses, no obligation</p>
+        <h1>Get A Free Homepage Mockup For Your Business</h1>
+        <p class="mk-lead">
+          Send me your current website. I will design a new homepage for it and email you the
+          mockup within {TURNAROUND}. It costs nothing and you do not have to buy anything.
+        </p>
+        <ul class="mk-ticks">
+          {
+            [
+              "Designed for your business and your services",
+              "Everything by email, no phone calls",
+              "The mockup is yours to keep, whether you hire me or not",
+            ].map((item) => (
+              <li>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M4 10.5 L8.5 15 L16 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <form
+        class="mk-form"
+        id="mockup-form"
+        name="mockup"
+        method="POST"
+        action="/thanks"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="mockup" />
+        <!--
+          Records where the request came from, so a cold email link with ?ref=email is
+          distinguishable from organic traffic without loading a tracking script.
+        -->
+        <input type="hidden" name="source" id="mk-source" value="" />
+        <p class="mk-honeypot" aria-hidden="true">
+          <label>
+            Don&rsquo;t fill this out if you&rsquo;re human:
+            <input name="bot-field" tabindex="-1" autocomplete="off" />
+          </label>
+        </p>
+
+        <h2>Request your free mockup</h2>
+
+        <div class="mk-field">
+          <label for="mk-name">Your name</label>
+          <input id="mk-name" name="name" type="text" placeholder="John Smith" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="mk-email">Email</label>
+          <input
+            id="mk-email"
+            name="email"
+            type="email"
+            placeholder="you@yourbusiness.com"
+            required
+          />
+        </div>
+
+        <div class="mk-field">
+          <label for="mk-site">Business website</label>
+          <input id="mk-site" name="website" type="url" placeholder="yourbusiness.com" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="mk-note">
+            Anything I should know? <span class="mk-optional">(optional)</span>
+          </label>
+          <textarea
+            id="mk-note"
+            name="note"
+            rows="3"
+            placeholder="What you like or dislike about your current site"></textarea>
+        </div>
+
+        <button type="submit">Send Me My Free Mockup</button>
+        <p class="mk-form-note">
+          I reply by email within one business day. No phone calls and no sales pitch.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="mk-includes">
+    <div class="mk-wrap">
+      <h2 class="mk-centered">What The Free Homepage Mockup Includes</h2>
+      <div class="mk-cards">
+        {
+          includes.map((item) => (
+            <div class="mk-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE AND AFTER -->
+  <section class="mk-example">
+    <div class="mk-wrap">
+      <div class="mk-example-head">
+        <h2>Before And After: Universal Environmental Services Homepage</h2>
+        <p>
+          The old homepage was a single photo with a phone number. The new one says what the
+          company does, where it works and how to request a pickup, and it links to a page for
+          each of its 53 facilities and 28 states.
+        </p>
+      </div>
+
+      <div class="mk-shots">
+        <figure>
+          <Image
+            src={before}
+            alt="The previous Universal Environmental Services homepage, a single photograph with a phone number over it"
+            width={880}
+            height={550}
+            widths={[440, 880]}
+            sizes="(max-width: 760px) calc(100vw - 3rem), min(540px, 46vw)"
+            loading="lazy"
+            decoding="async"
+            quality={76}
+          />
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={after}
+            alt="Homepage of Universal Environmental Services, designed and built by Manny Pachano in 2026"
+            width={880}
+            height={550}
+            widths={[440, 880]}
+            sizes="(max-width: 760px) calc(100vw - 3rem), min(540px, 46vw)"
+            loading="lazy"
+            decoding="async"
+            quality={76}
+          />
+          <figcaption class="mk-after">After</figcaption>
+        </figure>
+      </div>
+
+      <p class="mk-centered-link"><a href="/#work">See all websites I have built</a></p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS, AND THE PRICE AFTER -->
+  <section class="mk-how">
+    <div class="mk-wrap mk-how-inner">
+      <div class="mk-steps">
+        <h2>How The Free Mockup Works</h2>
+        <ol>
+          {
+            steps.map((step, i) => (
+              <li>
+                <span class="mk-step-number" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span class="mk-step-body">{step}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="mk-price">
+        <h2>What A Full Redesign Costs After The Mockup</h2>
+        <p class="mk-price-figure">
+          <span class="mk-price-amount">{website.price}</span>
+          <span class="mk-price-unit">per designed page</span>
+        </p>
+        <p>
+          A 5 page site is $400. You pay 50% to start and 50% at launch. Design changes are
+          unlimited, and if you are not happy with the design before you approve it, you get your
+          money back.
+        </p>
+        <p class="mk-price-links">
+          <a href="/pricing">Read the full pricing</a>
+          <a href="/terms#guarantee">Read the guarantee terms</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="mk-faq">
+    <div class="mk-wrap">
+      <h2>Questions About The Free Homepage Mockup</h2>
+      {
+        faq.map(([question, answer]) => (
+          <div class="mk-faq-item">
+            <h3>{question}</h3>
+            <p>{answer}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="mk-closing">
+    <div class="mk-wrap">
+      <h2>Request Your Free Homepage Mockup</h2>
+      <a href="#mockup-form" class="btn-primary">Send Me My Free Mockup</a>
+      <p>
+        Or email <a href={`mailto:${business.email}`}>{business.email}</a> with your website
+        address.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={faqSchema} is:inline />
+
+  <script is:inline>
+    // Copies ?ref= into the hidden source field, so the cold email that sent
+    // someone here is recorded with the request itself.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref");
+      var field = document.getElementById("mk-source");
+      if (ref && field) field.value = ref.slice(0, 60);
+    })();
+  </script>
+</PeakLayout>

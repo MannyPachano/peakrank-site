@@ -23,11 +23,20 @@ export interface Plan {
   notIncluded: string[];
   badge?: string;
   featured?: boolean;
+  /**
+   * The free offer this service leads with. Website work goes to the homepage
+   * mockup landing page, SEO to the review request, so one card can no longer
+   * send people to the other service's offer.
+   */
+  ctaLabel: string;
+  ctaHref: string;
 }
 
 export const plans: Plan[] = [
   {
     id: "website",
+    ctaLabel: "Get A Free Homepage Mockup",
+    ctaHref: "/free-homepage-mockup",
     name: "Website Redesign",
     tagline: "Priced per designed page. A 5 page site is $400.",
     price: "$80",
@@ -49,6 +58,8 @@ export const plans: Plan[] = [
   },
   {
     id: "seo",
+    ctaLabel: "Get A Free Local SEO Review",
+    ctaHref: "/contact?service=seo-review",
     name: "Local SEO",
     tagline: "Four month minimum. Full refund if the agreed targets are not met.",
     price: "$799",

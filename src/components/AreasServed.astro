@@ -25,8 +25,19 @@ const shown = locations.filter((location) => location.slug !== exclude);
       shown.map((location) => (
         <li>
           <a href={`/web-design-${location.slug}`}>
-            <span class="areas-served-city">{location.city}, GA</span>
-            <span class="areas-served-note">{location.shortName} web design and local SEO</span>
+            {/*
+              The visible city sits in its own span for styling, so the link read out
+              as "Kennesaw, GA Kennesaw web design and local SEO". The sr-only words
+              make the accessible name a sentence; the note is hidden from the name
+              because it is a duplicate of it.
+            */}
+            <span class="areas-served-city">
+              <span class="sr-only">Web design in </span>
+              {location.city}, GA
+            </span>
+            <span class="areas-served-note" aria-hidden="true">
+              {location.shortName} web design and local SEO
+            </span>
           </a>
         </li>
       ))

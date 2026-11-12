@@ -36,7 +36,7 @@ export const locations: Location[] = [
     city: "Kennesaw",
     shortName: "Kennesaw",
     description:
-      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $80 per designed page, designed and built by one developer you can call directly.",
+      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $80 per designed page, designed and built by one developer you can text or email directly.",
     intro:
       "Kennesaw is a competitive place to be a small business online. You are up against national franchise locations with corporate marketing budgets, and against the same handful of contractors who have been buying ads here for years. The good news is that most of them are running slow template sites, and that is a gap you can walk straight through.",
     sections: [
@@ -73,7 +73,7 @@ export const locations: Location[] = [
       "Smyrna has changed fast, and the businesses that have kept up online are doing noticeably better than the ones that have not. There is real money moving through this part of Cobb County, and a lot of it goes to whoever turns up first when somebody searches on their phone.",
     sections: [
       {
-        heading: "You Are Competing With Newcomers, Not Just Neighbours",
+        heading: "Smyrna Has Many New Businesses Competing For The Same Searches",
         body: [
           "The development around the Battery and along the Cumberland corridor brought in a wave of businesses that launched with a modern site from day one. If yours has not been touched since 2018, the comparison is not subtle. A prospect who opens both in two tabs makes a judgment about which business is still paying attention before reading a word.",
           "This is the most fixable problem on that list. A clean, fast, well-structured site puts you back on even footing, and it does not require the budget the newcomers spent.",

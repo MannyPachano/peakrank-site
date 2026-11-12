@@ -30,8 +30,8 @@ const path = `/web-design-${location.slug}`;
       <p>
         $80 per designed page, unlimited revisions, money back if you are not satisfied.
       </p>
-      <a href="/contact?service=free-audit" class="btn-primary">
-        Get A Free Site Audit
+      <a href="/free-homepage-mockup" class="btn-primary">
+        Get A Free Homepage Mockup
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
           <path d="M5 12h14M13 6l6 6-6 6"></path>
         </svg>
@@ -60,7 +60,7 @@ const path = `/web-design-${location.slug}`;
           {location.industries.map((industry) => <li>{industry}</li>)}
         </ul>
 
-        <h2>What It Costs</h2>
+        <h2>Web Design Prices In {location.city}, GA</h2>
         <p>
           Pricing is the same here as everywhere else. A website redesign is $80 per designed page,
           so a 5 page site is $400, paid half to start and half at launch. Design revisions are
@@ -70,12 +70,12 @@ const path = `/web-design-${location.slug}`;
           <a href="/pricing">pricing page</a> has the full details.
         </p>
 
-        <h2>Where To Start</h2>
+        <h2>How To Start With A Free Homepage Mockup</h2>
         <p>
-          Run your current site through Google PageSpeed Insights and see what it scores. Then
-          <a href={business.smsHref}>text {business.phoneDisplay}</a> or
-          <a href="/contact">send a message</a> and I will go through what is actually holding it
-          back. There is no charge for that and no obligation attached to it.
+          Send me your website address and I will design a new homepage for your business for
+          free. There is no charge and no obligation. If you like it, I design the rest of the
+          site at $80 per page. <a href="/free-homepage-mockup">Request your free mockup</a>, or
+          <a href={business.smsHref}>text {business.phoneDisplay}</a>.
         </p>
 
         <div class="cross-link">
@@ -95,5 +95,5 @@ const path = `/web-design-${location.slug}`;
     </div>
   </section>
 
-  <FinalCta heading={`Ready To Get Found in ${location.city}?`} ctaLabel="Get A Free Site Audit" ctaHref="/contact?service=free-audit" />
+  <FinalCta heading={`Ready To Get Found in ${location.city}?`} ctaLabel="Get A Free Homepage Mockup" ctaHref="/free-homepage-mockup" />
 </PeakLayout>

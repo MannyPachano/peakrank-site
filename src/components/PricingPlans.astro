@@ -5,6 +5,11 @@ import { plans } from "../data/plans";
 interface Props {
   /** "home" is the compact card, "page" is the roomier /pricing card. */
   variant?: "home" | "page";
+  /**
+   * Overrides the per-plan call to action in plans.ts. The home summary uses it
+   * to send both cards to /pricing; /pricing itself leaves it off so each card
+   * leads with its own free offer.
+   */
   ctaLabel?: string;
   ctaHref?: string;
   /** Heading level for the plan name. h2 on /pricing, h3 inside the home section. */
@@ -20,8 +25,8 @@ interface Props {
 
 const {
   variant = "page",
-  ctaLabel = "Get Started",
-  ctaHref = "/contact",
+  ctaLabel,
+  ctaHref,
   headingLevel = "h2",
   summary = false,
 } = Astro.props;
@@ -90,8 +95,8 @@ const Heading = headingLevel;
           <p class="plan-price-note">{plan.priceNote}</p>
         </div>
 
-        <a href={ctaHref} class="plan-btn">
-          {ctaLabel}
+        <a href={ctaHref ?? plan.ctaHref} class="plan-btn">
+          {ctaLabel ?? plan.ctaLabel}
           <span class="sr-only"> with the {plan.name} plan</span>
         </a>
       </div>

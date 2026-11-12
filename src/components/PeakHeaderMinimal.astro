@@ -1,0 +1,58 @@
+---
+/**
+ * The funnel header: the logo and at most one link out.
+ *
+ * The full nav offers nine other places to go, which is the right trade on the
+ * marketing pages and the wrong one on a page whose only job is a single form.
+ */
+interface Props {
+  backLink?: { href: string; label: string };
+}
+
+const { backLink } = Astro.props;
+---
+
+<nav class="nav-minimal">
+  <div class="nav-minimal-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#FF8A3D" stroke="#FFA05C" stroke-width="1"></circle>
+          <path d="M8 28 L16 14 L22 22 L26 16 L32 28 Z" fill="#0B1A2F"></path>
+          <circle cx="28" cy="10" r="2" fill="#FFD56B"></circle>
+        </svg>
+      </span>
+      <span>PeakRanking</span>
+    </a>
+    {backLink && <a href={backLink.href} class="nav-minimal-back">{backLink.label}</a>}
+  </div>
+</nav>
+
+<style>
+  .nav-minimal {
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-minimal-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 1.125rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-minimal-back {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .nav-minimal-back:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+</style>

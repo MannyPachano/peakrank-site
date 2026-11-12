@@ -1,0 +1,30 @@
+---
+import { business } from "../data/business";
+---
+
+<footer class="footer-minimal">
+  <div class="footer-minimal-inner">
+    <span>
+      {business.name}, {business.address.locality}, {business.address.region}
+    </span>
+    <span>{`${business.hours.display}. ${business.hours.subtext}.`}</span>
+  </div>
+</footer>
+
+<style>
+  .footer-minimal {
+    background: var(--bg-deep);
+    color: var(--text-mute);
+  }
+
+  .footer-minimal-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+</style>

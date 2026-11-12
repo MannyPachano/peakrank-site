@@ -1,0 +1,82 @@
+/*
+ * /thanks — a single centred column, not a banner.
+ *
+ * This lives in a stylesheet rather than a scoped <style> in thanks.astro
+ * because it has to style main#main-content, which PeakLayout renders. Astro
+ * scopes a component's styles to that component's own elements, so a scoped
+ * rule for main would never match.
+ */
+
+main#main-content.thanks-main {
+  /* Fills the window so a short message is not stranded above a blank screen. */
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+}
+
+.thanks-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.thanks-check {
+  width: 56px;
+  height: 56px;
+  color: var(--accent);
+}
+
+.thanks-inner h1 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 2.875rem);
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.thanks-inner p {
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.thanks-inner a:not(.btn-primary):not(.thanks-secondary) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.thanks-inner a:not(.btn-primary):not(.thanks-secondary):hover {
+  color: var(--accent-bright);
+}
+
+.thanks-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.thanks-secondary {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 1.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    border-color 0.25s,
+    background 0.25s;
+}
+
+.thanks-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(255, 138, 61, 0.08);
+}

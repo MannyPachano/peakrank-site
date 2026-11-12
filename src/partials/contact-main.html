@@ -4,7 +4,7 @@
     <div class="page-header-eyebrow">Contact</div>
     <h1>Get In Touch</h1>
     <p>
-      Send a message and tell me what you are looking for in a new site. I reply to everyone within one business day. Prefer to talk it through? Text or call the number below and you reach me, not an answering service.
+      Send a message and tell me what you are looking for in a new site. I reply to everyone within one business day. Text or email and you reach me directly. Texting gets the fastest reply.
     </p>
   </div>
 </header>
@@ -26,7 +26,7 @@
           <div class="info-body">
             <div class="info-label">Text Me</div>
             <div class="info-value"><a href="sms:+16787932445">(678) 793-2445</a></div>
-            <div class="info-sub">Texting gets the fastest reply. Prefer to talk? <a href="tel:+16787932445">Call the same number</a>.</div>
+            <div class="info-sub">Texting gets the fastest reply.</div>
           </div>
         </div>
 
@@ -67,7 +67,7 @@
           </div>
           <div class="info-body">
             <div class="info-label">Availability</div>
-            <div class="info-value">Text, call or email any day</div>
+            <div class="info-value">Text or email any day</div>
             <div class="info-sub">I reply within one business day</div>
           </div>
         </div>
@@ -113,20 +113,25 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="phone">Phone <span class="required">*</span></label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(678) 793-2445" required>
+              <label class="form-label" for="phone">Phone (optional, for texts only)</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(678) 793-2445">
             </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="website">Current website address</label>
+            <input class="form-input" type="url" id="website" name="website" placeholder="yourbusiness.com">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="service">What are you looking for?</label>
             <select class="form-select" id="service" name="service">
               <option value="">Select a service</option>
-              <option value="free-audit">Free site or SEO audit</option>
-              <option value="web-design">New Website</option>
-              <option value="redesign">Website Redesign</option>
+              <option value="mockup">Free homepage mockup</option>
+              <option value="seo-review">Free local SEO review</option>
+              <option value="redesign">Website redesign</option>
+              <option value="web-design">New website</option>
               <option value="local-seo">Local SEO</option>
-              <option value="both">Website + Local SEO</option>
               <option value="other">Something else</option>
             </select>
           </div>
@@ -137,24 +142,29 @@
           </div>
 
           <button type="submit" class="form-submit">
-            Send Message
+            Send My Request
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
           </button>
 
           <p class="form-note">
-            No spam, ever. You will hear from me within one business day.
+            I reply by email within one business day. No phone calls, no sales pitch.
           </p>
 
         </form>
 
         <script>
-          // Lets /contact?service=free-audit preselect the reason for the visit,
-          // so an audit request is distinguishable from a general enquiry.
+          // Lets /contact?service=seo-review preselect the reason for the visit, so a
+          // request for a specific offer is distinguishable from a general enquiry.
+          // free-audit and both are the retired option values: links to them are still
+          // out there in older emails, so they map onto the offers that replaced them
+          // rather than landing on an empty select.
           (function () {
+            var legacy = { "free-audit": "mockup", both: "redesign" };
             var want = new URLSearchParams(location.search).get("service");
             if (!want) return;
+            want = legacy[want] || want;
             var select = document.getElementById("service");
             if (select && [].some.call(select.options, function (o) { return o.value === want; })) {
               select.value = want;
