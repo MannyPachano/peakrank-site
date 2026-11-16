@@ -1,0 +1,81 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import { business } from "../data/business";
+import { plans } from "../data/plans";
+import { splitPartial } from "../lib/partial";
+import "../styles/peak-article.css";
+import "../styles/peak-how-it-works.css";
+import html from "../partials/how-it-works-main.html?raw";
+
+const [beforeFaq, betweenFaqAndCta, afterCta] = splitPartial(
+  html,
+  "how-it-works-main.html",
+  "<!--FAQ-->",
+  "<!--FINAL_CTA-->",
+);
+
+const website = plans.find((p) => p.id === "website");
+if (!website) throw new Error("plans.ts no longer has a plan with id 'website'.");
+
+/*
+ * The questions are rendered below and serialized into the FAQPage schema from
+ * this one array, so the schema cannot drift from what a reader sees.
+ */
+const faq: [string, string][] = [
+  [
+    "Do I ever need to get on a call?",
+    `No. Everything happens by email, and you can also text ${business.phoneDisplay}.`,
+  ],
+  [
+    "Do I have to hire you after the free mockup?",
+    "No. The mockup is yours to keep either way.",
+  ],
+  [
+    "What if I don’t like the first draft?",
+    "Tell me what you don’t like and I’ll change it. There’s no limit on design changes. If you still aren’t happy before you approve the design, you get your money back.",
+  ],
+  [
+    "Can I start with fewer pages?",
+    `Yes. You can start with one page at ${website.price} and add more later.`,
+  ],
+  [
+    "Who does the work?",
+    "I do. I’m Manny Pachano, and I design, write and build every PeakRanking site myself.",
+  ],
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}).replace(/</g, "\\u003c");
+---
+
+<PeakLayout
+  title="How A Website Redesign Works From Free Mockup To Launch | PeakRanking"
+  description="Every step after you say yes to a new website: how long it takes, what I need from you, when you pay and how the money-back guarantee works."
+  canonicalPath="/how-it-works"
+  bodyClass="page-how-it-works"
+>
+  <Fragment set:html={beforeFaq} />
+  <h2>Questions About How The Website Process Works</h2>
+  <div class="hiw-faq">
+    {
+      faq.map(([question, answer]) => (
+        <div class="hiw-faq-item">
+          <h3>{question}</h3>
+          <p>{answer}</p>
+        </div>
+      ))
+    }
+  </div>
+  <Fragment set:html={betweenFaqAndCta} />
+  <FinalCta heading="Start With A Free Homepage Mockup" ctaLabel="Get A Free Homepage Mockup" ctaHref="/free-homepage-mockup" />
+  <Fragment set:html={afterCta} />
+  <script type="application/ld+json" set:html={faqSchema} is:inline />
+</PeakLayout>

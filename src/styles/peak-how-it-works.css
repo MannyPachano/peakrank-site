@@ -1,0 +1,62 @@
+/*
+ * /how-it-works. Everything else on the page uses peak-article.css; this file
+ * only adds the numbered steps and the questions, which no other article has.
+ * The step numbers are plain circles on the card colour, with no coloured
+ * edge on any block.
+ */
+.hiw-steps {
+  list-style: none;
+  counter-reset: hiw-step;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.hiw-steps li {
+  counter-increment: hiw-step;
+  position: relative;
+  padding-left: 3.25rem;
+}
+
+.hiw-steps li::before {
+  content: counter(hiw-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article .hiw-steps h3,
+.article .hiw-faq h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.article .hiw-steps h3 {
+  /* Lines the first line of the title up with the middle of the number. */
+  padding-top: 0.3rem;
+}
+
+.article .hiw-steps p,
+.article .hiw-faq p {
+  margin-bottom: 0;
+}
+
+.hiw-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}

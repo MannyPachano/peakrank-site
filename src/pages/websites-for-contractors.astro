@@ -1,0 +1,320 @@
+---
+import { Image } from "astro:assets";
+import PeakLayout from "../layouts/PeakLayout.astro";
+import { business, claims } from "../data/business";
+import { plans } from "../data/plans";
+import before from "../assets/work/ues-before.png";
+import after from "../assets/work/ues-after.png";
+import "../styles/peak-mockup.css";
+
+/**
+ * Landing page for contractors and home service businesses, the page the cold
+ * email follow-up links to.
+ *
+ * It has one job, so it uses the minimal chrome and the light design of
+ * /free-homepage-mockup and reuses that page's stylesheet. It has no form of
+ * its own: every button opens the mockup form with ?ref=contractors, so these
+ * requests arrive in the same Netlify form, fire the same generate_lead event
+ * on /thanks, and carry "contractors" in the form's source field. A visit that
+ * arrives with its own ?ref (follow-up 1 links here with ?ref=fu1) is passed on
+ * as contractors-fu1 by the script at the bottom of the page.
+ */
+const MOCKUP_HREF = "/free-homepage-mockup?ref=contractors";
+const TURNAROUND = "3 business days";
+
+const website = plans.find((p) => p.id === "website");
+if (!website) throw new Error("plans.ts no longer has a plan with id 'website'.");
+
+const ticks = [
+  `A free homepage mockup within ${TURNAROUND}`,
+  "Your money back if you don’t like the design",
+  "Everything by email or text, never a phone call",
+];
+
+const problems = [
+  {
+    title: "The phone number can’t be tapped",
+    body: "On a phone, customers have to copy your number by hand to call you.",
+  },
+  {
+    title: "Template filler is still on the page",
+    body: "Sample reviews that start “This is your Testimonial quote”, placeholder headings and stock text the builder left behind.",
+  },
+  {
+    title: "The site is on a free builder address",
+    body: "Something like yourname.wixsite.com instead of your own domain.",
+  },
+  {
+    title: "The services aren’t listed",
+    body: "A “What we do” section that only says to get in touch, so customers can’t tell if you do the job they need.",
+  },
+];
+
+const includes = [
+  "Your services and the towns you cover at the top of the page",
+  "A phone number customers can tap, plus a quote request button",
+  "A layout designed for phones first, then computers",
+  "Your own photos of your crew, trucks and finished jobs",
+  "A simple editor to change text, photos and prices yourself",
+  `Custom code with no page builder, with ${claims.pageSpeed} as the target`,
+];
+
+const faq: [string, string][] = [
+  [
+    "Do I need to get on a call?",
+    `No. Everything happens by email, and you can text ${business.phoneDisplay}.`,
+  ],
+  [
+    "I’m busy on jobs all day. How much of my time does this take?",
+    "Sending the mockup request takes a minute. If you go ahead, I send a short list of questions about your services, towns and photos. Phone photos are fine, and I write the page text for you.",
+  ],
+  [
+    "Is the mockup really free?",
+    "Yes. You don’t pay anything for it, and you don’t have to hire me afterward.",
+  ],
+  [
+    "Can I keep my current domain?",
+    "Yes. The new site goes on your domain, and the domain and hosting stay in your name.",
+  ],
+  [
+    "What if I only want my homepage redone?",
+    `That’s ${website.price}. You can add more pages later.`,
+  ],
+  [
+    "Can you also help me show up on Google Maps?",
+    "Yes, with local SEO. It’s optional and separate from the website: $799 a month with a 3 month minimum. We agree on the targets in writing before I start, and if they aren’t met after 3 months, I refund all 3 payments, $2,397 in total.",
+  ],
+  [
+    "Who does the work?",
+    "I do. I’m Manny Pachano, and I design and build every PeakRanking site myself.",
+  ],
+];
+
+/* Built from the same array the page renders, like /free-homepage-mockup. */
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}).replace(/</g, "\\u003c");
+---
+
+<PeakLayout
+  title="Website Design For Contractors And Home Service Businesses | PeakRanking"
+  description="Website redesigns for contractors and home service businesses at $80 per page. See a free homepage mockup first. Money back if you don't like the design."
+  canonicalPath="/websites-for-contractors"
+  bodyClass="page-mockup"
+  chrome="minimal"
+  backLink={{ href: "/", label: "Back to the homepage" }}
+>
+  <!-- HERO -->
+  <section class="mk-hero">
+    <div class="mk-wrap mk-hero-inner">
+      <div class="mk-hero-copy">
+        <p class="mk-eyebrow">For contractors and home service businesses</p>
+        <h1>Website Redesigns For Contractors And Home Service Businesses</h1>
+        <p class="mk-lead">
+          I redesign websites for lawn care, landscaping, HVAC, plumbing, electrical, pest control,
+          cleaning, roofing and other home service businesses. It&rsquo;s {website.price} per page, so
+          a 5 page site is $400. Before you pay anything, I design your new homepage for free so you
+          can see it first.
+        </p>
+        <ul class="mk-ticks">
+          {
+            ticks.map((item) => (
+              <li>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M4 10.5 L8.5 15 L16 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <p>
+          <a href={MOCKUP_HREF} class="btn-primary" data-mockup-link>Get A Free Homepage Mockup</a>
+        </p>
+        <p class="mk-lead">I reply by email within one business day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON PROBLEMS -->
+  <section class="mk-includes">
+    <div class="mk-wrap">
+      <div class="mk-example-head">
+        <h2>Problems I Find Most Often On Contractor Websites</h2>
+        <p>
+          These come up again and again when I review contractor websites built with Wix, Weebly
+          and other site builders. Each one can cost you jobs. The free mockup fixes the ones on
+          your homepage, so you can see the difference before you decide anything.
+        </p>
+      </div>
+      <div class="mk-cards">
+        {
+          problems.map((item) => (
+            <div class="mk-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE AND AFTER -->
+  <section class="mk-example">
+    <div class="mk-wrap">
+      <div class="mk-example-head">
+        <h2>Before And After: A Homepage I Redesigned For A Field Service Company</h2>
+        <p>
+          Universal Environmental Services is a used oil collection company that operates in 28
+          states. The old homepage was a single photo with a phone number. The new one says what the
+          company does, where it works and how to request a pickup, and it links to a page for each
+          of its 53 facilities and 28 states.
+        </p>
+      </div>
+
+      <div class="mk-shots">
+        <figure>
+          <Image
+            src={before}
+            alt="The previous Universal Environmental Services homepage, a single photograph with a phone number over it"
+            width={880}
+            height={550}
+            widths={[440, 880]}
+            sizes="(max-width: 760px) calc(100vw - 3rem), min(540px, 46vw)"
+            loading="lazy"
+            decoding="async"
+            quality={76}
+          />
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={after}
+            alt="Homepage of Universal Environmental Services, designed and built by Manny Pachano in 2026"
+            width={880}
+            height={550}
+            widths={[440, 880]}
+            sizes="(max-width: 760px) calc(100vw - 3rem), min(540px, 46vw)"
+            loading="lazy"
+            decoding="async"
+            quality={76}
+          />
+          <figcaption class="mk-after">After</figcaption>
+        </figure>
+      </div>
+
+      <p class="mk-centered-link">
+        <a href="https://websitesbymanny.netlify.app/web-developer-project-ues" target="_blank" rel="noopener">Read the Universal Environmental Services case study<span class="sr-only"> (opens in a new tab)</span></a>
+      </p>
+      <p class="mk-centered-link"><a href="/#work">See all websites I have built</a></p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET, AND THE PRICE -->
+  <section class="mk-how">
+    <div class="mk-wrap mk-how-inner">
+      <div class="mk-steps">
+        <h2>What A New Contractor Website From Me Includes</h2>
+        <ul class="mk-ticks">
+          {
+            includes.map((item) => (
+              <li>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M4 10.5 L8.5 15 L16 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="mk-price">
+        <h2>What A Contractor Website Costs</h2>
+        <p class="mk-price-figure">
+          <span class="mk-price-amount">{website.price}</span>
+          <span class="mk-price-unit">per designed page</span>
+        </p>
+        <p>
+          A 5 page site (Home, About, Services, Gallery, Contact) is $400. You pay 50% when you say
+          yes and 50% when the site goes live. Design changes are unlimited, and if you aren&rsquo;t
+          happy with the design before you approve it, you get your money back. After launch you get
+          one month of unlimited support.
+        </p>
+        <p>
+          Hosting fees aren&rsquo;t included. Most small business sites fit on a free hosting plan,
+          and you pay the host directly.
+        </p>
+        <p class="mk-price-links">
+          <a href="/how-it-works">See every step from mockup to launch</a>
+          <a href="/terms#guarantee">Read the guarantee terms</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="mk-faq">
+    <div class="mk-wrap">
+      <h2>Questions About A New Website For Your Contracting Business</h2>
+      {
+        faq.map(([question, answer]) => (
+          <div class="mk-faq-item">
+            <h3>{question}</h3>
+            <p>{answer}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="mk-closing">
+    <div class="mk-wrap">
+      <h2>Get A Free Homepage Mockup For Your Contracting Business</h2>
+      <p>Send me your website and I&rsquo;ll email you a new homepage design within {TURNAROUND}.</p>
+      <a href={MOCKUP_HREF} class="btn-primary" data-mockup-link>Get A Free Homepage Mockup</a>
+      <p>
+        Or email <a href={`mailto:${business.email}`}>{business.email}</a> with your website
+        address.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={faqSchema} is:inline />
+
+  <script is:inline>
+    // A visit that arrives with its own ?ref (follow-up 1 uses ?ref=fu1) keeps
+    // it: the buttons then send contractors-fu1 to the mockup form's source field.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref");
+      if (!ref) return;
+      var value = "contractors-" + ref.replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
+      var links = document.querySelectorAll("a[data-mockup-link]");
+      for (var i = 0; i < links.length; i++) {
+        links[i].href = "/free-homepage-mockup?ref=" + encodeURIComponent(value);
+      }
+    })();
+  </script>
+</PeakLayout>
