@@ -1,0 +1,67 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
+import RecentWork from "../components/RecentWork.astro";
+import PageFaq from "../components/PageFaq.astro";
+import type { FaqItem } from "../lib/faq";
+import { splitPartial } from "../lib/partial";
+import "../styles/peak-article.css";
+import html from "../partials/wix-to-custom-website-main.html?raw";
+
+const [beforeFaq, betweenFaqAndWork, betweenWorkAndCta, afterCta] = splitPartial(
+  html,
+  "wix-to-custom-website-main.html",
+  "<!--FAQ-->",
+  "<!--WORK-->",
+  "<!--FINAL_CTA-->",
+);
+
+/** Rendered visibly and as FAQPage JSON-LD by PageFaq, so the two always match. */
+const faq: FaqItem[] = [
+  {
+    q: "Can you move my Wix site without losing my content?",
+    a: "Yes. I use the text and photos from your current site as the starting point, and you can change anything you want during the design.",
+  },
+  {
+    q: "Will I lose my Google rankings if I leave Wix?",
+    a: "A careful move keeps what you have. I redirect your old page addresses to the matching new pages where they exist and keep the page titles that already work.",
+  },
+  {
+    q: "Can I still edit the site myself?",
+    a: "Yes. You get a simple editor for changing text, photos and prices without touching code.",
+  },
+  {
+    q: "What does moving off Wix or Weebly cost?",
+    a: "$80 per designed page. A 5 page site is $400, half to start and half at launch. There's no monthly fee from me for the website.",
+  },
+  {
+    q: "Do I have to cancel my Wix or Weebly plan first?",
+    a: "No. Keep it running until the new site is live and your domain points at it. Then you can cancel.",
+  },
+];
+---
+
+<PeakLayout
+  title="Move Your Business Website Off Wix or Weebly | PeakRanking"
+  description="I rebuild Wix and Weebly sites as custom coded websites at $80 per designed page. You keep a simple editor and the hosting sits in your own account."
+  canonicalPath="/wix-to-custom-website"
+>
+  <Fragment set:html={beforeFaq} />
+  <PageFaq heading="Questions About Moving Off Wix Or Weebly" items={faq} />
+  <Fragment set:html={betweenFaqAndWork} />
+  <HomeBeforeAfter />
+  <RecentWork
+    tone="deep"
+    title="Other Websites I Have Designed And Built"
+    intro="Universal Environmental Services is a field service company that collects used oil in 28 states. TimeClick and nuVector are in-house roles. Each card links to a case study."
+    only={["Universal Environmental Services", "TimeClick", "nuVector"]}
+  />
+  <Fragment set:html={betweenWorkAndCta} />
+  <FinalCta
+    heading="See Your New Website Before You Leave Wix Or Weebly"
+    ctaLabel="Get A Free Homepage Mockup"
+    ctaHref="/free-homepage-mockup?ref=wix-to-custom-website"
+  />
+  <Fragment set:html={afterCta} />
+</PeakLayout>

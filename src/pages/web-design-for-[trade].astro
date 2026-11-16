@@ -1,0 +1,156 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
+import RecentWork from "../components/RecentWork.astro";
+import PageFaq from "../components/PageFaq.astro";
+import { trades } from "../data/trades";
+import { business } from "../data/business";
+import "../styles/peak-article.css";
+
+/**
+ * One page per trade, built from src/data/trades.ts the same way the city pages
+ * are built from locations.ts. The trade-specific copy (how customers search,
+ * the page plan, the homepage checklist, the FAQ) comes from the data file. The
+ * offer facts below are the same on every trade page and must match /pricing.
+ */
+export function getStaticPaths() {
+  return trades.map((trade) => ({
+    params: { trade: trade.slug },
+    props: { trade },
+  }));
+}
+
+const { trade } = Astro.props;
+const slug = `web-design-for-${trade.slug}`;
+const path = `/${slug}`;
+const mockupHref = `/free-homepage-mockup?ref=${slug}`;
+const planPages = trade.pages.length;
+const planTotal = planPages * 80;
+const otherTrades = trades.filter((other) => other.slug !== trade.slug);
+---
+
+<PeakLayout title={trade.title} description={trade.description} canonicalPath={path}>
+  <header class="page-header service">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="page-header-inner">
+      <div class="page-header-eyebrow">Websites For {trade.label}</div>
+      <h1>{trade.h1}</h1>
+      <p class="subtitle">{trade.subtitle}</p>
+      <p>
+        Unlimited design changes, and your money back if you're not 100% happy with the design. See
+        your new homepage for free before you pay anything.
+      </p>
+      <a href={mockupHref} class="btn-primary">
+        Get A Free Homepage Mockup
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="container">
+      <article class="article">
+        <p>{trade.intro}</p>
+
+        {
+          trade.sections.map((section) => (
+            <>
+              <h2>{section.heading}</h2>
+              {section.body.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </>
+          ))
+        }
+
+        <h2>{trade.pagesHeading}</h2>
+        <p>{trade.pagesIntro}</p>
+        <ul>
+          {
+            trade.pages.map((page) => (
+              <li>
+                <strong>{page.name}.</strong> {page.why}
+              </li>
+            ))
+          }
+        </ul>
+
+        <h2>{trade.homepageHeading}</h2>
+        <ul>
+          {trade.homepage.map((item) => <li>{item}</li>)}
+        </ul>
+
+        <h2>What A {trade.siteHeading} Costs With Me</h2>
+        <p>
+          Every page I design is $80, so a 5 page {trade.siteNoun} is $400. The {planPages} page plan
+          above comes to ${planTotal}. You pay half to start and half when the site launches.
+        </p>
+        <p>
+          Design changes are unlimited until you approve the design, and if you're not 100% happy
+          with it, you get your money back. The site is custom coded with no WordPress or Wix page
+          builder, and you get a simple editor to change text, photos and prices yourself. The
+          hosting is set up in an account in your name, and you get one month of unlimited support
+          after launch. The <a href="/pricing">pricing page</a> lists everything that's included, and
+          my page on <a href="/contractor-website-cost">what a contractor website costs</a> goes
+          through the numbers in more detail.
+        </p>
+
+        <h2>Local SEO For {trade.businessesHeading}</h2>
+        <p>
+          A website gives Google something to rank. Getting into the map results for searches in
+          your towns takes ongoing work on your Google Business Profile, citations and reviews. My
+          local SEO service is $799 a month with a 3 month minimum. We agree on the targets in
+          writing before I start, and if they aren't met after 3 months, you get all $2,397 back.
+          After that it's $399 a month if you want to keep going. The
+          <a href="/local-seo">local SEO page</a> explains the work.
+        </p>
+
+        <h2>Get A Free Homepage Mockup Of Your New {trade.siteHeading}</h2>
+        <p>
+          Send me your current website address, or a few lines about your business if you don't
+          have a site yet. Within 3 business days I email you a design of your new homepage. It costs
+          nothing and you're under no obligation. If you like it, I design the rest of the pages at
+          $80 each. <a href={mockupHref}>Request your free homepage mockup</a>, or text
+          <a href={business.smsHref}>{business.phoneDisplay}</a> or email
+          <a href={`mailto:${business.email}`}>{business.email}</a>.
+        </p>
+        <p>
+          If you run a different kind of home service business, my page on
+          <a href="/websites-for-contractors">websites for contractors and home service businesses</a>
+          covers the offer for every trade.
+        </p>
+
+        <PageFaq heading={`Questions ${trade.label} Ask About A New Website`} items={trade.faq} />
+
+        <h2>Website Design For Other Trades</h2>
+        <ul>
+          {
+            otherTrades.map((other) => (
+              <li>
+                <a href={`/web-design-for-${other.slug}`}>{other.linkText}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <HomeBeforeAfter />
+
+  <RecentWork
+    tone="deep"
+    title="Other Websites I Have Designed And Built"
+    intro="Universal Environmental Services is a field service company that collects used oil in 28 states. TimeClick and nuVector are in-house roles. Each card links to a case study."
+    only={["Universal Environmental Services", "TimeClick", "nuVector"]}
+  />
+
+  <FinalCta
+    heading={`See Your New ${trade.siteHeading} Before You Pay`}
+    ctaLabel="Get A Free Homepage Mockup"
+    ctaHref={mockupHref}
+  />
+</PeakLayout>

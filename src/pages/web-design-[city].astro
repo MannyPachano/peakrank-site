@@ -1,7 +1,10 @@
 ---
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
+import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
+import PageFaq from "../components/PageFaq.astro";
 import { locations } from "../data/locations";
+import { trades } from "../data/trades";
 import { business } from "../data/business";
 import "../styles/peak-article.css";
 
@@ -14,6 +17,7 @@ export function getStaticPaths() {
 
 const { location } = Astro.props;
 const path = `/web-design-${location.slug}`;
+const mockupHref = `/free-homepage-mockup?ref=web-design-${location.slug}`;
 ---
 
 <PeakLayout
@@ -30,7 +34,7 @@ const path = `/web-design-${location.slug}`;
       <p>
         $80 per designed page, unlimited revisions, money back if you are not satisfied.
       </p>
-      <a href="/free-homepage-mockup" class="btn-primary">
+      <a href={mockupHref} class="btn-primary">
         Get A Free Homepage Mockup
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
           <path d="M5 12h14M13 6l6 6-6 6"></path>
@@ -60,6 +64,22 @@ const path = `/web-design-${location.slug}`;
           {location.industries.map((industry) => <li>{industry}</li>)}
         </ul>
 
+        <h2>Website Plans For Contractors And Trades</h2>
+        <p>
+          I have written out what a website needs for each of these trades, with a page plan and the
+          price. My page on <a href="/websites-for-contractors">websites for contractors</a> covers
+          home service businesses in general.
+        </p>
+        <ul>
+          {
+            trades.map((trade) => (
+              <li>
+                <a href={`/web-design-for-${trade.slug}`}>{trade.linkText}</a>
+              </li>
+            ))
+          }
+        </ul>
+
         <h2>Web Design Prices In {location.city}, GA</h2>
         <p>
           Pricing is the same here as everywhere else. A website redesign is $80 per designed page,
@@ -74,9 +94,18 @@ const path = `/web-design-${location.slug}`;
         <p>
           Send me your website address and I will design a new homepage for your business for
           free. There is no charge and no obligation. If you like it, I design the rest of the
-          site at $80 per page. <a href="/free-homepage-mockup">Request your free mockup</a>, or
+          site at $80 per page. <a href={mockupHref}>Request your free mockup</a>, or
           <a href={business.smsHref}>text {business.phoneDisplay}</a>.
         </p>
+
+        {
+          location.faq && (
+            <PageFaq
+              heading={`Questions About Web Design In ${location.city}, GA`}
+              items={location.faq}
+            />
+          )
+        }
 
         <div class="cross-link">
           <div class="cross-link-label">Related Service</div>
@@ -95,5 +124,7 @@ const path = `/web-design-${location.slug}`;
     </div>
   </section>
 
-  <FinalCta heading={`Ready To Get Found in ${location.city}?`} ctaLabel="Get A Free Homepage Mockup" ctaHref="/free-homepage-mockup" />
+  <HomeBeforeAfter />
+
+  <FinalCta heading={`Ready To Get Found in ${location.city}?`} ctaLabel="Get A Free Homepage Mockup" ctaHref={mockupHref} />
 </PeakLayout>

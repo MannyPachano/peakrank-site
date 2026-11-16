@@ -9,6 +9,8 @@ interface Props {
   id?: string;
   title?: string;
   intro?: string;
+  /** Project names from projects.ts to show. Omit to show every project. */
+  only?: string[];
 }
 
 const {
@@ -16,7 +18,10 @@ const {
   id,
   title = "Websites Manny Has Designed And Built",
   intro = "Client sites and in-house work from the last few years. Each one links to a case study with what the project needed and what was built.",
+  only,
 } = Astro.props;
+
+const shown = only ? projects.filter((p) => only.includes(p.name)) : projects;
 
 /**
  * Resolved at build time so a missing or renamed file in src/assets/work fails
@@ -43,7 +48,7 @@ function shotFor(file: string | undefined): ImageMetadata | null {
 
     <div class="testimonial-grid">
       {
-        projects.map((p) => {
+        shown.map((p) => {
           const shot = shotFor(p.image);
           const alt = `Homepage of ${p.name}, designed and built by Manny Pachano`;
           return (

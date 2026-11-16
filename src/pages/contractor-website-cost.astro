@@ -1,0 +1,67 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import FinalCta from "../components/FinalCta.astro";
+import HomeBeforeAfter from "../components/HomeBeforeAfter.astro";
+import RecentWork from "../components/RecentWork.astro";
+import PageFaq from "../components/PageFaq.astro";
+import type { FaqItem } from "../lib/faq";
+import { splitPartial } from "../lib/partial";
+import "../styles/peak-article.css";
+import html from "../partials/contractor-website-cost-main.html?raw";
+
+const [beforeFaq, betweenFaqAndWork, betweenWorkAndCta, afterCta] = splitPartial(
+  html,
+  "contractor-website-cost-main.html",
+  "<!--FAQ-->",
+  "<!--WORK-->",
+  "<!--FINAL_CTA-->",
+);
+
+/** Rendered visibly and as FAQPage JSON-LD by PageFaq, so the two always match. */
+const faq: FaqItem[] = [
+  {
+    q: "How much does a website for a contractor cost?",
+    a: "With me, $80 per designed page. A 5 page contractor website is $400, paid half up front and half at launch.",
+  },
+  {
+    q: "Are there monthly fees?",
+    a: "Not from me. You pay the hosting company directly, and most small business sites fit on a free hosting plan. If yours needs a paid plan, I tell you the cost before we start.",
+  },
+  {
+    q: "What if I need more than 5 pages?",
+    a: "Each extra page is $80. An 8 page site is $640 and a 10 page site is $800.",
+  },
+  {
+    q: "How long does a contractor website take to build?",
+    a: "Most 5 page sites take 1 to 3 weeks from the first payment to launch. The main factor is how many design rounds you want.",
+  },
+  {
+    q: "What does local SEO cost on top of the website?",
+    a: "Local SEO is optional. It's $799 a month with a 3 month minimum ($2,397), with a full refund if the targets we agree in writing aren't met. After that it's $399 a month.",
+  },
+];
+---
+
+<PeakLayout
+  title="Contractor Website Cost | $80 Per Page | PeakRanking"
+  description="A contractor website from me costs $80 per designed page. A 5 page site is $400, half up front and half at launch. See what's included and what to expect."
+  canonicalPath="/contractor-website-cost"
+>
+  <Fragment set:html={beforeFaq} />
+  <PageFaq heading="Questions About Contractor Website Costs" items={faq} />
+  <Fragment set:html={betweenFaqAndWork} />
+  <HomeBeforeAfter />
+  <RecentWork
+    tone="deep"
+    title="Other Websites I Have Designed And Built"
+    intro="Universal Environmental Services is a field service company that collects used oil in 28 states. TimeClick and nuVector are in-house roles. Each card links to a case study."
+    only={["Universal Environmental Services", "TimeClick", "nuVector"]}
+  />
+  <Fragment set:html={betweenWorkAndCta} />
+  <FinalCta
+    heading="See Your New Contractor Website Before You Pay"
+    ctaLabel="Get A Free Homepage Mockup"
+    ctaHref="/free-homepage-mockup?ref=contractor-website-cost"
+  />
+  <Fragment set:html={afterCta} />
+</PeakLayout>

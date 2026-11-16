@@ -1,0 +1,101 @@
+/*
+ * Screenshot frames and the UES before and after pair.
+ *
+ * Moved out of peak-home.css so HomeBeforeAfter.astro and HeroWorkShot.astro
+ * carry their own styles. The before and after section now also renders on the
+ * trade pages, the city pages, /contractor-website-cost and
+ * /wix-to-custom-website, which do not load the home stylesheet.
+ */
+
+/*
+ * Browser frame around a real screenshot. Replaces the laptop skeleton, which
+ * drew invented content in CSS. The bar is three dots and nothing else, so it
+ * reads as a browser without competing with the screenshot inside it.
+ */
+.work-shot {
+  margin: 0;
+}
+
+.work-shot-frame {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(255, 138, 61, 0.1);
+}
+
+.work-shot-bar {
+  height: 26px;
+  border-bottom: 1px solid #e3e8f0;
+  background:
+    radial-gradient(circle 4px at 14px 50%, #ff6b6b 100%, transparent 100%),
+    radial-gradient(circle 4px at 30px 50%, #ffd56b 100%, transparent 100%),
+    radial-gradient(circle 4px at 46px 50%, #51cf66 100%, transparent 100%),
+    #fff;
+  background-repeat: no-repeat;
+}
+
+.work-shot-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.work-shot-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-mute);
+  text-align: center;
+}
+
+/* Before and after. */
+.before-after {
+  background: var(--bg);
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.ba-item {
+  margin: 0;
+}
+
+.ba-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 0.7rem;
+}
+
+.ba-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.ba-links a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ba-links a:hover {
+  color: var(--accent-bright);
+}
+
+@media (max-width: 960px) {
+  .ba-grid {
+    grid-template-columns: 1fr;
+  }
+}

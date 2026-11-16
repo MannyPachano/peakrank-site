@@ -1,0 +1,64 @@
+---
+/**
+ * A visible FAQ and its FAQPage JSON-LD, rendered from one array so the two can
+ * never drift apart. Google treats FAQ markup that does not match the visible
+ * page as a structured data violation, which is why /pricing keeps a "mirror
+ * word for word" comment. Here there is nothing to mirror.
+ *
+ * Answers are plain text on purpose: the same string goes into the JSON-LD.
+ * Put links in the page copy around the FAQ, not inside an answer.
+ *
+ * Renders inside <article class="article">, so it inherits the article styles.
+ */
+import type { FaqItem } from "../lib/faq";
+
+interface Props {
+  heading: string;
+  items: FaqItem[];
+}
+
+const { heading, items } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+}).replace(/</g, "\\u003c");
+---
+
+<div class="page-faq">
+  <h2>{heading}</h2>
+  {
+    items.map((item) => (
+      <div class="page-faq-item">
+        <h3>{item.q}</h3>
+        <p>{item.a}</p>
+      </div>
+    ))
+  }
+</div>
+<script type="application/ld+json" set:html={faqSchema} is:inline />
+
+<style>
+  /* .article lives in the page, not in this component, so it is marked
+     :global. Two classes plus the element beat ".article h3" from
+     peak-article.css whichever order the inlined stylesheets land in. */
+  :global(.article) .page-faq h3 {
+    color: var(--text);
+    font-size: 1.15rem;
+    margin: 1.8rem 0 0.5rem;
+  }
+
+  .page-faq-item {
+    border-top: 1px solid var(--line);
+  }
+
+  .page-faq-item:last-child {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.4rem;
+  }
+</style>

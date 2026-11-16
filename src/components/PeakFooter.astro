@@ -1,6 +1,7 @@
 ---
 import { business, copyrightYear } from "../data/business";
 import { locations } from "../data/locations";
+import { trades } from "../data/trades";
 ---
 
 <footer>
@@ -69,6 +70,15 @@ import { locations } from "../data/locations";
           <li><a href="/web-design">Web Design</a></li>
           <li><a href="/local-seo">Local SEO</a></li>
           <li><a href="/websites-for-contractors">Websites For Contractors</a></li>
+        </ul>
+
+        <p class="footer-column-title footer-column-title--stacked">Websites For Trades</p>
+        <ul>
+          {trades.map((trade) => (
+            <li>
+              <a href={`/web-design-for-${trade.slug}`}>{trade.label}</a>
+            </li>
+          ))}
         </ul>
 
         <p class="footer-column-title footer-column-title--stacked">Areas I Serve</p>

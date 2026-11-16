@@ -14,6 +14,8 @@
  * The differentiation here comes from the local industry mix and how those customers
  * search, not from invented facts about the town.
  */
+import type { FaqItem } from "../lib/faq";
+
 export interface Location {
   /** URL slug, becomes /web-design-{slug}. */
   slug: string;
@@ -28,6 +30,11 @@ export interface Location {
   sections: { heading: string; body: string[] }[];
   /** The trades and businesses this city actually has a lot of. */
   industries: string[];
+  /**
+   * Optional questions and answers. Rendered visibly and as FAQPage JSON-LD by
+   * PageFaq.astro, so the two always match. Plain text answers only.
+   */
+  faq?: FaqItem[];
 }
 
 export const locations: Location[] = [
@@ -157,6 +164,122 @@ export const locations: Location[] = [
       "Medical and dental practices",
       "Retail and boutiques",
       "Fitness and wellness",
+    ],
+  },
+  {
+    slug: "acworth-ga",
+    city: "Acworth",
+    shortName: "Acworth",
+    description:
+      "Web design and local SEO for Acworth, GA small businesses. Custom coded sites at $80 per designed page and a free homepage mockup in 3 business days.",
+    intro:
+      "Acworth sits at the north end of Cobb County, where I-75, US 41 and Highway 92 meet Lake Acworth and Lake Allatoona. It's known as the Lake City, and that shapes who searches for local businesses here: people who live in the neighborhoods off Highway 92 and US 41, and people who come up for the lakes in spring and summer.",
+    sections: [
+      {
+        heading: "Acworth Businesses Compete With Kennesaw, Woodstock And Cartersville",
+        body: [
+          "Acworth borders Kennesaw to the southeast, Woodstock is about 12 miles east on Highway 92 and Cartersville is about 12 miles northwest on US 41. Google's map results don't stop at the city line, so an Acworth plumber or landscaper often shows up next to companies from all three.",
+          "Plenty of homes with an Acworth address also sit outside the city limits, in parts of Bartow, Cherokee and Paulding counties. If you work there, a service area page that names those areas tells Google, and the homeowner, that you come to them.",
+        ],
+      },
+      {
+        heading: "Lake Season Work Around Lake Acworth And Lake Allatoona",
+        body: [
+          "The two lakes keep a lot of seasonal work moving: docks and decks, pressure washing, landscaping and other outdoor services. That work gets searched most in spring and summer and drops off in winter.",
+          "For a seasonal business, the site needs to be ready before the season starts, with a page for each service people search for. A page that has been live since winter has a better chance of showing up in May than one put up in May.",
+        ],
+      },
+      {
+        heading: "New Acworth Homeowners Search For Home Services",
+        body: [
+          "Acworth grew from about 20,400 people in 2010 to about 22,400 in 2020, according to the US Census. People who just moved in don't have a plumber, a roofer or a lawn service yet, so they search for one and pick from the first few results.",
+          "The businesses that show up with a fast site that clearly says what they do and where they work get the first chance at that work. That's the site I build, and the free homepage mockup lets you see it before you pay.",
+        ],
+      },
+    ],
+    industries: [
+      "Home services and contractors",
+      "Landscaping and lawn care",
+      "Pressure washing and exterior cleaning",
+      "Docks, decks and outdoor services",
+      "Restaurants and shops in downtown Acworth",
+      "Auto repair",
+    ],
+    faq: [
+      {
+        q: "Do you work with businesses in Acworth?",
+        a: "Yes. I'm from Marietta, a short drive down I-75, and I work with small businesses in Acworth by email and text.",
+      },
+      {
+        q: "Can my site cover customers outside the Acworth city limits?",
+        a: "Yes. A service area page can list every town and county you serve, such as Kennesaw, Cartersville and the parts of Bartow, Cherokee and Paulding counties with Acworth addresses.",
+      },
+      {
+        q: "How much does a website cost for an Acworth business?",
+        a: "The same as everywhere else I work: $80 per designed page. A 5 page site is $400, paid half to start and half at launch.",
+      },
+      {
+        q: "How do I see a design before I pay?",
+        a: "Request a free homepage mockup. I design your new homepage within 3 business days, and it costs nothing.",
+      },
+    ],
+  },
+  {
+    slug: "canton-ga",
+    city: "Canton",
+    shortName: "Canton",
+    description:
+      "Web design and local SEO for Canton, GA small businesses in Cherokee County. Custom coded sites at $80 per designed page, with a free homepage mockup.",
+    intro:
+      "Canton is the county seat of Cherokee County, about forty miles north of Atlanta on I-575, with the Etowah River running through the middle of town. It has grown fast: from about 7,700 people in 2000 to about 33,000 in 2020. Most of those new residents arrived without a plumber, a roofer or a lawn service, so they search, and they pick from what Google shows them.",
+    sections: [
+      {
+        heading: "Canton Businesses Compete Along I-575",
+        body: [
+          "Canton sits between Holly Springs to the south and Ball Ground to the north, with Woodstock a little further down I-575. Google's map results don't stop at the city line, so a Canton contractor often shows up next to companies from all three.",
+          "A service area page that names the towns you actually cover gives Google something to match, and it tells a homeowner in Holly Springs or Ball Ground right away that you come to them.",
+        ],
+      },
+      {
+        heading: "Riverstone Parkway And Downtown Canton",
+        body: [
+          "The shopping centers along Riverstone Parkway draw people from across the county, and downtown Canton, around the Historic Canton Theatre on Main Street, has its own restaurants and shops. Those businesses mostly get found through the map results and a quick look at the website before someone drives over.",
+          "For them, the Google Business Profile and the website have to agree: same hours, same services, same address. I set the site up so changing that information takes a minute in the editor.",
+        ],
+      },
+      {
+        heading: "New Canton Neighborhoods Mean New Customers For Home Services",
+        body: [
+          "New subdivisions bring steady demand for HVAC service, landscaping, pest control, cleaning and repairs. A homeowner who just moved in doesn't know any local names yet. They search for the service and the town, compare two or three sites and contact the one that answers their questions fastest.",
+          "That is where a fast, clear website earns its cost. It should say what you do, which parts of Cherokee County you cover and how to reach you, on a phone, in a few seconds.",
+        ],
+      },
+    ],
+    industries: [
+      "Home services and contractors",
+      "Landscaping and lawn care",
+      "Pest control and cleaning",
+      "Restaurants and shops in downtown Canton",
+      "Retail along Riverstone Parkway",
+      "Medical and professional offices",
+    ],
+    faq: [
+      {
+        q: "Do you work with businesses in Canton and the rest of Cherokee County?",
+        a: "Yes. I work with small businesses in Canton, Holly Springs, Ball Ground, Woodstock and the rest of Cherokee County by email and text.",
+      },
+      {
+        q: "Should my site have a page for each town I serve?",
+        a: "Start with one service area page that names each town. Separate town pages make sense once you have something different to say about each one, such as jobs you've done there.",
+      },
+      {
+        q: "How much does a website cost for a Canton business?",
+        a: "$80 per designed page, the same as everywhere I work. A 5 page site is $400, half up front and half at launch.",
+      },
+      {
+        q: "What happens after the free homepage mockup?",
+        a: "If you like it, I design the remaining pages at $80 each, with unlimited design changes. If you don't, you owe nothing.",
+      },
     ],
   },
 ];
