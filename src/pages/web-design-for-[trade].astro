@@ -28,6 +28,8 @@ const mockupHref = `/free-homepage-mockup?ref=${slug}`;
 const planPages = trade.pages.length;
 const planTotal = planPages * 80;
 const otherTrades = trades.filter((other) => other.slug !== trade.slug);
+/** "An Electrician Website", "An HVAC Website", "A Plumbing Website". */
+const siteArticle = /^(?:[AEIOU]|HVAC)/.test(trade.siteHeading) ? "An" : "A";
 ---
 
 <PeakLayout title={trade.title} description={trade.description} canonicalPath={path}>
@@ -83,7 +85,7 @@ const otherTrades = trades.filter((other) => other.slug !== trade.slug);
           {trade.homepage.map((item) => <li>{item}</li>)}
         </ul>
 
-        <h2>What A {trade.siteHeading} Costs With Me</h2>
+        <h2>What {siteArticle} {trade.siteHeading} Costs With Me</h2>
         <p>
           Every page I design is $80, so a 5 page {trade.siteNoun} is $400. The {planPages} page plan
           above comes to ${planTotal}. You pay half to start and half when the site launches.

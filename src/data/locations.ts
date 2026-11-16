@@ -282,4 +282,178 @@ export const locations: Location[] = [
       },
     ],
   },
+  {
+    slug: "cartersville-ga",
+    city: "Cartersville",
+    shortName: "Cartersville",
+    description:
+      "Web design and local SEO for Cartersville, GA and Bartow County businesses. Custom coded sites at $80 per designed page, with a free homepage mockup.",
+    intro:
+      "Cartersville is the county seat of Bartow County, about 42 miles northwest of downtown Atlanta on I-75. US 41, US 411 and State Route 20 all run through town, the Etowah River passes nearby, and Lake Allatoona and Red Top Mountain State Park sit just outside the city limits. About 23,200 people lived in the city in 2020, and the businesses here serve customers from across the county.",
+    sections: [
+      {
+        heading: "Cartersville Businesses Serve All Of Bartow County",
+        body: [
+          "Customers here come from Adairsville, Emerson, Euharlee, Kingston and White as well as from Cartersville itself, and from Acworth about 12 miles down US 41. A plumber or a tree service based in town usually covers most of the county.",
+          "Google's map results favor businesses close to the person searching, so in a spread-out county the website has to make your coverage clear. A service area page that names each town tells Google where you work, and it tells a homeowner in Adairsville or Emerson right away that you come to them.",
+        ],
+      },
+      {
+        heading: "Visitors For The Museums, The Etowah Mounds And Lake Allatoona",
+        body: [
+          "The Booth Western Art Museum and the Tellus Science Museum bring visitors into town, the Etowah Indian Mounds sit just south of the city and Red Top Mountain State Park draws people to the lake. Many of those visitors don't know the area, so they search on a phone for a place to eat, shop or stay.",
+          "For restaurants, shops and lodging, the Google Business Profile and the website have to agree on hours, address and menu or services, and the site has to load quickly on a phone with a weak signal.",
+        ],
+      },
+      {
+        heading: "Manufacturing Employers And The Service Work Around Them",
+        body: [
+          "Manufacturing is a big part of the Cartersville economy, with employers such as Shaw Industries, Anheuser-Busch and Komatsu, and Piedmont Cartersville Medical Center is in town too. Plants and offices need commercial cleaning, HVAC, electrical work and pest control, and the people who work there need the same services at home.",
+          "If you take commercial jobs, a separate commercial page lets a facility manager see that right away without reading through your residential services.",
+        ],
+      },
+    ],
+    industries: [
+      "Home services and contractors",
+      "Commercial cleaning and facility services",
+      "Tree service and landscaping",
+      "Restaurants and shops in downtown Cartersville",
+      "Outdoor and lake services near Lake Allatoona",
+      "Medical and professional offices",
+    ],
+    faq: [
+      {
+        q: "Do you work with businesses in Cartersville and the rest of Bartow County?",
+        a: "Yes. My business is based in Marietta, down I-75 in Cobb County, and I work with small businesses across Bartow County by email and text.",
+      },
+      {
+        q: "Should my site have separate pages for residential and commercial work?",
+        a: "If you do both, yes. Homeowners and facility managers ask different questions and search with different words, so each needs its own page.",
+      },
+      {
+        q: "How much does a website cost for a Cartersville business?",
+        a: "$80 per designed page, the same as everywhere I work. A 5 page site is $400, paid half to start and half at launch.",
+      },
+      {
+        q: "Can I update my hours and services myself?",
+        a: "Yes. You get a simple editor for text, photos and prices, so changing your hours takes a minute.",
+      },
+    ],
+  },
+  {
+    slug: "powder-springs-ga",
+    city: "Powder Springs",
+    shortName: "Powder Springs",
+    description:
+      "Web design and local SEO for Powder Springs, GA businesses in southwest Cobb County. Custom coded sites at $80 per page and a free homepage mockup.",
+    intro:
+      "Powder Springs is in southwest Cobb County, about 22 miles west of downtown Atlanta by US 278 and I-20. The city grew from about 13,900 people in 2010 to about 16,900 in 2020, and it takes its name from the seven springs inside the city limits. Most businesses here are small and local, and most of their customers find them on a phone.",
+    sections: [
+      {
+        heading: "Powder Springs Businesses Work Along US 278 From Austell To Dallas",
+        body: [
+          "US 278, known as C. H. James Parkway through town, runs about 5 miles southeast to Austell and about 11 miles northwest to Dallas, passing through Hiram on the way. A contractor based in Powder Springs usually works in all of those towns, on both sides of the line between Cobb and Paulding counties.",
+          "Google's map results don't stop at the county line, so a Powder Springs business shows up next to companies from Hiram and Austell. A service area page that names each town you cover gives Google something to match and tells the homeowner right away that you come to them.",
+        ],
+      },
+      {
+        heading: "Downtown Powder Springs And The Silver Comet Trail",
+        body: [
+          "The Silver Comet Trail runs through Powder Springs, with trailhead parking on Richard D. Sailors Parkway. Downtown, with its shops and Thurman Springs Park and amphitheater, draws people from the trail and from the neighborhoods around it.",
+          "For a restaurant or a shop near the trail or downtown, the map listing and the website need to agree on hours and location, and the site needs to load fast on a phone. I set the site up so changing that information takes a minute in the editor.",
+        ],
+      },
+      {
+        heading: "Small Local Companies Compete With Metro Atlanta Advertisers",
+        body: [
+          "A Powder Springs homeowner who searches for a plumber or a roofer sees results from across southwest Cobb and from large metro Atlanta companies with big ad budgets. A small local company can still hold its own with a site that loads fast, names the towns it covers and makes it easy to get in touch from a phone.",
+          "That's the site I build, at $80 per designed page, and the free homepage mockup lets you see it before you pay.",
+        ],
+      },
+    ],
+    industries: [
+      "Home services and contractors",
+      "Landscaping and lawn care",
+      "Restaurants and shops in downtown Powder Springs",
+      "Businesses near the Silver Comet Trail",
+      "Auto repair",
+      "Cleaning and pest control",
+    ],
+    faq: [
+      {
+        q: "Do you work with businesses in Powder Springs?",
+        a: "Yes. My business is based in Marietta, also in Cobb County, and I work with Powder Springs businesses by email and text.",
+      },
+      {
+        q: "Can my site cover Hiram, Austell and Dallas too?",
+        a: "Yes. A service area page can name every town you cover, including the ones across the county line in Paulding County.",
+      },
+      {
+        q: "How much does a website cost for a Powder Springs business?",
+        a: "$80 per designed page. A 5 page site is $400, with half due to start and half at launch.",
+      },
+      {
+        q: "What do I need to send for the free homepage mockup?",
+        a: "Your current website address, or a few lines about your business if you don't have a site yet. I email you the design within 3 business days.",
+      },
+    ],
+  },
+  {
+    slug: "dallas-ga",
+    city: "Dallas",
+    shortName: "Dallas",
+    description:
+      "Web design and local SEO for Dallas, GA and Paulding County businesses. Custom coded sites at $80 per designed page, with a free homepage mockup.",
+    intro:
+      "Dallas is the county seat of Paulding County, about 30 miles from downtown Atlanta. US 278 runs through town, where it meets State Routes 61 and 120, and the Silver Comet Trail crosses the county. The city grew from about 11,500 people in 2010 to about 14,000 in 2020, and Paulding County grew from about 142,000 to about 169,000 over the same years.",
+    sections: [
+      {
+        heading: "A Dallas, Georgia Website Has To Say Georgia",
+        body: [
+          "Dallas, Texas is a much bigger city with the same name, so a search for a plumber or a roofer in Dallas can pull up results from Texas. Your customers know where they live, but Google needs the help. Your page titles, your service area page and your Google Business Profile should all say Dallas, GA and Paulding County.",
+          "Naming the places around you that only exist in Georgia, like Hiram and the other Paulding County towns you cover, makes the location clear to Google and to the person reading.",
+        ],
+      },
+      {
+        heading: "Paulding County Is One Of The Fastest Growing Counties In Georgia",
+        body: [
+          "The New Georgia Encyclopedia lists Paulding among the fastest-growing counties in the state, and parts of it have become bedroom communities for Cobb County and Atlanta. Every new household needs HVAC service, pest control, lawn care, cleaning and repairs, and most of them don't know any local names yet.",
+          "People searching after a move compare two or three results on a phone and contact whichever one answers their questions fastest. A fast site that names the Paulding towns you serve gets that first chance.",
+        ],
+      },
+      {
+        heading: "Historic Downtown Dallas And The Silver Comet Trail",
+        body: [
+          "Downtown Dallas centers on the historic Paulding County Courthouse, built in 1892, with Civil War Trailhead Park on Main Street. The Silver Comet Trail runs through the county and crosses the Pumpkinvine Creek Trestle, and the 1864 battles of Dallas, New Hope Church and Pickett's Mill were fought nearby.",
+          "Restaurants and shops downtown get found through the map results by people out for the day. The website and the Google Business Profile should agree on hours and location, and the site should load fast on a phone.",
+        ],
+      },
+    ],
+    industries: [
+      "Home services and contractors",
+      "HVAC, pest control and lawn care for new homeowners",
+      "Cleaning services",
+      "Restaurants and shops in downtown Dallas",
+      "Auto repair",
+      "Medical and professional offices",
+    ],
+    faq: [
+      {
+        q: "Do you work with businesses in Dallas and the rest of Paulding County?",
+        a: "Yes. I work with small businesses in Dallas, Hiram and across Paulding County by email and text.",
+      },
+      {
+        q: "How do I keep my site from being confused with Dallas, Texas?",
+        a: "Use Dallas, GA in your page titles, name Paulding County and the towns you serve on a service area page and keep the same address on your Google Business Profile. I set the titles and the service area page up as part of the build.",
+      },
+      {
+        q: "How much does a website cost for a Dallas, GA business?",
+        a: "$80 per designed page. A 5 page site is $400, paid half up front and half at launch.",
+      },
+      {
+        q: "What if I don't like the design?",
+        a: "Design changes are unlimited until you approve it. If you're still not 100% happy with the design, you get your money back.",
+      },
+    ],
+  },
 ];
