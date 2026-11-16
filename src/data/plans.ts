@@ -61,10 +61,10 @@ export const plans: Plan[] = [
     ctaLabel: "Get A Free Local SEO Review",
     ctaHref: "/contact?service=seo-review",
     name: "Local SEO",
-    tagline: "Four month minimum. Full refund if the agreed targets are not met.",
+    tagline: "Three month minimum. Full refund if the agreed targets are not met.",
     price: "$799",
     priceUnit: "per month",
-    priceNote: "For the first 4 months. After that, $399 per month for maintenance if you choose to continue.",
+    priceNote: "For the first 3 months. After that, $399 per month for maintenance if you choose to continue.",
     included: [
       "Targets agreed in writing before work starts",
       "Google Business Profile optimization",
