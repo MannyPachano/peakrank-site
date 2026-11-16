@@ -2,11 +2,14 @@
 import PeakLayout from "../layouts/PeakLayout.astro";
 import FinalCta from "../components/FinalCta.astro";
 import AreasServed from "../components/AreasServed.astro";
+import RecentWork from "../components/RecentWork.astro";
 import { splitPartial } from "../lib/partial";
 import "../styles/peak-article.css";
 import html from "../partials/web-design-main.html?raw";
 
-const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
+// Two markers, so splitPartial returns three segments. Destructuring four put
+// AreasServed after </article></div></section>, outside .container.
+const [beforeAreas, betweenAreasAndCta, afterCta] = splitPartial(
   html,
   "web-design-main.html",
   "<!--AREAS_SERVED-->",
@@ -19,10 +22,10 @@ const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
   description="Hand-coded websites for small businesses in Marietta and metro Atlanta. No WordPress, no page builders. $80 per designed page with unlimited revisions."
   canonicalPath="/web-design"
 >
-  <Fragment set:html={beforePhoto} />
-  <Fragment set:html={betweenPhotoAndAreas} />
+  <Fragment set:html={beforeAreas} />
   <AreasServed />
-  <Fragment set:html={beforeCta} />
+  <Fragment set:html={betweenAreasAndCta} />
+  <RecentWork tone="deep" id="work" />
   <FinalCta heading="Ready For The Site You&rsquo;ve Always Wanted?" ctaLabel="Get A Free Homepage Mockup" ctaHref="/free-homepage-mockup" />
   <Fragment set:html={afterCta} />
 </PeakLayout>

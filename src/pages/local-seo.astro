@@ -6,7 +6,9 @@ import { splitPartial } from "../lib/partial";
 import "../styles/peak-article.css";
 import html from "../partials/local-seo-main.html?raw";
 
-const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
+// Two markers, so splitPartial returns three segments. Destructuring four put
+// AreasServed after </article></div></section>, outside .container.
+const [beforeAreas, betweenAreasAndCta, afterCta] = splitPartial(
   html,
   "local-seo-main.html",
   "<!--AREAS_SERVED-->",
@@ -16,14 +18,13 @@ const [beforePhoto, betweenPhotoAndAreas, beforeCta, afterCta] = splitPartial(
 
 <PeakLayout
   title="Local SEO Services in Marietta, GA | PeakRanking"
-  description="Local SEO for small businesses in Marietta and metro Atlanta. Google Business Profile management, citations, on-page SEO, and a plain-English monthly ranking report."
+  description="Local SEO for small businesses in Marietta and metro Atlanta: Google Business Profile work, citations, on-page SEO and a monthly ranking report."
   canonicalPath="/local-seo"
   bodyClass="page-local-seo"
 >
-  <Fragment set:html={beforePhoto} />
-  <Fragment set:html={betweenPhotoAndAreas} />
+  <Fragment set:html={beforeAreas} />
   <AreasServed />
-  <Fragment set:html={beforeCta} />
+  <Fragment set:html={betweenAreasAndCta} />
   <FinalCta heading="Ready To Start Ranking?" ctaLabel="Get A Free Local SEO Review" ctaHref="/contact?service=seo-review" />
   <Fragment set:html={afterCta} />
 </PeakLayout>

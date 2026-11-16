@@ -222,7 +222,8 @@ form.form,
   padding: 0.85rem 1rem;
   color: var(--text);
   font-family: Roboto, sans-serif;
-  font-size: 0.98rem;
+  /* 16px exactly: iPhone Safari zooms the page in on any input below it. */
+  font-size: 1rem;
   transition: all 0.2s;
   width: 100%;
 }

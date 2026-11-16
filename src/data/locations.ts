@@ -36,7 +36,7 @@ export const locations: Location[] = [
     city: "Kennesaw",
     shortName: "Kennesaw",
     description:
-      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $80 per designed page, designed and built by one developer you can text or email directly.",
+      "Web design and local SEO for Kennesaw, GA small businesses. Hand-coded sites at $80 per designed page from one developer you can text or email.",
     intro:
       "Kennesaw is a competitive place to be a small business online. You are up against national franchise locations with corporate marketing budgets, and against the same handful of contractors who have been buying ads here for years. The good news is that most of them are running slow template sites, and that is a gap you can walk straight through.",
     sections: [

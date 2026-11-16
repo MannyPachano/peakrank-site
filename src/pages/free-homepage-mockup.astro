@@ -146,7 +146,7 @@ const faqSchema = JSON.stringify({
 
         <div class="mk-field">
           <label for="mk-name">Your name</label>
-          <input id="mk-name" name="name" type="text" placeholder="John Smith" required />
+          <input id="mk-name" name="name" type="text" autocomplete="name" placeholder="John Smith" required />
         </div>
 
         <div class="mk-field">
@@ -155,6 +155,7 @@ const faqSchema = JSON.stringify({
             id="mk-email"
             name="email"
             type="email"
+            autocomplete="email"
             placeholder="you@yourbusiness.com"
             required
           />
@@ -162,7 +163,7 @@ const faqSchema = JSON.stringify({
 
         <div class="mk-field">
           <label for="mk-site">Business website</label>
-          <input id="mk-site" name="website" type="url" placeholder="yourbusiness.com" required />
+          <input id="mk-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" required />
         </div>
 
         <div class="mk-field">

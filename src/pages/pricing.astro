@@ -45,7 +45,7 @@ const faq = [
   ],
   [
     "Where are you based?",
-    "I\u2019m from Marietta, Georgia, and I work remotely with small businesses across the US. You can reach me by phone, text or email.",
+    "I\u2019m from Marietta, Georgia, and I work remotely with small businesses across the US. You can reach me by text or email.",
   ],
 ];
 
@@ -69,7 +69,7 @@ const faqSchema = JSON.stringify({
   <Fragment set:html={beforePlans} />
   <PricingPlans variant="page" headingLevel="h2" />
   <Fragment set:html={afterPlans} />
-  <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get Started Today" />
+  <FinalCta heading="Ready To Get The Site You Always Wanted?" ctaLabel="Get A Free Homepage Mockup" ctaHref="/free-homepage-mockup" />
   <Fragment set:html={afterFinalCta} />
   <script type="application/ld+json" set:html={faqSchema} is:inline />
 </PeakLayout>
