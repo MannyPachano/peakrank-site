@@ -59,7 +59,7 @@ export const plans: Plan[] = [
   {
     id: "seo",
     ctaLabel: "Get A Free Local SEO Review",
-    ctaHref: "/contact?service=seo-review",
+    ctaHref: "/free-local-seo-review",
     name: "Local SEO",
     tagline: "Three month minimum. Full refund if the agreed targets are not met.",
     price: "$799",

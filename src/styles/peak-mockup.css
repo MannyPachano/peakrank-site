@@ -525,3 +525,17 @@
     padding: 1.5rem;
   }
 }
+
+/*
+ * The five review cards on /free-local-seo-review.
+ *
+ * The shared auto-fit grid fits four across at 1100px and wider, which left the
+ * fifth card alone at the far left of a second row. Three columns gives 3 + 2,
+ * which is what the layout already falls back to at 860px. Below that the
+ * shared rules take over again.
+ */
+@media (min-width: 861px) {
+  .mk-cards--five {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,353 @@
+---
+import PeakLayout from "../layouts/PeakLayout.astro";
+import { business } from "../data/business";
+import { plans } from "../data/plans";
+import "../styles/peak-mockup.css";
+
+/**
+ * The local SEO counterpart of /free-homepage-mockup.
+ *
+ * Every "Get A Free Local SEO Review" button on the site points here. It uses
+ * the same minimal chrome, light design and stylesheet as the mockup page, and
+ * one form. Requests post to /thanks?offer=seo-review: /thanks ignores the
+ * query string, so the page a visitor sees is the same, but the page_location
+ * GA4 records with generate_lead tells a review request from a mockup request.
+ *
+ * The turnaround is stated in four places on this page and once on /thanks.
+ * It lives here so all four move together.
+ */
+const TURNAROUND = "3 business days";
+
+const seo = plans.find((p) => p.id === "seo");
+if (seo === undefined) throw new Error("plans.ts no longer has a plan with id 'seo'.");
+
+const portfolio = "https://websitesbymanny.netlify.app";
+
+const ticks = [
+  "Your Google Business Profile and the top 3 map results for your search",
+  "Everything by email, no phone calls",
+  "The review is yours to keep, whether you hire me or not",
+];
+
+/* Only what the review really contains. Do not add items that are not delivered. */
+const includes = [
+  {
+    title: "Your Google Business Profile",
+    body: "Which parts of your profile are filled in and which are missing: categories, services, service areas, hours, photos and description.",
+  },
+  {
+    title: "The top 3 map results for your search",
+    body: "The 3 businesses Google Maps shows first for your main service in your town, and where your business stands against them.",
+  },
+  {
+    title: "Website basics that affect local rankings",
+    body: "Your page titles, whether you have pages for your towns and services, and how fast your site loads on a phone.",
+  },
+  {
+    title: "Your name, address and phone number online",
+    body: "Whether the directories that list your business show the same name, address and phone number as your Google profile.",
+  },
+  {
+    title: "3 fixes in order of priority",
+    body: "The three changes I would make first, in order, so you can do them yourself or hand them to anyone.",
+  },
+];
+
+const proof = [
+  {
+    title: "TimeClick",
+    body: "A time clock software company where I work in-house. I redesigned the marketing website and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visits a month.",
+    href: `${portfolio}/web-developer-project-timeclick`,
+    label: "Read the TimeClick case study",
+  },
+  {
+    title: "Universal Environmental Services",
+    body: "A used oil collection company that operates in 28 states. I designed and rebuilt the website, including a locations page for 53 facilities and 28 state pages, and I run its SEO program.",
+    href: `${portfolio}/web-developer-project-ues`,
+    label: "Read the Universal Environmental Services case study",
+  },
+];
+
+const steps = [
+  "Send your business name, website, main service and town with the form above.",
+  "I check your Google Business Profile, the map results for your search, your website and your directory listings.",
+  `I email you the review with the 3 fixes I would make first within ${TURNAROUND}.`,
+  "If you want me to do the work, we agree on the targets in writing before I start. If not, the review is yours to keep.",
+];
+
+const faq: [string, string][] = [
+  [
+    "Is the local SEO review really free?",
+    "Yes. You don’t pay anything for it, and you don’t have to hire me afterward.",
+  ],
+  [
+    "Do I need to get on a call?",
+    `No. Everything happens by email, and you can also text ${business.phoneDisplay}.`,
+  ],
+  ["How long does the review take?", `I email it within ${TURNAROUND} of your request.`],
+  [
+    "Do you need my passwords or logins?",
+    "No. I do the review from what anyone can see on Google, Google Maps, your website and the directories.",
+  ],
+  [
+    "What does local SEO cost if I hire you after the review?",
+    `It’s ${seo.price} a month with a 3 month minimum. We agree on the targets in writing before I start, and if they aren’t met after 3 months, I refund all 3 payments, $2,397 in total. After that it’s $399 a month if you want to keep going.`,
+  ],
+  [
+    "Who does the review?",
+    "I do. I’m Manny Pachano. I ran the SEO program at TimeClick, and I run the SEO program for Universal Environmental Services.",
+  ],
+];
+
+/* Built from the same array the page renders, like /free-homepage-mockup. */
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+}).replace(/</g, "\\u003c");
+---
+
+<PeakLayout
+  title="Free Local SEO Review For Small Businesses | PeakRanking"
+  description="A free local SEO review by email within 3 business days: your Google Business Profile, the top 3 map results for your service and town, 3 fixes."
+  canonicalPath="/free-local-seo-review"
+  bodyClass="page-mockup"
+  chrome="minimal"
+  backLink={{ href: "/local-seo", label: "Back to the local SEO page" }}
+>
+  <!-- HERO AND FORM -->
+  <section class="mk-hero">
+    <div class="mk-wrap mk-hero-inner">
+      <div class="mk-hero-copy">
+        <p class="mk-eyebrow">Free for small businesses, no obligation</p>
+        <h1>Get A Free Local SEO Review For Your Business</h1>
+        <p class="mk-lead">
+          Tell me your main service and the town you work in. I&rsquo;ll check how your business
+          shows up on Google and Google Maps and email you a written review within {TURNAROUND}. It
+          costs nothing and you don&rsquo;t have to buy anything.
+        </p>
+        <ul class="mk-ticks">
+          {
+            ticks.map((item) => (
+              <li>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M4 10.5 L8.5 15 L16 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <form
+        class="mk-form"
+        id="seo-review-form"
+        name="seo-review"
+        method="POST"
+        action="/thanks?offer=seo-review"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="seo-review" />
+        <input type="hidden" name="offer" value="seo-review" />
+        <!--
+          Records where the request came from, so a link with ?ref=email is
+          distinguishable from organic traffic without loading a tracking script.
+        -->
+        <input type="hidden" name="source" id="sr-source" value="" />
+        <p class="mk-honeypot" aria-hidden="true">
+          <label>
+            Don&rsquo;t fill this out if you&rsquo;re human:
+            <input name="bot-field" tabindex="-1" autocomplete="off" />
+          </label>
+        </p>
+
+        <h2>Request your free local SEO review</h2>
+
+        <div class="mk-field">
+          <label for="sr-name">Your name</label>
+          <input id="sr-name" name="name" type="text" autocomplete="name" placeholder="John Smith" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="sr-email">Email</label>
+          <input
+            id="sr-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@yourbusiness.com"
+            required
+          />
+        </div>
+
+        <div class="mk-field">
+          <label for="sr-business">Business name</label>
+          <input id="sr-business" name="business" type="text" autocomplete="organization" placeholder="Smith Plumbing" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="sr-site">Business website</label>
+          <input id="sr-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="yourbusiness.com" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="sr-service">Main service and town</label>
+          <input id="sr-service" name="service-town" type="text" placeholder="Plumbing in Marietta, GA" required />
+        </div>
+
+        <div class="mk-field">
+          <label for="sr-note">
+            Anything I should know? <span class="mk-optional">(optional)</span>
+          </label>
+          <textarea
+            id="sr-note"
+            name="note"
+            rows="3"
+            placeholder="Other towns you serve, or the jobs you want more of"></textarea>
+        </div>
+
+        <button type="submit">Send Me My Free Review</button>
+        <p class="mk-form-note">
+          I reply by email within one business day. No phone calls and no sales pitch.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- WHAT THE REVIEW COVERS -->
+  <section class="mk-includes">
+    <div class="mk-wrap">
+      <h2 class="mk-centered">What The Free Local SEO Review Covers</h2>
+      <div class="mk-cards mk-cards--five">
+        {
+          includes.map((item) => (
+            <div class="mk-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mk-centered-link">I email the review to you within {TURNAROUND}.</p>
+    </div>
+  </section>
+
+  <!-- SEO WORK -->
+  <section class="mk-example">
+    <div class="mk-wrap">
+      <div class="mk-example-head">
+        <h2>SEO Work I Have Done For Other Businesses</h2>
+        <p>
+          These are the two SEO programs I have run. You can read how each one worked in its case
+          study.
+        </p>
+      </div>
+      <div class="mk-cards">
+        {
+          proof.map((item) => (
+            <div class="mk-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <p>
+                <a href={item.href} target="_blank" rel="noopener">
+                  {item.label}
+                  <span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS, AND THE PRICE AFTER -->
+  <section class="mk-how">
+    <div class="mk-wrap mk-how-inner">
+      <div class="mk-steps">
+        <h2>How The Free Local SEO Review Works</h2>
+        <ol>
+          {
+            steps.map((step, i) => (
+              <li>
+                <span class="mk-step-number" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span class="mk-step-body">{step}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="mk-price">
+        <h2>What Local SEO Costs After The Review</h2>
+        <p class="mk-price-figure">
+          <span class="mk-price-amount">{seo.price}</span>
+          <span class="mk-price-unit">per month</span>
+        </p>
+        <p>
+          The minimum is 3 months. Before I start, we agree in writing on the targets the work has
+          to reach by the end of month 3. If they aren&rsquo;t met, I refund all 3 payments, $2,397
+          in total. After month 3 it&rsquo;s $399 a month if you want to keep going.
+        </p>
+        <p class="mk-price-links">
+          <a href="/local-seo">Read about the local SEO work</a>
+          <a href="/terms#seo-guarantee">Read the guarantee terms</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="mk-faq">
+    <div class="mk-wrap">
+      <h2>Questions About The Free Local SEO Review</h2>
+      {
+        faq.map(([question, answer]) => (
+          <div class="mk-faq-item">
+            <h3>{question}</h3>
+            <p>{answer}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="mk-closing">
+    <div class="mk-wrap">
+      <h2>Request Your Free Local SEO Review</h2>
+      <a href="#seo-review-form" class="btn-primary">Send Me My Free Review</a>
+      <p>
+        Or email <a href={`mailto:${business.email}`}>{business.email}</a> with your business name,
+        website, main service and town.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={faqSchema} is:inline />
+
+  <script is:inline>
+    // Copies ?ref= into the hidden source field, so the link that sent
+    // someone here is recorded with the request itself.
+    (function () {
+      var ref = new URLSearchParams(location.search).get("ref");
+      var field = document.getElementById("sr-source");
+      if (ref && field) field.value = ref.slice(0, 60);
+    })();
+  </script>
+</PeakLayout>
